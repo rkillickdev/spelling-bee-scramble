@@ -1,108 +1,268 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **Spelling Bee Scramble Game**
 
-Welcome USER_NAME,
+Spelling Bee Scramble is a fun interactive game aimed at children of varying ages who are keen to practice and improve their spelling.  Players must decipher the scrambled words and spell them correctly by arranging the letters in the required order.  They work against the clock to complete the challenge by helping our beekeeper to fill the hive with bees.  The game has varying levels of difficulty to continue challenging the player.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+<br>
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## **CONTENTS**
 
-## Gitpod Reminders
+* [User Experience (UX)](#user-experience-ux)
+    * [Strategy](#strategy)
+        * [Project Goals](#project-goals)
+        * [User Stories](#user-stories)
+    * [Design](#design)
+        * [Features](#features)
+        * [Wireframes](#wireframes)
+        * [Colour Palette](#colour-palette)
+        * [Contrast](#contrast)
+        * [Typography](#typography)
+        * [Imagery](#imagery)
+* [Technologies Used](#technologies-used)
+    * [Languages Used](#languages-used)
+    * [Frameworks, Libraries and Programs Used](#frameworks-libraries-and-programs-used)
+* [Deployment and Local Development](#deployment-and-local-development)
+    * [How to Fork](#how-to-fork)
+    * [How to Clone](#how-to-clone)
+* [Testing](#testing)
+    * [Automated Testing](#automated-testing)
+        * [W3C Validator](#w3c-validator)
+        * [Lighthouse](#lighthouse)
+        * [WAVE](#wave)
+    * [Manual Testing](#manual-testing)
+        * [Testing User Stories](#testing-user-stories)
+        * [Full Testing](#full-testing)
+* [Bugs](#bugs)
+    * [Known Bugs](#known-bugs)
+    * [Solved Bugs](#solved-bugs)
+* [Credits](#credits)
+    * [Code Used](#code-used)
+    * [Content](#content)
+    * [Media](#media)
+    * [Acknowledgements](#acknowledgements)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+# **User Experience (UX)**
 
-`python3 -m http.server`
+## **STRATEGY**
+___
 
-A blue button should appear to click: _Make Public_,
+## **Project Goals**
 
-Another blue button should appear to click: _Open Browser_.
+<br>
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+To help children of all ages with their spelling by providing a fun and engaging interactive game.  The aim is that parents and schools can use the game with their children as part of their early years education and demonstrate that learning can be a fun experience which should keep them engaged and interested.
 
-A blue button should appear to click: _Make Public_,
+Anagrams are a useful tool when teaching children to spell, as it encourages them to consider each letter and how different letters group together to form certain sounds.
 
-Another blue button should appear to click: _Open Browser_.
+Word games and puzzles can also be beneficial for children in a variety of other ways.  They can help to improve working memory, help to broaden and extend their vocabulary, teach them problem solving skills and encourage a healthy sense of competition.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+<br>
 
-To log into the Heroku toolbelt CLI:
+## **User Stories**
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+<br>
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Client Goals:
 
-------
+<br>
 
-## Release History
+* As the client, I want to offer an educational experience to help children with their spelling.
+* As the client, I want to make sure that the user has an enjoyable, engaging experience so they continue playing and return to the site in the future.
+* As the client, I want to offer differing levels of difficulty to ensure that the user continues to learn as their spelling improves.
+* As the client, I want to set targets for the user, to keep the experience interesting and challenging.
+* As the client, I want to make the game responsive over a range of device sizes.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+<br>
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+### First Time Visitor Goals:
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+<br>
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+* As a first time visitor, I am looking for a fun and interactive way to practice and improve my spelling.
+* As a first time visitor, I want clear and concise feedback each time I submit a correct or incorrect answer.
+* As a first time visitor, I want clear feedback about how close I am to reaching my target number of correct answers.
+* As a first time visitor, I want clear feedback to let me know I have completed the challenge and how to proceed.
+* As a first time visitor, I want the ability to mute sound effects.
+* As a first time visitor, I want easy intuitive access to an explanation of how to play the game.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+<br>
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Return Visitor Goals:
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+<br>
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+* As a return visitor, I want to continue challenging myself and learn to spell more complicated words.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+<br>
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Frequent Visitor Goals:
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+<br>
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+* As a frequent visitor, I want to be able to compete against myself to see how quickly I can complete the challenge and log this result on a leaderboard so I have a target to beat.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## **DESIGN**
+___
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+## **Features**
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+<br>
 
-------
+### **Logo**
 
-## FAQ about the uptime script
+<br>
 
-**Why have you added this script?**
+As the game is called Spelling **Bee** Scramble, a Bumble Bee icon is used to tie in with this theme.  Clicking on the logo resets the page to its initial default settings.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+<br>
 
-**How will this affect me?**
+### **Navigation Bar**
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+<br>
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+Icons are used here rather than text to save space.  Players can navigate to the settings page by clicking on the universally recognisable gear icon.  Here they are presented with the option to select a difficulty level and also choose whether sound FX are audible or muted.  Clicking on the cross icon hides this page and the player is once again presented with the game page.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+Clicking on the question mark icon presents the player with instructions on how to play the game.
 
-**So….?**
+<br>
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### **Game Landing Screen**
 
-**Can I opt out?**
+<br>
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+On loading the site, players are greeted with the Spelling Bee Scramble logo and a button inviting them to play.  I have chosen to have the main game name and logo displayed here, rather than having it permanently displayed at the top which would take up valuable screen space.  This is especially important when taking into account that this game is mostly likely to be played on a mobile device where screen real estate is at a premium.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+<br>
 
-**Anything more?**
+### **During Play**
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+<br>
 
----
+On hitting play, four or six empty boxes appear below the central logo (depending on the game difficulty setting).  The scrambled word letters drop into these boxes.  Empty answer boxes also appear above the logo box.
 
-Happy coding!
+The central box flips and a picture hint is displayed for the scrambled word.
+
+The player must identify the word and spell it correctly by clicking on each letter in the right order.  Once a letter has been clicked, it becomes greyed out so it cannot be used again.
+
+As letters are clicked, they appear in the answer box spaces above the picture hint.  The next empty space that needs populating comes into focus and is highlighted to give the player feedback that a letter is required.
+
+On the control panel, the backspace button gives the option to remove letters if the player decides they have spelt the word incorrectly.
+
+Once the player is happy with their spelling of the word, they can submit their answer with the green GO! Button.  This is then checked against the correct spelling of the word.  If the players answer matches, all squares turn green and a positive sound plays to provide feedback that they have been successful.
+
+If the user's answer is incorrect, all squares turn red and a negative sound plays.  Feedback is also provided if the player tries to submit an answer while any answer boxes are unpopulated.  These are highlighted red to show they must be populated to submit an answer.
+
+A new scrambled word is then generated and the answer boxes are cleared, ready for the next spelling attempt.
+
+<br>
+
+### **Game Progress Section**
+
+<br>
+
+The beehive to the left of this section represents a visual counter, where one bee is added to the hive each time a player submits a correct answer. It starts empty and after 8 correct answers the hive is full and the challenge is complete.
+
+Players are working against a countdown clock.  They must spell 8 words correctly within the designated time to successfully complete the challenge.  The countdown starts as soon as the scrambled word and picture hint card is generated. 
+
+<br>
+
+### **Game Outcomes**
+
+<br>
+
+If the player spells 8 words successfully within the time limit, the visual counter reaches its maximum limit and the count down timer is stopped. Players are greeted with a message of congratulations and the following 2 options:
+
+* Play Again
+* Try a harder challenge.  If the player has successfully completed the challenge at the difficult level, this option is not available.
+
+If the player fails to submit 8 successfully spelt answers within the time limit, they are presented with a record of the number of correct answers and a message encouraging them to try again.
+
+<br>
+
+### **404 Error Screens**
+
+### **Responsive Design**
+
+### **Accessibility**
+
+### **Future Implementations**
+
+<br>
+
+## **Wireframes**
+
+## **Colour Palette**
+
+## **Contrast**
+
+## **Typography**
+
+## **Imagery**
+
+<br>
+
+# **Technologies Used**
+
+## **Languages Used**
+
+<br>
+
+HTML, CSS and JavaScript were used to create the game.
+
+<br>
+
+## **Frameworks, Libraries and Programs Used**
+
+<br>
+
+* Git -  Version control.
+* GitHub - All files for the website stored and saved in a repository.
+* GitHub Pages - Used to deploy the final version of the website.
+* Balsamiq - Used to create wireframes.
+* Font Awesome - Used for all icons throughout the website.
+* Google Fonts - Used to import required fonts for the website via the css style page.
+* Google Developer Tools - Used throughout build of website for debugging, checking responsiveness and trialing new features/ styling.
+* Google Lighthouse - Used at testing stage to show statistics for performance, accessibility,  best practices and SEO.
+* TinyPNG - For compression of image files to improve website performance.
+* Birme - For resizing and re-formatting images to make them suitable for use on the website.
+* Am I Responsive? - For displaying images of how the website looks across a range of devices.
+* Favicon.ico & App Icon Generator - for creating the 16x16px ico favicon.
+* [Meta Tags IO](https://metatags.io/) for improving site visual appearance on social media.
+
+
+<br>
+
+
+<br>
+
+## **Bugs**
+
+<br>
+
+### **Known Bugs:**
+
+<br>
+
+### **Solved Bugs:**
+
+<br>
+
+# **Credits**
+
+## **Code Used**
+
+<br>
+
+## **Content**
+
+* [Article about using word scrambles to improve spelling](https://ourfamilylifestyle.com/exercises-to-help-children-improve-spelling-skills/)
+* [Article about the benefits of word games for children](https://www.theschoolrun.com/10-ways-word-puzzles-can-help-your-child)
+
+<br>
+
+## **Media**
+
+* [Royalty free images used for the game logo and word hint pictures](https://uxwing.com/)
+
+<br>
+
+## **Acknowledgements**
