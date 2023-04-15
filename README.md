@@ -190,6 +190,14 @@ If the player fails to submit 8 successfully spelt answers within the time limit
 
 ## **Wireframes**
 
+<br>
+
+### **Mobile**
+
+<br>
+
+![Mobile wireframe for landing view and game play view](docs/wireframes/Spelling%20Bee%20Scramble%20Mobile_resize.png)
+
 ## **Colour Palette**
 
 ## **Contrast**
