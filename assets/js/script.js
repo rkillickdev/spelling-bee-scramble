@@ -46,11 +46,19 @@ function changeDifficulty(difficulty) {
 }
 
 /**
- * Generates random word from challengeWords array
+ * Generates random word from challengeWords array, splits the individual letters into the 
+ * wordLetters array and scrambles these in a random order.
+ * I used the following tutorial to help with coding this: https://www.youtube.com/watch?v=4-s3g_fU7Vg
  */
 function playGame() {
     let randomWord = challengeWords[Math.floor(Math.random() * challengeWords.length)];
+    let wordLetters = randomWord.word.split("");
+    for (let x = wordLetters.length - 1; x > 0 ; x--) {
+        let y = Math.floor(Math.random() * (x + 1));
+        [wordLetters[x], wordLetters[y]] = [wordLetters[y], wordLetters[x]];
+    }
     console.log(randomWord);
+    console.log(wordLetters, randomWord.word);
 }
 
 changeDifficulty("easy");
