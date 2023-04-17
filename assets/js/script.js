@@ -66,10 +66,6 @@ function playGame() {
       });
 }
 
-function inputAnswer() {
-    
-}
-
 changeDifficulty("medium");
 playGame();
 
@@ -79,5 +75,3 @@ buttonArray.forEach(function(currentLetter) {
         console.log('element innerText:', event.target.innerText);
     });
 });
-
-console.log(buttonArray);
