@@ -1,3 +1,5 @@
+let scrambleBoxes = document.getElementsByClassName("scramble-box")
+
 let level = "";
 let challengeWords = [];
 
@@ -57,9 +59,11 @@ function playGame() {
         let y = Math.floor(Math.random() * (x + 1));
         [wordLetters[x], wordLetters[y]] = [wordLetters[y], wordLetters[x]];
     }
-    console.log(randomWord);
-    console.log(wordLetters, randomWord.word);
+    // Populate each scramble box with a letter from the scrambled word
+    wordLetters.forEach((letter, index) => {
+        scrambleBoxes[index].innerHTML = letter;
+      });
 }
 
-changeDifficulty("easy");
+changeDifficulty("medium");
 playGame();
