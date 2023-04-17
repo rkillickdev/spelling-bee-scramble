@@ -1,8 +1,6 @@
-let scrambleBoxes = document.getElementsByClassName("scramble-box")
-// Add event listeners for all boxes containing a scrambled letter
-scrambleBoxes.forEach(function(currentBox){
-    currentBox.addEventListener('click', inputAnswer)
-});
+let scrambleBoxes = document.getElementsByClassName("scramble-box");
+const scrambleButtons = document.getElementsByClassName("scramble-button");
+const buttonArray = Array.from(scrambleButtons);
 let level = "";
 let challengeWords = [];
 
@@ -74,3 +72,12 @@ function inputAnswer() {
 
 changeDifficulty("medium");
 playGame();
+
+// Add event listeners for all boxes containing a scrambled letter
+buttonArray.forEach(function(currentLetter) {
+    currentLetter.addEventListener('click', function(event){
+        console.log('element innerText:', event.target.innerText);
+    });
+});
+
+console.log(buttonArray);
