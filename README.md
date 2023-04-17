@@ -254,12 +254,29 @@ HTML, CSS and JavaScript were used to create the game.
 
 <br>
 
+When trying to loop through the variable scrambleButtons using the forEach() method, the console in google developer tools threw the following error:
+
+![forEach method bug when trying to loop a collection of items that are not an array](docs/bugs/javascript-for-each-bug-snapshot.png)
+
+On researching this I found the [following article:](https://stackdiary.com/guides/typeerror-foreach-is-not-a-function/) 
+
+This explains that the error occurs when the code attempts to call the forEach() method on a value that is not an array or an array-like object.  To solve this, I transformed scrambleButtons into an array using the following code:
+
+```js
+
+const buttonArray = Array.from(scrambleButtons);
+
+```
+
+<br>
+
 # **Credits**
 
 ## **Code Used**
 
 * [Referenced this article on Stack Overflow for solution to how setting difficulty level changes which object the random word is chosen from](https://stackoverflow.com/questions/64712803/change-game-difficulty-javascript)
 * [Referenced this tutorial on YouTube on how to generate the random word and how to split and scramble](https://www.youtube.com/watch?v=4-s3g_fU7Vg)
+* [Adding a single event listener for all buttons of a certain class](https://stackoverflow.com/questions/49680484/how-to-add-one-event-listener-for-all-buttons)
 
 <br>
 
