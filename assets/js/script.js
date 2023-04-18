@@ -127,8 +127,6 @@ function checkAnswer() {
         alert("Incorrect!")
     }
     playGame();
-    console.log(submittedAnswer);
-    console.log(correctAnswer);
 }
 
 function addPoint() {
