@@ -6,6 +6,10 @@ const buttonArray = Array.from(scrambleButtons);
 
 let answerBoxes = document.getElementsByClassName("answer-box");
 
+const submitAnswer = document.getElementsByClassName("check-answer");
+
+let correctAnswer = "";
+
 let playerAnswer = [];
 
 let level = "";
@@ -63,6 +67,7 @@ function changeDifficulty(difficulty) {
  */
 function playGame() {
     let randomWord = challengeWords[Math.floor(Math.random() * challengeWords.length)];
+    correctAnswer = randomWord.word;
     let wordLetters = randomWord.word.split("");
     for (let x = wordLetters.length - 1; x > 0 ; x--) {
         let y = Math.floor(Math.random() * (x + 1));
@@ -71,7 +76,7 @@ function playGame() {
     // Populate each scramble box with a letter from the scrambled word
     wordLetters.forEach((letter, index) => {
         scrambleBoxes[index].innerHTML = letter;
-      });
+      }); 
 }
 
 changeDifficulty("medium");
@@ -100,6 +105,18 @@ buttonArray.forEach(function(currentLetter) {
     });  
 });
 
-console.log('This is player answer array', playerAnswer);
-console.log(challengeWords);
+/**
+ * Turns the playerAnswer array into a string and compares this
+ * against the correct answer.
+ */
+function checkAnswer() {
+    let submittedAnswer = playerAnswer.join("");
+    console.log(submittedAnswer);
+    console.log(correctAnswer);
+}
+
+submitAnswer[0].addEventListener('click', checkAnswer);
+
+
+
 
