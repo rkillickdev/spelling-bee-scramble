@@ -20,8 +20,14 @@ let correctAnswer = "";
 
 let playerAnswer = [];
 
+// let timer = getElementById("timer");
+let timer = document.querySelector('#timer');
+let startCountDown = setInterval(countDown, 1000);
+let timeLeft = 60;
+
 let score = document.getElementById("score");
 let totalScore = 0;
+let scoreTarget = 8;
 
 let level = "";
 
@@ -155,6 +161,18 @@ function gameToggle(display) {
         answerDisplay.style.visibility = "hidden";
         scrambleDisplay.style.visibility = "hidden";
         controlsDisplay.style.visibility = "hidden";
+    }
+}
+
+function countDown() {
+    timeLeft--;
+    timer.innerText = timeLeft;
+    if (timeLeft === 0) {
+        clearInterval(startCountDown);
+        let correctRequired = (scoreTarget - totalScore);
+        infoDisplay.innerHTML = `Keep trying!  You need ${correctRequired} more correct answers next time! `;
+
+        console.log(correctRequired);
     }
 }
 
