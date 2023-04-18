@@ -83,7 +83,6 @@ buttonArray.forEach(function(currentLetter) {
         if (answer.length < answerBoxes.length) {
             answer.push(event.target.innerText);
         }
-        console.log(answer);
         if (answerBoxes[0].childNodes.length === 0) {
             answerBoxes[0].innerText = answer[0];
         } else if (answerBoxes[1].childNodes.length === 0) {
@@ -97,7 +96,8 @@ buttonArray.forEach(function(currentLetter) {
         } else if (answerBoxes[5].childNodes.length === 0) {
             answerBoxes[5].innerText = answer[5];
         }
-    });
+        this.disabled = true;        
+    });  
 });
 
 
