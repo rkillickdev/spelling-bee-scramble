@@ -279,6 +279,7 @@ const buttonArray = Array.from(scrambleButtons);
 * [Adding a single event listener for all buttons of a certain class](https://stackoverflow.com/questions/49680484/how-to-add-one-event-listener-for-all-buttons)
 * [getting inner text on button click](https://stackoverflow.com/questions/69663406/how-to-get-value-from-button-after-it-has-been-clicked)
 * [How to check if a div is empty](https://bobbyhadz.com/blog/javascript-check-if-div-is-empty)
+* [Disabling scramble letter buttons after click so it cannot be selected more than once](https://stackoverflow.com/questions/23724639/make-a-button-unclickable-after-one-click)
 
 <br>
 
