@@ -270,6 +270,18 @@ const buttonArray = Array.from(scrambleButtons);
 
 <br>
 
+I created an event listener for the answer button which runs the checkAnswer function. The final step of this function is to run the playGame function in order to clear the boxes and generate a newly scrambled word.  However the playerAnswer array was not being cleared and was causing the issue as demonstrated below:
+
+![bug when playerAnswer array not cleared when running playGame function](docs/bugs/gifs/clear-player-answer-array-bug.gif)
+
+I fixed this by using the following line of code within the playGame function to clear the playerAnswer array:
+
+```js
+
+playerAnswer.length = 0;
+
+```
+
 # **Credits**
 
 ## **Code Used**
