@@ -6,7 +6,7 @@ const buttonArray = Array.from(scrambleButtons);
 
 let answerBoxes = document.getElementsByClassName("answer-box");
 
-let answer = [];
+let playerAnswer = [];
 
 let level = "";
 
@@ -80,22 +80,26 @@ playGame();
 // Add event listeners for all boxes containing a scrambled letter
 buttonArray.forEach(function(currentLetter) {
     currentLetter.addEventListener('click', function(event){
-        if (answer.length < answerBoxes.length) {
-            answer.push(event.target.innerText);
+        if (playerAnswer.length < answerBoxes.length) {
+            playerAnswer.push(event.target.innerText);
         }
         if (answerBoxes[0].childNodes.length === 0) {
-            answerBoxes[0].innerText = answer[0];
+            answerBoxes[0].innerText = playerAnswer[0];
         } else if (answerBoxes[1].childNodes.length === 0) {
-            answerBoxes[1].innerText = answer[1];           
+            answerBoxes[1].innerText = playerAnswer[1];           
         } else if (answerBoxes[2].childNodes.length === 0) {
-            answerBoxes[2].innerText = answer[2];
+            answerBoxes[2].innerText = playerAnswer[2];
         } else if (answerBoxes[3].childNodes.length === 0) {
-            answerBoxes[3].innerText = answer[3];
+            answerBoxes[3].innerText = playerAnswer[3];
         } else if (answerBoxes[4].childNodes.length === 0) {
-            answerBoxes[4].innerText = answer[4];
+            answerBoxes[4].innerText = playerAnswer[4];
         } else if (answerBoxes[5].childNodes.length === 0) {
-            answerBoxes[5].innerText = answer[5];
+            answerBoxes[5].innerText = playerAnswer[5];
         }
         this.disabled = true;        
     });  
 });
+
+console.log('This is player answer array', playerAnswer);
+console.log(challengeWords);
+
