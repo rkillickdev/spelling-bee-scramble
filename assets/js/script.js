@@ -99,16 +99,3 @@ buttonArray.forEach(function(currentLetter) {
         this.disabled = true;        
     });  
 });
-
-
-
-
-// DELETE
-
-// for (let box of answerBoxes) {
-//     box.innerText = event.target.innerText;
-// }
-
-// if (answerBoxes[0].childNodes.length === 0) {
-//     answerBoxes[0].innerText = answer[0]; 
-// }
