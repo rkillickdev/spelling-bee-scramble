@@ -66,6 +66,12 @@ function changeDifficulty(difficulty) {
  * I used the following tutorial to help with coding this: https://www.youtube.com/watch?v=4-s3g_fU7Vg
  */
 function playGame() {
+    for(let box of answerBoxes){
+        box.innerHTML = "";
+    }
+    buttonArray.forEach(function(currentLetter) {
+        currentLetter.disabled = false;
+    });
     let randomWord = challengeWords[Math.floor(Math.random() * challengeWords.length)];
     correctAnswer = randomWord.word;
     let wordLetters = randomWord.word.split("");
@@ -111,6 +117,16 @@ buttonArray.forEach(function(currentLetter) {
  */
 function checkAnswer() {
     let submittedAnswer = playerAnswer.join("");
+    if (submittedAnswer === correctAnswer) {
+        alert("Correct!")
+    } else {
+        alert("Incorrect!")
+    }
+    playGame();
+    
+   
+    
+
     console.log(submittedAnswer);
     console.log(correctAnswer);
 }
