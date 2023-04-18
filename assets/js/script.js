@@ -12,6 +12,9 @@ let correctAnswer = "";
 
 let playerAnswer = [];
 
+let score = document.getElementById("score");
+let totalScore = 0;
+
 let level = "";
 
 let challengeWords = [];
@@ -66,6 +69,7 @@ function changeDifficulty(difficulty) {
  * I used the following tutorial to help with coding this: https://www.youtube.com/watch?v=4-s3g_fU7Vg
  */
 function playGame() {
+    playerAnswer.length = 0;
     for(let box of answerBoxes){
         box.innerHTML = "";
     }
@@ -118,17 +122,18 @@ buttonArray.forEach(function(currentLetter) {
 function checkAnswer() {
     let submittedAnswer = playerAnswer.join("");
     if (submittedAnswer === correctAnswer) {
-        alert("Correct!")
+        addPoint();
     } else {
         alert("Incorrect!")
     }
     playGame();
-    
-   
-    
-
     console.log(submittedAnswer);
     console.log(correctAnswer);
+}
+
+function addPoint() {
+    totalScore++
+    score.innerText = totalScore
 }
 
 submitAnswer[0].addEventListener('click', checkAnswer);
