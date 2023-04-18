@@ -1,12 +1,18 @@
+const answerDisplay = document.getElementById("answer");
+
 let answerBoxes = document.getElementsByClassName("answer-box");
 
 let infoDisplay = document.getElementById("display");
+
+const scrambleDisplay = document.getElementById("scramble");
 
 let scrambleBoxes = document.getElementsByClassName("scramble-box");
 
 const scrambleButtons = document.getElementsByClassName("scramble-button");
 
 const buttonArray = Array.from(scrambleButtons);
+
+const controlsDisplay = document.getElementById("controls");
 
 const submitAnswer = document.getElementsByClassName("check-answer");
 
@@ -134,8 +140,21 @@ function checkAnswer() {
 function addPoint() {
     totalScore++;
     score.innerText = totalScore;
-    if (totalScore >= 4) {
+    if (totalScore >= 2) {
+        gameToggle("hide");
         infoDisplay.innerHTML = "Congratulations!";
+    }
+}
+
+function gameToggle(display) {
+    if (display === "show") {
+        answerDisplay.style.visibility = "visible";
+        scrambleDisplay.style.visibility = "visible";
+        controlsDisplay.style.visibility = "visible";
+    } else if (display === "hide") {
+        answerDisplay.style.visibility = "hidden";
+        scrambleDisplay.style.visibility = "hidden";
+        controlsDisplay.style.visibility = "hidden";
     }
 }
 
