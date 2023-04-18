@@ -282,6 +282,16 @@ playerAnswer.length = 0;
 
 ```
 
+<br>
+
+When setting up the timer, I made this element avaialble in the JavaScript file initially using getElementById("timer").  However this caused the text in my scramble letter boxes to disappear as shown in the snapshot below:
+
+![using getElementById causes text in scramble letter boxes to disappear](docs/bugs/get-element-by-id-bug-scramble-boxes.png)
+
+Using querySelector instead to select the span in the HTML file with the id="timer" resolved this issue as can be seen below:
+
+![using querySelector solves bug](docs/bugs/get-element-by-id-bug-scramble-boxes-fixed.png)
+
 # **Credits**
 
 ## **Code Used**
