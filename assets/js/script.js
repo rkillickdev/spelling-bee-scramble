@@ -1,10 +1,12 @@
+let answerBoxes = document.getElementsByClassName("answer-box");
+
+let infoDisplay = document.getElementById("display");
+
 let scrambleBoxes = document.getElementsByClassName("scramble-box");
 
 const scrambleButtons = document.getElementsByClassName("scramble-button");
 
 const buttonArray = Array.from(scrambleButtons);
-
-let answerBoxes = document.getElementsByClassName("answer-box");
 
 const submitAnswer = document.getElementsByClassName("check-answer");
 
@@ -130,8 +132,11 @@ function checkAnswer() {
 }
 
 function addPoint() {
-    totalScore++
-    score.innerText = totalScore
+    totalScore++;
+    score.innerText = totalScore;
+    if (totalScore >= 4) {
+        infoDisplay.innerHTML = "Congratulations!";
+    }
 }
 
 submitAnswer[0].addEventListener('click', checkAnswer);
