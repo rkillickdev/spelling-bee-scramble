@@ -20,7 +20,6 @@ let correctAnswer = "";
 
 let playerAnswer = [];
 
-// let timer = getElementById("timer");
 let timer = document.querySelector('#timer');
 let startCountDown = setInterval(countDown, 1000);
 let timeLeft = 60;
