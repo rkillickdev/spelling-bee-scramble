@@ -1,3 +1,12 @@
+:root {
+    --spacing-xss: 0.5rem;
+    --spacing-xs: 1rem;
+    --spacing-s: 1.5rem;
+    --spacing-m: 2rem;
+    --spacing-l: 3rem;
+    --spacing-xl: 4rem;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -11,13 +20,13 @@
     position: relative;
     margin: 0 auto;
     overflow: auto;
-    padding: 0 40px;
+    padding: 0 30px;
 }
 
 .grid {
     display:grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0 2rem;
+    gap: 0 1rem;
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -25,6 +34,14 @@
 
 .letter-boxes {
     grid-template-columns: repeat(6, 1fr);
+    margin: var(--spacing-s) 0;
+}
+
+.letter-tile {
+    height: 30px;
+    width: auto;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 .flex {
@@ -37,11 +54,18 @@
 /* NAVIGATION MENU */
 
 .navbar {
-    height:90px;
+    height:60px;
     background-color: lightblue;
 }
 
 /* GAME PROGRESS SECTION */
+
+#progress {
+    height: 120px;
+    width: auto;
+    margin-top: var(--spacing-s);
+    border: 1px solid black;
+}
 
 /* ANSWER BOX SECTION */
 
@@ -51,3 +75,17 @@
     grid-template-columns: 1fr;
 }
 
+#display {
+    height: 180px;
+    width: auto;
+    border: 1px solid black;
+}
+
+/* CONTROLS SECTION */
+
+#controls {
+    height: 60px;
+    width: auto;
+    margin-bottom: var(--spacing-s);
+    border: 1px solid black;
+}

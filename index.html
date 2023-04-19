@@ -26,18 +26,20 @@
     </header>
     <main>
         <!-- Game Progress Section -->
-        <section class=" container grid">
-            <div>Score: <span id="score">0</span></div>
-            <div>Time Remaining: <span id="timer">60</span></div>
+        <section class="container">
+            <div id="progress" class="grid">
+                <div>Score: <span id="score">0</span></div>
+                <div>Time Remaining: <span id="timer">60</span></div>
+            </div>
         </section>
         <!-- Answer Boxes Section-->
         <section id="answer" class="container grid letter-boxes">
-            <div class="answer-box"></div>
-            <div class="answer-box"></div>
-            <div class="answer-box"></div>
-            <div class="answer-box"></div>
-            <div class="answer-box"></div>
-            <div class="answer-box"></div>
+            <div class="answer-box letter-tile"></div>
+            <div class="answer-box letter-tile"></div>
+            <div class="answer-box letter-tile"></div>
+            <div class="answer-box letter-tile"></div>
+            <div class="answer-box letter-tile"></div>
+            <div class="answer-box letter-tile"></div>
         </section>
         <!-- Image Box Section -->
         <section class="container grid info-box">
@@ -45,20 +47,34 @@
         </section>
         <!-- Scrambled Word Section-->
         <section id="scramble" class="container grid letter-boxes">
-            <button type="button" class="scramble-box scramble-button"></button>
-            <button type="button" class="scramble-box scramble-button"></button>
-            <button type="button" class="scramble-box scramble-button"></button>
-            <button type="button" class="scramble-box scramble-button"></button>
-            <button type="button" class="scramble-box scramble-button"></button>
-            <button type="button" class="scramble-box scramble-button"></button>
+            <div class="letter-tile">
+                <button type="button" class="scramble-box scramble-button"></button>
+            </div>
+            <div class="letter-tile">
+                <button type="button" class="scramble-box scramble-button"></button>            
+            </div>
+            <div class="letter-tile">
+                <button type="button" class="scramble-box scramble-button"></button>                
+            </div>
+            <div class="letter-tile">
+                <button type="button" class="scramble-box scramble-button"></button>           
+            </div>
+            <div class="letter-tile">
+                <button type="button" class="scramble-box scramble-button"></button>           
+            </div>
+            <div class="letter-tile">
+                <button type="button" class="scramble-box scramble-button"></button>              
+            </div>
         </section>
         <!-- Player Controls Section-->
-        <section id="controls" class="container grid">
-            <div>
-                <p>Backspace</p>
-            </div>
-            <div>
-                <button type="button" class="check-answer" value = "GO!"></button>
+        <section class="container">
+            <div id="controls" class="grid">
+                <div>
+                    <p>Backspace</p>
+                </div>
+                <div>
+                    <button type="button" class="check-answer" value = "GO!"></button>
+                </div>
             </div>
         </section>
     </main>
