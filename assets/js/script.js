@@ -86,25 +86,25 @@ const wordCollection = [
 /** 
  * Sets challenge difficulty level. Called by event listeners on settings page where the function will
  * recieve an argument of "easy", "medium" or "hard".  The function then iterates over the wordCollection
- * array and adds words to the challengeWords array based on the level of difficulty selected.
+ * array and adds objects to the challengeWords array based on the level of difficulty selected.
 */
 function changeDifficulty(difficulty) {
     if (difficulty === "easy") {
         wordCollection.forEach(function(collection) {
             if (collection.level === "easy") {
-                challengeWords.push(collection.word)
+                challengeWords.push(collection);
             }
         })
     } else if (difficulty === "medium") {
         wordCollection.forEach(function(collection) {
             if (collection.level === "medium") {
-                challengeWords.push(collection.word)
+                challengeWords.push(collection);
             }
         })
     } else if (difficulty === "hard") {
         wordCollection.forEach(function(collection) {
             if (collection.level === "hard") {
-                challengeWords.push(collection.word)
+                challengeWords.push(collection);
             }
         })
     }   
@@ -128,8 +128,8 @@ function playGame() {
         currentLetter.disabled = false;
     });
     let randomWord = challengeWords[Math.floor(Math.random() * challengeWords.length)];
-    correctAnswer = randomWord;
-    let wordLetters = randomWord.split("");
+    correctAnswer = randomWord.word;
+    let wordLetters = correctAnswer.split("");
     for (let x = wordLetters.length - 1; x > 0 ; x--) {
         let y = Math.floor(Math.random() * (x + 1));
         [wordLetters[x], wordLetters[y]] = [wordLetters[y], wordLetters[x]];
@@ -137,7 +137,8 @@ function playGame() {
     // Populate each scramble box with a letter from the scrambled word
     wordLetters.forEach((letter, index) => {
         scrambleBoxes[index].innerHTML = letter;
-      }); 
+      });
+     
 }
 playGame();
 
