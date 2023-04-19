@@ -292,6 +292,24 @@ Using querySelector instead to select the span in the HTML file with the id="tim
 
 ![using querySelector solves bug](docs/bugs/get-element-by-id-bug-scramble-boxes-fixed.png)
 
+<br>
+
+When I was trying to set the src file path of an image in my JavaScript file using a template literal, the innerHTML was sucessfully updated but the image was not displaying:  Instead a broken image file was shown which suggested my file path was incorrect.  My original file path stored in an object read as this:
+
+```js
+
+picture: "../assets/images/fresh-apple-icon.png",
+
+```
+
+After some research and reading [this thread on the Code Institute Slack channels](https://code-institute-room.slack.com/archives/C7EJUQT2N/p1653076076263549?thread_ts=1653073079.354849&cid=C7EJUQT2N), I discovered that although the image file path is loaded from JavaScript, it is executed from the HTML so the path should be from the HTML file to the images so I updated the path to this and the image displayed as expected:
+
+```js
+
+picture: "assets/images/fresh-apple-icon.png",
+
+```
+
 # **Credits**
 
 ## **Code Used**
