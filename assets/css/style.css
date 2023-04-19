@@ -37,8 +37,7 @@ button {
     display:grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0 1rem;
-    justify-content: center;
-    align-items: center;
+    place-items: center;
     height: 100%;
 }
 
@@ -110,4 +109,11 @@ button {
     width: auto;
     margin-bottom: var(--spacing-s);
     border: 1px solid black;
+}
+
+#submit-button {
+    height: 3rem;
+    width: 3rem;
+    border: 1px solid black;
+    border-radius: 5px;
 }
