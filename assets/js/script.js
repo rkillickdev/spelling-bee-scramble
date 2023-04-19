@@ -60,7 +60,7 @@ const wordCollection = [
     {
         word: "apple",
         hint: "crunchy fruit",
-        picture: "",
+        picture: "../assets/images/fresh-apple-icon",
         description: "an apple",
         level: "medium",
         category: "fruit" 
