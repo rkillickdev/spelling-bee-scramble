@@ -302,6 +302,7 @@ Using querySelector instead to select the span in the HTML file with the id="tim
 * [getting inner text on button click](https://stackoverflow.com/questions/69663406/how-to-get-value-from-button-after-it-has-been-clicked)
 * [How to check if a div is empty](https://bobbyhadz.com/blog/javascript-check-if-div-is-empty)
 * [Disabling scramble letter buttons after click so it cannot be selected more than once](https://stackoverflow.com/questions/23724639/make-a-button-unclickable-after-one-click)
+* Used this [article](https://css-tricks.com/overriding-default-button-styles/) to learn about removing default styling from buttons.  Referenced and modified some code [here](https://codepen.io/andy-set-studio/pen/Vxpjvo)
 
 <br>
 
