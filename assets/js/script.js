@@ -50,17 +50,17 @@ const wordCollection = [
         category: "sport"     
     },
     {
-        word: "tiger",
-        hint: "a cat found on safari",
-        picture: "",
-        description: "a tiger",
+        word: "peach",
+        hint: "a furry fruit",
+        picture: "assets/images/peach-fruit-icon.png",
+        description: "a peach",
         level: "medium",
         category: "animal"     
     },
     {
         word: "apple",
         hint: "crunchy fruit",
-        picture: "../assets/images/fresh-apple-icon",
+        picture: "assets/images/fresh-apple-icon.png",
         description: "an apple",
         level: "medium",
         category: "fruit" 
@@ -138,6 +138,9 @@ function playGame() {
     wordLetters.forEach((letter, index) => {
         scrambleBoxes[index].innerHTML = letter;
       });
+    // Retrieves image path from randomWord object and stores in the variable pictureHint  
+    let pictureHint = randomWord.picture;
+    infoDisplay.innerHTML = `<img src = "${pictureHint}" width="100" height="100">`;
      
 }
 playGame();
