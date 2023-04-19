@@ -4,6 +4,8 @@ let answerBoxes = document.getElementsByClassName("answer-box");
 
 let infoDisplay = document.getElementById("display");
 
+let displayMain = document.getElementById("display-main");
+
 const scrambleDisplay = document.getElementById("scramble");
 
 let scrambleBoxes = document.getElementsByClassName("scramble-box");
@@ -140,7 +142,7 @@ function playGame() {
       });
     // Retrieves image path from randomWord object and stores in the variable pictureHint  
     let pictureHint = randomWord.picture;
-    infoDisplay.innerHTML = `<img src = "${pictureHint}" width="100" height="100">`;
+    displayMain.innerHTML = `<img src = "${pictureHint}">`;
      
 }
 playGame();
@@ -187,7 +189,7 @@ function addPoint() {
     score.innerText = totalScore;
     if (totalScore >= 2) {
         gameToggle("hide");
-        infoDisplay.innerHTML = "Congratulations!";
+        displayMain.innerHTML = "Congratulations!";
     }
 }
 
