@@ -32,49 +32,87 @@ let level = "";
 
 let challengeWords = [];
 
-const words = {
-    easy: [
-        {
-            word: "pear",
-            hint: "juicy fruit"
-        },
-        {
-            word: "ball",
-            hint: "round rolling object"
-        }
-    ],
-    medium: [
-        {
-            word: "carrot", 
-            hint: "orange vegetable"
-        },
-        {
-            word: "cherry",
-            hint: "small red fruit"
-        }
-    ], 
-    hard: [
-        {
-            word: "cucumber",
-            hint: "cool as a ..."
-        },
-        {
-            word: "potatoes",
-            hint: "good mashed"
-        }
-    ]
-}
-
+const wordCollection = [
+    {
+        word: "pear",
+        hint: "soft juicy fruit",
+        picture: "",
+        description: "a green pear",
+        level: "easy",
+        category: "fruit"
+    },
+    {
+        word: "ball",
+        hint: "round rolling object",
+        picture: "",
+        description: "a ball",
+        level: "easy",
+        category: "sport"     
+    },
+    {
+        word: "tiger",
+        hint: "a cat found on safari",
+        picture: "",
+        description: "a tiger",
+        level: "medium",
+        category: "animal"     
+    },
+    {
+        word: "apple",
+        hint: "crunchy fruit",
+        picture: "",
+        description: "an apple",
+        level: "medium",
+        category: "fruit" 
+    },
+    {
+        word: "carrot",
+        hint: "orange vegetable",
+        picture: "",
+        description: "a carrot",
+        level: "hard",
+        category: "vegetable" 
+    },
+    {
+        word: "cherry",
+        hint: "small red fruit",
+        picture: "",
+        description: "a cherry",
+        level: "hard",
+        category: "fruit"       
+    }
+]
 
 /** 
- * Sets challenge difficulty level. Called by event listeners on settings page.
- * Found neatest solution for this on stack overflow: 
- * https://stackoverflow.com/questions/64712803/change-game-difficulty-javascript
+ * Sets challenge difficulty level. Called by event listeners on settings page where the function will
+ * recieve an argument of "easy", "medium" or "hard".  The function then iterates over the wordCollection
+ * array and adds words to the challengeWords array based on the level of difficulty selected.
 */
 function changeDifficulty(difficulty) {
-    level = difficulty;
-    challengeWords = words[level];
+    if (difficulty === "easy") {
+        wordCollection.forEach(function(collection) {
+            if (collection.level === "easy") {
+                challengeWords.push(collection.word)
+            }
+        })
+    } else if (difficulty === "medium") {
+        wordCollection.forEach(function(collection) {
+            if (collection.level === "medium") {
+                challengeWords.push(collection.word)
+            }
+        })
+    } else if (difficulty === "hard") {
+        wordCollection.forEach(function(collection) {
+            if (collection.level === "hard") {
+                challengeWords.push(collection.word)
+            }
+        })
+    }   
 }
+
+changeDifficulty("medium");
+
+console.log(challengeWords);
 
 /**
  * Generates random word from challengeWords array, splits the individual letters into the 
@@ -90,8 +128,8 @@ function playGame() {
         currentLetter.disabled = false;
     });
     let randomWord = challengeWords[Math.floor(Math.random() * challengeWords.length)];
-    correctAnswer = randomWord.word;
-    let wordLetters = randomWord.word.split("");
+    correctAnswer = randomWord;
+    let wordLetters = randomWord.split("");
     for (let x = wordLetters.length - 1; x > 0 ; x--) {
         let y = Math.floor(Math.random() * (x + 1));
         [wordLetters[x], wordLetters[y]] = [wordLetters[y], wordLetters[x]];
@@ -101,8 +139,6 @@ function playGame() {
         scrambleBoxes[index].innerHTML = letter;
       }); 
 }
-
-changeDifficulty("medium");
 playGame();
 
 // Add event listeners for all boxes containing a scrambled letter
