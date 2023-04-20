@@ -5,6 +5,10 @@
     --spacing-m: 2rem;
     --spacing-l: 3rem;
     --spacing-xl: 4rem;
+    --primary-color: rgb(255, 203, 30);
+    --secondary-color: black ;
+    --tertiary-color: skyblue;
+    --highlight-color: whitesmoke;
 }
 
 * {
@@ -14,7 +18,7 @@
 }
 
 body {
-    background-color: skyblue;
+    background-color: var(--tertiary-color);
 }
 
 img {
@@ -125,6 +129,10 @@ button {
 
 /* ANSWER BOX SECTION */
 
+.answer-box {
+    background-color: var(--highlight-color);
+}
+
 .answer-letter {
     position: absolute;
     top: 0;
@@ -149,11 +157,6 @@ button {
     grid-template-rows: 1fr 2fr 1fr;
 }
 
-#display {
-    width: 100%;
-    border: 1px solid black;
-}
-
 #display-main {
     align-content: center;
 }
@@ -161,7 +164,7 @@ button {
 /* SCRAMBLED WORD SECTION */
 
 .scramble-button {
-    background-color: yellow;
+    background-color: var(--primary-color);
 }
 
 /* CONTROLS SECTION */
