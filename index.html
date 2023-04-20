@@ -36,12 +36,12 @@
         <section id="answer" class="container">
             <div class="grid-wrapper">
                 <div class=" grid grid-tiles">
-                    <div class="answer-box letter-tile"></div>
-                    <div class="answer-box letter-tile"></div>
-                    <div class="answer-box letter-tile"></div>
-                    <div class="answer-box letter-tile"></div>
-                    <div class="answer-box letter-tile"></div>
-                    <div class="answer-box letter-tile"></div>
+                    <div class="answer-box button-container"></div>
+                    <div class="answer-box button-container"></div>
+                    <div class="answer-box button-container"></div>
+                    <div class="answer-box button-container"></div>
+                    <div class="answer-box button-container"></div>
+                    <div class="answer-box button-container"></div>
                 </div>
             </div>
            
@@ -58,22 +58,22 @@
         <section id="scramble" class="container">
             <div class="grid-wrapper">
                 <div class=" grid grid-tiles">
-                    <div class="letter-tile">
+                    <div class="button-container">
                         <button type="button" class="scramble-box scramble-button"></button>
                     </div>
-                    <div class="letter-tile">
+                    <div class="button-container">
                         <button type="button" class="scramble-box scramble-button"></button>            
                     </div>
-                    <div class="letter-tile">
+                    <div class="button-container">
                         <button type="button" class="scramble-box scramble-button"></button>                
                     </div>
-                    <div class="letter-tile">
+                    <div class="button-container">
                         <button type="button" class="scramble-box scramble-button"></button>           
                     </div>
-                    <div class="letter-tile">
+                    <div class="button-container">
                         <button type="button" class="scramble-box scramble-button"></button>           
                     </div>
-                    <div class="letter-tile">
+                    <div class="button-container">
                         <button type="button" class="scramble-box scramble-button"></button>              
                     </div>
                 </div>
@@ -81,14 +81,22 @@
         </section>
         <!-- Player Controls Section-->
         <section class="container">
-            <div id="controls" class="grid">
-                <div id="backspace-button">
-                    <p>Backspace</p>
-                </div>
-                <div id="submit-button">
-                    <button type="button" class="check-answer">GO!</button>
+            <div class="grid-wrapper">
+                <div id="controls" class="grid">
+                    <div id="backspace-button" class="button-container">
+                        <button type="button">
+                            <img src="assets/images/cancel-icon.png" alt="red cross icon">
+                        </button>
+                    </div>
+                    <div></div>
+                    <div id="submit-button" class="button-container">
+                        <button type="button" class="check-answer">
+                            <img src="assets/images/accept-icon.png" alt="green tick icon">
+                        </button>
+                    </div>
                 </div>
             </div>
+            
         </section>
     </main>
     
