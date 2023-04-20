@@ -68,7 +68,15 @@ button {
     place-items: center;
 }
 
-.grid-tiles {
+.grid-tiles-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-tiles-5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-tiles-6 {
     grid-template-columns: repeat(6, 1fr);
 }
 

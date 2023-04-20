@@ -95,13 +95,14 @@ const wordCollection = [
 */
 function changeDifficulty(difficulty) {
     if (difficulty === "easy") {
+        easyDisplay();
         wordCollection.forEach(function(collection) {
             if (collection.level === "easy" && collection.word.length === 4) {
                 challengeWords.push(collection);
             }
-        
         })
     } else if (difficulty === "medium") {
+        mediumDisplay(); 
         wordCollection.forEach(function(collection) {
             if (collection.level === "medium" && collection.word.length === 5) {
                 challengeWords.push(collection);
@@ -116,9 +117,35 @@ function changeDifficulty(difficulty) {
     }   
 }
 
-changeDifficulty("medium");
+/**
+ * The 5th and 6th answer and scramble boxes are removed from display and grid
+ * set to a 4 column layout.
+ */
+function easyDisplay() {
+    answerBoxes[5].remove();
+    answerBoxes[4].remove();
+    scrambleBoxes[5].remove();
+    scrambleBoxes[4].remove();
+    document.getElementById("answer-tiles").classList.remove('grid-tiles-6');
+    document.getElementById("answer-tiles").classList.add('grid-tiles-4');
+    document.getElementById("scramble-tiles").classList.remove('grid-tiles-6');
+    document.getElementById("scramble-tiles").classList.add('grid-tiles-4');
+}
 
-console.log(challengeWords);
+/**
+ * The 6th answer and scramble box are removed from display and grid
+ * set to a 5 column layout.
+ */
+function mediumDisplay() {
+    answerBoxes[5].remove();
+    scrambleBoxes[5].remove();
+    document.getElementById("answer-tiles").classList.remove('grid-tiles-6');
+    document.getElementById("answer-tiles").classList.add('grid-tiles-5');
+    document.getElementById("scramble-tiles").classList.remove('grid-tiles-6');
+    document.getElementById("scramble-tiles").classList.add('grid-tiles-5');
+}
+
+changeDifficulty("easy");
 
 /**
  * Generates random word from challengeWords array, splits the individual letters into the 
@@ -142,7 +169,7 @@ function playGame() {
     }
     // Populate each scramble box with a letter from the scrambled word
     wordLetters.forEach((letter, index) => {
-        scrambleBoxes[index].innerHTML = letter;
+        scrambleButtons[index].innerHTML = letter;
       });
     // Retrieves image path from randomWord object and stores in the variable pictureHint  
     let pictureHint = randomWord.picture;
