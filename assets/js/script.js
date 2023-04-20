@@ -2,6 +2,8 @@ const answerDisplay = document.getElementById("answer");
 
 let answerBoxes = document.getElementsByClassName("answer-box");
 
+let answerLetters = document.getElementsByClassName("answer-letter")
+
 let infoDisplay = document.getElementById("display");
 
 let displayMain = document.getElementById("display-main");
@@ -61,7 +63,7 @@ const wordCollection = [
         category: "animal"     
     },
     {
-        word: "apple",
+        word: "APPLE",
         hint: "crunchy fruit",
         picture: "assets/images/fresh-apple-icon.png",
         description: "an apple",
@@ -151,8 +153,8 @@ function mediumDisplay() {
  */
 function playGame() {
     playerAnswer.length = 0;
-    for(let box of answerBoxes){
-        box.innerHTML = "";
+    for(let letter of answerLetters){
+        letter.innerHTML = "";
     }
     buttonArray.forEach(function(currentLetter) {
         currentLetter.disabled = false;
@@ -185,18 +187,18 @@ buttonArray.forEach(function(currentLetter) {
         if (playerAnswer.length < answerBoxes.length) {
             playerAnswer.push(event.target.innerText);
         }
-        if (answerBoxes[0].childNodes.length === 0) {
-            answerBoxes[0].innerText = playerAnswer[0];
-        } else if (answerBoxes[1].childNodes.length === 0) {
-            answerBoxes[1].innerText = playerAnswer[1];           
-        } else if (answerBoxes[2].childNodes.length === 0) {
-            answerBoxes[2].innerText = playerAnswer[2];
-        } else if (answerBoxes[3].childNodes.length === 0) {
-            answerBoxes[3].innerText = playerAnswer[3];
-        } else if (answerBoxes[4].childNodes.length === 0) {
-            answerBoxes[4].innerText = playerAnswer[4];
-        } else if (answerBoxes[5].childNodes.length === 0) {
-            answerBoxes[5].innerText = playerAnswer[5];
+        if (answerLetters[0].childNodes.length === 0) {
+            answerLetters[0].innerText = playerAnswer[0];
+        } else if (answerLetters[1].childNodes.length === 0) {
+            answerLetters[1].innerText = playerAnswer[1];           
+        } else if (answerLetters[2].childNodes.length === 0) {
+            answerLetters[2].innerText = playerAnswer[2];
+        } else if (answerLetters[3].childNodes.length === 0) {
+            answerLetters[3].innerText = playerAnswer[3];
+        } else if (answerLetters[4].childNodes.length === 0) {
+            answerLetters[4].innerText = playerAnswer[4];
+        } else if (answerLetters[5].childNodes.length === 0) {
+            answerLetters[5].innerText = playerAnswer[5];
         }
         this.disabled = true;        
     });  
@@ -215,7 +217,6 @@ function backSpace() {
 removeLetter.addEventListener('click', backSpace);
 
 console.log(playerAnswer);
-console.log(answerBoxes);
 
 /**
  * Turns the playerAnswer array into a string and compares this
