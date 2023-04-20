@@ -16,6 +16,8 @@ const buttonArray = Array.from(scrambleButtons);
 
 const controlsDisplay = document.getElementById("controls");
 
+const removeLetter = document.getElementById("remove-letter");
+
 const submitAnswer = document.getElementsByClassName("check-answer");
 
 let correctAnswer = "";
@@ -169,6 +171,21 @@ buttonArray.forEach(function(currentLetter) {
         this.disabled = true;        
     });  
 });
+
+console.log(playerAnswer);
+
+/**
+ * Removes the last item in the playerAnswer array
+ */
+function backSpace() {
+    playerAnswer.pop();
+}
+
+// Event listener for backspace button which triggers the backSpace function on click
+removeLetter.addEventListener('click', backSpace);
+
+console.log(playerAnswer);
+console.log(answerBoxes);
 
 /**
  * Turns the playerAnswer array into a string and compares this
