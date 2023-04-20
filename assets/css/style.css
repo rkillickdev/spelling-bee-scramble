@@ -99,6 +99,10 @@ button {
     text-align: center;
 }
 
+.control-button {
+    background-color: transparent;
+}
+
 .flex {
     display: flex;
     justify-content:space-between;
