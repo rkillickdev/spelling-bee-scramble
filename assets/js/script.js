@@ -175,8 +175,8 @@ function playGame() {
      
 }
 
-changeDifficulty("easy");
-playGame();
+// changeDifficulty("medium");
+// // playGame();
 
 
 // Add event listeners for all boxes containing a scrambled letter
@@ -264,7 +264,13 @@ function countDown() {
     }
 }
 
+
+// Event listener for submit answer button.  Runs checkAnswer function
 submitAnswer[0].addEventListener('click', checkAnswer);
+
+// Event listener for play button.  Runs playGame function
+const playButton = document.getElementById("play-game");
+playButton.addEventListener('click', playGame);
 
 
 
