@@ -151,7 +151,6 @@ function mediumDisplay() {
  * I used the following tutorial to help with coding this: https://www.youtube.com/watch?v=4-s3g_fU7Vg
  */
 function playGame() {
-    changeDifficulty("easy");
     playerAnswer.length = 0;
     for(let box of answerBoxes){
         box.innerHTML = "";
@@ -175,7 +174,10 @@ function playGame() {
     displayMain.innerHTML = `<img src = "${pictureHint}">`;
      
 }
+
+changeDifficulty("easy");
 playGame();
+
 
 // Add event listeners for all boxes containing a scrambled letter
 buttonArray.forEach(function(currentLetter) {
