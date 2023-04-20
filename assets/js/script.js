@@ -145,14 +145,13 @@ function mediumDisplay() {
     document.getElementById("scramble-tiles").classList.add('grid-tiles-5');
 }
 
-changeDifficulty("easy");
-
 /**
  * Generates random word from challengeWords array, splits the individual letters into the 
  * wordLetters array and scrambles these in a random order.
  * I used the following tutorial to help with coding this: https://www.youtube.com/watch?v=4-s3g_fU7Vg
  */
 function playGame() {
+    changeDifficulty("easy");
     playerAnswer.length = 0;
     for(let box of answerBoxes){
         box.innerHTML = "";
