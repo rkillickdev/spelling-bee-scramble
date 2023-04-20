@@ -175,8 +175,8 @@ function playGame() {
      
 }
 
-// changeDifficulty("medium");
-// // playGame();
+changeDifficulty("medium");
+// playGame();
 
 
 // Add event listeners for all boxes containing a scrambled letter
