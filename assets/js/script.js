@@ -90,24 +90,26 @@ const wordCollection = [
 /** 
  * Sets challenge difficulty level. Called by event listeners on settings page where the function will
  * recieve an argument of "easy", "medium" or "hard".  The function then iterates over the wordCollection
- * array and adds objects to the challengeWords array based on the level of difficulty selected.
+ * array and adds objects to the challengeWords array based on the level of difficulty selected.  It also
+ * confirms that the word is the correct number of characters for the difficulty level.
 */
 function changeDifficulty(difficulty) {
     if (difficulty === "easy") {
         wordCollection.forEach(function(collection) {
-            if (collection.level === "easy") {
+            if (collection.level === "easy" && collection.word.length === 4) {
                 challengeWords.push(collection);
             }
+        
         })
     } else if (difficulty === "medium") {
         wordCollection.forEach(function(collection) {
-            if (collection.level === "medium") {
+            if (collection.level === "medium" && collection.word.length === 5) {
                 challengeWords.push(collection);
             }
         })
     } else if (difficulty === "hard") {
         wordCollection.forEach(function(collection) {
-            if (collection.level === "hard") {
+            if (collection.level === "hard" && collection.word.length === 6) {
                 challengeWords.push(collection);
             }
         })
