@@ -25,7 +25,6 @@ let correctAnswer = "";
 let playerAnswer = [];
 
 let timer = document.querySelector('#timer');
-let startCountDown = setInterval(countDown, 1000);
 let timeLeft = 60;
 
 let score = document.getElementById("score");
@@ -172,7 +171,8 @@ function playGame() {
     // Retrieves image path from randomWord object and stores in the variable pictureHint  
     let pictureHint = randomWord.picture;
     displayMain.innerHTML = `<img src = "${pictureHint}">`;
-     
+    // Countdown timer starts
+    let startCountDown = setInterval(countDown, 1000);
 }
 
 changeDifficulty("medium");
