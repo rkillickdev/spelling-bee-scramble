@@ -253,8 +253,9 @@ function addPoint() {
     totalScore++;
     score.innerText = totalScore;
     if (totalScore >= 2) {
-        gameToggle("hide");
+        gameToggle("home");
         displayMain.innerHTML = "Congratulations!";
+
     }
 }
 
