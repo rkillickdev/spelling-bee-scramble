@@ -310,6 +310,28 @@ picture: "assets/images/fresh-apple-icon.png",
 
 ```
 
+<br>
+
+I encountered a bug with the score counter on submitting a correct answer.  The score was not increasing and the following message appeared in the console:
+
+![score counter variable scope bug console message](docs/bugs/score-counter-variable-scope-bug.png)
+
+I realised the problem was that the variable **score** (gets element by Id "score") was being defined in global scope, but the HTML containg this element with an id of "score" only exists once the gameToggle function is run with an argument of "game".  I therefore defined the variable **score** within the addPoint function instead, which solved the problem as by the time this function is run, an HTML element with the id of "score" exists in the DOM.  See code below:
+
+```js
+
+function addPoint() {
+    let score = document.getElementById("score");
+    totalScore++;
+    score.innerText = totalScore;
+    if (totalScore >= 2) {
+        gameToggle("hide");
+        displayMain.innerHTML = "Congratulations!";
+    }
+}
+
+```
+
 # **Credits**
 
 ## **Code Used**
