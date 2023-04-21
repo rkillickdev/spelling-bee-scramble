@@ -86,18 +86,17 @@ const wordCollection = [
     }
 ]
 
-function gameToggle(display) {
-    if (display === "show") {
-        // answerDisplay.style.visibility = "visible";
-        // scrambleDisplay.style.visibility = "visible";
-        // controlsDisplay.style.visibility = "visible";
-        topDisplay.innerHTML = `<div>Score: <span id="score">0</span></div>
-        <div>Time Remaining: <span id="timer">60</span></div>`
+gameToggle("home")
 
-    } else if (display === "hide") {
-        answerDisplay.style.visibility = "hidden";
-        scrambleDisplay.style.visibility = "hidden";
+function gameToggle(display) {
+    if (display === "home") {
         controlsDisplay.style.visibility = "hidden";
+        
+
+    } else if (display === "game") {
+        controlsDisplay.style.visibility = "visible";
+        topDisplay.innerHTML = `<div>Score: <span id="score">0</span></div>
+        <div>Time Remaining: <span id="timer">60</span></div>`;
     }
 }
 
@@ -165,7 +164,7 @@ function mediumDisplay() {
  */
 function runGame() {
     changeDifficulty("medium");
-    gameToggle("show");
+    gameToggle("game");
     playGame();
 }
 
