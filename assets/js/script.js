@@ -168,28 +168,28 @@ function runGame() {
     changeDifficulty("medium");
     gameToggle("game");
     playGame();
-    startClock();   
+    // startClock();   
 }
 
 /**
  * Starts countdown from time specified in timeLeft variable.  Inserts timeLeft into the HTML and sends a message to
  * the player once time has run out for the challenge.
  */
-function startClock() {
-    let startCountDown = setInterval(countDown, 1000);
-    function countDown() {
-        let timer = document.querySelector('#timer');
-        timeLeft--;
-        timer.innerText = timeLeft;
-        if (timeLeft === 0) {
-            clearInterval(startCountDown);
-            let correctRequired = (scoreTarget - totalScore);
-            infoDisplay.innerHTML = `Keep trying! You need ${correctRequired} more correct answers next time!`;
+// function startClock() {
+//     let startCountDown = setInterval(countDown, 1000);
+//     function countDown() {
+//         let timer = document.querySelector('#timer');
+//         timeLeft--;
+//         timer.innerText = timeLeft;
+//         if (timeLeft === 0) {
+//             clearInterval(startCountDown);
+//             let correctRequired = (scoreTarget - totalScore);
+//             infoDisplay.innerHTML = `Keep trying! You need ${correctRequired} more correct answers next time!`;
     
-            console.log(correctRequired);
-        }
-    }
-}
+//             console.log(correctRequired);
+//         }
+//     }
+// }
 
 /**
  * Generates random word from challengeWords array, splits the individual letters into the 
@@ -257,6 +257,9 @@ removeLetter.addEventListener('click', backSpace);
 
 console.log(playerAnswer);
 
+let feedbackMessage = "";
+let nextStep = "";
+
 /**
  * Turns the playerAnswer array into a string and compares this
  * against the correct answer.
@@ -270,13 +273,33 @@ function checkAnswer() {
     }
     if (totalScore === scoreTarget) {
         gameToggle("home");
-        displayMain.innerHTML = "Congratulations!";
+        feedbackMessage = "Congratulations! You passed the challenge!";
+        nextStep = "You're ready for the next level!";
+        topDisplay.innerHTML = feedbackStructure;
 
     } else {
         playGame();
     }
     
 }
+
+console.log(feedbackMessage);
+console.log(nextStep);
+
+let feedbackStructure = `
+
+    <div class="flex-rows">
+        <div>
+            <p>${feedbackMessage}<p>
+        </div>
+        <div class="single-image-display">
+            <img src="assets/images/bee-icon.png" alt="a cartoon image of a bumble bee">
+        </div>
+        <div>
+            <p>${nextStep}</p>
+        </div>
+    </div>
+`;
 
 function addPoint() {
     let score = document.getElementById("score");
