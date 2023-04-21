@@ -168,7 +168,27 @@ function runGame() {
     changeDifficulty("medium");
     gameToggle("game");
     playGame();
+    startClock();   
+}
+
+/**
+ * Starts countdown from time specified in timeLeft variable.  Inserts timeLeft into the HTML and sends a message to
+ * the player once time has run out for the challenge.
+ */
+function startClock() {
     let startCountDown = setInterval(countDown, 1000);
+    function countDown() {
+        let timer = document.querySelector('#timer');
+        timeLeft--;
+        timer.innerText = timeLeft;
+        if (timeLeft === 0) {
+            clearInterval(startCountDown);
+            let correctRequired = (scoreTarget - totalScore);
+            infoDisplay.innerHTML = `Keep trying! You need ${correctRequired} more correct answers next time!`;
+    
+            console.log(correctRequired);
+        }
+    }
 }
 
 /**
@@ -262,19 +282,6 @@ function addPoint() {
     let score = document.getElementById("score");
     totalScore++;
     score.innerText = totalScore;
-}
-
-function countDown() {
-    let timer = document.querySelector('#timer');
-    timeLeft--;
-    timer.innerText = timeLeft;
-    if (timeLeft === 0) {
-        clearInterval(startCountDown);
-        let correctRequired = (scoreTarget - totalScore);
-        infoDisplay.innerHTML = `Keep trying! You need ${correctRequired} more correct answers next time!`;
-
-        console.log(correctRequired);
-    }
 }
 
 // Event listener for submit answer button.  Runs checkAnswer function
