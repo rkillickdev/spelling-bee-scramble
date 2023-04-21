@@ -31,7 +31,7 @@
                 <div>
                     <h1>Spelling Bee</h1>
                 </div>
-                <div class="title-container">
+                <div class="single-image-display">
                     <img src="assets/images/bee-icon.png" alt="a cartoon image of a bumble bee">
                 </div>
                 <div>
@@ -72,20 +72,10 @@
         </section>
         <!-- Image Box Section -->
         <section class="container">
-            <div class="grid-wrapper">
-                <div id="display" class="grid">
-                    <div class="button-container">
-                        <img src="assets/images/bee-icon.png" alt="a cartoon image of a bumble bee">
-                    </div>
-                    <div id="display-main" class="button-container">
-                        <button type="button" id="play-game" class="control-button">
-                            <img src="assets/images/go-icon.png" alt="round green go icon">
-                        </button>
-                    </div>
-                    <div class="button-container">
-                        <img src="assets/images/beehive-icon.png" alt="a cartoon image of a bee hive">
-                    </div>
-                </div>
+            <div id="display-main" class="flex-rows single-image-display">
+                <button type="button" id="play-game" class="control-button">
+                    <img src="assets/images/go-icon.png" alt="round green go icon">
+                </button>
             </div>
         </section>
         <!-- Scrambled Word Section-->
@@ -93,22 +83,22 @@
             <div class="grid-wrapper">
                 <div id="scramble-tiles" class=" grid grid-tiles-6">
                     <div class="button-container scramble-box">
-                        <button type="button" class="scramble-button"></button>
+                        <button type="button" class="btn scramble-button"></button>
                     </div>
                     <div class="button-container scramble-box">
-                        <button type="button" class="scramble-button"></button>            
+                        <button type="button" class="btn scramble-button"></button>            
                     </div>
                     <div class="button-container scramble-box">
-                        <button type="button" class="scramble-button"></button>                
+                        <button type="button" class="btn scramble-button"></button>                
                     </div>
                     <div class="button-container scramble-box">
-                        <button type="button" class="scramble-button"></button>           
+                        <button type="button" class="btn scramble-button"></button>           
                     </div>
                     <div class="button-container scramble-box">
-                        <button type="button" class="scramble-button"></button>           
+                        <button type="button" class="btn scramble-button"></button>           
                     </div>
                     <div class="button-container scramble-box">
-                        <button type="button" class="scramble-button"></button>              
+                        <button type="button" class="btn scramble-button"></button>              
                     </div>
                 </div>
             </div>
@@ -118,13 +108,13 @@
             <div class="grid-wrapper">
                 <div id="controls" class="grid">
                     <div id="backspace-button" class="button-container">
-                        <button type="button" id="remove-letter">
+                        <button type="button" id="remove-letter" class="btn">
                             <img src="assets/images/cancel-icon.png" alt="red cross icon">
                         </button>
                     </div>
                     <div></div>
                     <div id="submit-button" class="button-container">
-                        <button type="button" class="check-answer control-button">
+                        <button type="button" class="btn check-answer control-button">
                             <img src="assets/images/accept-icon.png" alt="green tick icon">
                         </button>
                     </div>
