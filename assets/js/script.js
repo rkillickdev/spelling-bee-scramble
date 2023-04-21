@@ -28,6 +28,9 @@ let correctAnswer = "";
 
 let playerAnswer = [];
 
+let totalScore = 0;
+let scoreTarget = 8;
+
 let level = "";
 
 let challengeWords = [];
@@ -82,6 +85,21 @@ const wordCollection = [
         category: "fruit"       
     }
 ]
+
+function gameToggle(display) {
+    if (display === "show") {
+        // answerDisplay.style.visibility = "visible";
+        // scrambleDisplay.style.visibility = "visible";
+        // controlsDisplay.style.visibility = "visible";
+        topDisplay.innerHTML = `<div>Score: <span id="score">0</span></div>
+        <div>Time Remaining: <span id="timer">60</span></div>`
+
+    } else if (display === "hide") {
+        answerDisplay.style.visibility = "hidden";
+        scrambleDisplay.style.visibility = "hidden";
+        controlsDisplay.style.visibility = "hidden";
+    }
+}
 
 /** 
  * Sets challenge difficulty level. Called by event listeners on settings page where the function will
@@ -142,6 +160,16 @@ function mediumDisplay() {
 }
 
 /**
+ * Runs on click of "Go" button.  This makes sure that the default difficulty level is set to easy, shows
+ * the score counter/ countdown timer, player controls and runs the playGame function.
+ */
+function runGame() {
+    changeDifficulty("medium");
+    gameToggle("show");
+    playGame();
+}
+
+/**
  * Generates random word from challengeWords array, splits the individual letters into the 
  * wordLetters array and scrambles these in a random order.
  * I used the following tutorial to help with coding this: https://www.youtube.com/watch?v=4-s3g_fU7Vg
@@ -169,10 +197,6 @@ function playGame() {
     let pictureHint = randomWord.picture;
     displayMain.innerHTML = `<img src = "${pictureHint}">`;
 }
-
-changeDifficulty("medium");
-// playGame();
-
 
 // Add event listeners for all boxes containing a scrambled letter
 buttonArray.forEach(function(currentLetter) {
@@ -225,28 +249,8 @@ function checkAnswer() {
     playGame();
 }
 
-function gameToggle(display) {
-    if (display === "show") {
-        // answerDisplay.style.visibility = "visible";
-        // scrambleDisplay.style.visibility = "visible";
-        // controlsDisplay.style.visibility = "visible";
-        topDisplay.innerHTML = `<div>Score: <span id="score">0</span></div>
-        <div>Time Remaining: <span id="timer">60</span></div>`
-
-    } else if (display === "hide") {
-        answerDisplay.style.visibility = "hidden";
-        scrambleDisplay.style.visibility = "hidden";
-        controlsDisplay.style.visibility = "hidden";
-    }
-}
-
-gameToggle("show");
-
-let score = document.getElementById("score");
-let totalScore = 0;
-let scoreTarget = 8;
-
 function addPoint() {
+    let score = document.getElementById("score");
     totalScore++;
     score.innerText = totalScore;
     if (totalScore >= 2) {
@@ -255,28 +259,28 @@ function addPoint() {
     }
 }
 
-let startCountDown = setInterval(countDown, 1000);
-let timer = document.querySelector('#timer');
-let timeLeft = 60;
+// let startCountDown = setInterval(countDown, 1000);
+// let timer = document.querySelector('#timer');
+// let timeLeft = 60;
 
-function countDown() {
-    timeLeft--;
-    timer.innerText = timeLeft;
-    if (timeLeft === 0) {
-        clearInterval(startCountDown);
-        let correctRequired = (scoreTarget - totalScore);
-        infoDisplay.innerHTML = `Keep trying! You need ${correctRequired} more correct answers next time!`;
+// function countDown() {
+//     timeLeft--;
+//     timer.innerText = timeLeft;
+//     if (timeLeft === 0) {
+//         clearInterval(startCountDown);
+//         let correctRequired = (scoreTarget - totalScore);
+//         infoDisplay.innerHTML = `Keep trying! You need ${correctRequired} more correct answers next time!`;
 
-        console.log(correctRequired);
-    }
-}
+//         console.log(correctRequired);
+//     }
+// }
 
 // Event listener for submit answer button.  Runs checkAnswer function
 submitAnswer[0].addEventListener('click', checkAnswer);
 
 // Event listener for play button.  Runs playGame function
 const playButton = document.getElementById("play-game");
-playButton.addEventListener('click', playGame);
+playButton.addEventListener('click', runGame);
 
 
 
