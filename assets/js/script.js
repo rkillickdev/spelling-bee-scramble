@@ -1,3 +1,5 @@
+let topDisplay = document.getElementById("top-display");
+
 const answerDisplay = document.getElementById("answer");
 
 let answerBoxes = document.getElementsByClassName("answer-box");
@@ -25,13 +27,6 @@ const submitAnswer = document.getElementsByClassName("check-answer");
 let correctAnswer = "";
 
 let playerAnswer = [];
-
-let timer = document.querySelector('#timer');
-let timeLeft = 60;
-
-let score = document.getElementById("score");
-let totalScore = 0;
-let scoreTarget = 8;
 
 let level = "";
 
@@ -173,8 +168,6 @@ function playGame() {
     // Retrieves image path from randomWord object and stores in the variable pictureHint  
     let pictureHint = randomWord.picture;
     displayMain.innerHTML = `<img src = "${pictureHint}">`;
-    // Countdown timer starts
-    let startCountDown = setInterval(countDown, 1000);
 }
 
 changeDifficulty("medium");
@@ -232,6 +225,27 @@ function checkAnswer() {
     playGame();
 }
 
+function gameToggle(display) {
+    if (display === "show") {
+        // answerDisplay.style.visibility = "visible";
+        // scrambleDisplay.style.visibility = "visible";
+        // controlsDisplay.style.visibility = "visible";
+        topDisplay.innerHTML = `<div>Score: <span id="score">0</span></div>
+        <div>Time Remaining: <span id="timer">60</span></div>`
+
+    } else if (display === "hide") {
+        answerDisplay.style.visibility = "hidden";
+        scrambleDisplay.style.visibility = "hidden";
+        controlsDisplay.style.visibility = "hidden";
+    }
+}
+
+gameToggle("show");
+
+let score = document.getElementById("score");
+let totalScore = 0;
+let scoreTarget = 8;
+
 function addPoint() {
     totalScore++;
     score.innerText = totalScore;
@@ -241,17 +255,9 @@ function addPoint() {
     }
 }
 
-function gameToggle(display) {
-    if (display === "show") {
-        answerDisplay.style.visibility = "visible";
-        scrambleDisplay.style.visibility = "visible";
-        controlsDisplay.style.visibility = "visible";
-    } else if (display === "hide") {
-        answerDisplay.style.visibility = "hidden";
-        scrambleDisplay.style.visibility = "hidden";
-        controlsDisplay.style.visibility = "hidden";
-    }
-}
+let startCountDown = setInterval(countDown, 1000);
+let timer = document.querySelector('#timer');
+let timeLeft = 60;
 
 function countDown() {
     timeLeft--;
@@ -259,12 +265,11 @@ function countDown() {
     if (timeLeft === 0) {
         clearInterval(startCountDown);
         let correctRequired = (scoreTarget - totalScore);
-        infoDisplay.innerHTML = `Keep trying!  You need ${correctRequired} more correct answers next time! `;
+        infoDisplay.innerHTML = `Keep trying! You need ${correctRequired} more correct answers next time!`;
 
         console.log(correctRequired);
     }
 }
-
 
 // Event listener for submit answer button.  Runs checkAnswer function
 submitAnswer[0].addEventListener('click', checkAnswer);
