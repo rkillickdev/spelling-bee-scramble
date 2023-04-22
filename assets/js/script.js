@@ -1,5 +1,10 @@
 let topDisplay = document.getElementById("top-display");
 
+let playerMessage = document.getElementById("player-message");
+let playerInstructions = document.getElementById("player-instructions");
+
+let feedbackInfo =document.getElementById("feedback-info");
+
 const answerDisplay = document.getElementById("answer");
 
 let answerBoxes = document.getElementsByClassName("answer-box");
@@ -97,8 +102,11 @@ function gameToggle(display) {
 
     } else if (display === "game") {
         controlsDisplay.style.visibility = "visible";
-        topDisplay.innerHTML = `<div>Score: <span id="score">0</span></div>
-        <div>Time Remaining: <span id="timer">60</span></div>`;
+        document.getElementById("feedback-info").classList.remove('flex-rows');
+        document.getElementById("feedback-info").classList.add('flex');
+        // REMOVE IF IDEA ABOVE WORKS
+        // topDisplay.innerHTML = `<div>Score: <span id="score">0</span></div>
+        // <div>Time Remaining: <span id="timer">60</span></div>`;
     }
 }
 
@@ -271,38 +279,36 @@ function checkAnswer() {
     }
 }
 
-function congrats() {
-    let feedbackMessage = "Congratulations! You passed the challenge!";
-    let nextStep = "You're ready for the next level!";
-    return [feedbackMessage, nextStep];
-}
-
-let message = congrats();
-
 function checkScore() {
     if (totalScore === scoreTarget) {
-        congrats();
-        topDisplay.innerHTML = feedbackStructure;
+        document.getElementById("feedback-info").classList.remove('flex');
+        document.getElementById("feedback-info").classList.add('flex-rows');
+        playerMessage.innerHTML = `<p>Congratulations! You passed the challenge!</p>`;
+        playerInstructions.innerHTML = `You're ready for the next level!`;
+        // REMOVE IF ABOVE WORKS
+        // topDisplay.innerHTML = feedbackStructure;
         gameToggle("home");
     } else {
         playGame();
-    }
+    } 
 }
 
-let feedbackStructure = `
+// DELETE IF NO LONGER NEEDED
 
-    <div class="flex-rows">
-        <div>
-            <p>${message[0]}</p>
-        </div>
-        <div class="single-image-display">
-            <img src="assets/images/bee-icon.png" alt="a cartoon image of a bumble bee">
-        </div>
-        <div>
-            <p>${message[1]}</p>
-        </div>
-    </div>
-`;
+// let feedbackStructure = `
+
+//     <div class="flex-rows">
+//         <div>
+//             <p id="player-message"></p>
+//         </div>
+//         <div class="single-image-display">
+//             <img src="assets/images/bee-icon.png" alt="a cartoon image of a bumble bee">
+//         </div>
+//         <div>
+//             <p id="player-instructions"></p></p>
+//         </div>
+//     </div>
+// `;
 
 function addPoint() {
     let score = document.getElementById("score");
