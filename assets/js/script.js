@@ -29,7 +29,7 @@ let correctAnswer = "";
 let playerAnswer = [];
 
 let totalScore = 0;
-let scoreTarget = 3;
+let scoreTarget = 1;
 
 let timeLeft = 60;
 
@@ -257,8 +257,6 @@ removeLetter.addEventListener('click', backSpace);
 
 console.log(playerAnswer);
 
-let feedbackMessage = "";
-let nextStep = "";
 
 /**
  * Turns the playerAnswer array into a string and compares this
@@ -271,32 +269,37 @@ function checkAnswer() {
     } else {
         alert("Incorrect!")
     }
-    if (totalScore === scoreTarget) {
-        gameToggle("home");
-        feedbackMessage = "Congratulations! You passed the challenge!";
-        nextStep = "You're ready for the next level!";
-        topDisplay.innerHTML = feedbackStructure;
+}
 
+function congrats() {
+    let feedbackMessage = "Congratulations! You passed the challenge!";
+    let nextStep = "You're ready for the next level!";
+    return [feedbackMessage, nextStep];
+}
+
+let message = congrats();
+
+function checkScore() {
+    if (totalScore === scoreTarget) {
+        congrats();
+        topDisplay.innerHTML = feedbackStructure;
+        gameToggle("home");
     } else {
         playGame();
     }
-    
 }
-
-console.log(feedbackMessage);
-console.log(nextStep);
 
 let feedbackStructure = `
 
     <div class="flex-rows">
         <div>
-            <p>${feedbackMessage}<p>
+            <p>${message[0]}</p>
         </div>
         <div class="single-image-display">
             <img src="assets/images/bee-icon.png" alt="a cartoon image of a bumble bee">
         </div>
         <div>
-            <p>${nextStep}</p>
+            <p>${message[1]}</p>
         </div>
     </div>
 `;
@@ -309,11 +312,10 @@ function addPoint() {
 
 // Event listener for submit answer button.  Runs checkAnswer function
 submitAnswer[0].addEventListener('click', checkAnswer);
+submitAnswer[0].addEventListener('click', checkScore);
 
 // Event listener for play button.  Runs playGame function
 const playButton = document.getElementById("play-game");
 playButton.addEventListener('click', runGame);
-
-
 
 
