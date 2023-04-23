@@ -101,6 +101,7 @@ const wordCollection = [
 ]
 
 gameToggle("home")
+changeDifficulty("easy");
 
 function gameToggle(display) {
     if (display === "home") {
@@ -180,7 +181,8 @@ function mediumDisplay() {
  * the score counter/ countdown timer, player controls and runs the playGame function.
  */
 function runGame() {
-    changeDifficulty("medium");
+    totalScore = 0;
+    // changeDifficulty("medium");
     gameToggle("game");
     playGame();
     // startClock();   
@@ -350,16 +352,17 @@ function addPoint() {
 submitAnswer[0].addEventListener('click', checkAnswer);
 submitAnswer[0].addEventListener('click', checkScore);
 
-// Event listener for play button.  Runs playGame function
-const playButton = document.getElementById("play-game");
-playButton.addEventListener('click', runGame);
-
 /**
- * Event listener for play button using bubbling
+ * Event listener for play button which triggers the runGame function.
+ * I had to research and implement Event Bubbling for this, as the event
+ * listener was not not working when I dynamically reloaded the html for
+ * the button after successful completion of a challenge.
+ * I used and tweaked code from the following article to get this working:
+ * https://dev.to/akhil_001/adding-event-listeners-to-the-future-dom-elements-using-event-bubbling-3cp1
  */
 
-function addCustomEventListener (selector, event, handler) {
-    let rootElement = document.querySelector('#body');
+function playButtonEventListener (selector, event, handler) {
+    let rootElement = document.querySelector('#display-main');
     //since the root element is set to be body for our current dealings
     rootElement.addEventListener(event, function (evt) {
             var targetElement = evt.target;
@@ -374,3 +377,5 @@ function addCustomEventListener (selector, event, handler) {
         true
     );
 }
+
+playButtonEventListener('#play-game','click', runGame );
