@@ -194,7 +194,6 @@ function runGame() {
     totalScore = 0;
     changeDifficulty(currentDifficulty);
     gameToggle("game");
-    challengeComplete = false;
     timeLeft = 60;
     startClock();
     playGame(); 
