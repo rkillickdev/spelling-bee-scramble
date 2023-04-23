@@ -195,28 +195,31 @@ function runGame() {
     changeDifficulty(currentDifficulty);
     gameToggle("game");
     playGame();
-    // startClock();   
+    startClock();   
 }
 
 /**
  * Starts countdown from time specified in timeLeft variable.  Inserts timeLeft into the HTML and sends a message to
  * the player once time has run out for the challenge.
  */
-// function startClock() {
-//     let startCountDown = setInterval(countDown, 1000);
-//     function countDown() {
-//         let timer = document.querySelector('#timer');
-//         timeLeft--;
-//         timer.innerText = timeLeft;
-//         if (timeLeft === 0) {
-//             clearInterval(startCountDown);
-//             let correctRequired = (scoreTarget - totalScore);
-//             infoDisplay.innerHTML = `Keep trying! You need ${correctRequired} more correct answers next time!`;
-    
-//             console.log(correctRequired);
-//         }
-//     }
-// }
+function startClock() {
+    let startCountDown = setInterval(countDown, 1000);
+    function countDown() {
+        let timer = document.querySelector('#timer');
+        timeLeft--;
+        timer.innerText = timeLeft;
+        if (timeLeft === 0) {
+            clearInterval(startCountDown);
+            let correctRequired = (scoreTarget - totalScore);
+            document.getElementById("feedback-info").classList.remove('flex');
+            document.getElementById("feedback-info").classList.add('flex-rows');
+            playerMessage.innerHTML = `<p>Keep trying!</p>`;
+            playerInstructions.innerHTML = `You need ${correctRequired} more correct answers next time!`;
+            displayMain.innerHTML = playButtonStructure;
+            console.log(correctRequired);
+        }
+    }
+}
 
 /**
  * Generates random word from challengeWords array, splits the individual letters into the 
