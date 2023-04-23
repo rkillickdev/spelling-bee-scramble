@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", function() {
+    changeDifficulty(currentDifficulty);
+    gameToggle("home")
+
+})
+
 let topDisplay = document.getElementById("top-display");
 
 let playerMessage = document.getElementById("player-message");
@@ -46,6 +52,8 @@ let scoreTarget = 2;
 let timeLeft = 60;
 
 let level = "";
+
+let currentDifficulty ="easy";
 
 let challengeWords = [];
 
@@ -100,9 +108,6 @@ const wordCollection = [
     }
 ]
 
-gameToggle("home")
-changeDifficulty("easy");
-
 function gameToggle(display) {
     if (display === "home") {
         controlsDisplay.style.visibility = "hidden";
@@ -112,7 +117,6 @@ function gameToggle(display) {
         controlsDisplay.style.visibility = "visible";
         document.getElementById("feedback-info").classList.remove('flex-rows');
         document.getElementById("feedback-info").classList.add('flex');
-        // REMOVE IF IDEA ABOVE WORKS
         playerMessage.innerHTML = `<div>Score: <span id="score">0</span></div>`
         playerInstructions.innerHTML = `<div>Time Remaining: <span id="timer">60</span></div>`;
     }
@@ -126,27 +130,31 @@ function gameToggle(display) {
 */
 function changeDifficulty(difficulty) {
     if (difficulty === "easy") {
-        easyDisplay();
+        // easyDisplay();
         wordCollection.forEach(function(collection) {
             if (collection.level === "easy" && collection.word.length === 4) {
                 challengeWords.push(collection);
             }
+        currentDifficulty = "easy";
         })
     } else if (difficulty === "medium") {
-        mediumDisplay(); 
+        // mediumDisplay(); 
         wordCollection.forEach(function(collection) {
             if (collection.level === "medium" && collection.word.length === 5) {
                 challengeWords.push(collection);
             }
+        currentDifficulty = "medium";
         })
     } else if (difficulty === "hard") {
         wordCollection.forEach(function(collection) {
             if (collection.level === "hard" && collection.word.length === 6) {
                 challengeWords.push(collection);
             }
+            currentDifficulty = "hard";
         })
     }   
 }
+
 
 /**
  * The 5th and 6th answer and scramble boxes are removed from display and grid
@@ -181,8 +189,10 @@ function mediumDisplay() {
  * the score counter/ countdown timer, player controls and runs the playGame function.
  */
 function runGame() {
+    // Clears challengeWords array before filling
+    challengeWords.length = 0;
     totalScore = 0;
-    // changeDifficulty("medium");
+    changeDifficulty(currentDifficulty);
     gameToggle("game");
     playGame();
     // startClock();   
@@ -216,10 +226,6 @@ function runGame() {
 function playGame() {
     playerAnswer.length = 0;
     clearAnswer();
-    // DELETE IF ABOVE WORKS
-    // for(let letter of answerLetters){
-    //     letter.innerHTML = "";
-    // }
     buttonArray.forEach(function(currentLetter) {
         currentLetter.disabled = false;
     });
@@ -237,7 +243,10 @@ function playGame() {
     // Retrieves image path from randomWord object and stores in the variable pictureHint  
     let pictureHint = randomWord.picture;
     displayMain.innerHTML = `<img src = "${pictureHint}">`;
+    console.log(challengeWords);
 }
+console.log(challengeWords);
+
 
 /**
  * Clears all answer boxes
@@ -316,31 +325,18 @@ function checkScore() {
         playerInstructions.innerHTML = `You're ready for the next level!`;
         clearAnswer();
         clearScramble();
+        if (currentDifficulty === "easy") {
+            currentDifficulty = "medium";
+        } else if (currentDifficulty === "medium") {
+            currentDifficulty = "hard";
+        }
         displayMain.innerHTML = playButtonStructure;
-        // REMOVE IF ABOVE WORKS
-        // topDisplay.innerHTML = feedbackStructure;
         gameToggle("home");
+        console.log(currentDifficulty);
     } else {
         playGame();
     } 
 }
-
-// DELETE IF NO LONGER NEEDED
-
-// let feedbackStructure = `
-
-//     <div class="flex-rows">
-//         <div>
-//             <p id="player-message"></p>
-//         </div>
-//         <div class="single-image-display">
-//             <img src="assets/images/bee-icon.png" alt="a cartoon image of a bumble bee">
-//         </div>
-//         <div>
-//             <p id="player-instructions"></p></p>
-//         </div>
-//     </div>
-// `;
 
 function addPoint() {
     let score = document.getElementById("score");
