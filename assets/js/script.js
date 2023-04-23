@@ -194,31 +194,40 @@ function runGame() {
     totalScore = 0;
     changeDifficulty(currentDifficulty);
     gameToggle("game");
-    playGame();
-    startClock();   
+    challengeComplete = false;
+    timeLeft = 60;
+    startClock();
+    playGame(); 
 }
+
+let startCountDown;
 
 /**
  * Starts countdown from time specified in timeLeft variable.  Inserts timeLeft into the HTML and sends a message to
  * the player once time has run out for the challenge.
  */
-function startClock() {
-    let startCountDown = setInterval(countDown, 1000);
-    function countDown() {
-        let timer = document.querySelector('#timer');
-        timeLeft--;
-        timer.innerText = timeLeft;
-        if (timeLeft === 0) {
-            clearInterval(startCountDown);
-            let correctRequired = (scoreTarget - totalScore);
-            document.getElementById("feedback-info").classList.remove('flex');
-            document.getElementById("feedback-info").classList.add('flex-rows');
-            playerMessage.innerHTML = `<p>Keep trying!</p>`;
-            playerInstructions.innerHTML = `You need ${correctRequired} more correct answers next time!`;
-            displayMain.innerHTML = playButtonStructure;
-            console.log(correctRequired);
-        }
+function countDown() {
+    let timer = document.querySelector('#timer');
+    timeLeft--;
+    timer.innerText = timeLeft;
+    if (timeLeft === 0) {
+        stopClock();
+        let correctRequired = (scoreTarget - totalScore);
+        document.getElementById("feedback-info").classList.remove('flex');
+        document.getElementById("feedback-info").classList.add('flex-rows');
+        playerMessage.innerHTML = `<p>Keep trying!</p>`;
+        playerInstructions.innerHTML = `You need ${correctRequired} more correct answers next time!`;
+        displayMain.innerHTML = playButtonStructure;
+        console.log(correctRequired);
     }
+}
+
+function startClock() {
+    startCountDown = setInterval(countDown, 1000);
+}
+
+function stopClock() {
+    clearInterval(startCountDown);     
 }
 
 /**
@@ -322,6 +331,7 @@ function checkAnswer() {
 
 function checkScore() {
     if (totalScore === scoreTarget) {
+        stopClock();
         document.getElementById("feedback-info").classList.remove('flex');
         document.getElementById("feedback-info").classList.add('flex-rows');
         playerMessage.innerHTML = `<p>Congratulations! You passed the challenge!</p>`;
@@ -335,7 +345,8 @@ function checkScore() {
         }
         displayMain.innerHTML = playButtonStructure;
         gameToggle("home");
-        console.log(currentDifficulty);
+        console.log(timeLeft);
+        console.log(challengeComplete);
     } else {
         playGame();
     } 
