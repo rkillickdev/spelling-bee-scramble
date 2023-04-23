@@ -61,18 +61,18 @@ const wordCollection = [
     {
         word: "pear",
         hint: "soft juicy fruit",
-        picture: "",
+        picture: "assets/images/pear-icon.png",
         description: "a green pear",
         level: "easy",
         category: "fruit"
     },
     {
-        word: "ball",
-        hint: "round rolling object",
-        picture: "",
-        description: "a ball",
+        word: "kiwi",
+        hint: "New Zealander",
+        picture: "assets/images/kiwi-food-icon.png",
+        description: "a kiwi fruit",
         level: "easy",
-        category: "sport"     
+        category: "fruit"     
     },
     {
         word: "peach",
@@ -80,7 +80,7 @@ const wordCollection = [
         picture: "assets/images/peach-fruit-icon.png",
         description: "a peach",
         level: "medium",
-        category: "animal"     
+        category: "fruit"     
     },
     {
         word: "APPLE",
@@ -93,7 +93,7 @@ const wordCollection = [
     {
         word: "carrot",
         hint: "orange vegetable",
-        picture: "",
+        picture: "assets/images/carrot-icon.png",
         description: "a carrot",
         level: "hard",
         category: "vegetable" 
@@ -101,7 +101,7 @@ const wordCollection = [
     {
         word: "cherry",
         hint: "small red fruit",
-        picture: "",
+        picture: "assets/images/cherries-icon.png",
         description: "a cherry",
         level: "hard",
         category: "fruit"       
