@@ -15,6 +15,13 @@ let infoDisplay = document.getElementById("display");
 
 let displayMain = document.getElementById("display-main");
 
+const playButtonStructure = `
+
+    <button type="button" id="play-game" class="control-button">
+        <img src="assets/images/go-icon.png" alt="round green go icon">
+    </button>
+`
+
 const scrambleDisplay = document.getElementById("scramble");
 
 let scrambleBoxes = document.getElementsByClassName("scramble-box");
@@ -34,7 +41,7 @@ let correctAnswer = "";
 let playerAnswer = [];
 
 let totalScore = 0;
-let scoreTarget = 1;
+let scoreTarget = 2;
 
 let timeLeft = 60;
 
@@ -105,8 +112,8 @@ function gameToggle(display) {
         document.getElementById("feedback-info").classList.remove('flex-rows');
         document.getElementById("feedback-info").classList.add('flex');
         // REMOVE IF IDEA ABOVE WORKS
-        // topDisplay.innerHTML = `<div>Score: <span id="score">0</span></div>
-        // <div>Time Remaining: <span id="timer">60</span></div>`;
+        playerMessage.innerHTML = `<div>Score: <span id="score">0</span></div>`
+        playerInstructions.innerHTML = `<div>Time Remaining: <span id="timer">60</span></div>`;
     }
 }
 
@@ -206,9 +213,11 @@ function runGame() {
  */
 function playGame() {
     playerAnswer.length = 0;
-    for(let letter of answerLetters){
-        letter.innerHTML = "";
-    }
+    clearAnswer();
+    // DELETE IF ABOVE WORKS
+    // for(let letter of answerLetters){
+    //     letter.innerHTML = "";
+    // }
     buttonArray.forEach(function(currentLetter) {
         currentLetter.disabled = false;
     });
@@ -226,6 +235,24 @@ function playGame() {
     // Retrieves image path from randomWord object and stores in the variable pictureHint  
     let pictureHint = randomWord.picture;
     displayMain.innerHTML = `<img src = "${pictureHint}">`;
+}
+
+/**
+ * Clears all answer boxes
+ */
+function clearAnswer() {
+    for(let letter of answerLetters){
+        letter.innerHTML = "";
+    }   
+}
+
+/**
+ * Clears all scramble boxes
+ */
+function clearScramble(){
+    for(let button of scrambleButtons){
+        button.innerHTML = "";
+    }
 }
 
 // Add event listeners for all boxes containing a scrambled letter
@@ -285,6 +312,9 @@ function checkScore() {
         document.getElementById("feedback-info").classList.add('flex-rows');
         playerMessage.innerHTML = `<p>Congratulations! You passed the challenge!</p>`;
         playerInstructions.innerHTML = `You're ready for the next level!`;
+        clearAnswer();
+        clearScramble();
+        displayMain.innerHTML = playButtonStructure;
         // REMOVE IF ABOVE WORKS
         // topDisplay.innerHTML = feedbackStructure;
         gameToggle("home");
@@ -324,4 +354,23 @@ submitAnswer[0].addEventListener('click', checkScore);
 const playButton = document.getElementById("play-game");
 playButton.addEventListener('click', runGame);
 
+/**
+ * Event listener for play button using bubbling
+ */
 
+function addCustomEventListener (selector, event, handler) {
+    let rootElement = document.querySelector('#body');
+    //since the root element is set to be body for our current dealings
+    rootElement.addEventListener(event, function (evt) {
+            var targetElement = evt.target;
+            while (targetElement != null) {
+                if (targetElement.matches(selector)) {
+                    handler(evt);
+                    return;
+                }
+                targetElement = targetElement.parentElement;
+            }
+        },
+        true
+    );
+}
