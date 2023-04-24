@@ -152,6 +152,12 @@ button {
     background-color: lightblue;
 }
 
+/* INSTRUCTIONS SECTION */
+
+.hidden {
+    display: none;
+}
+
 /* TOP DISPLAY SECTION */
 
 .single-image-display img {

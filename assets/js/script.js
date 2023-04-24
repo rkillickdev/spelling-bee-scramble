@@ -368,9 +368,26 @@ function addPoint() {
     score.innerText = totalScore;
 }
 
+/**
+ * Toggles the 'hidden' class to show and hide the instructions box.
+ */
+function toggleSettings() {
+    document.getElementById("instructions").classList.toggle('hidden');
+    topDisplay.classList.toggle('hidden');
+
+}
+
 // Event listener for submit answer button.  Runs checkAnswer function
 submitAnswer[0].addEventListener('click', checkAnswer);
 submitAnswer[0].addEventListener('click', checkScore);
+
+//Event listener for show instructions button.
+const showInstructions = document.getElementById("show-instructions");
+showInstructions.addEventListener('click',toggleSettings);
+
+//Event listener for hide instructions button.
+const hideInstructions = document.getElementById("hide-instructions");
+hideInstructions.addEventListener('click', toggleSettings);
 
 /**
  * Event listener for play button which triggers the runGame function.
