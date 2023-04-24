@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
+    challengeWords.length = 0;
     changeDifficulty(currentDifficulty);
     gameToggle("home");
+    usedWords.length = 0;
+    console.log(usedWords);
 })
 
 let topDisplay = document.getElementById("top-display");
@@ -155,7 +158,8 @@ function changeDifficulty(difficulty) {
             }
             currentDifficulty = "hard";
         })
-    }   
+    }
+    console.log("Challenge Words as game run" ,challengeWords);   
 }
 
 
@@ -205,14 +209,15 @@ function hardDisplay() {
  * the score counter/ countdown timer, player controls and runs the playGame function.
  */
 function runGame() {
-    // Clears challengeWords array before filling
+    // Clears challengeWords array before filling  
     challengeWords.length = 0;
+    // usedWords.length = 0;
     totalScore = 0;
     changeDifficulty(currentDifficulty);
     gameToggle("game");
     timeLeft = 60;
     startClock();
-    playGame(); 
+    playGame();
 }
 
 let startCountDown;
@@ -285,7 +290,9 @@ function generateWord() {
         displayMain.innerHTML = `<img src = "${pictureHint}">`;
         // Finds index of the random word within the challengeWords array.
         chosenWord = challengeWords.indexOf(randomWord);
-    }    
+        console.log("Index of chosen word:" , chosenWord);
+    }
+    handleOldWords();    
 }
     
 
@@ -350,16 +357,14 @@ console.log(playerAnswer);
  * against the correct answer.
  */
 function checkAnswer() {
+    // handleOldWords();
     let submittedAnswer = playerAnswer.join("");
     if (submittedAnswer === correctAnswer) {
         addPoint();
     } else {
         alert("Incorrect!")
     }
-    handleOldWords();
 }
-
-console.log(challengeWords);
 
 /**
  * Removes the word that has just been displayed from the
@@ -373,18 +378,24 @@ function handleOldWords() {
     let removedWord = challengeWords.splice(chosenWord);
     // Gets object from the returned array 
     let wordUsed = removedWord[0];
+    removedWord.length = 0;
     // Stores in a new array called usedWords
     usedWords.push(wordUsed);
     console.log("Removed:", removedWord);
+    console.log("Object removed from array:", wordUsed )
     console.log("Array of used Words:" ,usedWords);
-    console.log(challengeWords);
-    if (challengeWords.length === 0) {
-        challengeWords = usedWords;    
-    }
+    console.log("Challenge Words after removal" ,challengeWords);
+    // THIS COULD BE CAUSING PROBLEM AS CHALLENEG WORDS LENGTH IS SET TO ZERO FOR EACH NEW GAME
+    // if (challengeWords.length === 0) {
+    //     challengeWords = usedWords;    
+    // }
+    // 
 }
 
 function checkScore() {
     if (totalScore === scoreTarget) {
+        // challengeWords.length = 0;
+        usedWords.length = 0;
         stopClock();
         document.getElementById("feedback-info").classList.remove('flex');
         document.getElementById("feedback-info").classList.add('flex-rows');
