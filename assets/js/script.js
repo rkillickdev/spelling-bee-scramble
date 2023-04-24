@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     changeDifficulty(currentDifficulty);
-    gameToggle("home")
-
+    easyDisplay();
+    gameToggle("home");
 })
 
 let topDisplay = document.getElementById("top-display");
@@ -130,7 +130,6 @@ function gameToggle(display) {
 */
 function changeDifficulty(difficulty) {
     if (difficulty === "easy") {
-        // easyDisplay();
         wordCollection.forEach(function(collection) {
             if (collection.level === "easy" && collection.word.length === 4) {
                 challengeWords.push(collection);
@@ -138,7 +137,7 @@ function changeDifficulty(difficulty) {
         currentDifficulty = "easy";
         })
     } else if (difficulty === "medium") {
-        // mediumDisplay(); 
+        mediumDisplay(); 
         wordCollection.forEach(function(collection) {
             if (collection.level === "medium" && collection.word.length === 5) {
                 challengeWords.push(collection);
@@ -146,6 +145,7 @@ function changeDifficulty(difficulty) {
         currentDifficulty = "medium";
         })
     } else if (difficulty === "hard") {
+        hardDisplay();       
         wordCollection.forEach(function(collection) {
             if (collection.level === "hard" && collection.word.length === 6) {
                 challengeWords.push(collection);
@@ -157,31 +157,44 @@ function changeDifficulty(difficulty) {
 
 
 /**
- * The 5th and 6th answer and scramble boxes are removed from display and grid
- * set to a 4 column layout.
+ * The 5th and 6th answer and scramble boxes are hidden from display but remain in 
+ * the DOM.  Grid set to a 4 column layout using the grid-tiles-4-class.
  */
 function easyDisplay() {
-    answerBoxes[5].remove();
-    answerBoxes[4].remove();
-    scrambleBoxes[5].remove();
-    scrambleBoxes[4].remove();
-    document.getElementById("answer-tiles").classList.remove('grid-tiles-6');
-    document.getElementById("answer-tiles").classList.add('grid-tiles-4');
-    document.getElementById("scramble-tiles").classList.remove('grid-tiles-6');
-    document.getElementById("scramble-tiles").classList.add('grid-tiles-4');
+    answerBoxes[4].style.display = 'none';
+    answerBoxes[5].style.display = 'none';
+    scrambleBoxes[5].style.display = 'none';
+    scrambleBoxes[4].style.display = 'none';
+    document.getElementById("answer-tiles").classList.toggle('grid-tiles-4');
+    document.getElementById("scramble-tiles").classList.toggle('grid-tiles-4');    
 }
 
 /**
- * The 6th answer and scramble box are removed from display and grid
- * set to a 5 column layout.
+ * The 6th answer and scramble box is hidden from display but remains in 
+ * the DOM.  Grid set to a 5 column layout using the grid-tiles-5-class.
  */
 function mediumDisplay() {
-    answerBoxes[5].remove();
-    scrambleBoxes[5].remove();
-    document.getElementById("answer-tiles").classList.remove('grid-tiles-6');
-    document.getElementById("answer-tiles").classList.add('grid-tiles-5');
-    document.getElementById("scramble-tiles").classList.remove('grid-tiles-6');
-    document.getElementById("scramble-tiles").classList.add('grid-tiles-5');
+    answerBoxes[4].style.display = 'block';
+    scrambleBoxes[4].style.display = 'block';
+    document.getElementById("answer-tiles").classList.toggle('grid-tiles-4');
+    document.getElementById("scramble-tiles").classList.toggle('grid-tiles-4'); 
+    document.getElementById("answer-tiles").classList.toggle('grid-tiles-5');
+    document.getElementById("scramble-tiles").classList.toggle('grid-tiles-5');
+}
+
+/**
+ * All 6 answer and scramble boxes are displayed.  Grid set to a 6 column layout
+ * using the grid-tiles-6-class. 
+ */
+function hardDisplay() {
+    answerBoxes[4].style.display = 'block';
+    answerBoxes[5].style.display = 'block';
+    scrambleBoxes[5].style.display = 'block';
+    scrambleBoxes[4].style.display = 'block'; 
+    document.getElementById("answer-tiles").classList.toggle('grid-tiles-5');
+    document.getElementById("scramble-tiles").classList.toggle('grid-tiles-5');
+    document.getElementById("answer-tiles").classList.toggle('grid-tiles-6');
+    document.getElementById("scramble-tiles").classList.toggle('grid-tiles-6');     
 }
 
 /**
