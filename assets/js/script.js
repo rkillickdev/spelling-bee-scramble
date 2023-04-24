@@ -2,8 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     challengeWords.length = 0;
     changeDifficulty(currentDifficulty);
     gameToggle("home");
-    usedWords.length = 0;
-    console.log(usedWords);
+    console.log("Used Words at doc load:", usedWords);
 })
 
 let topDisplay = document.getElementById("top-display");
@@ -61,7 +60,7 @@ let challengeWords = [];
 
 let chosenWord;
 
-const usedWords =[];
+let usedWords =[];
 
 const wordCollection = [
     {
@@ -291,9 +290,38 @@ function generateWord() {
         // Finds index of the random word within the challengeWords array.
         chosenWord = challengeWords.indexOf(randomWord);
         console.log("Index of chosen word:" , chosenWord);
+        // handleOldWords();
     }
-    handleOldWords();    
+        
 }
+
+
+/**
+ * Removes the word that has just been displayed from the
+ * challengeWords array to prevent it being chosen again.
+ * These removed words are stored in a new array called usedWords.
+ * If there are no more words left in the challengeWords array,
+ * it is refilled with the usedWords.  This function is to help
+ * with duplicate words being generated during a game.
+ */
+// function handleOldWords() {
+//     let removedWord = challengeWords.splice(chosenWord);
+//     // Gets object from the returned array 
+//     // POSSIBLY NOT NEEDED?
+//     // let wordUsed = removedWord[0];
+//     // Stores in a new array called usedWords
+//     usedWords.push(removedWord[0]);
+//     removedWord.length = 0;
+//     console.log("Removed:", removedWord);
+//     // console.log("Object removed from array:", wordUsed )
+//     console.log("Array of used Words:" ,usedWords);
+//     console.log("Challenge Words after removal" ,challengeWords);
+//     // THIS COULD BE CAUSING PROBLEM AS CHALLENEG WORDS LENGTH IS SET TO ZERO FOR EACH NEW GAME
+//     // if (challengeWords.length === 0) {
+//     //     challengeWords = usedWords;    
+//     // }
+//     // 
+// }
     
 
 /**
@@ -337,8 +365,6 @@ buttonArray.forEach(function(currentLetter) {
     });  
 });
 
-console.log(playerAnswer);
-
 /**
  * Removes the last item in the playerAnswer array
  */
@@ -348,9 +374,6 @@ function backSpace() {
 
 // Event listener for backspace button which triggers the backSpace function on click
 removeLetter.addEventListener('click', backSpace);
-
-console.log(playerAnswer);
-
 
 /**
  * Turns the playerAnswer array into a string and compares this
@@ -366,36 +389,10 @@ function checkAnswer() {
     }
 }
 
-/**
- * Removes the word that has just been displayed from the
- * challengeWords array to prevent it being chosen again.
- * These removed words are stored in a new array called usedWords.
- * If there are no more words left in the challengeWords array,
- * it is refilled with the usedWords.  This function is to help
- * with duplicate words being generated during a game.
- */
-function handleOldWords() {
-    let removedWord = challengeWords.splice(chosenWord);
-    // Gets object from the returned array 
-    let wordUsed = removedWord[0];
-    removedWord.length = 0;
-    // Stores in a new array called usedWords
-    usedWords.push(wordUsed);
-    console.log("Removed:", removedWord);
-    console.log("Object removed from array:", wordUsed )
-    console.log("Array of used Words:" ,usedWords);
-    console.log("Challenge Words after removal" ,challengeWords);
-    // THIS COULD BE CAUSING PROBLEM AS CHALLENEG WORDS LENGTH IS SET TO ZERO FOR EACH NEW GAME
-    // if (challengeWords.length === 0) {
-    //     challengeWords = usedWords;    
-    // }
-    // 
-}
-
 function checkScore() {
     if (totalScore === scoreTarget) {
         // challengeWords.length = 0;
-        usedWords.length = 0;
+        // usedWords.length = 0;
         stopClock();
         document.getElementById("feedback-info").classList.remove('flex');
         document.getElementById("feedback-info").classList.add('flex-rows');
