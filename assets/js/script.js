@@ -344,8 +344,6 @@ function checkScore() {
         }
         displayMain.innerHTML = playButtonStructure;
         gameToggle("home");
-        console.log(timeLeft);
-        console.log(challengeComplete);
     } else {
         playGame();
     } 
