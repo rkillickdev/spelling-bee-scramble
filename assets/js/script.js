@@ -46,7 +46,7 @@ let correctAnswer = "";
 let playerAnswer = [];
 
 let totalScore = 0;
-let scoreTarget = 2;
+let scoreTarget = 5;
 
 let timeLeft = 60;
 
@@ -55,6 +55,10 @@ let level = "";
 let currentDifficulty ="easy";
 
 let challengeWords = [];
+
+let chosenWord;
+
+const usedWords =[];
 
 const wordCollection = [
     {
@@ -245,6 +249,9 @@ function stopClock() {
  * Generates random word from challengeWords array, splits the individual letters into the 
  * wordLetters array and scrambles these in a random order.
  * I used the following tutorial to help with coding this: https://www.youtube.com/watch?v=4-s3g_fU7Vg
+ * At the end of the function, the index of random word is stored in the variable chosenWord.  This is
+ * used in the handleOldWords function to remove a word form the challengeWords once it has ben used, so
+ * the same words do not keep coming up.
  */
 function playGame() {
     playerAnswer.length = 0;
@@ -266,10 +273,8 @@ function playGame() {
     // Retrieves image path from randomWord object and stores in the variable pictureHint  
     let pictureHint = randomWord.picture;
     displayMain.innerHTML = `<img src = "${pictureHint}">`;
-    console.log(challengeWords);
+    chosenWord = challengeWords.indexOf(randomWord);
 }
-console.log(challengeWords);
-
 
 /**
  * Clears all answer boxes
@@ -337,6 +342,29 @@ function checkAnswer() {
         addPoint();
     } else {
         alert("Incorrect!")
+    }
+    handleOldWords();
+}
+
+/**
+ * Removes the word that has just been displayed from the
+ * challengeWords array to prevent it being chosen again.
+ * These removed words are stored in a new array called usedWords.
+ * If there are no more words left in the challengeWords array,
+ * it is refilled with the usedWords.  This function is to help
+ * with duplicate words being generated during a game.
+ */
+function handleOldWords() {
+    let removedWord = challengeWords.splice(chosenWord);
+    // Gets object from the returned array 
+    let wordUsed = removedWord[0];
+    // Stores in a new array called usedWords
+    usedWords.push(wordUsed);
+    console.log("Removed:", removedWord);
+    console.log("Array of used Words:" ,usedWords);
+    console.log(challengeWords);
+    if (challengeWords.length === 0) {
+        challengeWords = usedWords;    
     }
 }
 
