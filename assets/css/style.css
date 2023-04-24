@@ -18,7 +18,16 @@
 }
 
 body {
+    line-height: 1.6;
     background-color: var(--tertiary-color);
+}
+
+h1, h2 {
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;    
 }
 
 img {
