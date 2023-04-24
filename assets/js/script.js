@@ -46,7 +46,7 @@ let correctAnswer = "";
 let playerAnswer = [];
 
 let totalScore = 0;
-let scoreTarget = 5;
+let scoreTarget = 2;
 
 let timeLeft = 60;
 
@@ -245,20 +245,26 @@ function stopClock() {
     clearInterval(startCountDown);     
 }
 
-/**
- * Generates random word from challengeWords array, splits the individual letters into the 
- * wordLetters array and scrambles these in a random order.
- * I used the following tutorial to help with coding this: https://www.youtube.com/watch?v=4-s3g_fU7Vg
- * At the end of the function, the index of random word is stored in the variable chosenWord.  This is
- * used in the handleOldWords function to remove a word form the challengeWords once it has ben used, so
- * the same words do not keep coming up.
- */
 function playGame() {
     playerAnswer.length = 0;
     clearAnswer();
     buttonArray.forEach(function(currentLetter) {
         currentLetter.disabled = false;
     });
+    generateWord();
+}
+
+/**
+ * Generates random word from challengeWords array, splits the individual letters into the 
+ * wordLetters array and scrambles these in a random order.
+ * I used the following tutorial to help with coding this: https://www.youtube.com/watch?v=4-s3g_fU7Vg
+ * The scrambled word is checked against the correct answer to make sure they are never the same.  If this
+ * evaluates to false, the scramble boxes are populated with the scrambled letters.
+ * At the end of the function, the index of random word is stored in the variable chosenWord.  This is
+ * used in the handleOldWords function to remove a word form the challengeWords once it has ben used, so
+ * the same words do not keep coming up.
+ */
+function generateWord() {
     let randomWord = challengeWords[Math.floor(Math.random() * challengeWords.length)];
     correctAnswer = randomWord.word;
     let wordLetters = correctAnswer.split("");
@@ -266,15 +272,22 @@ function playGame() {
         let y = Math.floor(Math.random() * (x + 1));
         [wordLetters[x], wordLetters[y]] = [wordLetters[y], wordLetters[x]];
     }
-    // Populate each scramble box with a letter from the scrambled word
-    wordLetters.forEach((letter, index) => {
-        scrambleButtons[index].innerHTML = letter;
-      });
-    // Retrieves image path from randomWord object and stores in the variable pictureHint  
-    let pictureHint = randomWord.picture;
-    displayMain.innerHTML = `<img src = "${pictureHint}">`;
-    chosenWord = challengeWords.indexOf(randomWord);
+    let scrambledString = wordLetters.join("");
+    if (scrambledString === correctAnswer) {
+        return;
+    } else {
+        // Populate each scramble box with a letter from the scrambled word
+        wordLetters.forEach((letter, index) => {
+            scrambleButtons[index].innerHTML = letter;
+        });
+        // Retrieves image path from randomWord object and stores in the variable pictureHint  
+        let pictureHint = randomWord.picture;
+        displayMain.innerHTML = `<img src = "${pictureHint}">`;
+        // Finds index of the random word within the challengeWords array.
+        chosenWord = challengeWords.indexOf(randomWord);
+    }    
 }
+    
 
 /**
  * Clears all answer boxes
@@ -346,6 +359,8 @@ function checkAnswer() {
     handleOldWords();
 }
 
+console.log(challengeWords);
+
 /**
  * Removes the word that has just been displayed from the
  * challengeWords array to prevent it being chosen again.
@@ -381,6 +396,8 @@ function checkScore() {
             currentDifficulty = "medium";
         } else if (currentDifficulty === "medium") {
             currentDifficulty = "hard";
+        } else if (currentDifficulty === "hard") {
+            hardDisplay();
         }
         displayMain.innerHTML = playButtonStructure;
         gameToggle("home");
