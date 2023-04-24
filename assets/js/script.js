@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
     changeDifficulty(currentDifficulty);
-    easyDisplay();
     gameToggle("home");
 })
 
@@ -163,8 +162,8 @@ function changeDifficulty(difficulty) {
 function easyDisplay() {
     answerBoxes[4].style.display = 'none';
     answerBoxes[5].style.display = 'none';
-    scrambleBoxes[5].style.display = 'none';
     scrambleBoxes[4].style.display = 'none';
+    scrambleBoxes[5].style.display = 'none';
     document.getElementById("answer-tiles").classList.toggle('grid-tiles-4');
     document.getElementById("scramble-tiles").classList.toggle('grid-tiles-4');    
 }
