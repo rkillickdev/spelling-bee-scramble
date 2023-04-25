@@ -342,7 +342,19 @@ let correctUpperAnswer = correctAnswer.toUpperCase();
 
 ```
 
-An alternative would be to have all words stored in uppercase within the wordCollection array of objects. 
+An alternative would be to have all words stored in uppercase within the wordCollection array of objects.
+
+<br>
+
+A problem I encountered while testing during the build was that somtimes the scrambled word would infact be the correct spelling.  To prevent this happening I modified the generateWord function and added the following line of code:
+
+```js
+
+    if (scrambledString === correctAnswer) {
+        return;
+    }
+
+```
 
 # **Credits**
 
