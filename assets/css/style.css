@@ -172,8 +172,17 @@ button {
 /* NAVIGATION MENU */
 
 .navbar {
-    height:60px;
+    height:auto;
     background-color: lightblue;
+}
+
+.settings-icon {
+    padding: var(--spacing-xs) var(--spacing-xs);
+    /* margin: 0 var(--spacing-xs); */
+}
+
+.help-icon {
+    padding: var(--spacing-xs) 0;    
 }
 
 /* INSTRUCTIONS SECTION */
