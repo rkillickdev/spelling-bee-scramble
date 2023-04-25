@@ -30,7 +30,7 @@ body {
 }
 
 h1, h2 {
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-medium);
     font-weight: 500;
     line-height: 1.2;
     text-transform: uppercase;
@@ -183,13 +183,13 @@ button {
 }
 
 #instructions {
-    height: 220px;
+    height: 200px;
 }
 
 /* TOP DISPLAY SECTION */
 
 #top-display {
-    height: 220px;
+    height: 200px;
 }
 
 .single-image-display {
