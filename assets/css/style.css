@@ -14,6 +14,7 @@
     --font-size-large: 2rem;
     --font-size-xl: 3rem;
     --font-size-xxl: 4rem;
+    --font-size-xxxl: 5rem;
 }
 
 * {
@@ -105,6 +106,7 @@ button {
 }
 .grid-tiles-2 {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0 var(--spacing-m);
 }
 
 .grid-tiles-4 {
@@ -175,9 +177,9 @@ button {
 .flex-rows {
     display: flex;
     flex-direction: column;
-    height: 100%;
     align-items: center;
     text-align: center;
+    width: 100%;
 }
 
 .text-center {
@@ -213,10 +215,6 @@ button {
 
 /* TOP DISPLAY SECTION */
 
-#top-display {
-    height: 200px;
-}
-
 .single-image-display {
     width: 100px;
     display: block;
@@ -231,9 +229,25 @@ button {
     margin-right: auto;   
 }
 
-/* #feedback-info {
-    height: 220px;
-} */
+.counters {
+    font-size: var(--font-size-xxxl);
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+#score {
+    color: #3AAF3C;
+    width: 100%;
+}
+
+#timer {
+    color: red;
+    width: 100%;
+}
+
+#top-display {
+    height: 200px;
+}
 
 /* ANSWER BOX SECTION */
 

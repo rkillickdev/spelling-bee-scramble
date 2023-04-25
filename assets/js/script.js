@@ -22,6 +22,38 @@ let infoDisplay = document.getElementById("display");
 
 let displayMain = document.getElementById("display-main");
 
+const scoreBox = `
+
+    <div class="grid grid-tiles-2" >
+        <div class="flex-rows">
+            <h2>Score</h2>   
+            <div id="score" class="counters">0</div>
+        </div>
+        <div class="flex-rows">
+            <h2>Time</h2>
+            <div id="timer" class="counters">60</div>
+        </div>
+    </div>
+
+`
+const congratsMessage = `
+
+    <section id="top-display" class="master-container">
+        <div id="feedback-info" class="flex-rows">
+            <div id= "player-message">
+                <h1>Congratulations... you did it!</h1>
+            </div>
+            <div class="single-image-display">
+                <img src="assets/images/star-symbol-icon.png" alt="a gold star">
+            </div>
+            <div id= "player-instructions">
+                <h2>You're ready for the next level...</h2>
+            </div>
+        </div>
+    </section>
+
+`
+
 const playButtonStructure = `
 
     <button type="button" id="play-game" class="control-button">
@@ -122,8 +154,7 @@ function gameToggle(display) {
         controlsDisplay.style.visibility = "visible";
         document.getElementById("feedback-info").classList.remove('flex-rows');
         document.getElementById("feedback-info").classList.add('flex');
-        playerMessage.innerHTML = `<div>Score: <span id="score">0</span></div>`
-        playerInstructions.innerHTML = `<div>Time Remaining: <span id="timer">60</span></div>`;
+        topDisplay.innerHTML = scoreBox;
     }
 }
 
