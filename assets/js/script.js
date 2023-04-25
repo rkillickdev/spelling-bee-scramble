@@ -291,8 +291,7 @@ function generateWord() {
         chosenWord = challengeWords.indexOf(randomWord);
         console.log("Index of chosen word:" , chosenWord);
         // handleOldWords();
-    }
-        
+    }   
 }
 
 
@@ -382,12 +381,15 @@ removeLetter.addEventListener('click', backSpace);
 function checkAnswer() {
     // handleOldWords();
     let submittedAnswer = playerAnswer.join("");
-    if (submittedAnswer === correctAnswer) {
+    let correctUpperAnswer = correctAnswer.toUpperCase();
+    if (submittedAnswer === correctUpperAnswer) {
         addPoint();
     } else {
         alert("Incorrect!")
     }
 }
+
+
 
 function checkScore() {
     if (totalScore === scoreTarget) {
