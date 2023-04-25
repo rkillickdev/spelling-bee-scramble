@@ -246,7 +246,7 @@ button {
 }
 
 #top-display {
-    height: 200px;
+    height: auto;
 }
 
 /* ANSWER BOX SECTION */

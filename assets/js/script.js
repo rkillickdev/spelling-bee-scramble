@@ -38,19 +38,17 @@ const scoreBox = `
 `
 const congratsMessage = `
 
-    <section id="top-display" class="master-container">
-        <div id="feedback-info" class="flex-rows">
-            <div id= "player-message">
-                <h1>Congratulations... you did it!</h1>
-            </div>
-            <div class="single-image-display">
-                <img src="assets/images/star-symbol-icon.png" alt="a gold star">
-            </div>
-            <div id= "player-instructions">
-                <h2>You're ready for the next level...</h2>
-            </div>
+    <div id="feedback-info" class="flex-rows">
+        <div id= "player-message">
+            <h1>Congratulations... you did it!</h1>
         </div>
-    </section>
+        <div class="single-image-display">
+            <img src="assets/images/star-symbol-icon.png" alt="a gold star">
+        </div>
+        <div id= "player-instructions">
+            <h2>You're ready for the next level...</h2>
+        </div>
+    </div>    
 
 `
 
@@ -427,10 +425,11 @@ function checkScore() {
         // challengeWords.length = 0;
         // usedWords.length = 0;
         stopClock();
-        document.getElementById("feedback-info").classList.remove('flex');
-        document.getElementById("feedback-info").classList.add('flex-rows');
-        playerMessage.innerHTML = `<p>Congratulations! You passed the challenge!</p>`;
-        playerInstructions.innerHTML = `You're ready for the next level!`;
+        topDisplay.innerHTML = congratsMessage;
+        // document.getElementById("feedback-info").classList.remove('flex');
+        // document.getElementById("feedback-info").classList.add('flex-rows');
+        // playerMessage.innerHTML = `<p>Congratulations! You passed the challenge!</p>`;
+        // playerInstructions.innerHTML = `You're ready for the next level!`;
         clearAnswer();
         clearScramble();
         if (currentDifficulty === "easy") {
