@@ -49,6 +49,13 @@ button {
 
 /* UTILITIES */
 
+.master-container {
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 0 30px;    
+}
+
 .container {
     max-width: 550px;
     margin: 0 auto;
