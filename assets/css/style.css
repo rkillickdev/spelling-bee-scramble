@@ -25,8 +25,18 @@
 /* Solution to making font size responsive found at https://matthewjamestaylor.com/responsive-font-size */
 body {
     font-size: calc(15px + 0.390625vw);
+    color: var(--secondary-color);
     line-height: 1.6;
     background-color: var(--tertiary-color);
+}
+
+ul {
+    list-style-type: none;    
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 h1, h2 {
@@ -37,8 +47,13 @@ h1, h2 {
     letter-spacing: 3px;    
 }
 
+h2 {
+    margin-bottom: var(--spacing-xs);
+}
+
 i {
     font-size: var(--font-size-xl);
+    color: var(--secondary-color);
 }
 
 img {
@@ -162,6 +177,7 @@ button {
     flex-direction: column;
     height: 100%;
     align-items: center;
+    text-align: center;
 }
 
 .text-center {
@@ -173,7 +189,7 @@ button {
 
 .navbar {
     height:auto;
-    background-color: lightblue;
+    background-color: var(--primary-color);
 }
 
 .settings-icon {
@@ -185,14 +201,14 @@ button {
     padding: var(--spacing-xs) 0;    
 }
 
+.clear-icon {
+    padding: var(--spacing-xs) 0;
+}
+
 /* INSTRUCTIONS SECTION */
 
 .hidden {
     display: none;
-}
-
-#instructions {
-    height: 200px;
 }
 
 /* TOP DISPLAY SECTION */
