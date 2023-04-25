@@ -96,28 +96,20 @@ button {
     grid-template-columns: repeat(4, 1fr);
 }
 
-.grid-tiles-4 .scramble-button , .answer-letter {
-    font-size: var(--font-size-medium);
-    text-transform: uppercase;
-}
-
 .grid-tiles-5 {
     grid-template-columns: repeat(5, 1fr);
-}
-
-.grid-tiles-5 .scramble-button , .answer-letter {
-    font-size: var(--font-size-medium);
-    text-transform: uppercase;
 }
 
 .grid-tiles-6 {
     grid-template-columns: repeat(6, 1fr);
 }
 
-.grid-tiles-6 .scramble-button , .answer-letter {
-    font-size: var(--font-size-medium);
+#answer-tiles , #scramble-tiles .scramble-button , .answer-letter {
+    font-size: calc(var(--font-size-medium) + 0.390625vw);
     text-transform: uppercase;
-}
+    line-height: normal;
+    margin: auto;    
+} 
 
 .button-container {
     position: relative;
@@ -149,7 +141,6 @@ button {
     object-fit: cover;
     margin: 0 auto;
     font-family: sans-serif;
-    /* font-size: calc(15px + 0.390625vw); */
     border-radius: 5px;
 }
 
@@ -234,7 +225,6 @@ button {
     max-width: fit-content;
     max-height: fit-content;
     object-fit: cover;
-    margin: 0 auto;
     font-family: sans-serif;
     border-radius: 5px;
     display: block;
