@@ -332,6 +332,18 @@ function addPoint() {
 
 ```
 
+<br>
+
+When I decided to display the scramble and answer letters as uppercase, the checkAnswer function stopped working so even if my spelling was correct, it did not recognise this as a correct answer. I realised that the correctAnswer variable as set in the generateWord function needed to be in uppercase before checking the submittedAnswer against this.  I wrote the following code to achieve this:
+
+```js
+
+let correctUpperAnswer = correctAnswer.toUpperCase();
+
+```
+
+An alternative would be to have all words stored in uppercase within the wordCollection array of objects. 
+
 # **Credits**
 
 ## **Code Used**
