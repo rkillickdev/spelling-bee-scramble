@@ -54,7 +54,7 @@ h2 {
 }
 
 i {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-large);
     color: var(--secondary-color);
 }
 
@@ -196,12 +196,11 @@ button {
 }
 
 .settings-icon {
-    padding: var(--spacing-xs) var(--spacing-xs);
-    /* margin: 0 var(--spacing-xs); */
+    margin: var(--spacing-xs) var(--spacing-xs);
 }
 
 .help-icon {
-    padding: var(--spacing-xs) 0;    
+    margin: var(--spacing-xs) 0;    
 }
 
 .clear-icon {
