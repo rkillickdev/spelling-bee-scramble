@@ -79,7 +79,7 @@ button {
     max-width: 900px;
     overflow: auto;
     padding: 0 30px;
-    margin: var(--spacing-xs) auto;    
+    margin: var(--spacing-s) auto;    
 }
 
 .container {
