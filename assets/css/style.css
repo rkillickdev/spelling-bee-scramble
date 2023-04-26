@@ -50,6 +50,7 @@ h1, h2 {
 
 h2 {
     margin-bottom: var(--spacing-xs);
+    line-height: normal;
 }
 
 i {
@@ -232,6 +233,7 @@ button {
 .counters {
     font-size: var(--font-size-xxxl);
     background-color: var(--primary-color);
+    line-height: normal;
     border-radius: 5px;
 }
 
@@ -279,6 +281,10 @@ button {
 
 #display-main {
     align-content: center;
+}
+
+#display-main.single-image-display {
+    margin: 0 auto;
 }
 
 /* SCRAMBLED WORD SECTION */
