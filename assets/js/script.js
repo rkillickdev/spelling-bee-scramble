@@ -150,7 +150,7 @@ function gameToggle(display) {
 function changeDifficulty(difficulty) {
     if (difficulty === "easy") {
         nextStep = "You're ready for the next level...";
-        console.log(nextStep);
+        easyDisplay();  
         wordCollection.forEach(function(collection) {
             if (collection.level === "easy" && collection.word.length === 4) {
                 challengeWords.push(collection);
@@ -159,7 +159,6 @@ function changeDifficulty(difficulty) {
         })
     } else if (difficulty === "medium") {
         nextStep = "You're doing great...";
-        console.log(nextStep);
         mediumDisplay(); 
         wordCollection.forEach(function(collection) {
             if (collection.level === "medium" && collection.word.length === 5) {
@@ -190,8 +189,8 @@ function easyDisplay() {
     answerBoxes[5].style.display = 'none';
     scrambleBoxes[4].style.display = 'none';
     scrambleBoxes[5].style.display = 'none';
-    document.getElementById("answer-tiles").classList.toggle('grid-tiles-4');
-    document.getElementById("scramble-tiles").classList.toggle('grid-tiles-4');    
+    document.getElementById("answer-tiles").className = "grid grid-tiles-4";
+    document.getElementById("scramble-tiles").className = "grid grid-tiles-4";    
 }
 
 /**
@@ -201,10 +200,8 @@ function easyDisplay() {
 function mediumDisplay() {
     answerBoxes[4].style.display = 'block';
     scrambleBoxes[4].style.display = 'block';
-    document.getElementById("answer-tiles").classList.toggle('grid-tiles-4');
-    document.getElementById("scramble-tiles").classList.toggle('grid-tiles-4'); 
-    document.getElementById("answer-tiles").classList.toggle('grid-tiles-5');
-    document.getElementById("scramble-tiles").classList.toggle('grid-tiles-5');
+    document.getElementById("answer-tiles").className = "grid grid-tiles-5";
+    document.getElementById("scramble-tiles").className = "grid grid-tiles-5"; 
 }
 
 /**
@@ -215,11 +212,9 @@ function hardDisplay() {
     answerBoxes[4].style.display = 'block';
     answerBoxes[5].style.display = 'block';
     scrambleBoxes[5].style.display = 'block';
-    scrambleBoxes[4].style.display = 'block'; 
-    document.getElementById("answer-tiles").classList.toggle('grid-tiles-5');
-    document.getElementById("scramble-tiles").classList.toggle('grid-tiles-5');
-    document.getElementById("answer-tiles").classList.toggle('grid-tiles-6');
-    document.getElementById("scramble-tiles").classList.toggle('grid-tiles-6');     
+    scrambleBoxes[4].style.display = 'block';
+    document.getElementById("answer-tiles").className = "grid grid-tiles-6";
+    document.getElementById("scramble-tiles").className = "grid grid-tiles-6";     
 }
 
 /**
@@ -422,7 +417,7 @@ function checkScore() {
         } else if (currentDifficulty === "medium") {
             currentDifficulty = "hard";
         } else if (currentDifficulty === "hard") {
-            // hardDisplay();
+            hardDisplay();
         }
         let levelMessage = nextStep;
         topDisplay.innerHTML = `

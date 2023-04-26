@@ -115,6 +115,10 @@ button {
     grid-template-columns: repeat(6, 1fr);
 }
 
+.grid-tiles-complete {
+    grid-template-columns: repeat(6, 1fr);    
+}
+
 #answer-tiles , #scramble-tiles .scramble-button , .answer-letter {
     font-size: calc(var(--font-size-medium) + 0.390625vw);
     text-transform: uppercase;
