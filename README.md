@@ -371,6 +371,19 @@ document.getElementById("scramble-tiles").className = "grid grid-tiles-4";
 
 ```
 
+<br>After implementing the code to switch difficulty level in the settings page, I found a bug where if you tried to set the level from hard to medium, the sixth answer and sramble box remained visible rather than hidden as expected:
+
+![Hard to medium level setting bug displays too many boxes](docs/bugs/gifs/hard-to-medium-setting-bug.gif)
+
+On investigating my function mediumDisplay, I realised that I had not specified what should happen to these boxes.  On adding the two lines of code shown below, the bug was resolved:
+
+```js
+
+answerBoxes[5].style.display = 'none';
+scrambleBoxes[5].style.display = 'none';
+
+```
+
 # **Credits**
 
 ## **Code Used**
