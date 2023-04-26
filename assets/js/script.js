@@ -141,6 +141,8 @@ function gameToggle(display) {
     }
 }
 
+let levelGraphic;
+
 /** 
  * Sets challenge difficulty level. Called by event listeners on settings page where the function will
  * recieve an argument of "easy", "medium" or "hard".  The function then iterates over the wordCollection
@@ -150,6 +152,7 @@ function gameToggle(display) {
 function changeDifficulty(difficulty) {
     if (difficulty === "easy") {
         nextStep = "You're ready for the next level...";
+        levelGraphic ="assets/images/star-symbol-icon.png";
         easyDisplay();  
         wordCollection.forEach(function(collection) {
             if (collection.level === "easy" && collection.word.length === 4) {
@@ -159,6 +162,7 @@ function changeDifficulty(difficulty) {
         })
     } else if (difficulty === "medium") {
         nextStep = "You're doing great...";
+        levelGraphic = "assets/images/achievement-award-medal-icon.png"
         mediumDisplay(); 
         wordCollection.forEach(function(collection) {
             if (collection.level === "medium" && collection.word.length === 5) {
@@ -168,7 +172,8 @@ function changeDifficulty(difficulty) {
         })
     } else if (difficulty === "hard") {
         hardDisplay();
-        nextStep = "You have reached the top level!"       
+        nextStep = "You have reached the top level!"
+        levelGraphic = "assets/images/1st-prize-icon.png"       
         wordCollection.forEach(function(collection) {
             if (collection.level === "hard" && collection.word.length === 6) {
                 challengeWords.push(collection);
@@ -420,6 +425,7 @@ function checkScore() {
             hardDisplay();
         }
         let levelMessage = nextStep;
+        let encouragingImage = levelGraphic;
         topDisplay.innerHTML = `
         
         <div id="feedback-info" class="flex-rows">
@@ -427,7 +433,7 @@ function checkScore() {
                 <h1>Congratulations... you did it!</h1>
             </div>
             <div class="single-image-display">
-                <img src="assets/images/star-symbol-icon.png" alt="a gold star">
+                <img src=${encouragingImage} alt="a gold star">
             </div>
             <div id= "player-instructions">
                 <h2>${levelMessage}</h2>

@@ -356,6 +356,21 @@ A problem I encountered while testing during the build was that somtimes the scr
 
 ```
 
+<br>
+
+I encountered a problem with my display functions as shown below.  Having completed the challenge at the top level of difficulty, the player has the chance to play again to continue testing themselves.  But on running the game again, the display would jump to a 5 column grid layout:
+
+![Bug where replaying game at hardest difficulty setting toggles to 5 column grid layout](docs/bugs/gifs/replay-difficult-grid-bug.gif)
+
+I realised that this was because of the way I had my display functions set up to toggle between grid layouts depending on the difficulty setting.  This worked when switching from easy to medium, and medium to hard, but running hard a second time was actually toggling back to the medium display.  I decided to simplify these functions and rather than use toggle, replace the class each time a difficulty level changes, as shown in the example below for the function easyDisplay:
+
+```js
+
+document.getElementById("answer-tiles").className = "grid grid-tiles-4";
+document.getElementById("scramble-tiles").className = "grid grid-tiles-4";
+
+```
+
 # **Credits**
 
 ## **Code Used**
