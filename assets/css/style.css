@@ -12,7 +12,7 @@
     --font-size-reg: 1rem;
     --font-size-medium: 1.5rem;
     --font-size-large: 2rem;
-    --font-size-xl: 3rem;
+    --font-size-xl: 2.5rem;
     --font-size-xxl: 4rem;
     --font-size-xxxl: 5rem;
 }
@@ -54,7 +54,7 @@ h2 {
 }
 
 i {
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-xl);
     color: var(--secondary-color);
 }
 
@@ -196,7 +196,7 @@ button {
 }
 
 .settings-icon {
-    margin: var(--spacing-xs) var(--spacing-xs);
+    margin: var(--spacing-xs) var(--spacing-s);
 }
 
 .help-icon {
