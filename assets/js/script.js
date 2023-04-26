@@ -422,7 +422,7 @@ function checkScore() {
         } else if (currentDifficulty === "medium") {
             currentDifficulty = "hard";
         } else if (currentDifficulty === "hard") {
-            hardDisplay();
+            // hardDisplay();
         }
         let levelMessage = nextStep;
         topDisplay.innerHTML = `
