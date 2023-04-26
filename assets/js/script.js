@@ -5,24 +5,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // GLOBAL VARIABLES
 
-let topDisplay = document.getElementById("top-display");
+const topDisplay = document.getElementById("top-display");
 
-let playerMessage = document.getElementById("player-message");
-let playerInstructions = document.getElementById("player-instructions");
+const playerMessage = document.getElementById("player-message");
 
-let feedbackInfo =document.getElementById("feedback-info");
+const playerInstructions = document.getElementById("player-instructions");
+
+const feedbackInfo =document.getElementById("feedback-info");
 
 const answerDisplay = document.getElementById("answer");
 
-let answerBoxes = document.getElementsByClassName("answer-box");
+const answerBoxes = document.getElementsByClassName("answer-box");
 
-let answerLetters = document.getElementsByClassName("answer-letter")
+const answerLetters = document.getElementsByClassName("answer-letter")
 
-let infoDisplay = document.getElementById("display");
+const infoDisplay = document.getElementById("display");
 
-let displayMain = document.getElementById("display-main");
-
-let nextStep;
+const displayMain = document.getElementById("display-main");
 
 const scoreBox = `
 
@@ -48,7 +47,7 @@ const playButtonStructure = `
 
 const scrambleDisplay = document.getElementById("scramble");
 
-let scrambleBoxes = document.getElementsByClassName("scramble-box");
+const scrambleBoxes = document.getElementsByClassName("scramble-box");
 
 const scrambleButtons = document.getElementsByClassName("scramble-button");
 
@@ -68,8 +67,6 @@ let scoreTarget = 2;
 
 let timeLeft = 60;
 
-let level = "";
-
 let startCountDown;
 
 let currentDifficulty = "easy";
@@ -77,6 +74,8 @@ let currentDifficulty = "easy";
 let challengeWords = [];
 
 let chosenWord;
+
+let nextStep;
 
 let levelGraphic;
 
