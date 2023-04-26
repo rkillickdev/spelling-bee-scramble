@@ -56,8 +56,6 @@ const buttonArray = Array.from(scrambleButtons);
 
 const controlsDisplay = document.getElementById("controls");
 
-const removeLetter = document.getElementById("remove-letter");
-
 const submitAnswer = document.getElementsByClassName("check-answer");
 
 let correctAnswer = "";
@@ -281,12 +279,16 @@ function stopClock() {
 }
 
 function playGame() {
+    resetLetterBoxes();
+    generateWord();
+}
+
+function resetLetterBoxes() {
     playerAnswer.length = 0;
     clearAnswer();
     buttonArray.forEach(function(currentLetter) {
         currentLetter.disabled = false;
     });
-    generateWord();
 }
 
 /**
@@ -396,16 +398,6 @@ buttonArray.forEach(function(currentLetter) {
 });
 
 /**
- * Removes the last item in the playerAnswer array
- */
-function backSpace() {
-    playerAnswer.pop();
-}
-
-// Event listener for backspace button which triggers the backSpace function on click
-removeLetter.addEventListener('click', backSpace);
-
-/**
  * Turns the playerAnswer array into a string and compares this
  * against the correct answer.
  */
@@ -472,9 +464,14 @@ function toggleSettings() {
 
 }
 
+
 // Event listener for submit answer button.  Runs checkAnswer function
 submitAnswer[0].addEventListener('click', checkAnswer);
 submitAnswer[0].addEventListener('click', checkScore);
+
+// Event listener for clear answer button.
+const removeAnswer = document.getElementById("remove-answer");
+removeAnswer.addEventListener('click', resetLetterBoxes);
 
 //Event listener for show instructions button.
 const showInstructions = document.getElementById("show-instructions");
