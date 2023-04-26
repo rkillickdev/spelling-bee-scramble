@@ -253,12 +253,22 @@ function countDown() {
     if (timeLeft === 0) {
         stopClock();
         let correctRequired = (scoreTarget - totalScore);
-        document.getElementById("feedback-info").classList.remove('flex');
-        document.getElementById("feedback-info").classList.add('flex-rows');
-        playerMessage.innerHTML = `<p>Keep trying!</p>`;
-        playerInstructions.innerHTML = `You need ${correctRequired} more correct answers next time!`;
+        topDisplay.innerHTML = `
+        
+        <div id="feedback-info" class="flex-rows">
+            <div id= "player-message">
+                <h1>Keep trying!</h1>
+            </div>
+            <div class="single-image-display">
+                <img src="assets/images/clapping-icon.png" alt="a gold star">
+            </div>
+            <div id= "player-instructions">
+                <h2>You need ${correctRequired} more correct next time!</h2>
+            </div>
+        </div> 
+
+        `;
         displayMain.innerHTML = playButtonStructure;
-        console.log(correctRequired);
     }
 }
 
