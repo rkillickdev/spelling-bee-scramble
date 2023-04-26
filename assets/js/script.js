@@ -63,7 +63,7 @@ let playerAnswer = [];
 
 let totalScore = 0;
 
-let scoreTarget = 2;
+let scoreTarget = 6;
 
 let timeLeft = 60;
 
@@ -136,7 +136,6 @@ function changeDifficulty(difficulty) {
             currentDifficulty = "hard";
         })
     }
-    console.log("Challenge Words as game run" ,challengeWords);   
 }
 
 /**
