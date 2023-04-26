@@ -205,6 +205,8 @@ function easyDisplay() {
 function mediumDisplay() {
     answerBoxes[4].style.display = 'block';
     scrambleBoxes[4].style.display = 'block';
+    answerBoxes[5].style.display = 'none';
+    scrambleBoxes[5].style.display = 'none';
     document.getElementById("answer-tiles").className = "grid grid-tiles-5";
     document.getElementById("scramble-tiles").className = "grid grid-tiles-5"; 
 }
@@ -459,11 +461,16 @@ function addPoint() {
 /**
  * Toggles the 'hidden' class to show and hide the instructions box.
  */
-function toggleSettings() {
+function toggleInstructions() {
     document.getElementById("instructions").classList.toggle('hidden');
     topDisplay.classList.toggle('hidden');
-
 }
+
+function toggleSettings() {
+    document.getElementById("settings").classList.toggle('hidden');
+    topDisplay.classList.toggle('hidden'); 
+}
+
 
 
 // Event listener for submit answer button.  Runs checkAnswer function
@@ -476,11 +483,43 @@ removeAnswer.addEventListener('click', resetLetterBoxes);
 
 //Event listener for show instructions button.
 const showInstructions = document.getElementById("show-instructions");
-showInstructions.addEventListener('click',toggleSettings);
+showInstructions.addEventListener('click', toggleInstructions);
+
+//Event listener for show settings button.
+const showSettings = document.getElementById("show-settings");
+showSettings.addEventListener('click', toggleSettings);
 
 //Event listener for hide instructions button.
 const hideInstructions = document.getElementById("hide-instructions");
-hideInstructions.addEventListener('click', toggleSettings);
+hideInstructions.addEventListener('click', toggleInstructions);
+
+//Event listener for hide settings button.
+const hideSettings = document.getElementById("hide-settings");
+hideSettings.addEventListener('click', toggleSettings);
+
+// Event listener for easy difficulty settings button
+const selectEasy = document.getElementById("select-easy");
+selectEasy.addEventListener('click' , function() {
+    currentDifficulty = "easy";   
+});
+
+// Event listener for easy difficulty settings button
+const selectMedium = document.getElementById("select-medium");
+selectMedium.addEventListener('click' , function() {
+    currentDifficulty = "medium";    
+});
+
+// Event listener for easy difficulty settings button
+const selectHard = document.getElementById("select-hard");
+selectHard.addEventListener('click' , function() {
+    currentDifficulty = "hard";
+});
+
+// const selectMedium = document.getElementById("select-medium");
+// selectEasy.addEventListener('click' , changeDifficulty("medium"));
+
+// const selectHard = document.getElementById("select-hard");
+// selectEasy.addEventListener('click' , changeDifficulty("hard"));
 
 /**
  * Event listener for play button which triggers the runGame function.
