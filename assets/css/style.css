@@ -291,7 +291,7 @@ button {
 
 /* CONTROLS SECTION */
 
-#controls {
+#control-box {
     width: auto;
     margin: var(--spacing-s) auto;
 }

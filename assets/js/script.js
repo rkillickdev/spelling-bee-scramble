@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     challengeWords.length = 0;
     changeDifficulty(currentDifficulty);
-    gameToggle("home");
-    console.log("Used Words at doc load:", usedWords);
 })
 
 let topDisplay = document.getElementById("top-display");
@@ -54,7 +52,7 @@ const scrambleButtons = document.getElementsByClassName("scramble-button");
 
 const buttonArray = Array.from(scrambleButtons);
 
-const controlsDisplay = document.getElementById("controls");
+const controlBox = document.getElementById("control-box");
 
 const submitAnswer = document.getElementsByClassName("check-answer");
 
@@ -128,15 +126,17 @@ const wordCollection = [
     }
 ]
 
+/**
+ * Toggles between home screen setting where player controls are hidden and
+ * game screen where controlsa are visible and layout of the top box changes
+ * to display score counter and countdown clock. 
+ */
 function gameToggle(display) {
     if (display === "home") {
-        controlsDisplay.style.visibility = "hidden";
-        
-
+        document.getElementById("controls").classList.toggle("hidden");
     } else if (display === "game") {
-        controlsDisplay.style.visibility = "visible";
-        document.getElementById("feedback-info").classList.remove('flex-rows');
-        document.getElementById("feedback-info").classList.add('flex');
+        document.getElementById("controls").classList.toggle("hidden");        
+        document.getElementById("feedback-info").className = "flex";
         topDisplay.innerHTML = scoreBox;
     }
 }
