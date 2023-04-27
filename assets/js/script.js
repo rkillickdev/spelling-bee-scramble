@@ -213,6 +213,9 @@ function countDown() {
         clearAnswer();
         clearScramble();
         gameToggle("home");
+        buttonArray.forEach(function(currentLetter) {
+            currentLetter.disabled = true;
+        });
         displayMain.innerHTML = playButtonStructure;
     }
 }
