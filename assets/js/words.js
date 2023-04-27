@@ -102,4 +102,4 @@ const wordCollection = [
         level: "hard",
         category: "fruit"       
     }
-]
+];
