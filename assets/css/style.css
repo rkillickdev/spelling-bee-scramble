@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400&family=Nunito:wght@300;400;500&family=Permanent+Marker&display=swap');
+
 :root {
     --spacing-xss: 0.5rem;
     --spacing-xs: 1rem;
@@ -25,6 +27,7 @@
 
 /* Solution to making font size responsive found at https://matthewjamestaylor.com/responsive-font-size */
 body {
+    font-family: 'Nunito Sans', sans-serif;
     font-size: calc(15px + 0.390625vw);
     color: var(--secondary-color);
     line-height: 1.6;
@@ -41,6 +44,7 @@ a {
 }
 
 h1, h2 {
+    font-family: 'Nunito', sans-serif;
     font-size: var(--font-size-medium);
     font-weight: 500;
     line-height: 1.2;
@@ -178,6 +182,10 @@ button {
     align-items: center;
     text-align: center;
     width: 100%;
+}
+
+.hand-writing {
+    font-family: 'Permanent Marker', cursive;
 }
 
 /* NAVIGATION MENU */
