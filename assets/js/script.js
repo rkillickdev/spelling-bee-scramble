@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     challengeWords.length = 0;
     changeDifficulty(currentDifficulty);
-})
+});
 
 // GLOBAL VARIABLES
 
@@ -17,7 +17,7 @@ const answerDisplay = document.getElementById("answer");
 
 const answerBoxes = document.getElementsByClassName("answer-box");
 
-const answerLetters = document.getElementsByClassName("answer-letter")
+const answerLetters = document.getElementsByClassName("answer-letter");
 
 const infoDisplay = document.getElementById("display");
 
@@ -36,14 +36,14 @@ const scoreBox = `
         </div>
     </div>
 
-`
+`;
 
 const playButtonStructure = `
 
     <button type="button" id="play-game" class="control-button">
         <img src="assets/images/go-icon.png" alt="round green go icon">
     </button>
-`
+`;
 
 const scrambleDisplay = document.getElementById("scramble");
 
@@ -114,27 +114,27 @@ function changeDifficulty(difficulty) {
                 challengeWords.push(collection);
             }
         currentDifficulty = "easy";
-        })
+        });
     } else if (difficulty === "medium") {
         nextStep = "You're doing great...";
-        levelGraphic = "assets/images/achievement-award-medal-icon.png"
+        levelGraphic = "assets/images/achievement-award-medal-icon.png";
         mediumDisplay(); 
         wordCollection.forEach(function(collection) {
             if (collection.level === "medium" && collection.word.length === 5) {
                 challengeWords.push(collection);
             }
         currentDifficulty = "medium";
-        })
+        });
     } else if (difficulty === "hard") {
         hardDisplay();
-        nextStep = "You have reached the top level!"
-        levelGraphic = "assets/images/1st-prize-icon.png"       
+        nextStep = "You have reached the top level!";
+        levelGraphic = "assets/images/1st-prize-icon.png";       
         wordCollection.forEach(function(collection) {
             if (collection.level === "hard" && collection.word.length === 6) {
                 challengeWords.push(collection);
             }
             currentDifficulty = "hard";
-        })
+        });
     }
 }
 
@@ -387,7 +387,7 @@ function checkAnswer() {
     if (submittedAnswer === correctUpperAnswer) {
         addPoint();
     } else {
-        alert("Incorrect!")
+        alert("Incorrect!");
     }
 }
 
