@@ -7,19 +7,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 const topDisplay = document.getElementById("top-display");
 
-const playerMessage = document.getElementById("player-message");
-
-const playerInstructions = document.getElementById("player-instructions");
-
-const feedbackInfo =document.getElementById("feedback-info");
-
-const answerDisplay = document.getElementById("answer");
-
 const answerBoxes = document.getElementsByClassName("answer-box");
 
 const answerLetters = document.getElementsByClassName("answer-letter");
-
-const infoDisplay = document.getElementById("display");
 
 const displayMain = document.getElementById("display-main");
 
@@ -45,15 +35,11 @@ const playButtonStructure = `
     </button>
 `;
 
-const scrambleDisplay = document.getElementById("scramble");
-
 const scrambleBoxes = document.getElementsByClassName("scramble-box");
 
 const scrambleButtons = document.getElementsByClassName("scramble-button");
 
 const buttonArray = Array.from(scrambleButtons);
-
-const controlBox = document.getElementById("control-box");
 
 const submitAnswer = document.getElementsByClassName("check-answer");
 
