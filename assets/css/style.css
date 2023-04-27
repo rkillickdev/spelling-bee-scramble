@@ -35,7 +35,8 @@ body {
 }
 
 ul {
-    list-style-type: none;    
+    list-style-type: none;
+    margin-top: var(--spacing-xs);    
 }
 
 a {
@@ -60,6 +61,10 @@ h2 {
 i {
     font-size: var(--font-size-xl);
     color: var(--secondary-color);
+}
+
+ul i {
+    font-size: var(--font-size-large);
 }
 
 img {
@@ -121,6 +126,12 @@ button {
 
 .grid-tiles-complete {
     grid-template-columns: repeat(6, 1fr);    
+}
+
+.grid-settings-table {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: var(--spacing-xss) var(--spacing-xs);
 }
 
 #answer-tiles , #scramble-tiles .scramble-button , .answer-letter {
@@ -246,7 +257,7 @@ button {
     width: 100%;
 }
 
-#top-display {
+.top-window {
     height: auto;
     margin: var(--spacing-s) auto;
 }

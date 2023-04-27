@@ -33,22 +33,31 @@
     </header>
     <main>
         <!-- Settings Section -->
-        <section id="settings" class="container hidden">
+        <section id="settings" class="container top-window hidden">
             <div class="flex-rows">
                 <div>
                     <h1>settings</h1>
                 </div>
-                <div>
-                    <button type="button" id="select-easy">
-                        <i class="fa-solid fa-toggle-on" style="color: #000000;"></i>
-                    </button>
-                    <button type="button" id="select-medium">
-                        <i class="fa-solid fa-toggle-off" style="color: #000000;"></i>
-                    </button>
-                    <button type="button" id="select-hard">
-                        <i class="fa-solid fa-toggle-off" style="color: #000000;"></i>
-                    </button>
-                </div>
+                <ul class="grid grid-settings-table">
+                    <li>
+                        <button type="button" id="select-easy" class="control-button">
+                            <i class="fa-regular fa-circle-dot" style="color: #000000;"></i>
+                        </button>
+                    </li>
+                    <div>EASY</div>
+                    <li>
+                        <button type="button" id="select-medium" class="control-button">
+                            <i class="fa-regular fa-circle-dot" style="color: #000000;"></i>
+                        </button>
+                    </li>
+                    <div>MEDIUM</div>
+                    <li>
+                        <button type="button" id="select-hard" class="control-button">
+                            <i class="fa-regular fa-circle-dot" style="color: #000000;"></i>
+                        </button>
+                    </li>
+                    <div>HARD</div>
+                </ul>
                 <div>
                     <button type="button" id="hide-settings" class="control-button clear-page">
                         <i class="fa-solid fa-circle-xmark"></i>
@@ -57,7 +66,7 @@
             </div>
         </section>    
         <!-- Instructions Section -->
-        <section id="instructions" class="container hidden">
+        <section id="instructions" class="container top-window hidden">
             <div class="flex-rows">
                 <div>
                     <h2>How to play</h2>
@@ -78,7 +87,7 @@
             </div>
         </section>
         <!-- Top Display Section -->
-        <section id="top-display" class="container">
+        <section id="top-display" class="container top-window">
             <div id="feedback-info" class="flex-rows">
                 <div id= "player-message">
                     <h1>Spelling Bee</h1>
