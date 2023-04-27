@@ -199,11 +199,17 @@ button {
     font-family: 'Permanent Marker', cursive;
 }
 
+.menu {
+    background-color: var(--primary-color);
+    padding-top: var(--spacing-s);
+    margin-bottom: var(--spacing-s);
+    height: auto;
+}
+
 /* NAVIGATION MENU */
 
-.navbar {
-    height:auto;
-    background-color: var(--primary-color);
+.menu.navbar {
+    margin-bottom: 0;
 }
 
 .settings-icon {
@@ -216,6 +222,12 @@ button {
 
 .clear-page {
     padding: var(--spacing-xs) 0;
+}
+
+/* SETTINGS SECTION */
+
+.unselected {
+    color: grey;
 }
 
 /* INSTRUCTIONS SECTION */

@@ -100,6 +100,7 @@ function changeDifficulty(difficulty) {
                 challengeWords.push(collection);
             }
         currentDifficulty = "easy";
+        
         });
     } else if (difficulty === "medium") {
         nextStep = "You're doing great...";
