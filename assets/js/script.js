@@ -264,7 +264,8 @@ function generateWord() {
         });
         // Retrieves image path from randomWord object and stores in the variable pictureHint  
         let pictureHint = randomWord.picture;
-        displayMain.innerHTML = `<img src = "${pictureHint}">`;
+        let altDescription = randomWord.description;
+        displayMain.innerHTML = `<img src = "${pictureHint}" alt ="${altDescription}">`;
         // Finds index of the random word within the challengeWords array.
         chosenWord = challengeWords.indexOf(randomWord);
         // handleOldWords();
