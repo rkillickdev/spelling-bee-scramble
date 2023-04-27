@@ -512,8 +512,10 @@ hideSettings.addEventListener('click', toggleSettings);
 
 // Event listener for easy difficulty settings button.
 const selectEasy = document.getElementById("select-easy");
+const easyIcon = document.getElementById("easy");
 selectEasy.addEventListener('click' , function() {
-    currentDifficulty = "easy";   
+    currentDifficulty = "easy";
+    easyIcon.classList.toggle("fa-solid");   
 });
 
 // Event listener for easy difficulty settings button.
