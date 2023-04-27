@@ -210,6 +210,9 @@ function countDown() {
         </div> 
 
         `;
+        clearAnswer();
+        clearScramble();
+        gameToggle("home");
         displayMain.innerHTML = playButtonStructure;
     }
 }
