@@ -403,6 +403,7 @@ scrambleBoxes[5].style.display = 'none';
 
 * [Article about using word scrambles to improve spelling](https://ourfamilylifestyle.com/exercises-to-help-children-improve-spelling-skills/)
 * [Article about the benefits of word games for children](https://www.theschoolrun.com/10-ways-word-puzzles-can-help-your-child)
+* [Inspiration for google fonts pairings](https://inkbotdesign.com/google-font-combinations-mixing-typefaces/)
 
 <br>
 
