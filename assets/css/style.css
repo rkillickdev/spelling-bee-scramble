@@ -159,7 +159,7 @@ button {
     height: 100%;
     object-fit: cover;
     margin: 0 auto;
-    font-family: sans-serif;
+    font-family: 'Nunito', sans-serif;
     border-radius: 5px;
 }
 
@@ -266,7 +266,7 @@ button {
     max-width: fit-content;
     max-height: fit-content;
     object-fit: cover;
-    font-family: sans-serif;
+    font-family: 'Permanent Marker', cursive;
     border-radius: 5px;
     display: block;
     border: none;       
