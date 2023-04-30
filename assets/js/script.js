@@ -131,6 +131,8 @@ function changeDifficulty(difficulty) {
     for (let i = 0 ; i < challengeWords.length ; i++) {
         challengeIndexes.push(i);
     };
+    // Shuffles array of integers in a random order so game always runs in a different order
+    integerShuffle()
 }
 
 /**
@@ -192,7 +194,6 @@ function runGame() {
     timeLeft = 60;
     startClock();
     playGame();
-    console.log(challengeWords)
 }
 
 /**
@@ -268,12 +269,14 @@ let challengeIndexes = [];
 function generateWord() {
     // Old way of choosing a random word from wordChalleneg array
     // let randomWord = challengeWords[Math.floor(Math.random() * challengeWords.length)];
+    // Word selected from the challengeWords array using index zero of the challengeIndexes array
     let randomWord = challengeWords[challengeIndexes[0]];
+    /** The integer occupying index 0 of challengeIndexes is removed using the shift() method and 
+     *  saved in the variable firstIndex.
+    */
     let firstIndex = challengeIndexes.shift();
-    console.log(firstIndex);
-    console.log(challengeIndexes);
+    // The integer stored in the variable firstIndex is added to the end of the challengeIndexes array.
     challengeIndexes.push(firstIndex);
-    console.log(challengeIndexes);
     correctAnswer = randomWord.word;
     let wordLetters = correctAnswer.split("");
     for (let x = wordLetters.length - 1; x > 0 ; x--) {
@@ -293,6 +296,20 @@ function generateWord() {
         let altDescription = randomWord.description;
         displayMain.innerHTML = `<img src = "${pictureHint}" alt ="${altDescription}">`;
     }   
+}
+
+
+/**
+ * Takes challengeIndexes array of integers and shuffles using the Fisher-Yates method.  I used the
+ * following article and code to learn about this way of randomly shuffling integers:
+ * https://www.tutorialspoint.com/what-is-fisher-yates-shuffle-in-javascript
+ */
+function integerShuffle() {
+    let i = challengeIndexes.length;
+    while (--i > 0) {
+        let temp = Math.floor(Math.random() * (i + 1));
+        [challengeIndexes[temp], challengeIndexes[i]] = [challengeIndexes[i], challengeIndexes[temp]];
+    }    
 }
 
 /**
