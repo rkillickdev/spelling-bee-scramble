@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // GLOBAL VARIABLES
 
+const setLevel= document.querySelectorAll(".set-level");
+
 const topDisplay = document.getElementById("top-display");
 
 const answerBoxes = document.getElementsByClassName("answer-box");
@@ -50,6 +52,8 @@ let playerAnswer = [];
 let totalScore = 0;
 
 let scoreTarget = 6;
+
+let previousButton = null;
 
 let timeLeft = 60;
 
@@ -468,6 +472,19 @@ function playButtonEventListener (selector, event, handler) {
     );
 }
 
+/**
+ * Displays toggle-on font awesome icon for when a button is selected.
+ * Referenced and modified code from this article to get this function working:
+ * https://softauthor.com/make-selected-clicked-button-active-in-javascript/  
+ */
+function buttonToggle(event) {
+    event.target.classList.add('fa-toggle-on');
+    if(previousButton !== null) {
+        previousButton.classList.remove('fa-toggle-on');
+    }
+    previousButton = event.target;
+}
+
 // EVENT LISTENERS
 
 /**
@@ -510,21 +527,18 @@ hideInstructions.addEventListener('click', toggleInstructions);
 const hideSettings = document.getElementById("hide-settings");
 hideSettings.addEventListener('click', toggleSettings);
 
-// Event listener for easy difficulty settings button.
-const selectEasy = document.getElementById("select-easy");
-const easyIcon = document.getElementById("easy");
-selectEasy.addEventListener('click' , function() {
-    currentDifficulty = "easy";
-    easyIcon.classList.toggle("fa-solid");   
-});
+// Event listener for 3 difficulty settings buttons
+setLevel.forEach(function(button){
+    button.addEventListener('click' , buttonToggle)
+})
 
-// Event listener for easy difficulty settings button.
+// Event listener for medium difficulty settings button.
 const selectMedium = document.getElementById("select-medium");
 selectMedium.addEventListener('click' , function() {
     currentDifficulty = "medium";    
 });
 
-// Event listener for easy difficulty settings button.
+// Event listener for hard difficulty settings button.
 const selectHard = document.getElementById("select-hard");
 selectHard.addEventListener('click' , function() {
     currentDifficulty = "hard";
