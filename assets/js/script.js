@@ -127,6 +127,10 @@ function changeDifficulty(difficulty) {
             currentDifficulty = "hard";
         });
     }
+    // Generates array of integers for length of challenegWords array
+    for (let i = 0 ; i < challengeWords.length ; i++) {
+        challengeIndexes.push(i);
+    };
 }
 
 /**
@@ -181,12 +185,14 @@ function hardDisplay() {
  */
 function runGame() { 
     challengeWords.length = 0;
+    challengeIndexes.length = 0;
     totalScore = 0;
     changeDifficulty(currentDifficulty);
     gameToggle("game");
     timeLeft = 60;
     startClock();
     playGame();
+    console.log(challengeWords)
 }
 
 /**
@@ -246,6 +252,8 @@ function playGame() {
     generateWord();
 }
 
+let challengeIndexes = [];
+
 /**
  * Generates random word from challengeWords array, splits the individual letters into the 
  * wordLetters array and scrambles these in a random order.
@@ -258,7 +266,14 @@ function playGame() {
  * the same words do not keep coming up.
  */
 function generateWord() {
-    let randomWord = challengeWords[Math.floor(Math.random() * challengeWords.length)];
+    // Old way of choosing a random word from wordChalleneg array
+    // let randomWord = challengeWords[Math.floor(Math.random() * challengeWords.length)];
+    let randomWord = challengeWords[challengeIndexes[0]];
+    let firstIndex = challengeIndexes.shift();
+    console.log(firstIndex);
+    console.log(challengeIndexes);
+    challengeIndexes.push(firstIndex);
+    console.log(challengeIndexes);
     correctAnswer = randomWord.word;
     let wordLetters = correctAnswer.split("");
     for (let x = wordLetters.length - 1; x > 0 ; x--) {
@@ -277,9 +292,6 @@ function generateWord() {
         let pictureHint = randomWord.picture;
         let altDescription = randomWord.description;
         displayMain.innerHTML = `<img src = "${pictureHint}" alt ="${altDescription}">`;
-        // Finds index of the random word within the challengeWords array.
-        chosenWord = challengeWords.indexOf(randomWord);
-        // handleOldWords();
     }   
 }
 
