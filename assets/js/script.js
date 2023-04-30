@@ -9,7 +9,7 @@ const setLevel= document.querySelectorAll(".set-level");
 
 const topDisplay = document.getElementById("top-display");
 
-const answerBoxes = document.getElementsByClassName("answer-box");
+const answerBoxes = document.querySelectorAll(".answer-box");
 
 const answerLetters = document.getElementsByClassName("answer-letter");
 
@@ -249,11 +249,19 @@ function stopClock() {
  * Runs resetLetterBoxes and generateWord functions.
  */
 function playGame() {
+    setTimeout(clearAnswerStyle, 6000)
     resetLetterBoxes();
     generateWord();
 }
 
 let challengeIndexes = [];
+
+function clearAnswerStyle () {
+   for (box of answerBoxes) {
+    box.classList.remove("answer-box-correct");
+    box.classList.remove("answer-box-incorrect"); 
+   } 
+}
 
 /**
  * Generates random word from challengeWords array, splits the individual letters into the 
@@ -413,8 +421,21 @@ function checkAnswer() {
     let correctUpperAnswer = correctAnswer.toUpperCase();
     if (submittedAnswer === correctUpperAnswer) {
         addPoint();
+        answerFeedback("correct"); 
     } else {
-        alert("Incorrect!");
+        answerFeedback("incorrect");        
+    }
+};
+
+function answerFeedback(answer) {
+    if (answer === "correct") {
+        for (box of answerBoxes) {
+            box.classList.add("answer-box-correct");
+        }
+    } else if (answer === "incorrect") {
+        for (box of answerBoxes) {
+            box.classList.add("answer-box-incorrect");
+        }           
     }
 }
 

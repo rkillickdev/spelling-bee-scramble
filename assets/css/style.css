@@ -11,6 +11,7 @@
     --secondary-color: black ;
     --tertiary-color: skyblue;
     --highlight-color: whitesmoke;
+    --correct-color: #3AAF3C;
     --font-size-reg: 1rem;
     --font-size-medium: 1.5rem;
     --font-size-large: 2rem;
@@ -261,7 +262,7 @@ button {
 }
 
 #score {
-    color: #3AAF3C;
+    color: var(--correct-color);
     width: 100%;
 }
 
@@ -280,6 +281,40 @@ button {
 .answer-box {
     background-color: var(--highlight-color);
 }
+
+.answer-box-correct {
+    animation: fadeCorrectAnswer 4s;
+    -webkit-animation: fadeCorrectAnswer 4s;
+    -moz-animation: fadeCorrectAnswer 4s;
+    -o-animation: fadeCorrectAnswer 4s;
+    -ms-animation: fadeCorrectAnswer 4s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes fadeCorrectAnswer {
+    /* from {border: solid var(--correct-color);}
+    to {border: none;} */
+    from {background-color: var(--correct-color);}
+    to {background-color: var(--highlight-color);}
+}
+
+.answer-box-incorrect {
+    animation: fadeIncorrectAnswer 4s;
+    -webkit-animation: fadeIncorrectAnswer 4s;
+    -moz-animation: fadeIncorrectAnswer 4s;
+    -o-animation: fadeIncorrectAnswer 4s;
+    -ms-animation: fadeIncorrectAnswer 4s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes fadeIncorrectAnswer {
+    /* from {border: solid red;}
+    to {border: none;} */
+    from {background-color: red;}
+    to {background-color: var(--highlight-color);}   
+}
+
+
 
 .answer-letter {
     position: absolute;
