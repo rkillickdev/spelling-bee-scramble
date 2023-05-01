@@ -19,14 +19,14 @@ const scoreBox = `
 
     <div class="grid grid-tiles-3">
         <div class="flex-rows">
-            <h2>Score</h2>
+            <i class="fa-regular fa-calendar-check"></i>
             <div id="score" class="counters">0</div>
         </div>
         <div class="flex-rows">
             <div id="answer-icon"></div>
         </div>
         <div class="flex-rows">
-            <h2>Time</h2>
+            <i class="fa-solid fa-stopwatch"></i>
             <div id="timer" class="counters">60</div>
         </div>
     </div>

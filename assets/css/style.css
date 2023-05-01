@@ -115,7 +115,6 @@ button {
 
 .grid-tiles-3 {
     grid-template-columns: repeat(3, 1fr);
-    gap: 0 var(--spacing-m);
 }
 
 .grid-tiles-4 {
@@ -245,6 +244,10 @@ button {
 
 /* TOP DISPLAY SECTION */
 
+#top-display i {
+    padding-bottom: var(--spacing-s)
+}
+
 .single-image-display {
     width: 100px;
     display: block;
@@ -260,17 +263,16 @@ button {
 }
 
 .counters {
-    font-size: var(--font-size-xxxl);
+    font-size: var(--font-size-xl);
     background-color: var(--primary-color);
     line-height: normal;
     border-radius: 5px;
 }
 
 #answer-icon {
-    height: 7rem;
+    height: 100%;
     width: 100%;
-    margin-top: var(--spacing-l);
-    padding: var(--spacing-xss) var(--spacing-xss);
+    padding: var(--spacing-xss) var(--spacing-xs);
 }
 
 #score {
