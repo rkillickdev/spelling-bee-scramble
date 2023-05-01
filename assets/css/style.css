@@ -88,7 +88,7 @@ button {
 .container {
     max-width: 500px;
     margin: 0 auto;
-    overflow: auto;
+    overflow: visible;
     padding: 0 30px;
 }
 
@@ -185,6 +185,14 @@ button {
     max-height: 100%;
 }
 
+.player-control {
+    transition: transform 0.5s ease-out;
+}
+
+.player-control:hover {
+    transform: scale(1.1);
+}
+
 .flex {
     display: flex;
     justify-content:space-between;
@@ -212,6 +220,16 @@ button {
 }
 
 /* NAVIGATION MENU */
+
+.nav-icon {
+    transition: color 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+}
+
+.nav-icon:hover {
+    color: #696969;
+    transform: scale(1.1);
+}
 
 .menu.navbar {
     margin-bottom: 0;
