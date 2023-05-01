@@ -193,10 +193,10 @@ function runGame() {
     challengeIndexes.length = 0;
     totalScore = 0;
     changeDifficulty(currentDifficulty);
+    playGame();
     gameToggle("game");
     timeLeft = 60;
-    startClock();
-    playGame();
+    startClock()
 }
 
 /**
