@@ -1,20 +1,17 @@
+// FUNCTION RUN ONCE DOM CONTENT LOADED
+
 document.addEventListener("DOMContentLoaded", function() {
     challengeWords.length = 0;
     changeDifficulty(currentDifficulty);
 });
 
-// GLOBAL VARIABLES
+// HTML ELEMENTS DEFINED
 
 const setLevel= document.querySelectorAll(".set-level");
-
 const topDisplay = document.getElementById("top-display");
-
 const answerBoxes = document.querySelectorAll(".answer-box");
-
 const answerLetters = document.getElementsByClassName("answer-letter");
-
 const displayMain = document.getElementById("display-main");
-
 const scoreBox = `
 
     <div class="grid grid-tiles-3">
@@ -32,46 +29,31 @@ const scoreBox = `
     </div>
 
 `;
-
 const playButtonStructure = `
 
     <button type="button" id="play-game" class="control-button">
         <img src="assets/images/go-icon.png" alt="round green go icon">
     </button>
 `;
-
 const scrambleBoxes = document.getElementsByClassName("scramble-box");
-
 const scrambleButtons = document.getElementsByClassName("scramble-button");
-
 const buttonArray = Array.from(scrambleButtons);
-
 const submitAnswer = document.getElementsByClassName("check-answer");
 
+// GLOBAL VARIABLES
+
 let correctAnswer = "";
-
 let playerAnswer = [];
-
 let totalScore = 0;
-
 let scoreTarget = 6;
-
 let previousButton = null;
-
 let timeLeft = 60;
-
 let startCountDown;
-
 let currentDifficulty = "easy";
-
 let challengeWords = [];
-
 let chosenWord;
-
 let nextStep;
-
 let levelGraphic;
-
 let usedWords =[];
 
 // FUNCTIONS
@@ -192,8 +174,9 @@ function runGame() {
     challengeWords.length = 0;
     challengeIndexes.length = 0;
     totalScore = 0;
-    changeDifficulty(currentDifficulty);
     playGame();
+    changeDifficulty(currentDifficulty);
+    generateWord();
     gameToggle("game");
     timeLeft = 60;
     startClock()
@@ -254,7 +237,7 @@ function stopClock() {
 function playGame() {
     setTimeout(clearAnswerStyle, 2000);
     resetLetterBoxes();
-    generateWord();
+    // generateWord();
 }
 
 let challengeIndexes = [];
@@ -494,6 +477,7 @@ function checkScore() {
         gameToggle("home");
     } else {
         playGame();
+        generateWord();
     } 
 }
 
