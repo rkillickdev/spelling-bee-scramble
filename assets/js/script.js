@@ -17,10 +17,13 @@ const displayMain = document.getElementById("display-main");
 
 const scoreBox = `
 
-    <div class="grid grid-tiles-2" >
+    <div class="grid grid-tiles-3">
         <div class="flex-rows">
-            <h2>Score</h2>   
+            <h2>Score</h2>
             <div id="score" class="counters">0</div>
+        </div>
+        <div class="flex-rows">
+            <div id="answer-icon"></div>
         </div>
         <div class="flex-rows">
             <h2>Time</h2>
@@ -249,7 +252,7 @@ function stopClock() {
  * Runs resetLetterBoxes and generateWord functions.
  */
 function playGame() {
-    setTimeout(clearAnswerStyle, 6000)
+    setTimeout(clearAnswerStyle, 6000);
     resetLetterBoxes();
     generateWord();
 }
@@ -260,8 +263,8 @@ function clearAnswerStyle () {
    for (box of answerBoxes) {
     box.classList.remove("answer-box-correct");
     box.classList.remove("answer-box-incorrect"); 
-   } 
-}
+   }
+};
 
 /**
  * Generates random word from challengeWords array, splits the individual letters into the 
@@ -419,12 +422,18 @@ buttonArray.forEach(function(currentLetter) {
 function checkAnswer() {
     let submittedAnswer = playerAnswer.join("");
     let correctUpperAnswer = correctAnswer.toUpperCase();
+    const answerIcon = document.getElementById("answer-icon");
     if (submittedAnswer === correctUpperAnswer) {
         addPoint();
-        answerFeedback("correct"); 
+        answerIcon.innerHTML = `<img src = "assets/images/tick-green-icon.png" alt ="A green tick">`;
+        answerFeedback("correct");
     } else {
+        answerIcon.innerHTML = `<img src = "assets/images/cross-icon.png" alt ="A red cross">`;
         answerFeedback("incorrect");        
     }
+    setTimeout(function(){
+        answerIcon.innerHTML="";
+    }, 1000)
 };
 
 function answerFeedback(answer) {

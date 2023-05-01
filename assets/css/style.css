@@ -113,6 +113,11 @@ button {
     gap: 0 var(--spacing-m);
 }
 
+.grid-tiles-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 var(--spacing-m);
+}
+
 .grid-tiles-4 {
     grid-template-columns: repeat(4, 1fr);
 }
@@ -261,6 +266,13 @@ button {
     border-radius: 5px;
 }
 
+#answer-icon {
+    height: 7rem;
+    width: 100%;
+    margin-top: var(--spacing-l);
+    padding: var(--spacing-xss) var(--spacing-xss);
+}
+
 #score {
     color: var(--correct-color);
     width: 100%;
@@ -292,9 +304,7 @@ button {
 }
 
 @keyframes fadeCorrectAnswer {
-    /* from {border: solid var(--correct-color);}
-    to {border: none;} */
-    from {background-color: var(--correct-color);}
+    from {background: var(--correct-color);}
     to {background-color: var(--highlight-color);}
 }
 
