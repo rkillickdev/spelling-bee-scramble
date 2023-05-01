@@ -51,10 +51,8 @@ let timeLeft = 60;
 let startCountDown;
 let currentDifficulty = "easy";
 let challengeWords = [];
-let chosenWord;
 let nextStep;
 let levelGraphic;
-let usedWords =[];
 
 // FUNCTIONS
 
@@ -115,9 +113,9 @@ function changeDifficulty(difficulty) {
     // Generates array of integers for length of challenegWords array
     for (let i = 0 ; i < challengeWords.length ; i++) {
         challengeIndexes.push(i);
-    };
+    }
     // Shuffles array of integers in a random order so game always runs in a different order
-    integerShuffle()
+    integerShuffle();
 }
 
 /**
@@ -179,7 +177,7 @@ function runGame() {
     generateWord();
     gameToggle("game");
     timeLeft = 60;
-    startClock()
+    startClock();
 }
 
 /**
@@ -237,17 +235,16 @@ function stopClock() {
 function playGame() {
     setTimeout(clearAnswerStyle, 2000);
     resetLetterBoxes();
-    // generateWord();
 }
 
 let challengeIndexes = [];
 
 function clearAnswerStyle () {
-   for (box of answerBoxes) {
+   for (let box of answerBoxes) {
     box.classList.remove("answer-box-correct");
     box.classList.remove("answer-box-incorrect"); 
    }
-};
+}
 
 /**
  * Generates random word from challengeWords array, splits the individual letters into the 
@@ -256,9 +253,6 @@ function clearAnswerStyle () {
  * The scrambled word is checked against the correct answer to make sure they are never the same.  If this
  * evaluates to false, the scramble boxes are populated with the scrambled letters. And the related
  * image url is inserted into the html.
- * At the end of the function, the index of random word is stored in the variable chosenWord.  This is
- * used in the handleOldWords function to remove a word form the challengeWords once it has ben used, so
- * the same words do not keep coming up.
  */
 function generateWord() {
     // Old way of choosing a random word from wordChalleneg array
@@ -285,13 +279,15 @@ function generateWord() {
         wordLetters.forEach((letter, index) => {
             scrambleButtons[index].innerHTML = letter;
         });
-        // Retrieves image path from randomWord object and stores in the variable pictureHint  
+        /**
+         * Retrieves image path and alt description from randomWord object and stores in the 
+         * variables pictureHint and altDescription. Inserted into HTML using template literals. 
+         */
         let pictureHint = randomWord.picture;
         let altDescription = randomWord.description;
         displayMain.innerHTML = `<img src = "${pictureHint}" alt ="${altDescription}">`;
     }   
 }
-
 
 /**
  * Takes challengeIndexes array of integers and shuffles using the Fisher-Yates method.  I used the
@@ -318,35 +314,7 @@ function resetLetterBoxes() {
         currentLetter.disabled = false;
     });
 }
-
-/**
- * Removes the word that has just been displayed from the
- * challengeWords array to prevent it being chosen again.
- * These removed words are stored in a new array called usedWords.
- * If there are no more words left in the challengeWords array,
- * it is refilled with the usedWords.  This function is to help
- * with duplicate words being generated during a game.
- */
-// function handleOldWords() {
-//     let removedWord = challengeWords.splice(chosenWord);
-//     // Gets object from the returned array 
-//     // POSSIBLY NOT NEEDED?
-//     // let wordUsed = removedWord[0];
-//     // Stores in a new array called usedWords
-//     usedWords.push(removedWord[0]);
-//     removedWord.length = 0;
-//     console.log("Removed:", removedWord);
-//     // console.log("Object removed from array:", wordUsed )
-//     console.log("Array of used Words:" ,usedWords);
-//     console.log("Challenge Words after removal" ,challengeWords);
-//     // THIS COULD BE CAUSING PROBLEM AS CHALLENEG WORDS LENGTH IS SET TO ZERO FOR EACH NEW GAME
-//     // if (challengeWords.length === 0) {
-//     //     challengeWords = usedWords;    
-//     // }
-//     // 
-// }
     
-
 /**
  * Clears all answer boxes of their letters
  */
@@ -416,16 +384,20 @@ function checkAnswer() {
     }
     setTimeout(function(){
         answerIcon.innerHTML="";
-    }, 1000)
-};
+    }, 1000);
+}
 
+/**
+ * Adds styling class to answer boxes depending on whether player
+ * answer evaluates to correct or incorrect.
+ */
 function answerFeedback(answer) {
     if (answer === "correct") {
-        for (box of answerBoxes) {
+        for (let box of answerBoxes) {
             box.classList.add("answer-box-correct");
         }
     } else if (answer === "incorrect") {
-        for (box of answerBoxes) {
+        for (let box of answerBoxes) {
             box.classList.add("answer-box-incorrect");
         }           
     }
@@ -572,8 +544,8 @@ hideSettings.addEventListener('click', toggleSettings);
 
 // Event listener for 3 difficulty settings buttons
 setLevel.forEach(function(button){
-    button.addEventListener('click' , buttonToggle)
-})
+    button.addEventListener('click' , buttonToggle);
+});
 
 // Event listener for medium difficulty settings button.
 const selectMedium = document.getElementById("select-medium");
