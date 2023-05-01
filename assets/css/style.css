@@ -315,12 +315,12 @@ button {
 }
 
 .answer-box-correct {
-    animation: fadeCorrectAnswer 4s;
-    -webkit-animation: fadeCorrectAnswer 4s;
-    -moz-animation: fadeCorrectAnswer 4s;
-    -o-animation: fadeCorrectAnswer 4s;
-    -ms-animation: fadeCorrectAnswer 4s;
-    animation-fill-mode: backwards;
+    animation: fadeCorrectAnswer 2s;
+    -webkit-animation: fadeCorrectAnswer 2s;
+    -moz-animation: fadeCorrectAnswer 2s;
+    -o-animation: fadeCorrectAnswer 2s;
+    -ms-animation: fadeCorrectAnswer 2s;
+    animation-fill-mode:forwards;
 }
 
 @keyframes fadeCorrectAnswer {
@@ -329,17 +329,15 @@ button {
 }
 
 .answer-box-incorrect {
-    animation: fadeIncorrectAnswer 4s;
-    -webkit-animation: fadeIncorrectAnswer 4s;
-    -moz-animation: fadeIncorrectAnswer 4s;
-    -o-animation: fadeIncorrectAnswer 4s;
-    -ms-animation: fadeIncorrectAnswer 4s;
-    animation-fill-mode: backwards;
+    animation: fadeIncorrectAnswer 2s;
+    -webkit-animation: fadeIncorrectAnswer 2s;
+    -moz-animation: fadeIncorrectAnswer 2s;
+    -o-animation: fadeIncorrectAnswer 2s;
+    -ms-animation: fadeIncorrectAnswer 2s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes fadeIncorrectAnswer {
-    /* from {border: solid red;}
-    to {border: none;} */
     from {background-color: red;}
     to {background-color: var(--highlight-color);}   
 }

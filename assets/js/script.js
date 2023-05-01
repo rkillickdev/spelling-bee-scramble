@@ -252,7 +252,7 @@ function stopClock() {
  * Runs resetLetterBoxes and generateWord functions.
  */
 function playGame() {
-    setTimeout(clearAnswerStyle, 6000);
+    setTimeout(clearAnswerStyle, 2000);
     resetLetterBoxes();
     generateWord();
 }
