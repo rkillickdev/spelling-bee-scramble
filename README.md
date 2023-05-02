@@ -254,27 +254,26 @@ HTML, CSS and JavaScript were used to create the game.
 
 <br>
 
-When trying to loop through the variable scrambleButtons using the forEach() method, the console in google developer tools threw the following error:
+1. When trying to loop through the variable scrambleButtons using the forEach() method, the console in google developer tools threw the following error:
 
 ![forEach method bug when trying to loop a collection of items that are not an array](docs/bugs/javascript-for-each-bug-snapshot.png)
 
-On researching this I found the [following article:](https://stackdiary.com/guides/typeerror-foreach-is-not-a-function/) 
+* On researching this I found the [following article:](https://stackdiary.com/guides/typeerror-foreach-is-not-a-function/) 
 
-This explains that the error occurs when the code attempts to call the forEach() method on a value that is not an array or an array-like object.  To solve this, I transformed scrambleButtons into an array using the following code:
+* This explains that the error occurs when the code attempts to call the forEach() method on a value that is not an array or an array-like object.  To solve this, I transformed scrambleButtons into an array using the following code:
 
 ```js
 
 const buttonArray = Array.from(scrambleButtons);
 
 ```
+___
 
-<br>
-
-I created an event listener for the answer button which runs the checkAnswer function. The final step of this function is to run the playGame function in order to clear the boxes and generate a newly scrambled word.  However the playerAnswer array was not being cleared and was causing the issue as demonstrated below:
+2. I created an event listener for the answer button which runs the checkAnswer function. The final step of this function is to run the playGame function in order to clear the boxes and generate a newly scrambled word.  However the playerAnswer array was not being cleared and was causing the issue as demonstrated below:
 
 ![bug when playerAnswer array not cleared when running playGame function](docs/bugs/gifs/clear-player-answer-array-bug.gif)
 
-I fixed this by using the following line of code within the playGame function to clear the playerAnswer array:
+* I fixed this by using the following line of code within the playGame function to clear the playerAnswer array:
 
 ```js
 
@@ -282,19 +281,19 @@ playerAnswer.length = 0;
 
 ```
 
-<br>
+___
 
-When setting up the timer, I made this element avaialble in the JavaScript file initially using getElementById("timer").  However this caused the text in my scramble letter boxes to disappear as shown in the snapshot below:
+3. When setting up the timer, I made this element avaialble in the JavaScript file initially using getElementById("timer").  However this caused the text in my scramble letter boxes to disappear as shown in the snapshot below:
 
 ![using getElementById causes text in scramble letter boxes to disappear](docs/bugs/get-element-by-id-bug-scramble-boxes.png)
 
-Using querySelector instead to select the span in the HTML file with the id="timer" resolved this issue as can be seen below:
+* Using querySelector instead to select the span in the HTML file with the id="timer" resolved this issue as can be seen below:
 
 ![using querySelector solves bug](docs/bugs/get-element-by-id-bug-scramble-boxes-fixed.png)
 
-<br>
+___
 
-When I was trying to set the src file path of an image in my JavaScript file using a template literal, the innerHTML was sucessfully updated but the image was not displaying:  Instead a broken image file was shown which suggested my file path was incorrect.  My original file path stored in an object read as this:
+4. When I was trying to set the src file path of an image in my JavaScript file using a template literal, the innerHTML was sucessfully updated but the image was not displaying:  Instead a broken image file was shown which suggested my file path was incorrect.  My original file path stored in an object read as this:
 
 ```js
 
@@ -302,7 +301,7 @@ picture: "../assets/images/fresh-apple-icon.png",
 
 ```
 
-After some research and reading [this thread on the Code Institute Slack channels](https://code-institute-room.slack.com/archives/C7EJUQT2N/p1653076076263549?thread_ts=1653073079.354849&cid=C7EJUQT2N), I discovered that although the image file path is loaded from JavaScript, it is executed from the HTML so the path should be from the HTML file to the images so I updated the path to this and the image displayed as expected:
+* After some research and reading [this thread on the Code Institute Slack channels](https://code-institute-room.slack.com/archives/C7EJUQT2N/p1653076076263549?thread_ts=1653073079.354849&cid=C7EJUQT2N), I discovered that although the image file path is loaded from JavaScript, it is executed from the HTML so the path should be from the HTML file to the images so I updated the path to this and the image displayed as expected:
 
 ```js
 
@@ -310,13 +309,13 @@ picture: "assets/images/fresh-apple-icon.png",
 
 ```
 
-<br>
+___
 
-I encountered a bug with the score counter on submitting a correct answer.  The score was not increasing and the following message appeared in the console:
+5. I encountered a bug with the score counter on submitting a correct answer.  The score was not increasing and the following message appeared in the console:
 
 ![score counter variable scope bug console message](docs/bugs/score-counter-variable-scope-bug.png)
 
-I realised the problem was that the variable **score** (gets element by Id "score") was being defined in global scope, but the HTML containg this element with an id of "score" only exists once the gameToggle function is run with an argument of "game".  I therefore defined the variable **score** within the addPoint function instead, which solved the problem as by the time this function is run, an HTML element with the id of "score" exists in the DOM.  See code below:
+* I realised the problem was that the variable **score** (gets element by Id "score") was being defined in global scope, but the HTML containg this element with an id of "score" only exists once the gameToggle function is run with an argument of "game".  I therefore defined the variable **score** within the addPoint function instead, which solved the problem as by the time this function is run, an HTML element with the id of "score" exists in the DOM.  See code below:
 
 ```js
 
@@ -332,9 +331,9 @@ function addPoint() {
 
 ```
 
-<br>
+___
 
-When I decided to display the scramble and answer letters as uppercase, the checkAnswer function stopped working so even if my spelling was correct, it did not recognise this as a correct answer. I realised that the correctAnswer variable as set in the generateWord function needed to be in uppercase before checking the submittedAnswer against this.  I wrote the following code to achieve this:
+6. When I decided to display the scramble and answer letters as uppercase, the checkAnswer function stopped working so even if my spelling was correct, it did not recognise this as a correct answer. I realised that the correctAnswer variable as set in the generateWord function needed to be in uppercase before checking the submittedAnswer against this.  I wrote the following code to achieve this:
 
 ```js
 
@@ -342,11 +341,11 @@ let correctUpperAnswer = correctAnswer.toUpperCase();
 
 ```
 
-An alternative would be to have all words stored in uppercase within the wordCollection array of objects.
+* An alternative would be to have all words stored in uppercase within the wordCollection array of objects.
 
-<br>
+___
 
-A problem I encountered while testing during the build was that somtimes the scrambled word would infact be the correct spelling.  To prevent this happening I modified the generateWord function and added the following line of code:
+7. A problem I encountered while testing during the build was that somtimes the scrambled word would infact be the correct spelling.  To prevent this happening I modified the generateWord function and added the following line of code:
 
 ```js
 
@@ -356,13 +355,13 @@ A problem I encountered while testing during the build was that somtimes the scr
 
 ```
 
-<br>
+___
 
-I encountered a problem with my display functions as shown below.  Having completed the challenge at the top level of difficulty, the player has the chance to play again to continue testing themselves.  But on running the game again, the display would jump to a 5 column grid layout:
+8. I encountered a problem with my display functions as shown below.  Having completed the challenge at the top level of difficulty, the player has the chance to play again to continue testing themselves.  But on running the game again, the display would jump to a 5 column grid layout:
 
 ![Bug where replaying game at hardest difficulty setting toggles to 5 column grid layout](docs/bugs/gifs/replay-difficult-grid-bug.gif)
 
-I realised that this was because of the way I had my display functions set up to toggle between grid layouts depending on the difficulty setting.  This worked when switching from easy to medium, and medium to hard, but running hard a second time was actually toggling back to the medium display.  I decided to simplify these functions and rather than use toggle, replace the class each time a difficulty level changes, as shown in the example below for the function easyDisplay:
+* I realised that this was because of the way I had my display functions set up to toggle between grid layouts depending on the difficulty setting.  This worked when switching from easy to medium, and medium to hard, but running hard a second time was actually toggling back to the medium display.  I decided to simplify these functions and rather than use toggle, replace the class each time a difficulty level changes, as shown in the example below for the function easyDisplay:
 
 ```js
 
@@ -371,13 +370,13 @@ document.getElementById("scramble-tiles").className = "grid grid-tiles-4";
 
 ```
 
-<br>
+___
 
-After implementing the code to switch difficulty level in the settings page, I found a bug where if you tried to set the level from hard to medium, the sixth answer and sramble box remained visible rather than hidden as expected:
+9. After implementing the code to switch difficulty level in the settings page, I found a bug where if you tried to set the level from hard to medium, the sixth answer and sramble box remained visible rather than hidden as expected:
 
 ![Hard to medium level setting bug displays too many boxes](docs/bugs/gifs/hard-to-medium-setting-bug.gif)
 
-On investigating my function mediumDisplay, I realised that I had not specified what should happen to these boxes.  On adding the two lines of code shown below, the bug was resolved:
+* On investigating my function mediumDisplay, I realised that I had not specified what should happen to these boxes.  On adding the two lines of code shown below, the bug was resolved:
 
 ```js
 
@@ -386,9 +385,9 @@ scrambleBoxes[5].style.display = 'none';
 
 ```
 
-<br>
+___
 
-A problem I encountered quite early while testing was that with my initial methodology for generating a random word from the challengeWords array, this would quite regularly result in the same word being displayed several times during a game.  I explored several ways of fixing this, initially pushing each word to a new array once used.  These were then only re-introduced when the challenegeWords array was empty.  This was one solution but on discussing with my Mentor Can, I decided a better approach would be to choose words from the challengeWords array using a shuffled integer array.  Once an integer has been used it is moved to the back of the challengeIndexes array and will only be used again once all the avaialble words have been used.  For each new game, the integer array is shuffled randomly using the Fisher Yates method so words do not always appear to the player in the same order. 
+10. A problem I encountered quite early while testing was that with my initial methodology for generating a random word from the challengeWords array, this would quite regularly result in the same word being displayed several times during a game.  I explored several ways of fixing this, initially pushing each word to a new array once used.  These were then only re-introduced when the challenegeWords array was empty.  This was one solution but on discussing with my Mentor Can, I decided a better approach would be to choose words from the challengeWords array using a shuffled integer array.  Once an integer has been used it is moved to the back of the challengeIndexes array and will only be used again once all the avaialble words have been used.  For each new game, the integer array is shuffled randomly using the Fisher Yates method so words do not always appear to the player in the same order. 
 
 
 
