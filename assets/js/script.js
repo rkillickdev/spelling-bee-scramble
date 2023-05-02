@@ -45,7 +45,7 @@ const submitAnswer = document.getElementsByClassName("check-answer");
 let correctAnswer = "";
 let playerAnswer = [];
 let totalScore = 0;
-let scoreTarget = 3;
+let scoreTarget = 6;
 let previousButton = null;
 let timeLeft = 60;
 let startCountDown;
@@ -201,7 +201,7 @@ function countDown() {
                 <img src="assets/images/clapping-icon.png" alt="a gold star">
             </div>
             <div>
-                <h2>You need ${correctRequired} more correct next time!</h2>
+                <h2>You need ${correctRequired} more correct next time...</h2>
             </div>
         </div> 
 
