@@ -45,7 +45,7 @@ const submitAnswer = document.getElementsByClassName("check-answer");
 let correctAnswer = "";
 let playerAnswer = [];
 let totalScore = 0;
-let scoreTarget = 6;
+let scoreTarget = 3;
 let previousButton = null;
 let timeLeft = 60;
 let startCountDown;
@@ -90,7 +90,7 @@ function changeDifficulty(difficulty) {
         
         });
     } else if (difficulty === "medium") {
-        nextStep = "You're doing great...";
+        nextStep = "You need something trickier...";
         levelGraphic = "assets/images/achievement-award-medal-icon.png";
         mediumDisplay(); 
         wordCollection.forEach(function(collection) {
@@ -432,7 +432,7 @@ function checkScore() {
         
         <div id="feedback-info" class="flex-rows">
             <div>
-                <h1>Congratulations... you did it!</h1>
+                <h1>You completed the challenge!</h1>
             </div>
             <div class="single-image-display">
                 <img src=${encouragingImage} alt="a gold star">
@@ -547,17 +547,28 @@ setLevel.forEach(function(button){
     button.addEventListener('click' , buttonToggle);
 });
 
+// Event listener for easy difficulty settings button.
+const selectEasy = document.getElementById("select-easy");
+selectEasy.addEventListener('click' , function() {
+    currentDifficulty = "easy";
+    console.log(currentDifficulty);    
+});
+
 // Event listener for medium difficulty settings button.
 const selectMedium = document.getElementById("select-medium");
 selectMedium.addEventListener('click' , function() {
-    currentDifficulty = "medium";    
+    currentDifficulty = "medium";
+    console.log(currentDifficulty);    
 });
 
 // Event listener for hard difficulty settings button.
 const selectHard = document.getElementById("select-hard");
 selectHard.addEventListener('click' , function() {
     currentDifficulty = "hard";
+    console.log(currentDifficulty);
 });
 
 //Event listener for game run button
 playButtonEventListener('#play-game','click', runGame );
+
+
