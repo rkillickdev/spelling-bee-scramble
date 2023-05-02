@@ -105,9 +105,11 @@ button {
     height: 100%;
     place-items: center;
 }
+
 .grid-tiles-1 {
     grid-template-columns: repeat(1, 1fr);
 }
+
 .grid-tiles-2 {
     grid-template-columns: repeat(2, 1fr);
     gap: 0 var(--spacing-m);
@@ -218,6 +220,10 @@ button {
     height: auto;
 }
 
+.hidden {
+    display: none;
+}
+
 /* NAVIGATION MENU */
 
 .nav-icon {
@@ -248,19 +254,12 @@ button {
 
 /* SETTINGS SECTION */
 
-#settings {
+#settings , #instructions {
     padding-top: var(--spacing-s);
 }
 
 .unselected {
     color: grey;
-}
-
-
-/* INSTRUCTIONS SECTION */
-
-.hidden {
-    display: none;
 }
 
 /* TOP DISPLAY SECTION */
@@ -345,8 +344,6 @@ button {
     to {background-color: var(--highlight-color);}   
 }
 
-
-
 .answer-letter {
     position: absolute;
     top: 0;
@@ -363,11 +360,6 @@ button {
 }
 
 /* IMAGE BOX SECTION */
-
-.info-box {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 2fr 1fr;
-}
 
 #display {
     margin: var(--spacing-s) auto;
@@ -394,6 +386,3 @@ button {
     margin: var(--spacing-s) auto;
 }
 
-#submit-button {
-    border-radius: 5px;
-}

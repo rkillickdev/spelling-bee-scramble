@@ -194,13 +194,13 @@ function countDown() {
         topDisplay.innerHTML = `
         
         <div id="feedback-info" class="flex-rows">
-            <div id= "player-message">
+            <div>
                 <h1>Keep trying!</h1>
             </div>
             <div class="single-image-display">
                 <img src="assets/images/clapping-icon.png" alt="a gold star">
             </div>
-            <div id= "player-instructions">
+            <div>
                 <h2>You need ${correctRequired} more correct next time!</h2>
             </div>
         </div> 
@@ -431,13 +431,13 @@ function checkScore() {
         topDisplay.innerHTML = `
         
         <div id="feedback-info" class="flex-rows">
-            <div id= "player-message">
+            <div>
                 <h1>Congratulations... you did it!</h1>
             </div>
             <div class="single-image-display">
                 <img src=${encouragingImage} alt="a gold star">
             </div>
-            <div id= "player-instructions">
+            <div>
                 <h2>${levelMessage}</h2>
             </div>
         </div> 
