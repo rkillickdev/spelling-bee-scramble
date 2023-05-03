@@ -31,7 +31,7 @@ const scoreBox = `
 `;
 const playButtonStructure = `
 
-    <button type="button" id="play-game" class="control-button">
+    <button type="button" id="play-game" class="control-button" aria-label="play game">
         <img src="assets/images/go-icon.png" alt="round green go icon">
     </button>
 `;

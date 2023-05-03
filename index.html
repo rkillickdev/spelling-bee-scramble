@@ -28,16 +28,16 @@
             <nav class="flex">
                 <!-- Logo -->
                 <div>
-                    <a href="index.html">
+                    <a href="index.html" aria-label="refresh home page">
                         <i class="fa-solid fa-house nav-icon"></i>
                     </a>
                 </div>
                 <!-- Menu Items -->
                 <div class="flex">
-                    <button type="button" id="show-settings" class="control-button settings-icon">
+                    <button type="button" id="show-settings" class="control-button settings-icon" aria-label="settings">
                         <i class="fa-solid fa-gear nav-icon"></i>
                     </button>
-                    <button type="button" id="show-instructions" class="control-button help-icon">
+                    <button type="button" id="show-instructions" class="control-button help-icon" aria-label="instructions">
                         <i class="fa-solid fa-circle-info nav-icon"></i>
                     </button>
                 </div>
@@ -53,26 +53,26 @@
                 </div>
                 <div class="grid grid-settings-table">
                     <div>
-                        <button type="button" id="select-easy" class="control-button set-level">
+                        <button type="button" id="select-easy" class="control-button set-level" aria-label="easy level">
                             <i id="easy" class="fa-solid fa-toggle-off nav-icon"></i>
                         </button>
                     </div>
                     <div>EASY</div>
                     <div>
-                        <button type="button" id="select-medium" class="control-button set-level">
+                        <button type="button" id="select-medium" class="control-button set-level" aria-label="medium level">
                             <i class="fa-solid fa-toggle-off nav-icon"></i>
                         </button>
                     </div>
                     <div>MEDIUM</div>
                     <div>
-                        <button type="button" id="select-hard" class="control-button set-level">
+                        <button type="button" id="select-hard" class="control-button set-level" aria-label="hard level">
                             <i class="fa-solid fa-toggle-off nav-icon"></i>
                         </button>
                     </div>
                     <div>HARD</div>
                 </div>
                 <div>
-                    <button type="button" id="hide-settings" class="control-button clear-page">
+                    <button type="button" id="hide-settings" class="control-button clear-page" aria-label="close page">
                         <i class="fa-solid fa-circle-xmark nav-icon"></i>
                     </button>
                 </div>
@@ -94,7 +94,7 @@
                     </ul>
                 </div>
                 <div>
-                    <button type="button" id="hide-instructions" class="control-button clear-page">
+                    <button type="button" id="hide-instructions" class="control-button clear-page" aria-label="close page">
                         <i class="fa-solid fa-circle-xmark nav-icon"></i>
                     </button>
                 </div>
@@ -143,7 +143,7 @@
         <!-- Image Box Section -->
         <div id="display" class="container">
             <div id="display-main" class="flex-rows single-image-display">
-                <button type="button" id="play-game" class="control-button player-control">
+                <button type="button" id="play-game" class="control-button player-control" aria-label="play game">
                     <img src="assets/images/go-icon.png" alt="round green go icon">
                 </button>
             </div>
@@ -153,22 +153,22 @@
             <div class="grid-wrapper">
                 <div id="scramble-tiles" class="grid grid-tiles-4">
                     <div class="button-container scramble-box">
-                        <button type="button" class="btn scramble-button"></button>
+                        <button type="button" class="btn scramble-button" aria-label="scramble letter one"></button>
                     </div>
                     <div class="button-container scramble-box">
-                        <button type="button" class="btn scramble-button"></button>            
+                        <button type="button" class="btn scramble-button" aria-label="scramble letter two"></button>            
                     </div>
                     <div class="button-container scramble-box">
-                        <button type="button" class="btn scramble-button"></button>                
+                        <button type="button" class="btn scramble-button" aria-label="scramble letter three"></button>                
                     </div>
                     <div class="button-container scramble-box">
-                        <button type="button" class="btn scramble-button"></button>           
+                        <button type="button" class="btn scramble-button" aria-label="scramble letter four"></button>           
                     </div>
                     <div class="button-container scramble-box hidden">
-                        <button type="button" class="btn scramble-button"></button>           
+                        <button type="button" class="btn scramble-button" aria-label="scramble letter five"></button>           
                     </div>
                     <div class="button-container scramble-box hidden">
-                        <button type="button" class="btn scramble-button"></button>              
+                        <button type="button" class="btn scramble-button" aria-label="scramble letter six"></button>              
                     </div>
                 </div>
             </div>
@@ -178,13 +178,13 @@
             <div class="grid-wrapper">
                 <div id="control-box" class="grid">
                     <div class="button-container">
-                        <button type="button" id="remove-answer" class="btn control-button player-control">
+                        <button type="button" id="remove-answer" class="btn control-button player-control" aria-label="clear answer">
                             <img src="assets/images/cancel-icon.png" alt="red cross icon">
                         </button>
                     </div>
                     <div></div>
                     <div class="button-container">
-                        <button type="button" class="btn check-answer control-button player-control">
+                        <button type="button" class="btn check-answer control-button player-control" aria-label="check answer">
                             <img src="assets/images/play-button-green-icon.png" alt="green play button icon">
                         </button>
                     </div>
