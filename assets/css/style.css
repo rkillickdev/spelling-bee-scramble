@@ -83,6 +83,14 @@ button {
     -moz-appearance: none;
 }
 
+/* MEDIA QUERIES */
+
+@media only screen and (min-width: 768px){
+    h1 {
+        font-size: var(--font-size-large);
+    }
+}
+
 /* UTILITIES */
 
 .container {
