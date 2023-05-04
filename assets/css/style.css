@@ -186,6 +186,7 @@ button {
     object-fit: cover;
     margin: 0 auto;
     font-family: 'Nunito', sans-serif;
+    color: var(--secondary-color);
     border-radius: 5px;
 }
 
