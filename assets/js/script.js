@@ -161,13 +161,15 @@ function hardDisplay() {
  * Starts clock countdown.
  * Runs playGame function
  */
-function runGame() {
-    console.log(challengeWords);
-    console.log(challengeIndexes); 
+function runGame() { 
     challengeWords.length = 0;
     challengeIndexes.length = 0;
+    console.log(challengeWords);
+    console.log(challengeIndexes);
     totalScore = 0;
     changeDifficulty(currentDifficulty);
+    console.log(challengeWords);
+    console.log(challengeIndexes);
     generateWord();
     gameToggle("game");
     timeLeft = 60;
@@ -257,9 +259,6 @@ function generateWord() {
     /** The integer occupying index 0 of challengeIndexes is removed using the shift() method and 
      *  saved in the variable firstIndex.
     */
-    let firstIndex = challengeIndexes.shift();
-    // The integer stored in the variable firstIndex is added to the end of the challengeIndexes array.
-    challengeIndexes.push(firstIndex);
     correctAnswer = randomWord.word;
     let wordLetters = correctAnswer.split("");
     for (let x = wordLetters.length - 1; x > 0 ; x--) {
@@ -282,6 +281,9 @@ function generateWord() {
         let altDescription = randomWord.description;
         displayMain.innerHTML = `<img src = "${pictureHint}" alt ="${altDescription}">`;
     }
+    let firstIndex = challengeIndexes.shift();
+    // The integer stored in the variable firstIndex is added to the end of the challengeIndexes array.
+    challengeIndexes.push(firstIndex);
     console.log(correctAnswer);
     console.log(challengeIndexes);   
 }
@@ -382,6 +384,7 @@ function checkAnswer() {
     setTimeout(function(){
         answerIcon.innerHTML="";
     }, 1000);
+    checkScore();
 }
 
 /**
@@ -517,7 +520,6 @@ function toggleSettings() {
 
 // Event listener for submit answer button.  Runs checkAnswer function.
 submitAnswer[0].addEventListener('click', checkAnswer);
-submitAnswer[0].addEventListener('click', checkScore);
 
 // Event listener for clear answer button.
 const removeAnswer = document.getElementById("remove-answer");
