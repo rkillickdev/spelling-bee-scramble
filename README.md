@@ -242,6 +242,38 @@ HTML, CSS and JavaScript were used to create the game.
 
 <br>
 
+# **Testing**
+
+## **Automated Testing**
+
+<br>
+
+### **W3C Validator:**
+
+<br>
+
+## **Manual Testing**
+
+<br>
+
+### **Testing User Stories:**
+
+<br>
+
+| Goals | How are goals achieved? |
+| --- | --- | 
+| Client |    
+|        |  
+|        |                                                                    
+| First Time Visitors |                                                         
+|        | 
+|        |                                                         
+| Return Visitors |                                                             
+|        |
+|        | 
+| Repeat Visitors |                                                            
+|        |  
+
 
 <br>
 
