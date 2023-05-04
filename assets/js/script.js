@@ -1,10 +1,3 @@
-// FUNCTION RUN ONCE DOM CONTENT LOADED
-
-document.addEventListener("DOMContentLoaded", function() {
-    challengeWords.length = 0;
-    changeDifficulty(currentDifficulty);
-});
-
 // HTML ELEMENTS DEFINED
 
 const setLevel= document.querySelectorAll(".set-level");
@@ -168,16 +161,18 @@ function hardDisplay() {
  * Starts clock countdown.
  * Runs playGame function
  */
-function runGame() { 
+function runGame() {
+    console.log(challengeWords);
+    console.log(challengeIndexes); 
     challengeWords.length = 0;
     challengeIndexes.length = 0;
     totalScore = 0;
-    playGame();
     changeDifficulty(currentDifficulty);
     generateWord();
     gameToggle("game");
     timeLeft = 60;
     startClock();
+    playGame();
 }
 
 /**
@@ -286,7 +281,9 @@ function generateWord() {
         let pictureHint = randomWord.picture;
         let altDescription = randomWord.description;
         displayMain.innerHTML = `<img src = "${pictureHint}" alt ="${altDescription}">`;
-    }   
+    }
+    console.log(correctAnswer);
+    console.log(challengeIndexes);   
 }
 
 /**
@@ -448,8 +445,8 @@ function checkScore() {
         displayMain.innerHTML = playButtonStructure;
         gameToggle("home");
     } else {
-        playGame();
         generateWord();
+        playGame(); 
     } 
 }
 

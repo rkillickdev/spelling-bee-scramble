@@ -190,6 +190,10 @@ button {
     border-radius: 5px;
 }
 
+.btn:disabled {
+    color: #696969;
+}
+
 .control-button {
     background-color: transparent;
     max-width: 100%;

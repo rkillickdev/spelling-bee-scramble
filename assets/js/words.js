@@ -9,7 +9,6 @@ const wordCollection = [
         picture: "assets/images/fish-color-icon.png",
         description: "an orange fish",
         level: "easy"
-
     },
     {
         word: "kiwi",
