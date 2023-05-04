@@ -164,12 +164,10 @@ function hardDisplay() {
 function runGame() { 
     challengeWords.length = 0;
     challengeIndexes.length = 0;
-    console.log(challengeWords);
-    console.log(challengeIndexes);
     totalScore = 0;
     changeDifficulty(currentDifficulty);
-    console.log(challengeWords);
-    console.log(challengeIndexes);
+    console.log("challenge words array:", challengeWords);
+    console.log("challenge indexes:" ,challengeIndexes);
     generateWord();
     gameToggle("game");
     timeLeft = 60;
@@ -284,8 +282,8 @@ function generateWord() {
     let firstIndex = challengeIndexes.shift();
     // The integer stored in the variable firstIndex is added to the end of the challengeIndexes array.
     challengeIndexes.push(firstIndex);
-    console.log(correctAnswer);
-    console.log(challengeIndexes);   
+    console.log("Correct Answer:" ,correctAnswer);
+    console.log("Challenge indexes modified order:" ,challengeIndexes);   
 }
 
 /**
@@ -549,22 +547,19 @@ setLevel.forEach(function(button){
 // Event listener for easy difficulty settings button.
 const selectEasy = document.getElementById("select-easy");
 selectEasy.addEventListener('click' , function() {
-    currentDifficulty = "easy";
-    console.log(currentDifficulty);    
+    currentDifficulty = "easy";    
 });
 
 // Event listener for medium difficulty settings button.
 const selectMedium = document.getElementById("select-medium");
 selectMedium.addEventListener('click' , function() {
-    currentDifficulty = "medium";
-    console.log(currentDifficulty);    
+    currentDifficulty = "medium";    
 });
 
 // Event listener for hard difficulty settings button.
 const selectHard = document.getElementById("select-hard");
 selectHard.addEventListener('click' , function() {
     currentDifficulty = "hard";
-    console.log(currentDifficulty);
 });
 
 //Event listener for game run button
