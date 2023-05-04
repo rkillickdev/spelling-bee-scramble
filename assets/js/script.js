@@ -250,20 +250,25 @@ function clearAnswerStyle () {
  * image url is inserted into the html.
  */
 function generateWord() {
+    console.log("GenerateWord Function called...");
     // Old way of choosing a random word from wordChalleneg array
     // let randomWord = challengeWords[Math.floor(Math.random() * challengeWords.length)];
     // Word selected from the challengeWords array using index zero of the challengeIndexes array
     let randomWord = challengeWords[challengeIndexes[0]];
+    console.log(randomWord);
     /** The integer occupying index 0 of challengeIndexes is removed using the shift() method and 
      *  saved in the variable firstIndex.
     */
     correctAnswer = randomWord.word;
+    console.log("Correct Answer:" ,correctAnswer);
     let wordLetters = correctAnswer.split("");
+    console.log("Word Letters array:" , wordLetters);
     for (let x = wordLetters.length - 1; x > 0 ; x--) {
         let y = Math.floor(Math.random() * (x + 1));
         [wordLetters[x], wordLetters[y]] = [wordLetters[y], wordLetters[x]];
     }
     let scrambledString = wordLetters.join("");
+    console.log("Scrambled String:" ,scrambledString);
     if (scrambledString === correctAnswer) {
         return;
     } else {
@@ -282,7 +287,7 @@ function generateWord() {
     let firstIndex = challengeIndexes.shift();
     // The integer stored in the variable firstIndex is added to the end of the challengeIndexes array.
     challengeIndexes.push(firstIndex);
-    console.log("Correct Answer:" ,correctAnswer);
+    console.log("GenerateWord Function has been run successfully!");
     console.log("Challenge indexes modified order:" ,challengeIndexes);   
 }
 
