@@ -283,8 +283,6 @@ HTML, CSS and JavaScript were used to create the game.
 
 ### **Known Bugs:**
 
-1.  I was experiencing a problem where from time to time, when hitting the go button or logging an answer, a new word would not be shown.  Frustrating as it would seem to happen randomly but fairly frequently.  There was no error logged on the console, but using console logs in my code, I tracked down that the problem was coming from the GenerateWord function, and then more specifically the code I had written to deal with scrambled letters that were equal to the correct spelling of the word.  I discovered that the bug appeared whenever the two spellings were identical.  I am currently looking for a better way to write this code.
-
 <br>
 
 ### **Solved Bugs:**
@@ -430,7 +428,17 @@ ___
 
 11.  When viewing on my IOS devices, the text in the scramble boxes was displaying as pale blue rather than black like the rest of the text in other areas of the game.  Explicity setting the color property for the class "btn" solved this problem.
 
+___
 
+12.  I was experiencing a problem where from time to time, when hitting the go button or logging an answer, a new word would not be shown.  Frustrating as it would seem to happen randomly but fairly frequently.  There was no error logged on the console, but using console logs in my code, I tracked down that the problem was coming from the GenerateWord function.  And then more specifically the code I had written to deal with cases where the string of scrambled letters saved in the variable scrambledString was identical to the correct spelling of the word.  I therefore needed a way to rescramble the letters in these situations before the rest of the generateWord function could run.  I separated the letter scrambling into it's own function called scrambleWord and then used a while loop to continue running this function until the condition evaluates to false:
+
+```js
+
+while ((scrambledString === correctAnswer)) {
+        scrambleWord();
+    }
+
+```
 
 # **Credits**
 
