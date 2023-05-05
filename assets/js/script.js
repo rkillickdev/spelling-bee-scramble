@@ -36,6 +36,10 @@ const submitAnswer = document.getElementsByClassName("check-answer");
 // GLOBAL VARIABLES
 
 let correctAnswer = "";
+let randomWord;
+let wordLetters;
+let scrambledString;
+let challengeIndexes = [];
 let playerAnswer = [];
 let totalScore = 0;
 let scoreTarget = 6;
@@ -166,8 +170,6 @@ function runGame() {
     challengeIndexes.length = 0;
     totalScore = 0;
     changeDifficulty(currentDifficulty);
-    console.log("challenge words array:", challengeWords);
-    console.log("challenge indexes:" ,challengeIndexes);
     generateWord();
     gameToggle("game");
     timeLeft = 60;
@@ -232,8 +234,9 @@ function playGame() {
     resetLetterBoxes();
 }
 
-let challengeIndexes = [];
-
+/**
+ * Removes css styling for correct or incorrect answers from answer boxes.
+ */
 function clearAnswerStyle () {
    for (let box of answerBoxes) {
     box.classList.remove("answer-box-correct");
@@ -242,55 +245,55 @@ function clearAnswerStyle () {
 }
 
 /**
- * Generates random word from challengeWords array, splits the individual letters into the 
- * wordLetters array and scrambles these in a random order.
  * I used the following tutorial to help with coding this: https://www.youtube.com/watch?v=4-s3g_fU7Vg
+ * Generates random word from challengeWords array, splits the individual letters into the  wordLetters array.
+ * Runs the scrambleWord function
  * The scrambled word is checked against the correct answer to make sure they are never the same.  If this
- * evaluates to false, the scramble boxes are populated with the scrambled letters. And the related
- * image url is inserted into the html.
+ * evaluates to false, the displayScramble function runs
  */
 function generateWord() {
-    console.log("GenerateWord Function called...");
-    // Old way of choosing a random word from wordChalleneg array
-    // let randomWord = challengeWords[Math.floor(Math.random() * challengeWords.length)];
     // Word selected from the challengeWords array using index zero of the challengeIndexes array
-    let randomWord = challengeWords[challengeIndexes[0]];
-    console.log(randomWord);
-    /** The integer occupying index 0 of challengeIndexes is removed using the shift() method and 
-     *  saved in the variable firstIndex.
-    */
+    randomWord = challengeWords[challengeIndexes[0]];
     correctAnswer = randomWord.word;
-    console.log("Correct Answer:" ,correctAnswer);
-    let wordLetters = correctAnswer.split("");
-    console.log("Word Letters array:" , wordLetters);
+    wordLetters = correctAnswer.split("");
+    scrambleWord();
+    while ((scrambledString === correctAnswer)) {
+        scrambleWord();
+    }
+    displayScramble()
+    // The integer occupying index 0 of challengeIndexes sent to the end of this array.
+    const firstIndex = challengeIndexes.shift();
+    challengeIndexes.push(firstIndex);   
+}
+
+/**
+ * Displays the scrambled letters in the scramble boxes and displays the picture relating to the chosen
+ * word in the div with id display-main
+ */
+function displayScramble() {
+    // Populate each scramble box w ith a letter from the scrambled word
+    wordLetters.forEach((letter, index) => {
+        scrambleButtons[index].innerHTML = letter;
+    });
+    // Retrieves image path and alt description from randomWord object and stores in the 
+    //variables pictureHint and altDescription. Inserted into HTML using template literals.   
+    let pictureHint = randomWord.picture;
+    let altDescription = randomWord.description;
+    displayMain.innerHTML = `<img src = "${pictureHint}" alt ="${altDescription}">`;
+}
+
+/**
+ * Takes the letters from the chosen word, scrambles their order and joins them back into
+ * a string which is saved in the variable scrambledString.
+ */
+function scrambleWord(){
     for (let x = wordLetters.length - 1; x > 0 ; x--) {
         let y = Math.floor(Math.random() * (x + 1));
         [wordLetters[x], wordLetters[y]] = [wordLetters[y], wordLetters[x]];
     }
-    let scrambledString = wordLetters.join("");
-    console.log("Scrambled String:" ,scrambledString);
-    if (scrambledString === correctAnswer) {
-        return;
-    } else {
-        // Populate each scramble box with a letter from the scrambled word
-        wordLetters.forEach((letter, index) => {
-            scrambleButtons[index].innerHTML = letter;
-        });
-        /**
-         * Retrieves image path and alt description from randomWord object and stores in the 
-         * variables pictureHint and altDescription. Inserted into HTML using template literals. 
-         */
-        let pictureHint = randomWord.picture;
-        let altDescription = randomWord.description;
-        displayMain.innerHTML = `<img src = "${pictureHint}" alt ="${altDescription}">`;
-    }
-    let firstIndex = challengeIndexes.shift();
-    // The integer stored in the variable firstIndex is added to the end of the challengeIndexes array.
-    challengeIndexes.push(firstIndex);
-    console.log("GenerateWord Function has been run successfully!");
-    console.log("Challenge indexes modified order:" ,challengeIndexes);   
+    scrambledString = wordLetters.join("");   
 }
-
+    
 /**
  * Takes challengeIndexes array of integers and shuffles using the Fisher-Yates method.  I used the
  * following article and code to learn about this way of randomly shuffling integers:
