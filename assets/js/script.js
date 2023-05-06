@@ -6,29 +6,29 @@
         EASY: "easy",
         MEDIUM: "medium",
         HARD: "hard"
-    }
+    };
 
     const DISPLAY = {
         HOME: "home",
         GAME: "game"
-    }
+    };
 
     const ANSWER_STATUS = {
         CORRECT: "correct",
         INCORRECT: "incorrect"
-    }
+    };
 
     const SELECTOR_DIFFICULTY_MAP = {
         [DIFFICULTY.EASY]: "select-easy",
         [DIFFICULTY.MEDIUM]: "select-medium",
         [DIFFICULTY.HARD]: "select-hard"
-    }
+    };
 
     // HTML ELEMENTS DEFINED
 
     const setLevel= document.querySelectorAll(".set-level");
     const topDisplay = document.getElementById("top-display");
-    const answerTiles = document.getElementById("answer-tiles")
+    const answerTiles = document.getElementById("answer-tiles");
     const answerBoxes = document.querySelectorAll(".answer-box");
     const answerLetters = document.querySelectorAll(".answer-letter");
     const display = document.getElementById("display");
@@ -51,7 +51,7 @@
     let challengeIndexes = [];
     let playerAnswer = [];
     let totalScore = 0;
-    let scoreTarget = 2;
+    let scoreTarget = 6;
     let previousButton = null;
     let timeLeft = 60;
     let startCountDown;
@@ -72,13 +72,13 @@
             document.getElementById("controls").classList.toggle("hidden");
             feedbackInfo.className = "flex-rows";
             toggleProgress();
-            togglePicture()
+            togglePicture();
         } else if (display === DISPLAY.GAME) {
             document.getElementById("controls").classList.toggle("hidden");        
             feedbackInfo.className = "flex";
             // topDisplay.innerHTML = scoreBox;
             toggleProgress();
-            togglePicture()
+            togglePicture();
         }
     }
 
@@ -136,7 +136,7 @@
             [4, 5].forEach((index) => {
                 [answerBoxes, scrambleBoxes].forEach((box) => {
                     box[index].style.display = 'none';
-                })
+                });
             });
             [answerTiles, scrambleTiles].forEach((index) => {
                 index.className = "grid grid-tiles-4";
@@ -145,12 +145,12 @@
             [4].forEach((index) => {
                 [answerBoxes, scrambleBoxes].forEach((box) => {
                     box[index].style.display = 'block';
-                })
+                });
             });
             [5].forEach((index) => {
                 [answerBoxes, scrambleBoxes].forEach((box) => {
                     box[index].style.display = 'none';
-                })
+                });
             });
             [answerTiles, scrambleTiles].forEach((index) => {
                 index.className = "grid grid-tiles-5";
@@ -159,7 +159,7 @@
             [4, 5].forEach((index) => {
                 [answerBoxes, scrambleBoxes].forEach((box) => {
                     box[index].style.display = 'block';
-                })
+                });
             });
             [answerTiles, scrambleTiles].forEach((index) => {
                 index.className = "grid grid-tiles-6";
@@ -239,6 +239,7 @@
         score.innerText = "0";
         timer.innerText = "60";     
     }
+
     /**
      * Runs resetLetterBoxes and generateWord functions.
      */
@@ -273,7 +274,7 @@
         while ((scrambledString === correctAnswer)) {
             scrambleWord();
         }
-        displayScramble()
+        displayScramble();
         // The integer occupying index 0 of challengeIndexes sent to the end of this array.
         const firstIndex = challengeIndexes.shift();
         challengeIndexes.push(firstIndex);   
@@ -352,28 +353,6 @@
     }
 
     /**
-     * Add event listeners for all boxes containing a scrambled letter. 
-     * Clicking on each scrambled letter then pushes this to the playerAnswer 
-     * array. Also checks if an answer box is empty and if so poulates it with 
-     * the scramble letter that has been clicked.
-     * After each scramble button is clicked, it is disabled so the same letter 
-     * cannot be entered again.
-    */
-    buttonArray.forEach((currentLetter) => {
-        currentLetter.addEventListener('click', function(event){
-            if (playerAnswer.length < answerBoxes.length) {
-                playerAnswer.push(event.target.innerText);
-            }
-            answerLetters.forEach((letter, index) => {
-                if (letter.childNodes.length === 0 && playerAnswer[index]) {
-                    letter.innerText = playerAnswer[index];
-                }
-            })
-            this.disabled = true;        
-        });  
-    });
-
-    /**
      * Turns the playerAnswer array into a string, converts the 
      * correct answer to upper case letters and then compares the
      * two against each other.  If they are equal, a point is added
@@ -407,9 +386,9 @@
         const classMapping ={
             [ANSWER_STATUS.CORRECT]: "answer-box-correct",
             [ANSWER_STATUS.INCORRECT]: "answer-box-incorrect"
-        }
+        };
 
-        answerBoxes.forEach(box => box.classList.add(classMapping[answer]))
+        answerBoxes.forEach(box => box.classList.add(classMapping[answer]));
     }
 
     /**
@@ -517,6 +496,28 @@
 
     // EVENT LISTENERS
 
+    /**
+     * Add event listeners for all boxes containing a scrambled letter. 
+     * Clicking on each scrambled letter then pushes this to the playerAnswer 
+     * array. Also checks if an answer box is empty and if so poulates it with 
+     * the scramble letter that has been clicked.
+     * After each scramble button is clicked, it is disabled so the same letter 
+     * cannot be entered again.
+    */
+    buttonArray.forEach((currentLetter) => {
+        currentLetter.addEventListener('click', function(event){
+            if (playerAnswer.length < answerBoxes.length) {
+                playerAnswer.push(event.target.innerText);
+            }
+            answerLetters.forEach((letter, index) => {
+                if (letter.childNodes.length === 0 && playerAnswer[index]) {
+                    letter.innerText = playerAnswer[index];
+                }
+            });
+            this.disabled = true;        
+        });  
+    });
+
     // Event listener for "GO" button that runs game.
     document.querySelector('#play-game').addEventListener('click' , runGame);
 
@@ -553,5 +554,5 @@
         document.getElementById(selector).addEventListener('click', () => {
             currentDifficulty = difficulty;
         });
-    })
+    });
 })();
