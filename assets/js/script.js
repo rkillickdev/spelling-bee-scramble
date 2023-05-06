@@ -33,7 +33,6 @@
     const answerLetters = document.querySelectorAll(".answer-letter");
     const display = document.getElementById("display");
     const displayPicture = document.getElementById("display-picture");
-    const displayMain = document.getElementById("display-main");
     const feedbackInfo = document.getElementById("feedback-info");
     const score = document.getElementById("score");
     const timer = document.querySelector('#timer');

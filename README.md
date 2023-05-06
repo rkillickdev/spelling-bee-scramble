@@ -455,6 +455,7 @@ while ((scrambledString === correctAnswer)) {
 * Referenced [this code](https://www.tutorialspoint.com/what-is-fisher-yates-shuffle-in-javascript) when finding a solution for shuffling an array of integers randomly.
 * Referenced and modified [this code](https://softauthor.com/make-selected-clicked-button-active-in-javascript/) when exploring ways of toggling the font awesome icon used each time a button clicked on the settings page to change the difficulty level.
 * [Article about using divs instead of sections where no heading element present](https://www.beacontechnologies.com/blog/2018/12/how-to-add-aria-labels-for-html-section-and-div-tags.aspx)
+* Referenced [this article](https://www.geeksforgeeks.org/what-is-the-self-executing-function/) to learn about wrapping the code in a file with a self executing function
 
 <br>
 
