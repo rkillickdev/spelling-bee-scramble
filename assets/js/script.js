@@ -16,6 +16,12 @@ const ANSWER_STATUS = {
     INCORRECT: "incorrect"
 }
 
+const SELECTOR_DIFFICULTY_MAP = {
+    [DIFFICULTY.EASY]: "select-easy",
+    [DIFFICULTY.MEDIUM]: "select-medium",
+    [DIFFICULTY.HARD]: "select-hard"
+}
+
 // HTML ELEMENTS DEFINED
 
 const setLevel= document.querySelectorAll(".set-level");
@@ -478,8 +484,6 @@ function buttonToggle(event) {
     previousButton = event.target;
 }
 
-// EVENT LISTENERS
-
 /**
  * Toggles the 'hidden' class to show and hide the instructions box.
  */
@@ -495,16 +499,25 @@ function toggleSettings() {
     document.getElementById("settings").classList.toggle('hidden');
     topDisplay.classList.toggle('hidden'); 
 }
-
+/**
+ * Toggles the 'hidden' class to show and hide the progress box.
+ */
 function toggleProgress() {
     document.getElementById("progress").classList.toggle('hidden');
     topDisplay.classList.toggle('hidden');    
 }
-
+/**
+ * Toggles the 'hidden' class to show and hide the picture box.
+ */
 function togglePicture() {
     document.getElementById("picture").classList.toggle('hidden');
     display.classList.toggle('hidden');
 }
+
+// EVENT LISTENERS
+
+// Event listener for "GO" button that runs game.
+document.querySelector('#play-game').addEventListener('click' , runGame);
 
 // Event listener for submit answer button.  Runs checkAnswer function.
 submitAnswer.addEventListener('click', checkAnswer);
@@ -517,13 +530,13 @@ removeAnswer.addEventListener('click', resetLetterBoxes);
 const showInstructions = document.getElementById("show-instructions");
 showInstructions.addEventListener('click', toggleInstructions);
 
-//Event listener for show settings button.
-const showSettings = document.getElementById("show-settings");
-showSettings.addEventListener('click', toggleSettings);
-
 //Event listener for hide instructions button.
 const hideInstructions = document.getElementById("hide-instructions");
 hideInstructions.addEventListener('click', toggleInstructions);
+
+//Event listener for show settings button.
+const showSettings = document.getElementById("show-settings");
+showSettings.addEventListener('click', toggleSettings);
 
 //Event listener for hide settings button.
 const hideSettings = document.getElementById("hide-settings");
@@ -534,22 +547,11 @@ setLevel.forEach(function(button){
     button.addEventListener('click' , buttonToggle);
 });
 
-// Event listener for easy difficulty settings button.
-const selectEasy = document.getElementById("select-easy");
-selectEasy.addEventListener('click' , function() {
-    currentDifficulty = DIFFICULTY.EASY;    
-});
-
-// Event listener for medium difficulty settings button.
-const selectMedium = document.getElementById("select-medium");
-selectMedium.addEventListener('click' , function() {
-    currentDifficulty = DIFFICULTY.MEDIUM;    
-});
-
-// Event listener for hard difficulty settings button.
-const selectHard = document.getElementById("select-hard");
-selectHard.addEventListener('click' , function() {
-    currentDifficulty = DIFFICULTY.HARD;
-});
-
-document.querySelector('#play-game').addEventListener('click' , runGame);
+// Iterates over SELECTOR_DIFFICULTY_MAP. 
+// Adds an event listener to the three difficulty settings buttons.
+// Learn about Object.entries here:  https://javascript.info/keys-values-entries
+Object.entries(SELECTOR_DIFFICULTY_MAP).forEach(([difficulty, selector]) => {
+    document.getElementById(selector).addEventListener('click', () => {
+        currentDifficulty = difficulty;
+    });
+})
