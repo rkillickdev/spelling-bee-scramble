@@ -1,3 +1,21 @@
+// MODULE LEVEL CONSTANTS
+
+const DIFFICULTY = {
+    EASY: "easy",
+    MEDIUM: "medium",
+    HARD: "hard"
+}
+
+const DISPLAY = {
+    HOME: "home",
+    GAME: "game"
+}
+
+const ANSWER_STATUS = {
+    CORRECT: "correct",
+    INCORRECT: "incorrect"
+}
+
 // HTML ELEMENTS DEFINED
 
 const setLevel= document.querySelectorAll(".set-level");
@@ -46,7 +64,7 @@ let scoreTarget = 6;
 let previousButton = null;
 let timeLeft = 60;
 let startCountDown;
-let currentDifficulty = "easy";
+let currentDifficulty = DIFFICULTY.EASY;
 let challengeWords = [];
 let nextStep;
 let levelGraphic;
@@ -59,9 +77,9 @@ let levelGraphic;
  * to display score counter and countdown clock. 
  */
 function gameToggle(display) {
-    if (display === "home") {
+    if (display === DISPLAY.HOME) {
         document.getElementById("controls").classList.toggle("hidden");
-    } else if (display === "game") {
+    } else if (display === DISPLAY.GAME) {
         document.getElementById("controls").classList.toggle("hidden");        
         document.getElementById("feedback-info").className = "flex";
         topDisplay.innerHTML = scoreBox;
@@ -70,41 +88,41 @@ function gameToggle(display) {
 
 /** 
  * Sets challenge difficulty level. Called by event listeners on settings page where the function will
- * recieve an argument of "easy", "medium" or "hard".  The function then iterates over the wordCollection
+ * recieve an argument of DIFFICULTY.EASY, DIFFICULTY.MEDIUM or DIFFICULTY.HARD.  The function then iterates over the wordCollection
  * array and adds objects to the challengeWords array based on the level of difficulty selected.  It also
  * confirms that the word is the correct number of characters for the difficulty level.
 */
 function changeDifficulty(difficulty) {
-    if (difficulty === "easy") {
+    if (difficulty === DIFFICULTY.EASY) {
         nextStep = "You're ready for the next level...";
         levelGraphic ="assets/images/star-symbol-icon.png";
         easyDisplay();  
         wordCollection.forEach(function(collection) {
-            if (collection.level === "easy" && collection.word.length === 4) {
+            if (collection.level === DIFFICULTY.EASY && collection.word.length === 4) {
                 challengeWords.push(collection);
             }
-        currentDifficulty = "easy";
+        currentDifficulty = DIFFICULTY.EASY;
         
         });
-    } else if (difficulty === "medium") {
+    } else if (difficulty === DIFFICULTY.MEDIUM) {
         nextStep = "You need something trickier...";
         levelGraphic = "assets/images/achievement-award-medal-icon.png";
         mediumDisplay(); 
         wordCollection.forEach(function(collection) {
-            if (collection.level === "medium" && collection.word.length === 5) {
+            if (collection.level === DIFFICULTY.MEDIUM && collection.word.length === 5) {
                 challengeWords.push(collection);
             }
-        currentDifficulty = "medium";
+        currentDifficulty = DIFFICULTY.MEDIUM;
         });
-    } else if (difficulty === "hard") {
+    } else if (difficulty === DIFFICULTY.HARD) {
         hardDisplay();
         nextStep = "You have reached the top level!";
         levelGraphic = "assets/images/1st-prize-icon.png";       
         wordCollection.forEach(function(collection) {
-            if (collection.level === "hard" && collection.word.length === 6) {
+            if (collection.level === DIFFICULTY.HARD && collection.word.length === 6) {
                 challengeWords.push(collection);
             }
-            currentDifficulty = "hard";
+            currentDifficulty = DIFFICULTY.HARD;
         });
     }
     // Generates array of integers for length of challenegWords array
@@ -171,7 +189,7 @@ function runGame() {
     totalScore = 0;
     changeDifficulty(currentDifficulty);
     generateWord();
-    gameToggle("game");
+    gameToggle(DISPLAY.GAME);
     timeLeft = 60;
     startClock();
     playGame();
@@ -205,7 +223,7 @@ function countDown() {
         `;
         clearAnswer();
         clearScramble();
-        gameToggle("home");
+        gameToggle(DISPLAY.HOME);
         buttonArray.forEach(function(currentLetter) {
             currentLetter.disabled = true;
         });
@@ -382,10 +400,10 @@ function checkAnswer() {
     if (submittedAnswer === correctUpperAnswer) {
         addPoint();
         answerIcon.innerHTML = `<img src = "assets/images/tick-green-icon.png" alt ="A green tick">`;
-        answerFeedback("correct");
+        answerFeedback(ANSWER_STATUS.CORRECT);
     } else {
         answerIcon.innerHTML = `<img src = "assets/images/cross-icon.png" alt ="A red cross">`;
-        answerFeedback("incorrect");        
+        answerFeedback(ANSWER_STATUS.INCORRECT);        
     }
     setTimeout(function(){
         answerIcon.innerHTML="";
@@ -398,11 +416,11 @@ function checkAnswer() {
  * answer evaluates to correct or incorrect.
  */
 function answerFeedback(answer) {
-    if (answer === "correct") {
+    if (answer === ANSWER_STATUS.CORRECT) {
         for (let box of answerBoxes) {
             box.classList.add("answer-box-correct");
         }
-    } else if (answer === "incorrect") {
+    } else if (answer === ANSWER_STATUS.INCORRECT) {
         for (let box of answerBoxes) {
             box.classList.add("answer-box-incorrect");
         }           
@@ -425,11 +443,11 @@ function answerFeedback(answer) {
 function checkScore() {
     if (totalScore === scoreTarget) {
         stopClock();
-        if (currentDifficulty === "easy") {
-            currentDifficulty = "medium";
-        } else if (currentDifficulty === "medium") {
-            currentDifficulty = "hard";
-        } else if (currentDifficulty === "hard") {
+        if (currentDifficulty === DIFFICULTY.EASY) {
+            currentDifficulty = DIFFICULTY.MEDIUM;
+        } else if (currentDifficulty === DIFFICULTY.MEDIUM) {
+            currentDifficulty = DIFFICULTY.HARD;
+        } else if (currentDifficulty === DIFFICULTY.HARD) {
             hardDisplay();
         }
         let levelMessage = nextStep;
@@ -452,7 +470,7 @@ function checkScore() {
         clearAnswer();
         clearScramble();
         displayMain.innerHTML = playButtonStructure;
-        gameToggle("home");
+        gameToggle(DISPLAY.HOME);
     } else {
         generateWord();
         playGame(); 
@@ -555,19 +573,19 @@ setLevel.forEach(function(button){
 // Event listener for easy difficulty settings button.
 const selectEasy = document.getElementById("select-easy");
 selectEasy.addEventListener('click' , function() {
-    currentDifficulty = "easy";    
+    currentDifficulty = DIFFICULTY.EASY;    
 });
 
 // Event listener for medium difficulty settings button.
 const selectMedium = document.getElementById("select-medium");
 selectMedium.addEventListener('click' , function() {
-    currentDifficulty = "medium";    
+    currentDifficulty = DIFFICULTY.MEDIUM;    
 });
 
 // Event listener for hard difficulty settings button.
 const selectHard = document.getElementById("select-hard");
 selectHard.addEventListener('click' , function() {
-    currentDifficulty = "hard";
+    currentDifficulty = DIFFICULTY.HARD;
 });
 
 //Event listener for game run button
