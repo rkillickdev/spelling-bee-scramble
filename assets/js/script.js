@@ -543,9 +543,7 @@ const hideSettings = document.getElementById("hide-settings");
 hideSettings.addEventListener('click', toggleSettings);
 
 // Event listener for 3 difficulty settings buttons
-setLevel.forEach(function(button){
-    button.addEventListener('click' , buttonToggle);
-});
+setLevel.forEach((button) => button.addEventListener('click' , buttonToggle));
 
 // Iterates over SELECTOR_DIFFICULTY_MAP. 
 // Adds an event listener to the three difficulty settings buttons.
