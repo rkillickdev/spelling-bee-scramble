@@ -84,7 +84,7 @@ function changeDifficulty(difficulty) {
         nextStep = "You're ready for the next level...";
         levelGraphic ="assets/images/star-symbol-icon.png";
         easyDisplay();  
-        wordCollection.forEach(function(collection) {
+        wordCollection.forEach((collection) => {
             if (collection.level === DIFFICULTY.EASY && collection.word.length === 4) {
                 challengeWords.push(collection);
             }
@@ -95,7 +95,7 @@ function changeDifficulty(difficulty) {
         nextStep = "You need something trickier...";
         levelGraphic = "assets/images/achievement-award-medal-icon.png";
         mediumDisplay(); 
-        wordCollection.forEach(function(collection) {
+        wordCollection.forEach((collection) => {
             if (collection.level === DIFFICULTY.MEDIUM && collection.word.length === 5) {
                 challengeWords.push(collection);
             }
@@ -105,7 +105,7 @@ function changeDifficulty(difficulty) {
         hardDisplay();
         nextStep = "You have reached the top level!";
         levelGraphic = "assets/images/1st-prize-icon.png";       
-        wordCollection.forEach(function(collection) {
+        wordCollection.forEach((collection) => {
             if (collection.level === DIFFICULTY.HARD && collection.word.length === 6) {
                 challengeWords.push(collection);
             }
