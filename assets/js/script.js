@@ -22,7 +22,7 @@ const setLevel= document.querySelectorAll(".set-level");
 const topDisplay = document.getElementById("top-display");
 const answerTiles = document.getElementById("answer-tiles")
 const answerBoxes = document.querySelectorAll(".answer-box");
-const answerLetters = document.getElementsByClassName("answer-letter");
+const answerLetters = document.querySelectorAll(".answer-letter");
 const display = document.getElementById("display");
 const displayPicture = document.getElementById("display-picture");
 const displayMain = document.getElementById("display-main");
@@ -355,19 +355,12 @@ buttonArray.forEach(function(currentLetter) {
         if (playerAnswer.length < answerBoxes.length) {
             playerAnswer.push(event.target.innerText);
         }
-        if (answerLetters[0].childNodes.length === 0) {
-            answerLetters[0].innerText = playerAnswer[0];
-        } else if (answerLetters[1].childNodes.length === 0) {
-            answerLetters[1].innerText = playerAnswer[1];           
-        } else if (answerLetters[2].childNodes.length === 0) {
-            answerLetters[2].innerText = playerAnswer[2];
-        } else if (answerLetters[3].childNodes.length === 0) {
-            answerLetters[3].innerText = playerAnswer[3];
-        } else if (answerLetters[4].childNodes.length === 0) {
-            answerLetters[4].innerText = playerAnswer[4];
-        } else if (answerLetters[5].childNodes.length === 0) {
-            answerLetters[5].innerText = playerAnswer[5];
-        }
+
+        answerLetters.forEach((letter, index) => {
+            if (letter.childNodes.length === 0 && playerAnswer[index]) {
+                letter.innerText = playerAnswer[index];
+            }
+        })
         this.disabled = true;        
     });  
 });

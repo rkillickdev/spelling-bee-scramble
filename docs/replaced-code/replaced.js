@@ -64,6 +64,28 @@
 //     document.getElementById("scramble-tiles").className = "grid grid-tiles-6";     
 // }
 
+// buttonArray.forEach(function(currentLetter) {
+//     currentLetter.addEventListener('click', function(event){
+//         if (playerAnswer.length < answerBoxes.length) {
+//             playerAnswer.push(event.target.innerText);
+//         }
+//         if (answerLetters[0].childNodes.length === 0) {
+//             answerLetters[0].innerText = playerAnswer[0];
+//         } else if (answerLetters[1].childNodes.length === 0) {
+//             answerLetters[1].innerText = playerAnswer[1];           
+//         } else if (answerLetters[2].childNodes.length === 0) {
+//             answerLetters[2].innerText = playerAnswer[2];
+//         } else if (answerLetters[3].childNodes.length === 0) {
+//             answerLetters[3].innerText = playerAnswer[3];
+//         } else if (answerLetters[4].childNodes.length === 0) {
+//             answerLetters[4].innerText = playerAnswer[4];
+//         } else if (answerLetters[5].childNodes.length === 0) {
+//             answerLetters[5].innerText = playerAnswer[5];
+//         }
+//         this.disabled = true;        
+//     });  
+// });
+
 /**
  * Function used by the run game event listener.
  * I had to research and implement Event Bubbling for this, as the event
