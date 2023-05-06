@@ -23,23 +23,10 @@ const topDisplay = document.getElementById("top-display");
 const answerBoxes = document.querySelectorAll(".answer-box");
 const answerLetters = document.getElementsByClassName("answer-letter");
 const displayMain = document.getElementById("display-main");
-const scoreBox = `
+const feedbackInfo = document.getElementById("feedback-info");
+const score = document.getElementById("score");
+const timer = document.querySelector('#timer');
 
-    <div class="grid grid-tiles-3">
-        <div class="flex-rows">
-            <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
-            <div role="region" aria-label="Score counter" id="score" class="counters">0</div>
-        </div>
-        <div class="flex-rows">
-            <div id="answer-icon"></div>
-        </div>
-        <div class="flex-rows">
-            <i class="fa-solid fa-hourglass-start" aria-hidden="true"></i>
-            <div role="region" aria-label="Countdown timer" id="timer" class="counters">60</div>
-        </div>
-    </div>
-
-`;
 const playButtonStructure = `
 
     <button type="button" id="play-game" class="control-button" aria-label="play game">
@@ -60,7 +47,7 @@ let scrambledString;
 let challengeIndexes = [];
 let playerAnswer = [];
 let totalScore = 0;
-let scoreTarget = 6;
+let scoreTarget = 2;
 let previousButton = null;
 let timeLeft = 60;
 let startCountDown;
@@ -79,10 +66,13 @@ let levelGraphic;
 function gameToggle(display) {
     if (display === DISPLAY.HOME) {
         document.getElementById("controls").classList.toggle("hidden");
+        feedbackInfo.className = "flex-rows";
+        toggleProgress();
     } else if (display === DISPLAY.GAME) {
         document.getElementById("controls").classList.toggle("hidden");        
-        document.getElementById("feedback-info").className = "flex";
-        topDisplay.innerHTML = scoreBox;
+        feedbackInfo.className = "flex";
+        // topDisplay.innerHTML = scoreBox;
+        toggleProgress();
     }
 }
 
@@ -186,11 +176,11 @@ function hardDisplay() {
 function runGame() { 
     challengeWords.length = 0;
     challengeIndexes.length = 0;
+    timeLeft = 60;
     totalScore = 0;
     changeDifficulty(currentDifficulty);
     generateWord();
     gameToggle(DISPLAY.GAME);
-    timeLeft = 60;
     startClock();
     playGame();
 }
@@ -200,7 +190,6 @@ function runGame() {
  * Inserts timeLeft into the HTML and sends a message to the player once time has run out.
  */
 function countDown() {
-    let timer = document.querySelector('#timer');
     timeLeft--;
     timer.innerText = timeLeft;
     if (timeLeft === 0) {
@@ -452,9 +441,11 @@ function checkScore() {
         }
         let levelMessage = nextStep;
         let encouragingImage = levelGraphic;
-        topDisplay.innerHTML = `
+        score.innerText = "0";
+        timer.innerText = "60";
+        gameToggle(DISPLAY.HOME);
+        feedbackInfo.innerHTML = `
         
-        <div id="feedback-info" class="flex-rows">
             <div>
                 <h1>You completed the challenge!</h1>
             </div>
@@ -463,14 +454,12 @@ function checkScore() {
             </div>
             <div>
                 <h2>${levelMessage}</h2>
-            </div>
-        </div> 
+            </div>        
 
         `;
         clearAnswer();
         clearScramble();
         displayMain.innerHTML = playButtonStructure;
-        gameToggle(DISPLAY.HOME);
     } else {
         generateWord();
         playGame(); 
@@ -482,7 +471,6 @@ function checkScore() {
  * inserted in the score box.
  */
 function addPoint() {
-    let score = document.getElementById("score");
     totalScore++;
     score.innerText = totalScore;
 }
@@ -540,6 +528,11 @@ function toggleInstructions() {
 function toggleSettings() {
     document.getElementById("settings").classList.toggle('hidden');
     topDisplay.classList.toggle('hidden'); 
+}
+
+function toggleProgress() {
+    document.getElementById("progress").classList.toggle('hidden');
+    topDisplay.classList.toggle('hidden');    
 }
 
 // Event listener for submit answer button.  Runs checkAnswer function.

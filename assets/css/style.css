@@ -275,11 +275,13 @@ button {
     color: grey;
 }
 
-/* TOP DISPLAY SECTION */
+/* PROGRESS SECTION */
 
-#top-display i {
+#progress i {
     padding-bottom: var(--spacing-s)
 }
+
+/* TOP DISPLAY SECTION */
 
 .single-image-display {
     width: 100px;
