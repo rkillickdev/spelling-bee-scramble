@@ -211,7 +211,7 @@ function countDown() {
         clearAnswer();
         clearScramble();
         gameToggle(DISPLAY.HOME);
-        buttonArray.forEach(function(currentLetter) {
+        buttonArray.forEach((currentLetter) => {
             currentLetter.disabled = true;
         });
     }
@@ -319,7 +319,7 @@ function integerShuffle() {
 function resetLetterBoxes() {
     playerAnswer.length = 0;
     clearAnswer();
-    buttonArray.forEach(function(currentLetter) {
+    buttonArray.forEach((currentLetter) => {
         currentLetter.disabled = false;
     });
 }
@@ -350,12 +350,11 @@ function clearScramble(){
  * After each scramble button is clicked, it is disabled so the same letter 
  * cannot be entered again.
 */
-buttonArray.forEach(function(currentLetter) {
+buttonArray.forEach((currentLetter) => {
     currentLetter.addEventListener('click', function(event){
         if (playerAnswer.length < answerBoxes.length) {
             playerAnswer.push(event.target.innerText);
         }
-
         answerLetters.forEach((letter, index) => {
             if (letter.childNodes.length === 0 && playerAnswer[index]) {
                 letter.innerText = playerAnswer[index];
