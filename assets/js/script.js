@@ -31,7 +31,7 @@ const timer = document.querySelector('#timer');
 const scrambleBoxes = document.getElementsByClassName("scramble-box");
 const scrambleButtons = document.getElementsByClassName("scramble-button");
 const buttonArray = Array.from(scrambleButtons);
-const submitAnswer = document.getElementsByClassName("check-answer");
+const submitAnswer = document.getElementById("submit-answer");
 
 // GLOBAL VARIABLES
 
@@ -512,7 +512,7 @@ function togglePicture() {
 }
 
 // Event listener for submit answer button.  Runs checkAnswer function.
-submitAnswer[0].addEventListener('click', checkAnswer);
+submitAnswer.addEventListener('click', checkAnswer);
 
 // Event listener for clear answer button.
 const removeAnswer = document.getElementById("remove-answer");
