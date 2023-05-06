@@ -24,3 +24,30 @@
 //     // }
 //     // 
 // }
+
+/**
+ * Function used by the run game event listener.
+ * I had to research and implement Event Bubbling for this, as the event
+ * listener was not not working when I dynamically reloaded the html for
+ * the button after successful completion of a challenge.
+ * I used and tweaked code from the following article to get this working:
+ * https://dev.to/akhil_001/adding-event-listeners-to-the-future-dom-elements-using-event-bubbling-3cp1
+ */
+// function playButtonEventListener (selector, event, handler) {
+//     let rootElement = document.querySelector('#display-main');
+//     rootElement.addEventListener(event, function (evt) {
+//             var targetElement = evt.target;
+//             while (targetElement != null) {
+//                 if (targetElement.matches(selector)) {
+//                     handler(evt);
+//                     return;
+//                 }
+//                 targetElement = targetElement.parentElement;
+//             }
+//         },
+//         true
+//     );
+// }
+
+// //Event listener for game run button
+// playButtonEventListener('#play-game','click', runGame );
