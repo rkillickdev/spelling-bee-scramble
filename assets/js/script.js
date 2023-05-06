@@ -372,8 +372,8 @@ buttonArray.forEach((currentLetter) => {
  * to give the player feedback.
  */
 function checkAnswer() {
-    let submittedAnswer = playerAnswer.join("");
-    let correctUpperAnswer = correctAnswer.toUpperCase();
+    const submittedAnswer = playerAnswer.join("");
+    const correctUpperAnswer = correctAnswer.toUpperCase();
     const answerIcon = document.getElementById("answer-icon");
     if (submittedAnswer === correctUpperAnswer) {
         addPoint();
