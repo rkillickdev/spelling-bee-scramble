@@ -81,7 +81,6 @@ Word games and puzzles can also be beneficial for children in a variety of other
 * As a first time visitor, I want clear and concise feedback each time I submit a correct or incorrect answer.
 * As a first time visitor, I want clear feedback about how close I am to reaching my target number of correct answers.
 * As a first time visitor, I want clear feedback to let me know I have completed the challenge and how to proceed.
-* As a first time visitor, I want the ability to mute sound effects.
 * As a first time visitor, I want easy intuitive access to an explanation of how to play the game.
 
 <br>
@@ -182,12 +181,22 @@ If the player fails to submit 8 successfully spelt answers within the time limit
 
 ### **Responsive Design**
 
+* Answer and scramble squares made responsive so they get larger as the screen width increases, but also remain sqaure.  This is capped at 500px otherwise they start to look too big.  Font size has also been made reponsive to grow with the squares.
+
+* Media queries to increase font size of headings on tablet size and above
+
+* looking into how to handle portrait orientation on mobile devices as not all the necessary elements of the can fit in this situation.
+
 ### **Accessibility**
 
 * Aria labels added to all button elements
-* When running my HTML code through the W3C markup validation service, I was warned that I was using some section elements that did not contain a heading element.  I therefore changed these to divs and game them the attribute role="region" and an aria label to explain their purpose.
+* When running my HTML code through the W3C markup validation service, I was warned that I was using some section elements that did not contain a heading element.  I therefore changed these to divs and gave them the attribute role="region" and an aria label to explain their purpose.
 
 ### **Future Implementations**
+
+* Add sound Fx
+* Could make some of the visual elements more interesting for example the score counter could be more animated.
+* A leaderboard if player scores could be stored in a database.  Not in the scope of this project but something for the future.
 
 <br>
 
@@ -203,11 +212,32 @@ If the player fails to submit 8 successfully spelt answers within the time limit
 
 ## **Colour Palette**
 
+Colours used are bright, vivid and fun to appeal to the target audience.
+
+For the yellow colour used in the header and scramble boxes, I matched the yellow used in the bubmle bee icon with a tool on the [coolors](https://coolors.co/) website:
+
+![Spelling Bee starting colour palette](docs/styling/Spelling_Bee_Colour_Palette.png)
+
 ## **Contrast**
 
 ## **Typography**
 
+Spacing and typography is consistent throughout the game and I have aimed to use something playful and appealing to children.  Inspiration came from the following [article](https://inkbotdesign.com/google-font-combinations-mixing-typefaces/).
+The answer letters appear in the answer boxes as the permanent marker font, to give the impression they have been scribbled in there, again adding a playful element that children should enjoy.
+
+* Headings: Nunito.  This is a sans-serif font.
+* Body: Nunito Sans. This is a sans-serif font.
+* Scramble title and answer boxes: Permanent Marker.  This is a cursive font. 
+
 ## **Imagery**
+
+As this is a game aimed at children, I have used imagery appropiate for this goal.  The picture hints were sourced royalty free from [uxwing](https://uxwing.com/).  The bold colors and animated style make the images easily recognisable and appealing to children, and gives the game a sense of fun.
+
+The bumble bee logo displayed on the game landing page ties in with the theme of a Spelling Bee.
+
+The styling of the scramble and answer boxes is simple and reminiscent of scrabble tiles - this familiar imagery should mean that the game is intuitive and the purpose of the game becomes apparent without even reading the instructions.
+
+Player controls are kept minimal and styled in a way that makes game play intuitive.  The green 'go' button invites the player to get started and the green play button and red cross button communicate their purpose to the player without any need for text.
 
 <br>
 
@@ -239,6 +269,54 @@ HTML, CSS and JavaScript were used to create the game.
 * Favicon.ico & App Icon Generator - for creating the 16x16px ico favicon.
 * [Meta Tags IO](https://metatags.io/) for improving site visual appearance on social media.
 
+<br>
+
+# **Deployment and Local Development**
+
+<br> 
+
+## **Deployment**
+
+<br>
+
+The live website has been deployed using GitHub Pages, following the steps below:
+
+1. Log in (or sign up) to GitHub.
+2. Click on the required repository, in this case: rkillickdev/spelling-bee-scramble
+3. Go to the "Settings" menu.
+4. Select the "Pages" tab in the left hand menu - this will jump you to a section called "GitHub Pages".
+5. Under the Build and deployment section, select "main" from the select branch menu.  Select "root" from the dropdown select folder menu.
+6. Click save.  The URL for your live site which has been deployed on GitHub pages is shown at the top of the GitHub pages section.  This sometimes does not display immediately or may require a browser refresh.
+
+The live link can be found [here](https://rkillickdev.github.io/spelling-bee-scramble/)
+
+<br>
+
+## **Local Development**
+
+<br>
+
+### **How to fork:**
+
+<br>
+
+1. Log in (or sign up) to GitHub.
+2. Find the required repository, in this case: rkillickdev/spelling-bee-scramble
+3. Click on the "fork" button at the top right of the page.
+
+<br>
+
+### **How to clone:**
+
+<br>
+
+1. Log in (or sign up) to GitHub.
+2. Find the required repository, in this case: rkillickdev/spelling-bee-scramble
+3. Click on the green code button.  This will give you the choice of cloning the repository using HTTPS, an SSH key or GitHub CLI.  Make your selection and copy the provided URL link.
+4. Open Terminal
+5. Change the current working directory to the location where you want the cloned directory.
+6. Type 'git clone' and then paste the URL you copied earlier.
+7. Press enter.
 
 <br>
 
@@ -262,17 +340,83 @@ HTML, CSS and JavaScript were used to create the game.
 
 | Goals | How are goals achieved? |
 | --- | --- | 
-| Client |    
-|        |  
-|        |                                                                    
-| First Time Visitors |                                                         
+| Client |     
+|        |   
+|        | I want to offer an educational experience to help children with their spelling. |  
+|        | I want to make sure that the user has an enjoyable, engaging experience so they continue playing and return to the site in the future. |  
+|        | I want to offer differing levels of difficulty to ensure that the user continues to learn as their spelling improves.
+|        | I want to set targets for the user, to keep the experience interesting and challenging.
+|        | I want to make the game responsive over a range of device sizes.
+|        |                                                  
+| First Time Visitors |         
 |        | 
-|        |                                                         
-| Return Visitors |                                                             
+|        | I am looking for a fun and interactive way to practice and improve my spelling.
+|        | I want clear and concise feedback each time I submit a correct or incorrect answer.
+|        | I want clear feedback about how close I am to reaching my target number of correct answers.
+|        | I want clear feedback to let me know I have completed the challenge and how to proceed.
+|        | I want easy intuitive access to an explanation of how to play the game.
 |        |
-|        | 
-| Repeat Visitors |                                                            
+| Return Visitors | 
+|        |
+|        | I want to continue challenging myself and learn to spell more complicated words. 
+|        |
+| Frequent Visitors |
+|        |
+|        | I want to be able to compete against myself to see how quickly I can complete the challenge and log this result on a leaderboard so I have a target to beat.                                                           
 |        |  
+
+<br>
+
+### **Full Testing:**
+
+<br>
+
+Full testing has been carried out on the following devices:
+
+* Macbook Pro 2021 14 inch M1 Pro
+* iPhone 11
+* iPad 9th generation A2602
+
+The following browsers were used to test on each device:
+
+* Google Chrome
+* Firefox
+* Safari
+
+<br>
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| ------- | ---------------- | ----------------- | ------ | --------- |
+| Navbar  |
+|         |
+| Navbar icons | Scale expands by 10% and colour transitions to grey when hovered over | Hover over navbar icons | Scale expands by 10% and colour transitions to grey | Pass | 
+| Home Icon | User redirected to home screen and game resets to default settings when clicked | Click home icon | Redirected to home screen and game is on easy setting when run | Pass |
+| Settings Icon | Settings page appears when clicked | Click settings icon | Settings page appears | Pass |
+| Settings buttons | Appear dark when selected and light when not | Toggle between buttons | Fails if double clicked | FAIL |
+| Easy, medium & hard settings buttons | Changes difficulty of game when clicked | Click each button and run game | 4 letter words displayed when easy clicked, 5 letter words when medium clicked and 6 letter words when hard clicked | Pass |
+| Cross Icon on settings page | Hides Settings page | Click cross icon | Settings Page is hidden | Pass |
+| Info Icon | Shows instructions page | Click info icon | Instructions page is shown | Pass |
+| Cross Icon on instructions page | Hides instructions page | Click cross icon | Instructions page is hidden | Pass |
+|        |
+| Top Display |
+|             |
+| Landing display | Game title and logo displayed | refresh page | Spelling Bee Scramble title and Bumble Bee logo displayed | Pass |
+| Progress display | Score counter and countdown timer shown when game runs | Click 'go' button to run game | counter and countdown timer displayed | Pass |
+| Score counter | Starts at 0 and increments by 1 each time a word is spelt correctly | Run game and submit some correctly spelt answers | Score counter increments by 1 each time a correct answer is logged | Pass |
+| Countdown timer | Starts at 60 seconds and counts down to zero | Run game | Timer starts counting down from 60 seconds | Pass |
+| Challenge complete message | When target number of correct answers reached in under 60 seconds, message displayed to player relevant to difficulty level completed | Run a game at each difficulty level and complete challenege | Difficulty specific message displayed after each challeneg completed | Pass |
+| Time up message | When the countdown timer reaches zero nad the target number of answers has not been met, an encouraging message is displayed with the number of correct answers the player needs next time | Run game and let timer reach zero having spelt a varying number of words correctly  | encouraging message displayed and relevant number inserted in message based on how many answers were correct on the previous game | Pass |
+|            |
+| Game Section |
+|              |
+| Green 'Go' button | Displays scrambled word (based on current difficulty level) in yellow scramble boxes and displays picture hint for scrambled word | Run games at all 3 difficulty levels | 4 letter words displayed  on easy level, 5 letter words on medium level, 6 letter words on hard level.  Picture matches word | Pass |
+| Scramble Boxes | Clicking on scramble box populates the next avaialble answer box with that letter and then makes scramble letter inactive and greyed out | Click on scramble box letters | Answer boxes populated in correct order as scramble letters clicked.  Letters can only be clicked once as they become inactive after first click | Pass |
+| Green play button | Checks spelling of answer as it appears in answer boxes and adds a point to the score counter if correct | Spell some words correctly and incorrectly and click play button | Correct answers inrement the score counter by 1 | Pass |
+| Red cross button | Clears answer boxes of all letters | Populate some answer boxes and then click red cross | Answer boxes cleared | Pass |
+| Answer Boxes Correct | Turn green momentarily and green tick appears above if answer submitted is correct | Spell a word correctly and click green play button | Answer boxes turn green momentarily and a green tick apears | Pass |
+| Answer Boxes Incorrect | Turn red momentarily and red cross appears above if answer submitted is incorrect | Spell a word incorrectly and click green play button | Answer boxes turn red momentarily and a red cross apears | Pass |  
+
+
 
 
 <br>
