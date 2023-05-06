@@ -394,15 +394,23 @@ function checkAnswer() {
  * answer evaluates to correct or incorrect.
  */
 function answerFeedback(answer) {
-    if (answer === ANSWER_STATUS.CORRECT) {
-        for (let box of answerBoxes) {
-            box.classList.add("answer-box-correct");
-        }
-    } else if (answer === ANSWER_STATUS.INCORRECT) {
-        for (let box of answerBoxes) {
-            box.classList.add("answer-box-incorrect");
-        }           
+
+    const classMapping ={
+        [ANSWER_STATUS.CORRECT]: "answer-box-correct",
+        [ANSWER_STATUS.INCORRECT]: "answer-box-incorrect"
     }
+
+    answerBoxes.forEach(box => box.classList.add(classMapping[answer]))
+    
+    // if (answer === ANSWER_STATUS.CORRECT) {
+    //     for (let box of answerBoxes) {
+    //         box.classList.add("answer-box-correct");
+    //     }
+    // } else if (answer === ANSWER_STATUS.INCORRECT) {
+    //     for (let box of answerBoxes) {
+    //         box.classList.add("answer-box-incorrect");
+    //     }           
+    // }
 }
 
 /**
