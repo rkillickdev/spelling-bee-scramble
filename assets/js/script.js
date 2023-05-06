@@ -401,16 +401,6 @@ function answerFeedback(answer) {
     }
 
     answerBoxes.forEach(box => box.classList.add(classMapping[answer]))
-    
-    // if (answer === ANSWER_STATUS.CORRECT) {
-    //     for (let box of answerBoxes) {
-    //         box.classList.add("answer-box-correct");
-    //     }
-    // } else if (answer === ANSWER_STATUS.INCORRECT) {
-    //     for (let box of answerBoxes) {
-    //         box.classList.add("answer-box-incorrect");
-    //     }           
-    // }
 }
 
 /**
