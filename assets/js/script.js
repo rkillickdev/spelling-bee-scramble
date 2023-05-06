@@ -20,6 +20,7 @@ const ANSWER_STATUS = {
 
 const setLevel= document.querySelectorAll(".set-level");
 const topDisplay = document.getElementById("top-display");
+const answerTiles = document.getElementById("answer-tiles")
 const answerBoxes = document.querySelectorAll(".answer-box");
 const answerLetters = document.getElementsByClassName("answer-letter");
 const display = document.getElementById("display");
@@ -28,6 +29,7 @@ const displayMain = document.getElementById("display-main");
 const feedbackInfo = document.getElementById("feedback-info");
 const score = document.getElementById("score");
 const timer = document.querySelector('#timer');
+const scrambleTiles = document.getElementById("scramble-tiles");
 const scrambleBoxes = document.getElementsByClassName("scramble-box");
 const scrambleButtons = document.getElementsByClassName("scramble-button");
 const buttonArray = Array.from(scrambleButtons);
@@ -83,18 +85,15 @@ function changeDifficulty(difficulty) {
     if (difficulty === DIFFICULTY.EASY) {
         nextStep = "You're ready for the next level...";
         levelGraphic ="assets/images/star-symbol-icon.png";
-        easyDisplay();  
         wordCollection.forEach((collection) => {
             if (collection.level === DIFFICULTY.EASY && collection.word.length === 4) {
                 challengeWords.push(collection);
             }
-        currentDifficulty = DIFFICULTY.EASY;
-        
+        currentDifficulty = DIFFICULTY.EASY; 
         });
     } else if (difficulty === DIFFICULTY.MEDIUM) {
         nextStep = "You need something trickier...";
         levelGraphic = "assets/images/achievement-award-medal-icon.png";
-        mediumDisplay(); 
         wordCollection.forEach((collection) => {
             if (collection.level === DIFFICULTY.MEDIUM && collection.word.length === 5) {
                 challengeWords.push(collection);
@@ -102,7 +101,6 @@ function changeDifficulty(difficulty) {
         currentDifficulty = DIFFICULTY.MEDIUM;
         });
     } else if (difficulty === DIFFICULTY.HARD) {
-        hardDisplay();
         nextStep = "You have reached the top level!";
         levelGraphic = "assets/images/1st-prize-icon.png";       
         wordCollection.forEach((collection) => {
@@ -112,6 +110,8 @@ function changeDifficulty(difficulty) {
             currentDifficulty = DIFFICULTY.HARD;
         });
     }
+    // Changes display of lettter boxes depending on difficulty level
+    lettersDisplay(currentDifficulty);
     // Generates array of integers for length of challenegWords array
     for (let i = 0 ; i < challengeWords.length ; i++) {
         challengeIndexes.push(i);
@@ -120,43 +120,40 @@ function changeDifficulty(difficulty) {
     integerShuffle();
 }
 
-/**
- * The 5th and 6th answer and scramble boxes are hidden from display but remain in 
- * the DOM.  Grid set to a 4 column layout using the grid-tiles-4-class.
- */
-function easyDisplay() {
-    answerBoxes[4].style.display = 'none';
-    answerBoxes[5].style.display = 'none';
-    scrambleBoxes[4].style.display = 'none';
-    scrambleBoxes[5].style.display = 'none';
-    document.getElementById("answer-tiles").className = "grid grid-tiles-4";
-    document.getElementById("scramble-tiles").className = "grid grid-tiles-4";    
-}
-
-/**
- * The 6th answer and scramble box is hidden from display but remains in 
- * the DOM.  Grid set to a 5 column layout using the grid-tiles-5-class.
- */
-function mediumDisplay() {
-    answerBoxes[4].style.display = 'block';
-    scrambleBoxes[4].style.display = 'block';
-    answerBoxes[5].style.display = 'none';
-    scrambleBoxes[5].style.display = 'none';
-    document.getElementById("answer-tiles").className = "grid grid-tiles-5";
-    document.getElementById("scramble-tiles").className = "grid grid-tiles-5"; 
-}
-
-/**
- * All 6 answer and scramble boxes are displayed.  Grid set to a 6 column layout
- * using the grid-tiles-6-class. 
- */
-function hardDisplay() {
-    answerBoxes[4].style.display = 'block';
-    answerBoxes[5].style.display = 'block';
-    scrambleBoxes[5].style.display = 'block';
-    scrambleBoxes[4].style.display = 'block';
-    document.getElementById("answer-tiles").className = "grid grid-tiles-6";
-    document.getElementById("scramble-tiles").className = "grid grid-tiles-6";     
+function lettersDisplay (difficulty) {
+    if (difficulty === DIFFICULTY.EASY) {
+        [4, 5].forEach((index) => {
+            [answerBoxes, scrambleBoxes].forEach((box) => {
+                box[index].style.display = 'none';
+            })
+        });
+        [answerTiles, scrambleTiles].forEach((index) => {
+            index.className = "grid grid-tiles-4";
+        });
+    } else if (difficulty === DIFFICULTY.MEDIUM) {
+        [4].forEach((index) => {
+            [answerBoxes, scrambleBoxes].forEach((box) => {
+                box[index].style.display = 'block';
+            })
+        });
+        [5].forEach((index) => {
+            [answerBoxes, scrambleBoxes].forEach((box) => {
+                box[index].style.display = 'none';
+            })
+        });
+        [answerTiles, scrambleTiles].forEach((index) => {
+            index.className = "grid grid-tiles-5";
+        });      
+    } else if (difficulty === DIFFICULTY.HARD) {
+        [4, 5].forEach((index) => {
+            [answerBoxes, scrambleBoxes].forEach((box) => {
+                box[index].style.display = 'block';
+            })
+        });
+        [answerTiles, scrambleTiles].forEach((index) => {
+            index.className = "grid grid-tiles-6";
+        });
+    }
 }
 
 /**
@@ -433,7 +430,6 @@ function checkScore() {
         } else if (currentDifficulty === DIFFICULTY.MEDIUM) {
             currentDifficulty = DIFFICULTY.HARD;
         } else if (currentDifficulty === DIFFICULTY.HARD) {
-            hardDisplay();
         }
         let levelMessage = nextStep;
         let encouragingImage = levelGraphic;

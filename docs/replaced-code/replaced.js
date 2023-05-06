@@ -25,6 +25,45 @@
 //     // 
 // }
 
+// /**
+//  * The 5th and 6th answer and scramble boxes are hidden from display but remain in 
+//  * the DOM.  Grid set to a 4 column layout using the grid-tiles-4-class.
+//  */
+// function easyDisplay() {
+//     answerBoxes[4].style.display = 'none';
+//     answerBoxes[5].style.display = 'none';
+//     scrambleBoxes[4].style.display = 'none';
+//     scrambleBoxes[5].style.display = 'none';
+//     document.getElementById("answer-tiles").className = "grid grid-tiles-4";
+//     document.getElementById("scramble-tiles").className = "grid grid-tiles-4";    
+// }
+
+// /**
+//  * The 6th answer and scramble box is hidden from display but remains in 
+//  * the DOM.  Grid set to a 5 column layout using the grid-tiles-5-class.
+//  */
+// function mediumDisplay() {
+//     answerBoxes[4].style.display = 'block';
+//     scrambleBoxes[4].style.display = 'block';
+//     answerBoxes[5].style.display = 'none';
+//     scrambleBoxes[5].style.display = 'none';
+//     document.getElementById("answer-tiles").className = "grid grid-tiles-5";
+//     document.getElementById("scramble-tiles").className = "grid grid-tiles-5"; 
+// }
+
+// /**
+//  * All 6 answer and scramble boxes are displayed.  Grid set to a 6 column layout
+//  * using the grid-tiles-6-class. 
+//  */
+// function hardDisplay() {
+//     answerBoxes[4].style.display = 'block';
+//     answerBoxes[5].style.display = 'block';
+//     scrambleBoxes[5].style.display = 'block';
+//     scrambleBoxes[4].style.display = 'block';
+//     document.getElementById("answer-tiles").className = "grid grid-tiles-6";
+//     document.getElementById("scramble-tiles").className = "grid grid-tiles-6";     
+// }
+
 /**
  * Function used by the run game event listener.
  * I had to research and implement Event Bubbling for this, as the event
