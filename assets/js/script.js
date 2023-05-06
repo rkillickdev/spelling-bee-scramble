@@ -120,6 +120,10 @@ function changeDifficulty(difficulty) {
     integerShuffle();
 }
 
+/**
+ * Takes the level of difficulty as an argument and sets the number of answer and scramble boxes
+ * appropiately for the length of word. 
+ */
 function lettersDisplay (difficulty) {
     if (difficulty === DIFFICULTY.EASY) {
         [4, 5].forEach((index) => {
