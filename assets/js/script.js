@@ -228,7 +228,9 @@ function startClock() {
  * Clears Interval of the startCountDown variable.
  */
 function stopClock() {
-    clearInterval(startCountDown);     
+    clearInterval(startCountDown);
+    score.innerText = "0";
+    timer.innerText = "60";     
 }
 /**
  * Runs resetLetterBoxes and generateWord functions.
@@ -405,32 +407,41 @@ function answerFeedback(answer) {
 
 /**
  * Checks total score against score target.  If equal: 
- * The countdown clock is stopped. 
- * Global currentDifficulty level updated according to the current value
+ * Toggles to display "home".
+ * Runs challenegComplete function.
+ * Answer and scramble boxes cleared of letters.
+ * Global currentDifficulty level updated according to the current value,
  * so the level of difficulty increases if a challeneg is completed.
- * Message and associated image displayed based on which difficulty
- * level has been completed.
- * Answer and scramble boxes cleared.
- * The run game button is made visible so the player can play again.
- * Player controls are hidden.
- * If the score target has not been reached, the playGame function runs which
- * generates the next word.
+ * If the score target has not been reached:
+ * generateWord function runs.
+ * playGame function runs.
  */
 function checkScore() {
     if (totalScore === scoreTarget) {
-        stopClock();
+        gameToggle(DISPLAY.HOME);
+        challenegeComplete();
+        clearAnswer();
+        clearScramble();     
         if (currentDifficulty === DIFFICULTY.EASY) {
             currentDifficulty = DIFFICULTY.MEDIUM;
         } else if (currentDifficulty === DIFFICULTY.MEDIUM) {
             currentDifficulty = DIFFICULTY.HARD;
-        } else if (currentDifficulty === DIFFICULTY.HARD) {
-        }
-        let levelMessage = nextStep;
-        let encouragingImage = levelGraphic;
-        score.innerText = "0";
-        timer.innerText = "60";
-        gameToggle(DISPLAY.HOME);
-        feedbackInfo.innerHTML = `
+        } 
+    } else {
+        generateWord();
+        playGame(); 
+    } 
+}
+
+/**
+ * stopClock function runs. 
+ * Message and associated image displayed based on difficulty level completed.
+ */
+function challenegeComplete() {
+    stopClock();
+    const levelMessage = nextStep;
+    const encouragingImage = levelGraphic;
+    feedbackInfo.innerHTML = `
         
             <div>
                 <h1>You completed the challenge!</h1>
@@ -443,12 +454,6 @@ function checkScore() {
             </div>        
 
         `;
-        clearAnswer();
-        clearScramble();
-    } else {
-        generateWord();
-        playGame(); 
-    } 
 }
 
 /**
