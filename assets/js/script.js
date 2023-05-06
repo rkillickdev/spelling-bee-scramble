@@ -22,17 +22,12 @@ const setLevel= document.querySelectorAll(".set-level");
 const topDisplay = document.getElementById("top-display");
 const answerBoxes = document.querySelectorAll(".answer-box");
 const answerLetters = document.getElementsByClassName("answer-letter");
+const display = document.getElementById("display");
+const displayPicture = document.getElementById("display-picture");
 const displayMain = document.getElementById("display-main");
 const feedbackInfo = document.getElementById("feedback-info");
 const score = document.getElementById("score");
 const timer = document.querySelector('#timer');
-
-const playButtonStructure = `
-
-    <button type="button" id="play-game" class="control-button" aria-label="play game">
-        <img src="assets/images/go-icon.png" alt="round green go icon">
-    </button>
-`;
 const scrambleBoxes = document.getElementsByClassName("scramble-box");
 const scrambleButtons = document.getElementsByClassName("scramble-button");
 const buttonArray = Array.from(scrambleButtons);
@@ -68,11 +63,13 @@ function gameToggle(display) {
         document.getElementById("controls").classList.toggle("hidden");
         feedbackInfo.className = "flex-rows";
         toggleProgress();
+        togglePicture()
     } else if (display === DISPLAY.GAME) {
         document.getElementById("controls").classList.toggle("hidden");        
         feedbackInfo.className = "flex";
         // topDisplay.innerHTML = scoreBox;
         toggleProgress();
+        togglePicture()
     }
 }
 
@@ -216,7 +213,6 @@ function countDown() {
         buttonArray.forEach(function(currentLetter) {
             currentLetter.disabled = true;
         });
-        displayMain.innerHTML = playButtonStructure;
     }
 }
 
@@ -286,7 +282,7 @@ function displayScramble() {
     //variables pictureHint and altDescription. Inserted into HTML using template literals.   
     let pictureHint = randomWord.picture;
     let altDescription = randomWord.description;
-    displayMain.innerHTML = `<img src = "${pictureHint}" alt ="${altDescription}">`;
+    displayPicture.innerHTML = `<img src = "${pictureHint}" alt ="${altDescription}">`;
 }
 
 /**
@@ -459,7 +455,6 @@ function checkScore() {
         `;
         clearAnswer();
         clearScramble();
-        displayMain.innerHTML = playButtonStructure;
     } else {
         generateWord();
         playGame(); 
@@ -533,6 +528,11 @@ function toggleSettings() {
 function toggleProgress() {
     document.getElementById("progress").classList.toggle('hidden');
     topDisplay.classList.toggle('hidden');    
+}
+
+function togglePicture() {
+    document.getElementById("picture").classList.toggle('hidden');
+    display.classList.toggle('hidden');
 }
 
 // Event listener for submit answer button.  Runs checkAnswer function.
