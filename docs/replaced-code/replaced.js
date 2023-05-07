@@ -112,3 +112,16 @@
 
 // //Event listener for game run button
 // playButtonEventListener('#play-game','click', runGame );
+
+    /**
+     * Displays toggle-on font awesome icon for when a button is selected.
+     * Referenced and modified code from this article to get this function working:
+     * https://softauthor.com/make-selected-clicked-button-active-in-javascript/  
+     */
+    // function buttonToggle(event) {
+    //     event.target.classList.add('fa-toggle-on');
+    //     if(previousButton !== null) {
+    //         previousButton.classList.remove('fa-toggle-on');
+    //     }
+    //     previousButton = event.target;
+    // }

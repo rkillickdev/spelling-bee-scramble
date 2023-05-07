@@ -1,5 +1,9 @@
 // Code wrapped in a self executing function to avoid polluting the global namespace. 
 (() => {
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("easy-icon").classList.toggle('fa-toggle-on');
+    });
+
     // MODULE LEVEL CONSTANTS
 
     const DIFFICULTY = {
@@ -52,7 +56,7 @@
     let playerAnswer = [];
     let totalScore = 0;
     let scoreTarget = 6;
-    let previousButton = null;
+    // let previousButton = null;
     let timeLeft = 60;
     let startCountDown;
     let currentDifficulty = DIFFICULTY.EASY;
@@ -452,19 +456,6 @@
     }
 
     /**
-     * Displays toggle-on font awesome icon for when a button is selected.
-     * Referenced and modified code from this article to get this function working:
-     * https://softauthor.com/make-selected-clicked-button-active-in-javascript/  
-     */
-    function buttonToggle(event) {
-        event.target.classList.add('fa-toggle-on');
-        if(previousButton !== null) {
-            previousButton.classList.remove('fa-toggle-on');
-        }
-        previousButton = event.target;
-    }
-
-    /**
      * Toggles the 'hidden' class to show and hide the instructions box.
      */
     function toggleInstructions() {
@@ -544,11 +535,20 @@
     const hideSettings = document.getElementById("hide-settings");
     hideSettings.addEventListener('click', toggleSettings);
 
-    // Event listener for 3 difficulty settings buttons
-    setLevel.forEach((button) => button.addEventListener('click' , buttonToggle));
+    // Event listener for 3 difficulty settings buttons.
+    // Clicking toggles icon "on" styling for clicked button and "off" styling for others
+    // I used this Stack overflow article to give me the idea for using iteration:
+    // https://stackoverflow.com/questions/68425366/toggle-active-class-to-buttons-when-clicked 
+    setLevel.forEach((button) => {
+        button.addEventListener('click' , (event) => {
+            setLevel.forEach(icon => icon.classList.remove('fa-toggle-on'));
+            event.target.classList.toggle('fa-toggle-on');
+        });
+    });
 
     // Iterates over SELECTOR_DIFFICULTY_MAP. 
     // Adds an event listener to the three difficulty settings buttons.
+    // Changes difficulty setting when clicked.
     // Learn about Object.entries here:  https://javascript.info/keys-values-entries
     Object.entries(SELECTOR_DIFFICULTY_MAP).forEach(([difficulty, selector]) => {
         document.getElementById(selector).addEventListener('click', () => {
