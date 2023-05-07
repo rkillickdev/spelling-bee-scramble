@@ -110,6 +110,22 @@
 //     );
 // }
 
+ /**
+     * Toggles the 'hidden' class to show and hide the instructions box.
+     */
+    // function toggleInstructions() {
+    //     document.getElementById("instructions").classList.toggle('hidden');
+    //     topDisplay.classList.toggle('hidden');
+    // }
+
+    /**
+     * Toggles the 'hidden' class to show and hide the settings box.
+     */
+    // function toggleSettings() {
+    //     document.getElementById("settings").classList.toggle('hidden');
+    //     topDisplay.classList.toggle('hidden'); 
+    // }
+
 // //Event listener for game run button
 // playButtonEventListener('#play-game','click', runGame );
 
@@ -125,3 +141,20 @@
     //     }
     //     previousButton = event.target;
     // }
+
+
+      // //Event listener for show settings button.
+    // const showSettings = document.getElementById("show-settings");
+    // showSettings.addEventListener('click', toggleSettings);
+
+    // //Event listener for hide settings button.
+    // const hideSettings = document.getElementById("hide-settings");
+    // hideSettings.addEventListener('click', toggleSettings);
+
+    // //Event listener for show instructions button.
+    // const showInstructions = document.getElementById("show-instructions");
+    // showInstructions.addEventListener('click', toggleInstructions);
+
+    // //Event listener for hide instructions button.
+    // const hideInstructions = document.getElementById("hide-instructions");
+    // hideInstructions.addEventListener('click', toggleInstructions);

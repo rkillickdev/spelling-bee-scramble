@@ -31,6 +31,8 @@
     // HTML ELEMENTS DEFINED
 
     const setLevel= document.querySelectorAll(".set-level");
+    const instructionsIcon = document.querySelectorAll(".instructions-icon")
+    const settingsIcon = document.querySelectorAll(".settings-icon")
     const topDisplay = document.getElementById("top-display");
     const answerTiles = document.getElementById("answer-tiles");
     const answerBoxes = document.querySelectorAll(".answer-box");
@@ -454,22 +456,7 @@
         totalScore++;
         score.innerText = totalScore;
     }
-
-    /**
-     * Toggles the 'hidden' class to show and hide the instructions box.
-     */
-    function toggleInstructions() {
-        document.getElementById("instructions").classList.toggle('hidden');
-        topDisplay.classList.toggle('hidden');
-    }
-
-    /**
-     * Toggles the 'hidden' class to show and hide the settings box.
-     */
-    function toggleSettings() {
-        document.getElementById("settings").classList.toggle('hidden');
-        topDisplay.classList.toggle('hidden'); 
-    }
+    
     /**
      * Toggles the 'hidden' class to show and hide the progress box.
      */
@@ -519,21 +506,23 @@
     const removeAnswer = document.getElementById("remove-answer");
     removeAnswer.addEventListener('click', resetLetterBoxes);
 
-    //Event listener for show instructions button.
-    const showInstructions = document.getElementById("show-instructions");
-    showInstructions.addEventListener('click', toggleInstructions);
+    // Add event listeners to instructions navbar and clear buttons.
+    // Clicking toggles between visible and hidden.
+    instructionsIcon.forEach((icon) => {
+        icon.addEventListener('click' , () => {
+            document.getElementById("instructions").classList.toggle('hidden');
+            topDisplay.classList.toggle('hidden');
+        })
+    });
 
-    //Event listener for hide instructions button.
-    const hideInstructions = document.getElementById("hide-instructions");
-    hideInstructions.addEventListener('click', toggleInstructions);
-
-    //Event listener for show settings button.
-    const showSettings = document.getElementById("show-settings");
-    showSettings.addEventListener('click', toggleSettings);
-
-    //Event listener for hide settings button.
-    const hideSettings = document.getElementById("hide-settings");
-    hideSettings.addEventListener('click', toggleSettings);
+    // Add event listeners to settings navbar and clear buttons.
+    // Clicking toggles between visible and hidden.
+    settingsIcon.forEach((icon) => {
+        icon.addEventListener('click' , () => {
+            document.getElementById("settings").classList.toggle('hidden');
+            topDisplay.classList.toggle('hidden');
+        })
+    });
 
     // Event listener for 3 difficulty settings buttons.
     // Clicking toggles icon "on" styling for clicked button and "off" styling for others
