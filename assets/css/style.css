@@ -264,12 +264,12 @@ button {
     font-size: var(--font-size-medium);
 }
 
-/* #settings , #instructions {
-    padding-top: var(--spacing-s);
-} */
-
 .unselected {
     color: grey;
+}
+
+#warning-icon {
+    margin: var(--spacing-xs) 0;
 }
 
 /* PROGRESS SECTION */

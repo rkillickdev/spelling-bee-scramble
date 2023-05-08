@@ -34,7 +34,7 @@
                 </div>
                 <!-- Menu Items -->
                 <div class="flex">
-                    <button type="button" id="show-settings" class="settings-icon control-button settings-icon" aria-label="settings">
+                    <button type="button" id="show-settings" class="settings-icon control-button" aria-label="settings">
                         <i class="fa-solid fa-gear nav-icon"></i>
                     </button>
                     <button type="button" class="instructions-icon control-button help-icon" aria-label="instructions">
@@ -72,7 +72,7 @@
                     <div>HARD</div>
                 </div>
                 <div>
-                    <button type="button" id="hide-settings" class="settings-icon control-button clear-page" aria-label="close page">
+                    <button type="button" class="settings-icon control-button clear-page" aria-label="close page">
                         <i class="fa-solid fa-circle-xmark nav-icon"></i>
                     </button>
                 </div>
@@ -101,13 +101,13 @@
             </div>
         </section>
         <!-- Landscape Warning Page -->
-        <section id="landscape-warning" class="container menu">
+        <section id="landscape-warning" class="container menu hidden">
             <div class="flex-rows">
                 <h1>Landscape Mode!</h1>
-                <i class="settings-icon fa-solid fa-triangle-exclamation"></i>
+                <i id="warning-icon" class="fa-solid fa-triangle-exclamation"></i>
                 <p> You have switched your device to landscape mode. For best game play experience we recommend you switch back to portrait mode by rotating your device 90 degrees</p>
                 <div>
-                    <button type="button" id="hide-settings" class="settings-icon control-button clear-page" aria-label="close page">
+                    <button type="button" id="clear-warning" class=" control-button clear-page" aria-label="close page">
                         <i class="fa-solid fa-circle-xmark nav-icon"></i>
                     </button>
                 </div>

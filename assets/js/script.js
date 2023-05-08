@@ -33,6 +33,7 @@
     const setLevel= document.querySelectorAll(".set-level");
     const instructionsIcon = document.querySelectorAll(".instructions-icon")
     const settingsIcon = document.querySelectorAll(".settings-icon")
+    const clearWarning = document.getElementById("clear-warning");
     const topDisplay = document.getElementById("top-display");
     const answerTiles = document.getElementById("answer-tiles");
     const answerBoxes = document.querySelectorAll(".answer-box");
@@ -65,14 +66,6 @@
     let nextStep;
     let levelGraphic;
     let landscape = window.matchMedia("(orientation: landscape)");
-
-    landscape.addEventListener("change", (event) => {
-        if(event.matches) {
-            alert("You are in landscape mode");
-        } else {
-            // portrait
-        }
-    })
 
     // FUNCTIONS
 
@@ -532,6 +525,11 @@
         })
     });
 
+    clearWarning.addEventListener('click' , () => {
+        document.getElementById("landscape-warning").classList.toggle('hidden');
+        topDisplay.classList.toggle('hidden');    
+    });
+
     // Event listener for 3 difficulty settings buttons.
     // Clicking toggles icon "on" styling for clicked button and "off" styling for others
     // I used this Stack overflow article to give me the idea for using iteration:
@@ -552,4 +550,16 @@
             currentDifficulty = difficulty;
         });
     });
+
+    // Event listener for change from portrait to landscape orientation.
+    // Displays warning message when change to landscape orientation detected.
+    landscape.addEventListener("change", (event) => {
+        if(event.matches) {
+            document.getElementById("landscape-warning").classList.toggle('hidden');
+            topDisplay.classList.toggle('hidden');
+        } else {
+            // portrait
+        }
+    })
+
 })();
