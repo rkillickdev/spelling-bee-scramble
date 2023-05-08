@@ -558,13 +558,13 @@
     });
 
     // Event listener for change from portrait to landscape orientation.
-        // Displays warning message when change to landscape orientation detected.
-        landscape.addEventListener("change", (event) => {
-            if(event.matches) {
-                document.getElementById("landscape-warning").classList.toggle('hidden');
-                topDisplay.classList.toggle('hidden');
-            }
-        });
+    // Displays warning message when change to landscape orientation detected.
+    landscape.addEventListener("change", (event) => {
+        if(event.matches) {
+            document.getElementById("landscape-warning").classList.toggle('hidden');
+            topDisplay.classList.toggle('hidden');
+        }
+    });
 
     // // Event listener for change from landscape to portrait orientation.
     // // Clears warning message when rotated back to portrait orientation.
