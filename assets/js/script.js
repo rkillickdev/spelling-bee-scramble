@@ -2,6 +2,8 @@
 (() => {
     document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("easy-icon").classList.toggle('fa-toggle-on');
+        gameStatus = DISPLAY.HOME;
+        console.log(gameStatus);
         if (landscape.matches) {
             document.getElementById("landscape-warning").classList.toggle('hidden');
             topDisplay.classList.toggle('hidden');    
@@ -541,7 +543,9 @@
     // Hides landscape warning page.  Shows top display.
     clearWarning.addEventListener('click' , () => {
         document.getElementById("landscape-warning").classList.toggle('hidden');
-        topDisplay.classList.toggle('hidden'); 
+        if (gameStatus === DISPLAY.HOME) {
+            topDisplay.classList.toggle('hidden');
+        } 
     });
 
     // Event listener for 3 difficulty settings buttons.
