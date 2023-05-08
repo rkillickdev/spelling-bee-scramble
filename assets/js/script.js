@@ -570,7 +570,9 @@
     landscape.addEventListener("change", (event) => {
         if(event.matches) {
             document.getElementById("landscape-warning").classList.toggle('hidden');
-            topDisplay.classList.toggle('hidden');
+            if (gameStatus === DISPLAY.HOME) {
+                topDisplay.classList.toggle('hidden');
+            } 
         }
     });
 })();
