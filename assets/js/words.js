@@ -5,7 +5,8 @@ const wordCollection = [
         description: "a corn on the cob",
         level: "easy"
     },
-    {   word: "fish",
+    {   
+        word: "fish",
         picture: "assets/images/fish-color-icon.png",
         description: "an orange fish",
         level: "easy"
@@ -83,32 +84,37 @@ const wordCollection = [
         level: "medium"
     },
     {
+        word: "mango",
+        picture: "assets/images/mango-fruit-icon.png",
+        description: "A mango",
+        level: "medium"
+    },
+    {
         word: "peach",
         picture: "assets/images/peach-fruit-icon.png",
         description: "a peach with green leaf",
         level: "medium"    
     },
-    {   word: "earth",
-        picture: "assets/images/earth-icon.png",
-        description: "The planet earth from above",
-        level: "medium"   
-    },
-    {   word: "lolly",
+    {   
+        word: "lolly",
         picture: "assets/images/ice-cream-stick-icon.png",
         description: "A pink ice lolly",
         level: "medium"   
     },
-    {   word: "lemon",
-        picture: "assets/images/lemon-icon.png",
-        description: "A lemon",
+    {  
+        word: "onion",
+        picture: "assets/images/onion-icon.png",
+        description: "A red onion",
         level: "medium"
     },
-    {   word: "heart",
+    {   
+        word: "heart",
         picture: "assets/images/red-heart-icon.png",
         description: "A red heart",
         level: "medium"   
     },
-    {   word: "melon",
+    {   
+        word: "melon",
         picture: "assets/images/watermelon-fruit-icon.png",
         description: "A slice of melon",
         level: "medium"
@@ -119,7 +125,8 @@ const wordCollection = [
         description: "a red apple with green leaf",
         level: "medium" 
     },
-    {   word: "toast",
+    {   
+        word: "toast",
         picture: "assets/images/toast-color-icon.png",
         description: "a slice of toast",
         level: "medium"
@@ -136,34 +143,54 @@ const wordCollection = [
         description: "some red cherries on a red stalk",
         level: "hard"     
     },
-    {   word: "tomato",
+    {   
+        word: "tomato",
         picture: "assets/images/tomato-icon.png",
         description: "a red tomato with green stalk",
         level: "hard"  
     },
-    {   word: "orange",
+    {   
+        word: "orange",
         picture: "assets/images/orange-icon.png",
         description: "an orange",
         level: "hard"
     },
-    {   word: "cactus",
+    {   
+        word: "cactus",
         picture: "assets/images/cactus-plant-icon.png",
         description: "a green cactus plant",
         level: "hard"
     },
-    {   word: "banana",
+    {   
+        word: "banana",
         picture: "assets/images/banana-icon.png",
         description: "a peeled banana",
         level: "hard"
     },
-    {   word: "cookie",
+    {   
+        word: "cookie",
         picture: "assets/images/cookie-icon.png",
         description: "a cookie",
         level: "hard"
     },
-    {   word: "sponge",
+    {   
+        word: "sponge",
         picture: "assets/images/sponge-icon.png",
         description: "a yellow sponge",
         level: "hard"
     },
+    {   
+        word: "pepper",
+        picture: "assets/images/bell-pepper-icon.png",
+        description: "A green pepper",
+        level: "hard"
+    },
+    {   
+        word: "chilli",
+        picture: "assets/images/chili-icon.png",
+        description: "A red chilli",
+        level: "hard"
+    }
+
+    
 ];
