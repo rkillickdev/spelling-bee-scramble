@@ -70,7 +70,7 @@
     let nextStep;
     let levelGraphic;
     let landscape = window.matchMedia("(orientation: landscape)");
-    let mobileDevice = window.matchMedia("(max-width: 425px)");
+    let mobileDevice = window.matchMedia("screen and (max-width: 425px)");
     // let portrait = window.matchMedia("(orientation: portrait)");
 
     // FUNCTIONS

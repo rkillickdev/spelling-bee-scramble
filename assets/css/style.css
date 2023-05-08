@@ -408,7 +408,11 @@ button {
         font-size: calc(var(--font-size-medium) + 0.390625vw);
     }    
 }
-@media screen and (orientation: landscape) and (max-width: 425px) {
+@media screen and (orientation: landscape) {
+
+}
+
+@media screen and (max-width: 425px) {
 
 }
 
