@@ -67,6 +67,7 @@
     let playerAnswer = [];
     let totalScore = 0;
     let timeLeft = 60;
+    let gameStatus;
     let startCountDown;
     let currentDifficulty = DIFFICULTY.EASY;
     let nextStep;
@@ -85,12 +86,15 @@
             feedbackInfo.className = "flex-rows";
             toggleProgress();
             togglePicture();
+            gameStatus = DISPLAY.HOME;
+            console.log(gameStatus); 
         } else if (display === DISPLAY.GAME) {
             document.getElementById("controls").classList.toggle("hidden");        
             feedbackInfo.className = "flex";
-            // topDisplay.innerHTML = scoreBox;
             toggleProgress();
             togglePicture();
+            gameStatus = DISPLAY.GAME;
+            console.log(gameStatus);
         }
     }
 
@@ -516,7 +520,9 @@
     instructionsIcon.forEach((icon) => {
         icon.addEventListener('click' , () => {
             document.getElementById("instructions").classList.toggle('hidden');
-            topDisplay.classList.toggle('hidden');
+            if (gameStatus === DISPLAY.HOME) {
+                topDisplay.classList.toggle('hidden');
+            } 
         });
     });
 
@@ -525,7 +531,9 @@
     settingsIcon.forEach((icon) => {
         icon.addEventListener('click' , () => {
             document.getElementById("settings").classList.toggle('hidden');
-            topDisplay.classList.toggle('hidden');
+            if (gameStatus === DISPLAY.HOME) {
+                topDisplay.classList.toggle('hidden');
+            } 
         });
     });
 
@@ -533,7 +541,7 @@
     // Hides landscape warning page.  Shows top display.
     clearWarning.addEventListener('click' , () => {
         document.getElementById("landscape-warning").classList.toggle('hidden');
-        topDisplay.classList.toggle('hidden');    
+        topDisplay.classList.toggle('hidden'); 
     });
 
     // Event listener for 3 difficulty settings buttons.
