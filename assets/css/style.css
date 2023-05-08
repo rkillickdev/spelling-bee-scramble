@@ -400,6 +400,17 @@ button {
     }    
 }
 
+@media only screen and (min-height: 950px) {
+    .single-image-display {
+        width: 200px;
+        margin: var(--spacing-m) auto;
+    }
+    .counters {
+        font-size: var(--font-size-xxl);
+        line-height: 2.0;
+    }
+}
+
 @media only screen and (max-height: 570px) {
 
 }
