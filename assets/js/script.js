@@ -2,8 +2,7 @@
 (() => {
     document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("easy-icon").classList.toggle('fa-toggle-on');
-        let landscape = window.matchMedia("(orientation: landscape)");
-        if (landscape) {
+        if (landscape.matches) {
             document.getElementById("landscape-warning").classList.toggle('hidden');
             topDisplay.classList.toggle('hidden');    
         }
@@ -70,6 +69,7 @@
     let challengeWords = [];
     let nextStep;
     let levelGraphic;
+    let landscape = window.matchMedia("screen and (orientation: landscape) and (max-width: 425px)");
     // let portrait = window.matchMedia("(orientation: portrait)");
 
     // FUNCTIONS
