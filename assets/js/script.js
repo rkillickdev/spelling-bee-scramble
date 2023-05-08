@@ -3,7 +3,6 @@
     document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("easy-icon").classList.toggle('fa-toggle-on');
         gameStatus = DISPLAY.HOME;
-        console.log(gameStatus);
         if (landscape.matches) {
             document.getElementById("landscape-warning").classList.toggle('hidden');
             topDisplay.classList.toggle('hidden');    
@@ -89,14 +88,12 @@
             toggleProgress();
             togglePicture();
             gameStatus = DISPLAY.HOME;
-            console.log(gameStatus); 
         } else if (display === DISPLAY.GAME) {
             document.getElementById("controls").classList.toggle("hidden");        
             feedbackInfo.className = "flex";
             toggleProgress();
             togglePicture();
             gameStatus = DISPLAY.GAME;
-            console.log(gameStatus);
         }
     }
 
