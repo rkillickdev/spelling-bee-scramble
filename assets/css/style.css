@@ -65,10 +65,6 @@ i {
     color: var(--secondary-color);
 }
 
-ul i {
-    font-size: var(--font-size-large);
-}
-
 img {
     height: 100%;
     width: 100%;
@@ -260,6 +256,11 @@ button {
 }
 
 /* SETTINGS SECTION */
+
+.list-icon {
+    margin-right: var(--spacing-xs);
+    font-size: var(--font-size-medium);
+}
 
 #settings , #instructions {
     padding-top: var(--spacing-s);
