@@ -70,7 +70,7 @@
     let nextStep;
     let levelGraphic;
     let landscape = window.matchMedia("(orientation: landscape)");
-    let mobileDevice = window.matchMedia("screen and (max-width: 425px)");
+    let mobileDevice = window.matchMedia("screen and (max-width: 768px)");
     // let portrait = window.matchMedia("(orientation: portrait)");
 
     // FUNCTIONS
@@ -560,7 +560,7 @@
     // Event listener for change from portrait to landscape orientation.
     // Displays warning message when change to landscape orientation detected.
     landscape.addEventListener("change", (event) => {
-        if(event.matches) {
+        if(event.matches && mobileDevice.matches) {
             document.getElementById("landscape-warning").classList.toggle('hidden');
             topDisplay.classList.toggle('hidden');
         }
