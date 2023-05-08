@@ -2,7 +2,6 @@
 (() => {
     document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("easy-icon").classList.toggle('fa-toggle-on');
-        // handleTabletChange (landscape);
         if (landscape.matches) {
             document.getElementById("landscape-warning").classList.toggle('hidden');
             topDisplay.classList.toggle('hidden');    
@@ -36,8 +35,8 @@
     // HTML ELEMENTS DEFINED
 
     const setLevel= document.querySelectorAll(".set-level");
-    const instructionsIcon = document.querySelectorAll(".instructions-icon")
-    const settingsIcon = document.querySelectorAll(".settings-icon")
+    const instructionsIcon = document.querySelectorAll(".instructions-icon");
+    const settingsIcon = document.querySelectorAll(".settings-icon");
     const clearWarning = document.getElementById("clear-warning");
     const topDisplay = document.getElementById("top-display");
     const answerTiles = document.getElementById("answer-tiles");
@@ -52,6 +51,7 @@
     const scrambleBoxes = document.getElementsByClassName("scramble-box");
     const scrambleButtons = document.getElementsByClassName("scramble-button");
     const buttonArray = Array.from(scrambleButtons);
+    const removeAnswer = document.getElementById("remove-answer");
     const submitAnswer = document.getElementById("submit-answer");
     const landscape = window.matchMedia("(max-height: 570px)");
 
@@ -180,6 +180,19 @@
     }
 
     /**
+     * Takes challengeIndexes array of integers and shuffles using the Fisher-Yates method.  I used the
+     * following article and code to learn about this way of randomly shuffling integers:
+     * https://www.tutorialspoint.com/what-is-fisher-yates-shuffle-in-javascript
+     */
+    function integerShuffle() {
+        let i = challengeIndexes.length;
+        while (--i > 0) {
+            let temp = Math.floor(Math.random() * (i + 1));
+            [challengeIndexes[temp], challengeIndexes[i]] = [challengeIndexes[i], challengeIndexes[temp]];
+        }    
+    }
+
+    /**
      * Runs on click of "Go" button.
      * Resets the length of the challengeWords array to zero before it is populated 
      * by the playGame function.  This makes sure that no words from other difficulty 
@@ -253,7 +266,7 @@
     }
 
     /**
-     * Runs resetLetterBoxes and generateWord functions.
+     * Runs resetLetterBoxes and clears answer style after 2 seconds.
      */
     function playGame() {
         setTimeout(clearAnswerStyle, 2000);
@@ -271,11 +284,11 @@
     }
 
     /**
-     * I used the following tutorial to help with coding this: https://www.youtube.com/watch?v=4-s3g_fU7Vg
+     * I used ideas from the following tutorial to help with coding this: https://www.youtube.com/watch?v=4-s3g_fU7Vg
      * Generates random word from challengeWords array, splits the individual letters into the  wordLetters array.
      * Runs the scrambleWord function
      * The scrambled word is checked against the correct answer to make sure they are never the same.  If this
-     * evaluates to false, the displayScramble function runs
+     * evaluates to true, the scrambleWord function runs again, otherwise the displayScramble function runs.
      */
     function generateWord() {
         // Word selected from the challengeWords array using index zero of the challengeIndexes array
@@ -287,25 +300,9 @@
             scrambleWord();
         }
         displayScramble();
-        // The integer occupying index 0 of challengeIndexes sent to the end of this array.
+        // The integer occupying index 0 of challengeIndexes is sent to the end of this array.
         const firstIndex = challengeIndexes.shift();
         challengeIndexes.push(firstIndex);   
-    }
-
-    /**
-     * Displays the scrambled letters in the scramble boxes and displays the picture relating to the chosen
-     * word in the div with id display-picture.
-     */
-    function displayScramble() {
-        // Populate each scramble box w ith a letter from the scrambled word
-        wordLetters.forEach((letter, index) => {
-            scrambleButtons[index].innerHTML = letter;
-        });
-        // Retrieves image path and alt description from randomWord object and stores in the 
-        //variables pictureHint and altDescription. Inserted into HTML using template literals.   
-        let pictureHint = randomWord.picture;
-        let altDescription = randomWord.description;
-        displayPicture.innerHTML = `<img src = "${pictureHint}" alt ="${altDescription}">`;
     }
 
     /**
@@ -319,20 +316,23 @@
         }
         scrambledString = wordLetters.join("");   
     }
-        
-    /**
-     * Takes challengeIndexes array of integers and shuffles using the Fisher-Yates method.  I used the
-     * following article and code to learn about this way of randomly shuffling integers:
-     * https://www.tutorialspoint.com/what-is-fisher-yates-shuffle-in-javascript
-     */
-    function integerShuffle() {
-        let i = challengeIndexes.length;
-        while (--i > 0) {
-            let temp = Math.floor(Math.random() * (i + 1));
-            [challengeIndexes[temp], challengeIndexes[i]] = [challengeIndexes[i], challengeIndexes[temp]];
-        }    
-    }
 
+    /**
+     * Displays the scrambled letters in the scramble boxes and displays the picture relating to the chosen
+     * word in the div with id display-picture.
+     */
+    function displayScramble() {
+        // Populate each scramble box with a letter from the scrambled word.
+        wordLetters.forEach((letter, index) => {
+            scrambleButtons[index].innerHTML = letter;
+        });
+        // Retrieves image path and alt description from randomWord object and stores in the 
+        // variables pictureHint and altDescription. Inserted into HTML using template literals.   
+        let pictureHint = randomWord.picture;
+        let altDescription = randomWord.description;
+        displayPicture.innerHTML = `<img src = "${pictureHint}" alt ="${altDescription}">`;
+    }
+        
     /**
      * Sets the playerAnswer array to a length of zero in readiness for the next answer.
      * clearAnswer function emptys the text from the Answer boxes.
@@ -502,14 +502,13 @@
         });  
     });
 
-    // Event listener for "GO" button that runs game.
+    // Event listener for "GO" button that executes runGame function.
     document.querySelector('#play-game').addEventListener('click' , runGame);
 
     // Event listener for submit answer button.  Runs checkAnswer function.
     submitAnswer.addEventListener('click', checkAnswer);
 
-    // Event listener for clear answer button.
-    const removeAnswer = document.getElementById("remove-answer");
+    // Event listener for clear answer button runs resetLetterBoxes function.
     removeAnswer.addEventListener('click', resetLetterBoxes);
 
     // Add event listeners to instructions navbar and clear buttons.
@@ -518,7 +517,7 @@
         icon.addEventListener('click' , () => {
             document.getElementById("instructions").classList.toggle('hidden');
             topDisplay.classList.toggle('hidden');
-        })
+        });
     });
 
     // Add event listeners to settings navbar and clear buttons.
@@ -527,16 +526,18 @@
         icon.addEventListener('click' , () => {
             document.getElementById("settings").classList.toggle('hidden');
             topDisplay.classList.toggle('hidden');
-        })
+        });
     });
 
+    // Event listener for clear button on landscape warning page.  
+    // Hides landscape warning page.  Shows top display.
     clearWarning.addEventListener('click' , () => {
         document.getElementById("landscape-warning").classList.toggle('hidden');
         topDisplay.classList.toggle('hidden');    
     });
 
     // Event listener for 3 difficulty settings buttons.
-    // Clicking toggles icon "on" styling for clicked button and "off" styling for others
+    // Clicking toggles icon "on" styling for clicked button and "off" styling for others.
     // I used this Stack overflow article to give me the idea for using iteration:
     // https://stackoverflow.com/questions/68425366/toggle-active-class-to-buttons-when-clicked 
     setLevel.forEach((button) => {
@@ -549,15 +550,15 @@
     // Iterates over SELECTOR_DIFFICULTY_MAP. 
     // Adds an event listener to the three difficulty settings buttons.
     // Changes difficulty setting when clicked.
-    // Learn about Object.entries here:  https://javascript.info/keys-values-entries
+    // Learnt about Object.entries here:  https://javascript.info/keys-values-entries
     Object.entries(SELECTOR_DIFFICULTY_MAP).forEach(([difficulty, selector]) => {
         document.getElementById(selector).addEventListener('click', () => {
             currentDifficulty = difficulty;
         });
     });
 
-    // Event listener for change from to below.
-    // Displays warning message when change to landscape orientation detected.    
+    // Event listener for a change to a screen less than 570px in height.
+    // Displays landscape warning message when change detected.    
     landscape.addEventListener("change", (event) => {
         if(event.matches) {
             document.getElementById("landscape-warning").classList.toggle('hidden');
