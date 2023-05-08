@@ -58,13 +58,21 @@
     let playerAnswer = [];
     let totalScore = 0;
     let scoreTarget = 6;
-    // let previousButton = null;
     let timeLeft = 60;
     let startCountDown;
     let currentDifficulty = DIFFICULTY.EASY;
     let challengeWords = [];
     let nextStep;
     let levelGraphic;
+    let landscape = window.matchMedia("(orientation: landscape)");
+
+    landscape.addEventListener("change", (event) => {
+        if(event.matches) {
+            alert("You are in landscape mode");
+        } else {
+            // portrait
+        }
+    })
 
     // FUNCTIONS
 
