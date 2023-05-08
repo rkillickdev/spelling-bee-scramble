@@ -2,6 +2,15 @@
 (() => {
     document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("easy-icon").classList.toggle('fa-toggle-on');
+        // Event listener for change from portrait to landscape orientation.
+        // Displays warning message when change to landscape orientation detected.
+        let landscape = window.matchMedia("(orientation: landscape)");
+        landscape.addEventListener("change", (event) => {
+            if(event.matches) {
+                document.getElementById("landscape-warning").classList.toggle('hidden');
+                topDisplay.classList.toggle('hidden');
+            }
+        });
     });
 
     // MODULE LEVEL CONSTANTS
@@ -65,8 +74,7 @@
     let challengeWords = [];
     let nextStep;
     let levelGraphic;
-    let landscape = window.matchMedia("(orientation: landscape)");
-    let portrait = window.matchMedia("(orientation: portrait)");
+    // let portrait = window.matchMedia("(orientation: portrait)");
 
     // FUNCTIONS
 
@@ -552,22 +560,13 @@
         });
     });
 
-    // Event listener for change from portrait to landscape orientation.
-    // Displays warning message when change to landscape orientation detected.
-    landscape.addEventListener("change", (event) => {
-        if(event.matches) {
-            document.getElementById("landscape-warning").classList.toggle('hidden');
-            topDisplay.classList.toggle('hidden');
-        }
-    });
-
-    // Event listener for change from landscape to portrait orientation.
-    // Clears warning message when rotated back to portrait orientation.
-    portrait.addEventListener("change", (event) => {
-        if(event.matches) {
-            document.getElementById("landscape-warning").classList.toggle('hidden');
-            topDisplay.classList.toggle('hidden');
-        }
-    });
+    // // Event listener for change from landscape to portrait orientation.
+    // // Clears warning message when rotated back to portrait orientation.
+    // portrait.addEventListener("change", (event) => {
+    //     if(event.matches) {
+    //         document.getElementById("landscape-warning").classList.toggle('hidden');
+    //         topDisplay.classList.toggle('hidden');
+    //     }
+    // });
 
 })();
