@@ -56,7 +56,9 @@
     const landscape = window.matchMedia("(max-height: 570px)");
 
     // GLOBAL VARIABLES
-
+    
+    const scoreTarget = 6;
+    const challengeWords = [];
     let correctAnswer = "";
     let randomWord;
     let wordLetters;
@@ -64,11 +66,9 @@
     let challengeIndexes = [];
     let playerAnswer = [];
     let totalScore = 0;
-    let scoreTarget = 6;
     let timeLeft = 60;
     let startCountDown;
     let currentDifficulty = DIFFICULTY.EASY;
-    let challengeWords = [];
     let nextStep;
     let levelGraphic;
     
