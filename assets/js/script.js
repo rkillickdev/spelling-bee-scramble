@@ -69,7 +69,7 @@
     let challengeWords = [];
     let nextStep;
     let levelGraphic;
-    let landscape = window.matchMedia("screen and (orientation: landscape) and (max-width: 425px)");
+    let landscape = window.matchMedia("(orientation: landscape) and (max-width: 425px)");
     // let portrait = window.matchMedia("(orientation: portrait)");
 
     // FUNCTIONS
