@@ -220,6 +220,7 @@ button {
 .menu {
     background-color: var(--primary-color);
     margin-bottom: var(--spacing-s);
+    padding-top: var(--spacing-s);
     height: auto;
 }
 
@@ -241,6 +242,7 @@ button {
 
 .menu.navbar {
     margin-bottom: 0;
+    padding-top: 0;
 }
 
 .settings-icon {
@@ -262,9 +264,9 @@ button {
     font-size: var(--font-size-medium);
 }
 
-#settings , #instructions {
+/* #settings , #instructions {
     padding-top: var(--spacing-s);
-}
+} */
 
 .unselected {
     color: grey;
