@@ -2,7 +2,7 @@
 (() => {
     document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("easy-icon").classList.toggle('fa-toggle-on');
-        handleTabletChange (landscape , mobileDevice);
+        handleTabletChange (landscape);
         // if (landscape.matches && mobileDevice.matches) {
         //     document.getElementById("landscape-warning").classList.toggle('hidden');
         //     topDisplay.classList.toggle('hidden');    
@@ -70,15 +70,15 @@
     let challengeWords = [];
     let nextStep;
     let levelGraphic;
-    const landscape = window.matchMedia("(orientation: landscape)");
-    const mobileDevice = window.matchMedia("screen and (max-width: 650px)");
+    const landscape = window.matchMedia("(orientation: landscape) and (max-width: 650px)");
+    // const mobileDevice = window.matchMedia("screen and (max-width: 650px)");
     // let portrait = window.matchMedia("(orientation: portrait)");
 
     // FUNCTIONS
 
-    function handleTabletChange(orientation , device) {
+    function handleTabletChange(orientation) {
         // Check if the media query is true
-        if (orientation.matches && device.matches) {
+        if (orientation.matches) {
             document.getElementById("landscape-warning").classList.toggle('hidden');
             topDisplay.classList.toggle('hidden');
         }
@@ -569,13 +569,15 @@
     // Event listener for change from portrait to landscape orientation.
     // Displays warning message when change to landscape orientation detected.
 
-    landscape.addEventListener("change" , handleTabletChange);
-    // landscape.addEventListener("change", (event) => {
-    //     if(event.matches) {
-    //         document.getElementById("landscape-warning").classList.toggle('hidden');
-    //         topDisplay.classList.toggle('hidden');
-    //     }
-    // });
+    // DELETE IF NOT NEEDED
+    // landscape.addEventListener("change" , handleTabletChange);
+    
+    landscape.addEventListener("change", (event) => {
+        if(event.matches) {
+            document.getElementById("landscape-warning").classList.toggle('hidden');
+            topDisplay.classList.toggle('hidden');
+        }
+    });
 
     // // Event listener for change from landscape to portrait orientation.
     // // Clears warning message when rotated back to portrait orientation.
