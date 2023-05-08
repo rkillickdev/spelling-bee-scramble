@@ -408,13 +408,13 @@ button {
         font-size: calc(var(--font-size-medium) + 0.390625vw);
     }    
 }
-@media only screen and (orientation: landscape) and (max-width: 650px) {
-
-}
-
-/* @media only screen and (max-width: 650px) {
+/* @media only screen and (orientation: landscape) {
 
 } */
+
+@media only screen and (max-height: 768px) {
+
+}
 
 /* @media screen and (orientation: portrait) {
 
