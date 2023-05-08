@@ -2,7 +2,7 @@
 (() => {
     document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("easy-icon").classList.toggle('fa-toggle-on');
-        if (landscape.matches && mobileDevice.matches) {
+        if (landscape.matches) {
             document.getElementById("landscape-warning").classList.toggle('hidden');
             topDisplay.classList.toggle('hidden');    
         }
