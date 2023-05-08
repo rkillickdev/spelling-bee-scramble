@@ -560,7 +560,7 @@
     // Event listener for change from portrait to landscape orientation.
         // Displays warning message when change to landscape orientation detected.
         landscape.addEventListener("change", (event) => {
-            if(event.matches && mobileDevice.matches) {
+            if(event.matches) {
                 document.getElementById("landscape-warning").classList.toggle('hidden');
                 topDisplay.classList.toggle('hidden');
             }
