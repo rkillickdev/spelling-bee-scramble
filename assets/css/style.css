@@ -37,7 +37,8 @@ body {
 
 ul {
     list-style-type: none;
-    margin-top: var(--spacing-xs);    
+    margin-top: var(--spacing-xs);
+    line-height: 1.9;    
 }
 
 a {
@@ -139,6 +140,7 @@ button {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: var(--spacing-xss) var(--spacing-xs);
+    margin-top: var(--spacing-m);
 }
 
 #answer-tiles , #scramble-tiles .scramble-button , .answer-letter {
