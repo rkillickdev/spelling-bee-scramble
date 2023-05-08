@@ -66,6 +66,7 @@
     let nextStep;
     let levelGraphic;
     let landscape = window.matchMedia("(orientation: landscape)");
+    let portrait = window.matchMedia("(orientation: portrait)");
 
     // FUNCTIONS
 
@@ -557,9 +558,16 @@
         if(event.matches) {
             document.getElementById("landscape-warning").classList.toggle('hidden');
             topDisplay.classList.toggle('hidden');
-        } else {
-            // portrait
         }
-    })
+    });
+
+    // Event listener for change from landscape to portrait orientation.
+    // Clears warning message when rotated back to portrait orientation.
+    portrait.addEventListener("change", (event) => {
+        if(event.matches) {
+            document.getElementById("landscape-warning").classList.toggle('hidden');
+            topDisplay.classList.toggle('hidden');
+        }
+    });
 
 })();

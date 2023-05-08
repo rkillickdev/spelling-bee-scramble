@@ -227,6 +227,10 @@ button {
     display: none;
 }
 
+.visible {
+    display: block;
+}
+
 /* NAVIGATION MENU */
 
 .nav-icon {
@@ -405,5 +409,9 @@ button {
     }    
 }
 @media screen and (orientation: landscape) {
+
+}
+
+@media screen and (orientation: portrait) {
 
 }
