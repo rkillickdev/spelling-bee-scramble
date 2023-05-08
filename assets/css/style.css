@@ -37,7 +37,7 @@ body {
 
 ul {
     list-style-type: none;
-    margin-top: var(--spacing-xs);
+    margin-top: var(--spacing-m);
     line-height: 1.9;    
 }
 
@@ -219,7 +219,6 @@ button {
 
 .menu {
     background-color: var(--primary-color);
-    margin-bottom: var(--spacing-s);
     padding-top: var(--spacing-s);
     height: auto;
 }
@@ -249,8 +248,8 @@ button {
     margin: var(--spacing-xs) var(--spacing-s);
 }
 
-.help-icon {
-    margin: var(--spacing-xs) 0;    
+.instructions-icon {
+    margin: var(--spacing-xs) 0;
 }
 
 .clear-page {
