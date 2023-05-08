@@ -12,6 +12,7 @@
     --tertiary-color: skyblue;
     --highlight-color: whitesmoke;
     --correct-color: #3AAF3C;
+    --incorrect-color: #EB0100;
     --font-size-reg: 1rem;
     --font-size-medium: 1.5rem;
     --font-size-large: 2rem;
@@ -128,15 +129,26 @@ button {
     grid-template-columns: repeat(6, 1fr);
 }
 
-.grid-tiles-complete {
-    grid-template-columns: repeat(6, 1fr);    
-}
-
 .grid-settings-table {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: var(--spacing-xss) var(--spacing-xs);
     margin-top: var(--spacing-m);
+}
+
+.flex {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.flex-rows {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }
 
 #answer-tiles , #scramble-tiles .scramble-button , .answer-letter {
@@ -198,21 +210,6 @@ button {
     transform: scale(1.1);
 }
 
-.flex {
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    height: 100%;
-}
-
-.flex-rows {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-}
-
 .hand-writing {
     font-family: 'Permanent Marker', cursive;
 }
@@ -225,10 +222,6 @@ button {
 
 .hidden {
     display: none;
-}
-
-.visible {
-    display: block;
 }
 
 /* NAVIGATION MENU */
@@ -260,16 +253,14 @@ button {
     padding: var(--spacing-xs) 0;
 }
 
-/* SETTINGS SECTION */
+/* INSTRUCTIONS SECTION */
 
 .list-icon {
     margin-right: var(--spacing-xs);
     font-size: var(--font-size-medium);
 }
 
-.unselected {
-    color: grey;
-}
+/* LANDSCAPE WARNING PAGE */
 
 #warning-icon {
     margin: var(--spacing-xs) 0;
@@ -316,7 +307,7 @@ button {
 }
 
 #timer {
-    color: red;
+    color: var(--incorrect-color);
     width: 100%;
 }
 
@@ -355,7 +346,7 @@ button {
 }
 
 @keyframes fadeIncorrectAnswer {
-    from {background-color: red;}
+    from {background-color: var(--incorrect-color);}
     to {background-color: var(--highlight-color);}   
 }
 
@@ -408,14 +399,7 @@ button {
         font-size: calc(var(--font-size-medium) + 0.390625vw);
     }    
 }
-/* @media only screen and (orientation: landscape) {
-
-} */
 
 @media only screen and (max-height: 570px) {
 
 }
-
-/* @media screen and (orientation: portrait) {
-
-} */
