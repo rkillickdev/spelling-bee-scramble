@@ -47,7 +47,7 @@ a {
 
 h1, h2 {
     font-family: 'Nunito', sans-serif;
-    font-size: var(--font-size-medium);
+    font-size: calc(var(--font-size-medium) + 0.390625vw);
     font-weight: 500;
     line-height: 1.2;
     text-transform: uppercase;
@@ -81,14 +81,6 @@ button {
     cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
-}
-
-/* MEDIA QUERIES */
-
-@media only screen and (min-width: 768px){
-    h1 {
-        font-size: var(--font-size-large);
-    }
 }
 
 /* UTILITIES */
@@ -150,7 +142,7 @@ button {
 }
 
 #answer-tiles , #scramble-tiles .scramble-button , .answer-letter {
-    font-size: calc(var(--font-size-medium) + 0.390625vw);
+    font-size: calc(var(--font-size-reg) + 0.390625vw);
     text-transform: uppercase;
     line-height: normal;
     margin: auto;    
@@ -401,3 +393,10 @@ button {
     margin: var(--spacing-s) auto;
 }
 
+/* MEDIA QUERIES */
+
+@media only screen and (min-width: 375px) {
+    #answer-tiles , #scramble-tiles .scramble-button , .answer-letter {
+        font-size: calc(var(--font-size-medium) + 0.390625vw);
+    }    
+}
