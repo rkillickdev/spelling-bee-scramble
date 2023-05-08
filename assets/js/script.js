@@ -53,6 +53,7 @@
     const scrambleButtons = document.getElementsByClassName("scramble-button");
     const buttonArray = Array.from(scrambleButtons);
     const submitAnswer = document.getElementById("submit-answer");
+    const landscape = window.matchMedia("(max-height: 570px)");
 
     // GLOBAL VARIABLES
 
@@ -70,21 +71,8 @@
     let challengeWords = [];
     let nextStep;
     let levelGraphic;
-    const landscape = window.matchMedia("(max-height: 768px)");
-    // const landscape = window.matchMedia("(orientation: landscape)");
-    // const mobileDevice = window.matchMedia("(max-width: 650px)");
-    // let portrait = window.matchMedia("(orientation: portrait)");
-
+    
     // FUNCTIONS
-
-    // DELETE IF NOT NEEDED
-    // function handleTabletChange(orientation) {
-    //     // Check if the media query is true
-    //     if (orientation.matches) {
-    //         document.getElementById("landscape-warning").classList.toggle('hidden');
-    //         topDisplay.classList.toggle('hidden');
-    //     }
-    //   }
 
     /**
      * Toggles between home screen setting where player controls are hidden and
@@ -568,26 +556,12 @@
         });
     });
 
-    // Event listener for change from portrait to landscape orientation.
-    // Displays warning message when change to landscape orientation detected.
-
-    // DELETE IF NOT NEEDED
-    // landscape.addEventListener("change" , handleTabletChange);
-    
+    // Event listener for change from to below.
+    // Displays warning message when change to landscape orientation detected.    
     landscape.addEventListener("change", (event) => {
         if(event.matches) {
             document.getElementById("landscape-warning").classList.toggle('hidden');
             topDisplay.classList.toggle('hidden');
         }
     });
-
-    // // Event listener for change from landscape to portrait orientation.
-    // // Clears warning message when rotated back to portrait orientation.
-    // portrait.addEventListener("change", (event) => {
-    //     if(event.matches) {
-    //         document.getElementById("landscape-warning").classList.toggle('hidden');
-    //         topDisplay.classList.toggle('hidden');
-    //     }
-    // });
-
 })();
