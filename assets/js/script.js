@@ -54,7 +54,7 @@
     const buttonArray = Array.from(scrambleButtons);
     const removeAnswer = document.getElementById("remove-answer");
     const submitAnswer = document.getElementById("submit-answer");
-    const landscape = window.matchMedia("(max-height: 570px)");
+    const landscape = window.matchMedia("(max-height: 400px)");
 
     // GLOBAL VARIABLES
     
