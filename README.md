@@ -181,11 +181,16 @@ If the player fails to submit 8 successfully spelt answers within the time limit
 
 ### **Responsive Design**
 
-* Answer and scramble squares made responsive so they get larger as the screen width increases, but also remain sqaure.  This is capped at 500px otherwise they start to look too big.  Font size has also been made reponsive to grow with the squares.
+* Answer and scramble squares made responsive so they get larger as the screen width increases, but also remain square.  This is capped at 500px otherwise they start to look too big.  Font size has also been made reponsive to grow with the squares.
 
-* Media queries to increase font size of headings on tablet size and above
+* I used Media queries to increase the size of images and counters, for screens above 950px in size, to use some more of the vertical screen real estate.
 
-* looking into how to handle portrait orientation on mobile devices as not all the necessary elements of the can fit in this situation.
+
+* When testing the game on smaller devices such as phones, I noticed that game play was less user friendly when the device was rotated to landscape orientation, as the player is not able to view all the necessary elements of score/ timer, answer boxes, picture, scramble boxes and controls without scrolling up and down.  I considered using a media query to shrink everything to fit the screen in these situations or removing some elements, but none of these solutions were workable as there is too much information to fit in that space.  I therefore decided to set an event listener in my JavaScript file which responds when the screen height goes below 400px and displays a warning message, advising the player to rotate their device back to portrait orientation for a better game play experience.  I learnt about using matchMedia in JavaScript from the following article:
+
+![Using matchMedia in JavaScript](https://fjolt.com/article/javascript-detecting-device-orientation)
+
+I decided against basing the event listener on the css property (orientation: landscape), as I found this was also causing the message to appear on larger devices such as laptops and desktops where screen width is larger than screen height, but the screen height is adequate to display the whole game.
 
 ### **Accessibility**
 
@@ -204,7 +209,7 @@ If the player fails to submit 8 successfully spelt answers within the time limit
 
 <br>
 
-### **Mobile**
+I used a mobile first approach when planning for this project, and wanted the overall visual of the game to be the same across all devices.  My wireframe therefore applies to mobile , tablet and desktop devices as the structure of the design does not change.  The section on Responsive Design above explains how I tried to optimise the look of the across various device sizes.
 
 <br>
 
