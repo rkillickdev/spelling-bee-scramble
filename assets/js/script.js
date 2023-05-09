@@ -4,7 +4,7 @@
         document.getElementById("easy-icon").classList.toggle('fa-toggle-on');
         gameStatus = DISPLAY.HOME;
         if (landscape.matches) {
-            document.getElementById("landscape-warning").classList.toggle('hidden');
+            landscapeWarning.classList.toggle('hidden');
             topDisplay.classList.toggle('hidden');    
         }
     });
@@ -38,6 +38,7 @@
     const setLevel= document.querySelectorAll(".set-level");
     const instructionsIcon = document.querySelectorAll(".instructions-icon");
     const settingsIcon = document.querySelectorAll(".settings-icon");
+    const landscapeWarning = document.getElementById("landscape-warning");
     const clearWarning = document.getElementById("clear-warning");
     const topDisplay = document.getElementById("top-display");
     const answerTiles = document.getElementById("answer-tiles");
@@ -55,6 +56,7 @@
     const removeAnswer = document.getElementById("remove-answer");
     const submitAnswer = document.getElementById("submit-answer");
     const landscape = window.matchMedia("(max-height: 400px)");
+    const portrait = window.matchMedia("(min-height: 400px)");
 
     // GLOBAL VARIABLES
     
@@ -539,7 +541,7 @@
     // Event listener for clear button on landscape warning page.  
     // Hides landscape warning page.  Shows top display.
     clearWarning.addEventListener('click' , () => {
-        document.getElementById("landscape-warning").classList.toggle('hidden');
+        landscapeWarning.classList.toggle('hidden');
         if (gameStatus === DISPLAY.HOME) {
             topDisplay.classList.toggle('hidden');
         } 
@@ -566,14 +568,22 @@
         });
     });
 
-    // Event listener for a change to a screen less than 570px in height.
+    // Event listener for a change to a screen less than 400px in height.
     // Displays landscape warning message when change detected.    
     landscape.addEventListener("change", (event) => {
         if(event.matches) {
-            document.getElementById("landscape-warning").classList.toggle('hidden');
+            landscapeWarning.classList.toggle('hidden');
             if (gameStatus === DISPLAY.HOME) {
                 topDisplay.classList.toggle('hidden');
             } 
+        }
+    });
+
+    portrait.addEventListener("change" , (event) => {
+        if(event.matches) {
+            if (!landscapeWarning.classList.contains('hidden')) {
+                landscapeWarning.classList.toggle('hidden');
+            }
         }
     });
 })();
