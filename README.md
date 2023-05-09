@@ -330,6 +330,60 @@ The live link can be found [here](https://rkillickdev.github.io/spelling-bee-scr
 
 <br>
 
+I used the [W3C](https://validator.w3.org/) Markup Validation Service to validate the index.html page.  It passed with no errors or warnings:
+
+![html validator pass](docs/testing/w3c/w3c-spelling-bee-html-index-validated.png)
+
+<br>
+
+I used the [W3C jigsaw](https://jigsaw.w3.org/css-validator/) CSS Validation Service to validate my CSS stylesheet. It passed with no errors:
+
+![css validator pass](docs/testing/w3c/spelling-bee-w3c-jigsaw-css-validated.png)
+
+The following warnings were raised, which relate to the vendor extenstions I am using for browser cross compatability:
+
+![css validator warnings](docs/testing/w3c/spelling-bee-w3c-jigsaw-css-warnings.png)
+
+<br>
+
+I passed my JavaScript code through the linter Jshint to validate and check for any syntax errors.  The only remaining warning relates to the variable wordCollection as this is defined in the words.js file.
+
+![Jshint validation](docs/testing/jshint/spelling-bee-jshint-validation.png)
+
+<br>
+
+### **Lighthouse:**
+
+<br>
+
+I used Lighthouse within Google Chrome developer tools as a way of testing performance, accessibility, best practices and SEO of the site.
+
+<br>
+
+### **Desktop Results**
+
+<br>
+
+![desktop index.html page results](docs/testing/lighthouse/spelling-bee-lighthouse-desktop-index.png)
+
+<br>
+
+### **Mobile Results**
+
+<br>
+
+![mobile index.html page results](docs/testing/lighthouse/spelling-bee-lighthouse-mobile-index.png)
+
+<br>
+
+### **WAVE:**
+
+<br>
+
+I have used the [WAVE](https://wave.webaim.org/) tool to evaluate the web accessibility of each page on the site.  It passed with no errors:
+
+![wave accessbility report](docs/testing/accessibility/spelling-bee-wave-accessibility.png)
+
 ## **Manual Testing**
 
 <br>
