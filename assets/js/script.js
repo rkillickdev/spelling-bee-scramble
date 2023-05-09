@@ -586,7 +586,7 @@
             if (!landscapeWarning.classList.contains('hidden')) {
                 landscapeWarning.classList.toggle('hidden');
             }
-            if (gameStatus === DISPLAY.HOME) {
+            if (topDisplay.classList.contains('hidden')) {
                 topDisplay.classList.toggle('hidden');
             } 
         }
