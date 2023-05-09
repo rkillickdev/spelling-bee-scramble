@@ -579,11 +579,16 @@
         }
     });
 
+    // Event listener for a change to a screen greater than 400px in height.
+    // Hides landscape warning message when change detected.  
     portrait.addEventListener("change" , (event) => {
         if(event.matches) {
             if (!landscapeWarning.classList.contains('hidden')) {
                 landscapeWarning.classList.toggle('hidden');
             }
+            if (gameStatus === DISPLAY.HOME) {
+                topDisplay.classList.toggle('hidden');
+            } 
         }
     });
 })();
