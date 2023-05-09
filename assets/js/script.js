@@ -583,12 +583,14 @@
     // Hides landscape warning message when change detected.  
     portrait.addEventListener("change" , (event) => {
         if(event.matches) {
-            if (!landscapeWarning.classList.contains('hidden')) {
+            if (!landscapeWarning.classList.contains('hidden') && gameStatus === DISPLAY.HOME) {
+                landscapeWarning.classList.toggle('hidden');
+                topDisplay.classList.toggle('hidden');
+            }
+            if (!landscapeWarning.classList.contains('hidden') && gameStatus === DISPLAY.GAME) {
                 landscapeWarning.classList.toggle('hidden');
             }
-            if (topDisplay.classList.contains('hidden')) {
-                topDisplay.classList.toggle('hidden');
-            } 
+
         }
     });
 })();
