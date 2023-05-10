@@ -451,7 +451,7 @@ The following browsers were used to test on each device:
 | Navbar icons | Scale expands by 10% and colour transitions to grey when hovered over | Hover over navbar icons | Scale expands by 10% and colour transitions to grey | Pass | 
 | Home Icon | User redirected to home screen and game resets to default settings when clicked | Click home icon | Redirected to home screen and game is on easy setting when run | Pass |
 | Settings Icon | Settings page appears when clicked | Click settings icon | Settings page appears | Pass |
-| Settings buttons | Appear dark when selected and light when not | Toggle between buttons | Fails if double clicked | FAIL |
+| Settings buttons | Appear dark when selected and light when not | Toggle between buttons | Button becomes dark when selected and is not untoggled when clicked again | Pass |
 | Easy, medium & hard settings buttons | Changes difficulty of game when clicked | Click each button and run game | 4 letter words displayed when easy clicked, 5 letter words when medium clicked and 6 letter words when hard clicked | Pass |
 | Cross Icon on settings page | Hides Settings page | Click cross icon | Settings Page is hidden | Pass |
 | Info Icon | Shows instructions page | Click info icon | Instructions page is shown | Pass |
