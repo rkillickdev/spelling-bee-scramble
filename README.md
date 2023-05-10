@@ -106,29 +106,28 @@ ___
 
 <br>
 
-### **Logo**
-
-<br>
-
-As the game is called Spelling **Bee** Scramble, a Bumble Bee icon is used to tie in with this theme.  Clicking on the logo resets the page to its initial default settings.
-
-<br>
-
 ### **Navigation Bar**
 
 <br>
 
-Icons are used here rather than text to save space.  Players can navigate to the settings page by clicking on the universally recognisable gear icon.  Here they are presented with the option to select a difficulty level and also choose whether sound FX are audible or muted.  Clicking on the cross icon hides this page and the player is once again presented with the game page.
+![Navigation Bar](docs/features/spelling-bee-nav-bar.png)
 
-Clicking on the question mark icon presents the player with instructions on how to play the game.
+Icons are used here rather than text to save space.  Players can navigate to the settings page by clicking on the universally recognisable gear icon.  Here they are presented with the option to select a difficulty level rather than starting on the default level of "easy".  Re-clicking the gear icon or clicking on the cross icon hides this page and the player is once again presented with the game page.
 
+![Settings Page](docs/features/gifs/spelling-bee-difficulty-setting.gif)
+
+Clicking on the information icon presents the player with instructions on how to play the game.  The page can be hidden by re-clicking the information icon or clicking the cross icon.
+
+![Instructions Page](docs/features/gifs/spelling-bee-instructions-toggle.gif)
 <br>
 
 ### **Game Landing Screen**
 
 <br>
 
-On loading the site, players are greeted with the Spelling Bee Scramble logo and a button inviting them to play.  I have chosen to have the main game name and logo displayed here, rather than having it permanently displayed at the top which would take up valuable screen space.  This is especially important when taking into account that this game is mostly likely to be played on a mobile device where screen real estate is at a premium.
+![Game Landing Screen](docs/features/spelling-bee-landing-screen.png)
+
+On loading the site, players are greeted with the Spelling Bee Scramble logo and a 'go' button inviting them to play.  I have chosen to have the main game name and logo displayed here, rather than having it permanently displayed at the top which would take up valuable screen space.  This is especially important when taking into account that this game is mostly likely to be played on a mobile device where screen real estate is at a premium.
 
 <br>
 
@@ -136,21 +135,31 @@ On loading the site, players are greeted with the Spelling Bee Scramble logo and
 
 <br>
 
-On hitting play, four or six empty boxes appear below the central logo (depending on the game difficulty setting).  The scrambled word letters drop into these boxes.  Empty answer boxes also appear above the logo box.
+On hitting play, four, five or six empty boxes appear below the central logo (depending on the game difficulty setting).  The scrambled word letters appear in these boxes.  Empty answer boxes also appear above the logo box.  A picture hint for the scrambled word appears in ther central display.
 
-The central box flips and a picture hint is displayed for the scrambled word.
+![Easy difficulty display](docs/features/spelling-bee-easy.png)
 
-The player must identify the word and spell it correctly by clicking on each letter in the right order.  Once a letter has been clicked, it becomes greyed out so it cannot be used again.
+<br>
 
-As letters are clicked, they appear in the answer box spaces above the picture hint.  The next empty space that needs populating comes into focus and is highlighted to give the player feedback that a letter is required.
+![Medium difficulty display](docs/features/spelling-bee-medium.png)
 
-On the control panel, the backspace button gives the option to remove letters if the player decides they have spelt the word incorrectly.
+<br>
 
-Once the player is happy with their spelling of the word, they can submit their answer with the green GO! Button.  This is then checked against the correct spelling of the word.  If the players answer matches, all squares turn green and a positive sound plays to provide feedback that they have been successful.
+![Hard difficulty display](docs/features/spelling-bee-difficult.png)
 
-If the user's answer is incorrect, all squares turn red and a negative sound plays.  Feedback is also provided if the player tries to submit an answer while any answer boxes are unpopulated.  These are highlighted red to show they must be populated to submit an answer.
+The player must identify the word and spell it correctly by clicking on each letter in the right order.  Once a letter has been clicked, it becomes greyed out so it cannot be used again.  As letters are clicked, they appear in the answer box spaces above the picture hint.
 
-A new scrambled word is then generated and the answer boxes are cleared, ready for the next spelling attempt.
+Once the player is happy with their spelling of the word, they can submit their answer with the green 'play' button.  This is then checked against the correct spelling of the word and the player is provided feedback.  If the players answer matches, all squares turn green and a green tick appears.  A new scrambled word is then generated and the answer boxes are cleared, ready for the next spelling attempt.
+
+![Correct answer submitted](docs/features/gifs/spelling-bee-correct-answer.gif)
+
+If the user's answer is incorrect, all squares turn red and a red cross appears.
+
+![Incorrect answer submitted](docs/features/gifs/spelling-bee-incorrect-answer.gif)
+
+On the control panel, the red 'cross' button gives the player the option to clear their spelling if they decide they have gone wrong.  This clears all populated answer boxes.
+
+![Clear answer](docs/features/gifs/spelling-bee-clear-answer.gif)
 
 <br>
 
@@ -158,39 +167,52 @@ A new scrambled word is then generated and the answer boxes are cleared, ready f
 
 <br>
 
-The beehive to the left of this section represents a visual counter, where one bee is added to the hive each time a player submits a correct answer. It starts empty and after 8 correct answers the hive is full and the challenge is complete.
+![Counter and countdown clock](docs/features/spelling-bee-progress.png)
 
-Players are working against a countdown clock.  They must spell 8 words correctly within the designated time to successfully complete the challenge.  The countdown starts as soon as the scrambled word and picture hint card is generated. 
-
-<br>
-
-### **Game Outcomes**
+The counter increments by 1 every time the player submits a correct answer.  Once the counter reaches 6, the challenege is complete.Players are working against a countdown clock.  They must spell 6 words correctly within 60 seconds to successfully complete the challenge.  The countdown starts as soon as the scrambled word and picture hint is generated. 
 
 <br>
 
-If the player spells 8 words successfully within the time limit, the visual counter reaches its maximum limit and the count down timer is stopped. Players are greeted with a message of congratulations and the following 2 options:
-
-* Play Again
-* Try a harder challenge.  If the player has successfully completed the challenge at the difficult level, this option is not available.
-
-If the player fails to submit 8 successfully spelt answers within the time limit, they are presented with a record of the number of correct answers and a message encouraging them to try again.
+### **Game Outcome Feedback**
 
 <br>
 
-### **404 Error Screens**
+If the player spells 6 words successfully within the time limit, players are greeted with a bespoke message of congratulations dependent on the level they have completed.  The next time they run the game, the level of difficulty will increase.  Once they have completed the hardest level, they can continue to practice on this setting.
+
+![Easy challenge complete](docs/features/spelling-bee-easy-complete.png)
+
+<br>
+
+![Medium challeneg complete](docs/features/spelling-bee-medium-complete.png)
+
+<br>
+
+![Hard challenge complete](docs/features/spelling-bee-hard-complete.png)
+
+<br>
+
+If the player is unable to submit 6 successfully spelt answers within the time limit, they are presented with a record of the number of additional correct answers they needed and a message encouraging them to try again.
+
+![Time up feedback](docs/features/spelling-bee-time-up.png) 
+
+<br>
 
 ### **Responsive Design**
 
-* Answer and scramble squares made responsive so they get larger as the screen width increases, but also remain square.  This is capped at 500px otherwise they start to look too big.  Font size has also been made reponsive to grow with the squares.
+<br>
 
-* I used Media queries to increase the size of images and counters, for screens above 950px in size, to use some more of the vertical screen real estate.
+Answer and scramble squares have been made responsive so they get larger as the screen width increases, but also remain square.  This is capped at 500px screen width otherwise they start to look too big.  Font size has also been made reponsive to grow with the squares.
+
+![Responsive answer and scramble squares](docs/features/gifs/spelling-bee-responsive-squares.gif)
+
+I used Media queries to increase the size of images and counters, for screens above 1200px in height, to use some more of the vertical screen real estate.
 
 
-* When testing the game on smaller devices such as phones, I noticed that game play was less user friendly when the device was rotated to landscape orientation, as the player is not able to view all the necessary elements of score/ timer, answer boxes, picture, scramble boxes and controls without scrolling up and down.  I considered using a media query to shrink everything to fit the screen in these situations or removing some elements, but none of these solutions were workable as there is too much information to fit in that space.  I therefore decided to set an event listener in my JavaScript file which responds when the screen height goes below 400px and displays a warning message, advising the player to rotate their device back to portrait orientation for a better game play experience.  I learnt about using matchMedia in JavaScript from the following article:
-
-![Using matchMedia in JavaScript](https://fjolt.com/article/javascript-detecting-device-orientation)
+When testing the game on smaller devices such as phones, I noticed that game play was less user friendly when the device was rotated to landscape orientation, as the player is not able to view all the necessary elements of score/ timer, answer boxes, picture, scramble boxes and controls without scrolling up and down.  I considered using a media query to shrink everything to fit the screen in these situations or removing some elements, but none of these solutions were workable as there is too much information to fit in that space.  I therefore decided to set an event listener in my JavaScript file which responds when the screen height goes below 400px and displays a warning message, advising the player to rotate their device back to portrait orientation for a better game play experience.  I learnt about using matchMedia in JavaScript from the [following article](https://fjolt.com/article/javascript-detecting-device-orientation).
 
 I decided against basing the event listener on the css property (orientation: landscape), as I found this was also causing the message to appear on larger devices such as laptops and desktops where screen width is larger than screen height, but the screen height is adequate to display the whole game.
+
+![Landscape warning message](docs/features/gifs/spelling-bee-landscape-warning.gif)
 
 ### **Accessibility**
 
@@ -655,6 +677,7 @@ while ((scrambledString === correctAnswer)) {
 * [Disabling scramble letter buttons after click so it cannot be selected more than once](https://stackoverflow.com/questions/23724639/make-a-button-unclickable-after-one-click)
 * Used this [article](https://css-tricks.com/overriding-default-button-styles/) to learn about removing default styling from buttons.  Referenced and modified some code [here](https://codepen.io/andy-set-studio/pen/Vxpjvo)
 * Referenced these articles when considering how to make the square tiles responsive and stay square across various screen sizes. [Article 1](https://stackoverflow.com/questions/66817240/how-to-make-css-grid-container-keep-responsive-square-size) and [Article 2](https://stackoverflow.com/questions/46548987/a-grid-layout-with-responsive-squares) gave me the soution to use 100% padding-top on my button-container class.
+* Referenced this [article](https://matthewjamestaylor.com/responsive-font-size) when considering how to make font size responsive.
 * Referenced [this code](https://www.tutorialspoint.com/what-is-fisher-yates-shuffle-in-javascript) when finding a solution for shuffling an array of integers randomly.
 * Referenced and modified [this code](https://softauthor.com/make-selected-clicked-button-active-in-javascript/) when exploring ways of toggling the font awesome icon used each time a button clicked on the settings page to change the difficulty level.
 * [Article about using divs instead of sections where no heading element present](https://www.beacontechnologies.com/blog/2018/12/how-to-add-aria-labels-for-html-section-and-div-tags.aspx)
