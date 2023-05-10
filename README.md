@@ -1,6 +1,10 @@
 # **Spelling Bee Scramble Game**
 
-Spelling Bee Scramble is a fun interactive game aimed at children of varying ages who are keen to practice and improve their spelling.  Players must decipher the scrambled words and spell them correctly by arranging the letters in the required order.  They work against the clock to complete the challenge by helping our beekeeper to fill the hive with bees.  The game has varying levels of difficulty to continue challenging the player.
+Spelling Bee Scramble is a fun interactive game aimed at children of varying ages who are keen to practice and improve their spelling.  Players must decipher the scrambled words and spell them correctly by arranging the letters in the required order.  They work against the clock to complete the challenge.  The game has varying levels of difficulty to continue challenging the player.
+
+<br>
+
+![Spelling Bee Scramble game represented on different devices](docs/devices/spelling-bee-am-i-responsive.png)
 
 <br>
 
@@ -101,6 +105,22 @@ Word games and puzzles can also be beneficial for children in a variety of other
 
 ## **DESIGN**
 ___
+
+## **Wireframes**
+
+<br>
+
+I used a mobile first approach when planning for this project, and wanted the overall visual of the game to be the same across all devices.  My wireframe therefore applies to mobile , tablet and desktop devices as the structure of the design does not change.  The section on [Responsive Design](#responsive-design) below explains how I tried to optimise the look of the game across various device sizes.
+
+<br>
+
+![Mobile wireframe for landing view and game play view](docs/wireframes/Spelling%20Bee%20Scramble%20Mobile_resize.png)
+
+<br>
+
+The wireframe above shows how the game was conceptualised, but ultimately a few of the ideas were out of the scope of this project.  These have been added to the [Future Implementations](#future-implementations) section below.
+
+
 
 ## **Features**
 
@@ -205,8 +225,7 @@ Answer and scramble squares have been made responsive so they get larger as the 
 
 ![Responsive answer and scramble squares](docs/features/gifs/spelling-bee-responsive-squares.gif)
 
-I used Media queries to increase the size of images and counters, for screens above 1200px in height, to use some more of the vertical screen real estate.
-
+<br>
 
 When testing the game on smaller devices such as phones, I noticed that game play was less user friendly when the device was rotated to landscape orientation, as the player is not able to view all the necessary elements of score/ timer, answer boxes, picture, scramble boxes and controls without scrolling up and down.  I considered using a media query to shrink everything to fit the screen in these situations or removing some elements, but none of these solutions were workable as there is too much information to fit in that space.  I therefore decided to set an event listener in my JavaScript file which responds when the screen height goes below 400px and displays a warning message, advising the player to rotate their device back to portrait orientation for a better game play experience.  I learnt about using matchMedia in JavaScript from the [following article](https://fjolt.com/article/javascript-detecting-device-orientation).
 
@@ -214,28 +233,30 @@ I decided against basing the event listener on the css property (orientation: la
 
 ![Landscape warning message](docs/features/gifs/spelling-bee-landscape-warning.gif)
 
+<br>
+
+I used Media queries to increase the size of images and counters, for screens above 1200px in height, to use some more of the vertical screen real estate.
+
+<br>
+
 ### **Accessibility**
 
-* Aria labels added to all button elements
+To ensure that the game is as accessible as possible for all users and compatible with screen readers, I included the following:
+
+* Semantic markup has been used where possible to structure the HTML code.
+* I checked that the colour contrast ratio across the site meets acceptable standards.
+* Descriptive alt attributes have been given to all images.  I was also careful to add this attribute dynamically for any images that are injected into the DOM using JavaScript.  The alt description for each picture is stored within each object in the wordCollection array. 
+* I have used aria labels for interactive elements such as buttons where no accessible name is provided.
+* I have used the aria hidden attribute on any icons that are purely decorative.
 * When running my HTML code through the W3C markup validation service, I was warned that I was using some section elements that did not contain a heading element.  I therefore changed these to divs and gave them the attribute role="region" and an aria label to explain their purpose.
 
 ### **Future Implementations**
 
-* Add sound Fx
-* Could make some of the visual elements more interesting for example the score counter could be more animated.
-* A leaderboard if player scores could be stored in a database.  Not in the scope of this project but something for the future.
+* Sound Fx could be used as an additional form of feedback for players to understand whether they have submitted a correct or incorrect answer.  This could also an extra element of fun to the game for kids.
+* Some of the visual elements could be made more interesting and engaging, for example the score counter could be animated.  Also letters and images appearing on the page could have interesting transitions such as flipping or spinning as they change.
+* A leaderboard could be implemented if player scores could be stored in a database. This was not in the scope of the project but something to consider for the future with the addition of other technologies.
 
 <br>
-
-## **Wireframes**
-
-<br>
-
-I used a mobile first approach when planning for this project, and wanted the overall visual of the game to be the same across all devices.  My wireframe therefore applies to mobile , tablet and desktop devices as the structure of the design does not change.  The section on Responsive Design above explains how I tried to optimise the look of the across various device sizes.
-
-<br>
-
-![Mobile wireframe for landing view and game play view](docs/wireframes/Spelling%20Bee%20Scramble%20Mobile_resize.png)
 
 ## **Colour Palette**
 
