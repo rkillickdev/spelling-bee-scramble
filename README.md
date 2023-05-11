@@ -8,6 +8,10 @@ Spelling Bee Scramble is a fun interactive game aimed at children of varying age
 
 <br>
 
+[View the Spelling Bee Scramble site on GitHub Pages](https://rkillickdev.github.io/spelling-bee-scramble/)
+
+<br>
+
 ## **CONTENTS**
 
 * [User Experience (UX)](#user-experience-ux)
