@@ -239,6 +239,14 @@ I used Media queries to increase the size of images and counters, for screens ab
 
 <br>
 
+| Responsivness |    |           |            |           |                         |                  |       | Notes  |
+| :---: | :---:        | :---:     | :---:      | :---:     | :---:                   | :---:            | :---: | :---:  |
+| ---   | iphone 6/7/8 | iPhone 11 | Galaxy S8+ | iPad Mini | iPad | Macbook Pro 2021 | Desktop > 1200px |    
+| Site responsive >= 700px | n/a | n/a | n/a | Good | Good | Good | Good |
+| Site responsive < 699px | Good | Good | Good | n/a | n/a | n/a | n/a |
+| Images display as expected | Pass | Pass | Pass | Pass | Pass | Pass | Pass |
+| Renders as expected | Pass | Pass | Pass | Pass | Pass | Pass | Pass |
+
 ### **Accessibility**
 
 To ensure that the game is as accessible as possible for all users and compatible with screen readers, I included the following:
@@ -442,30 +450,29 @@ I have used the [WAVE](https://wave.webaim.org/) tool to evaluate the web access
 
 | Goals | How are goals achieved? |
 | --- | --- | 
-| Client |     
+| **Client** |     
 |        |   
-|        | I want to offer an educational experience to help children with their spelling. |  
-|        | I want to make sure that the user has an enjoyable, engaging experience so they continue playing and return to the site in the future. |  
-|        | I want to offer differing levels of difficulty to ensure that the user continues to learn as their spelling improves.
-|        | I want to set targets for the user, to keep the experience interesting and challenging.
-|        | I want to make the game responsive over a range of device sizes.
+| I want to offer an educational experience to help children with their spelling. | This is achieved by offering 3 difficulty levels of spelling challenges to help children keep progressing in their learning. | 
+| I want to make sure that the user has an enjoyable, engaging experience so they continue playing and return to the site in the future. | The site has been designed to be simple and intuitive, challenges different abilities and the aesthetics of the game align with the target user by being bright, bold and fun. | 
+| I want to offer differing levels of difficulty to ensure that the user continues to learn as their spelling improves. | This is achieved by offering a settings page where the difficulty level can be adjusted manually by the player. |
+| I want to set targets for the user, to keep the experience interesting and challenging. | Targets are set by requiring the player to achieve 6 correct answers to sucessfully complete the challenge. |
+| I want to make the game responsive over a range of device sizes. | The site has been tested over a range of devices and is responsive while retaining the same structural layout throughout. |
 |        |                                                  
-| First Time Visitors |         
+| **First Time Visitors** |         
 |        | 
-|        | I am looking for a fun and interactive way to practice and improve my spelling.
-|        | I want clear and concise feedback each time I submit a correct or incorrect answer.
-|        | I want clear feedback about how close I am to reaching my target number of correct answers.
-|        | I want clear feedback to let me know I have completed the challenge and how to proceed.
-|        | I want easy intuitive access to an explanation of how to play the game.
+| I am looking for a fun and interactive way to practice and improve my spelling. | Opportunity to improve spelling is offered by 3 different levels of challenge.  The site is fully interactive and control of the game is intuitive.  The fun element is brought by deign elements such as cartoon images and feedback to let the player know how they are progressing. |
+| I want clear and concise feedback each time I submit a correct or incorrect answer. | Green ticks/answer boxes for correct answers and red crosses/ answer boxes for incorrect answers are used to give players feedback about each spelling they submit. | 
+| I want clear feedback about how close I am to reaching my target number of correct answers. | The score counter displayed in the top left of the screens provides this continual feedback during game play. |
+| I want clear feedback to let me know I have completed the challenge and how to proceed. | Bespoke messages are displayed to the player at the end of each challenge providing feedback and next steps. |
+| I want easy intuitive access to an explanation of how to play the game. | The instructions page providing this information is easily accessible from the nav bar with one click and intuitive for players to find with the use of universally recognisable 'info' icon. |
 |        |
-| Return Visitors | 
+| **Return Visitors** | 
 |        |
-|        | I want to continue challenging myself and learn to spell more complicated words. 
+| I want to continue challenging myself and learn to spell more complicated words. | The three levels of game difficulty ensure this is possible.  This can either be done by following the flow of the game and completing challenges in order, or children with a higher level of spelling ability have the option to jump straight to medium or hard levels via the settings page. | 
 |        |
-| Frequent Visitors |
+| **Frequent Visitors** |
 |        |
-|        | I want to be able to compete against myself to see how quickly I can complete the challenge and log this result on a leaderboard so I have a target to beat.                                                           
-|        |  
+| I want to be able to compete against myself to see how quickly I can complete the challenge and log this result on a leaderboard so I have a target to beat. | This story is partially achieved in that players can compete against the clock to complete the challenges quicker, but ability to log results on a leaderboard would be a future implementation with the integration of a database to store player scores and details. |
 
 <br>
 
@@ -484,6 +491,14 @@ The following browsers were used to test on each device:
 * Google Chrome
 * Firefox
 * Safari
+
+<br>
+
+| Browser Compatability |  |        |            |           | Notes |                        
+| :---: | :---:  | :---:   | :---:  | :---:| :---: |
+|       | Chrome | Firefox | Safari | Edge |  
+| Appearance | Good | Good | Good | Good |
+| Responsiveness | Good | Good | Good | Good |
 
 <br>
 
