@@ -263,6 +263,7 @@ To ensure that the game is as accessible as possible for all users and compatibl
 * Sound Fx could be used as an additional form of feedback for players to understand whether they have submitted a correct or incorrect answer.  This could also an extra element of fun to the game for kids.
 * Some of the visual elements could be made more interesting and engaging, for example the score counter could be animated.  Also letters and images appearing on the page could have interesting transitions such as flipping or spinning as they change.
 * A leaderboard could be implemented if player scores could be stored in a database. This was not in the scope of the project but something to consider for the future with the addition of other technologies.
+* Lots more words and images can eventually be stored in the wordCollection array to keep the challenges varied and reduce the amount of times the same word appears.
 
 <br>
 
@@ -627,6 +628,7 @@ function addPoint() {
 
 ```
 
+As the code evolved, I ended up making changes so the HTML for the score counter lives permanently in the index.html file and is displayed using show and hide.  This made the bug described above less relevant, and the variable is now once again able to live in global scope.
 ___
 
 **6.**  When I decided to display the scramble and answer letters as uppercase, the checkAnswer function stopped working so even if my spelling was correct, it did not recognise this as a correct answer. I realised that the correctAnswer variable as set in the generateWord function needed to be in uppercase before checking the submittedAnswer against this.  I wrote the following code to achieve this:
@@ -641,7 +643,7 @@ let correctUpperAnswer = correctAnswer.toUpperCase();
 
 ___
 
-**7.**  A problem I encountered while testing during the build was that somtimes the scrambled word would infact be the correct spelling.  To prevent this happening I modified the generateWord function and added the following line of code:
+**7.**  A problem I encountered while testing during the build was that somtimes the scrambled word would in fact be the correct spelling.  To prevent this happening I modified the generateWord function and added the following line of code:
 
 ```js
 
@@ -650,10 +652,21 @@ ___
     }
 
 ```
+___
+
+**8.**  I was experiencing a problem where from time to time, when hitting the go button or logging an answer, a new word would not be shown.  Frustrating as it would seem to happen randomly but fairly frequently.  There was no error logged on the console, but using console logs in my code, I tracked down that the problem was coming from the GenerateWord function.  And then more specifically the code I had written to deal with cases where the string of scrambled letters saved in the variable scrambledString was identical to the correct spelling of the word (See bug 7 above).  I therefore needed a way to rescramble the letters in these situations before the rest of the generateWord function could run.  I separated the letter scrambling into it's own function called scrambleWord and then used a while loop to continue running this function until the condition evaluates to false:
+
+```js
+
+while ((scrambledString === correctAnswer)) {
+        scrambleWord();
+    }
+
+```
 
 ___
 
-**8.**  I encountered a problem with my display functions as shown below.  Having completed the challenge at the top level of difficulty, the player has the chance to play again to continue testing themselves.  But on running the game again, the display would jump to a 5 column grid layout:
+**9.**  I encountered a problem with my display functions as shown below.  Having completed the challenge at the top level of difficulty, the player has the chance to play again to continue testing themselves.  But on running the game again, the display would jump to a 5 column grid layout:
 
 ![Bug where replaying game at hardest difficulty setting toggles to 5 column grid layout](docs/bugs/gifs/replay-difficult-grid-bug.gif)
 
@@ -666,9 +679,10 @@ document.getElementById("scramble-tiles").className = "grid grid-tiles-4";
 
 ```
 
+Since writing up this bug fix, I have changed and streamlined the code for my lettersDisplay function, but the theory of how I fixed this problem remains.
 ___
 
-**9.**  After implementing the code to switch difficulty level in the settings page, I found a bug where if you tried to set the level from hard to medium, the sixth answer and sramble box remained visible rather than hidden as expected:
+**10.**  After implementing the code to switch difficulty level in the settings page, I found a bug where if you tried to set the level from hard to medium, the sixth answer and sramble box remained visible rather than hidden as expected:
 
 ![Hard to medium level setting bug displays too many boxes](docs/bugs/gifs/hard-to-medium-setting-bug.gif)
 
@@ -681,25 +695,18 @@ scrambleBoxes[5].style.display = 'none';
 
 ```
 
+Since writing up this bug fix, I have changed and streamlined the code for my lettersDisplay function, but the theory of how I fixed this problem remains.
 ___
 
-**10.**  A problem I encountered quite early while testing was that with my initial methodology for generating a random word from the challengeWords array, this would quite regularly result in the same word being displayed several times during a game.  I explored several ways of fixing this, initially pushing each word to a new array once used.  These were then only re-introduced when the challenegeWords array was empty.  This was one solution but on discussing with my Mentor Can, I decided a better approach would be to choose words from the challengeWords array using a shuffled integer array.  Once an integer has been used it is moved to the back of the challengeIndexes array and will only be used again once all the avaialble words have been used.  For each new game, the integer array is shuffled randomly using the Fisher Yates method so words do not always appear to the player in the same order. 
-
-___
-
-**11.**  When viewing on my IOS devices, the text in the scramble boxes was displaying as pale blue rather than black like the rest of the text in other areas of the game.  Explicity setting the color property for the class "btn" solved this problem.
+**11.**  A problem I encountered quite early while testing was that with my initial methodology for generating a random word from the challengeWords array, this would quite regularly result in the same word being displayed several times during a game.  I explored several ways of fixing this, initially pushing each word to a new array once used.  These were then only re-introduced when the challenegeWords array was empty.  This was one solution but on discussing with my Mentor Can, I decided a better approach would be to choose words from the challengeWords array using a shuffled integer array.  Once an integer has been used it is moved to the back of the challengeIndexes array and will only be used again once all the avaialble words have been used.  For each new game, the integer array is shuffled randomly using the Fisher Yates method so words do not always appear to the player in the same order. 
 
 ___
 
-**12.**  I was experiencing a problem where from time to time, when hitting the go button or logging an answer, a new word would not be shown.  Frustrating as it would seem to happen randomly but fairly frequently.  There was no error logged on the console, but using console logs in my code, I tracked down that the problem was coming from the GenerateWord function.  And then more specifically the code I had written to deal with cases where the string of scrambled letters saved in the variable scrambledString was identical to the correct spelling of the word.  I therefore needed a way to rescramble the letters in these situations before the rest of the generateWord function could run.  I separated the letter scrambling into it's own function called scrambleWord and then used a while loop to continue running this function until the condition evaluates to false:
+**12.**  When viewing on my IOS devices, the text in the scramble boxes was displaying as pale blue rather than black like the rest of the text in other areas of the game.  Explicity setting the color property for the class "btn" solved this problem.
 
-```js
+___
 
-while ((scrambledString === correctAnswer)) {
-        scrambleWord();
-    }
 
-```
 
 # **Credits**
 
