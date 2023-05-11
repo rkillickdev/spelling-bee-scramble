@@ -264,7 +264,7 @@ To ensure that the game is as accessible as possible for all users and compatibl
 
 ### **Future Implementations**
 
-* Sound Fx could be used as an additional form of feedback for players to understand whether they have submitted a correct or incorrect answer.  This could also an extra element of fun to the game for kids.
+* Sound Fx could be used as an additional form of feedback for players to understand whether they have submitted a correct or incorrect answer.  This could also add an extra element of fun to the game for kids.
 * Some of the visual elements could be made more interesting and engaging, for example the score counter could be animated.  Also letters and images appearing on the page could have interesting transitions such as flipping or spinning as they change.
 * A leaderboard could be implemented if player scores could be stored in a database. This was not in the scope of the project but something to consider for the future with the addition of other technologies.
 * Lots more words and images can eventually be stored in the wordCollection array to keep the challenges varied and reduce the amount of times the same word appears.
@@ -275,11 +275,11 @@ To ensure that the game is as accessible as possible for all users and compatibl
 
 Colours used are bright, vivid and fun to appeal to the target audience.
 
-For the yellow colour used in the header and scramble boxes, I matched the yellow used in the bubmle bee icon with a tool on the [coolors](https://coolors.co/) website:
+For the yellow colour used in the header and scramble boxes, I matched the yellow used in the bumble bee icon with a tool on the [coolors](https://coolors.co/) website:
 
 ![Spelling Bee starting colour palette](docs/styling/Spelling_Bee_Colour_Palette.png)
 
-## **Contrast**
+<br>
 
 ## **Typography**
 
@@ -412,6 +412,8 @@ I passed my JavaScript code through the linter Jshint to validate and check for 
 ![Jshint validation](docs/testing/jshint/spelling-bee-jshint-validation.png)
 
 <br>
+
+The words.js file was also validated in Jshint.  It notes that the variable wordCollection is unused.  This is because it is used in the script.js file.
 
 ### **Lighthouse:**
 
