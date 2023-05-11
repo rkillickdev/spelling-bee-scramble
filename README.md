@@ -252,7 +252,7 @@ I used Media queries to increase the size of images and counters, for screens ab
 To ensure that the game is as accessible as possible for all users and compatible with screen readers, I included the following:
 
 * Semantic markup has been used where possible to structure the HTML code.
-* I checked that the colour contrast ratio across the site meets acceptable standards.
+* I checked that the colour contrast ratio across the site meets acceptable standards.  When choosing the colour palette, I experimented using the [WebAIM website](https://webaim.org/resources/contrastchecker/) to check that the contrast between background colours and text would be acceptable.
 * Descriptive alt attributes have been given to all images.  I was also careful to add this attribute dynamically for any images that are injected into the DOM using JavaScript.  The alt description for each picture is stored within each object in the wordCollection array. 
 * I have used aria labels for interactive elements such as buttons where no accessible name is provided.
 * I have used the aria hidden attribute on any icons that are purely decorative.
@@ -550,7 +550,7 @@ The following browsers were used to test on each device:
 
 <br>
 
-1. When trying to loop through the variable scrambleButtons using the forEach() method, the console in google developer tools threw the following error:
+**1.**  When trying to loop through the variable scrambleButtons using the forEach() method, the console in google developer tools threw the following error:
 
 ![forEach method bug when trying to loop a collection of items that are not an array](docs/bugs/javascript-for-each-bug-snapshot.png)
 
@@ -565,7 +565,7 @@ const buttonArray = Array.from(scrambleButtons);
 ```
 ___
 
-2. I created an event listener for the answer button which runs the checkAnswer function. The final step of this function is to run the playGame function in order to clear the boxes and generate a newly scrambled word.  However the playerAnswer array was not being cleared and was causing the issue as demonstrated below:
+**2.**  I created an event listener for the answer button which runs the checkAnswer function. The final step of this function is to run the playGame function in order to clear the boxes and generate a newly scrambled word.  However the playerAnswer array was not being cleared and was causing the issue as demonstrated below:
 
 ![bug when playerAnswer array not cleared when running playGame function](docs/bugs/gifs/clear-player-answer-array-bug.gif)
 
@@ -579,7 +579,7 @@ playerAnswer.length = 0;
 
 ___
 
-3. When setting up the timer, I made this element avaialble in the JavaScript file initially using getElementById("timer").  However this caused the text in my scramble letter boxes to disappear as shown in the snapshot below:
+**3.**  When setting up the timer, I made this element avaialble in the JavaScript file initially using getElementById("timer").  However this caused the text in my scramble letter boxes to disappear as shown in the snapshot below:
 
 ![using getElementById causes text in scramble letter boxes to disappear](docs/bugs/get-element-by-id-bug-scramble-boxes.png)
 
@@ -589,7 +589,7 @@ ___
 
 ___
 
-4. When I was trying to set the src file path of an image in my JavaScript file using a template literal, the innerHTML was sucessfully updated but the image was not displaying:  Instead a broken image file was shown which suggested my file path was incorrect.  My original file path stored in an object read as this:
+**4.**  When I was trying to set the src file path of an image in my JavaScript file using a template literal, the innerHTML was sucessfully updated but the image was not displaying:  Instead a broken image file was shown which suggested my file path was incorrect.  My original file path stored in an object read as this:
 
 ```js
 
@@ -607,7 +607,7 @@ picture: "assets/images/fresh-apple-icon.png",
 
 ___
 
-5. I encountered a bug with the score counter on submitting a correct answer.  The score was not increasing and the following message appeared in the console:
+**5.**  I encountered a bug with the score counter on submitting a correct answer.  The score was not increasing and the following message appeared in the console:
 
 ![score counter variable scope bug console message](docs/bugs/score-counter-variable-scope-bug.png)
 
@@ -629,7 +629,7 @@ function addPoint() {
 
 ___
 
-6. When I decided to display the scramble and answer letters as uppercase, the checkAnswer function stopped working so even if my spelling was correct, it did not recognise this as a correct answer. I realised that the correctAnswer variable as set in the generateWord function needed to be in uppercase before checking the submittedAnswer against this.  I wrote the following code to achieve this:
+**6.**  When I decided to display the scramble and answer letters as uppercase, the checkAnswer function stopped working so even if my spelling was correct, it did not recognise this as a correct answer. I realised that the correctAnswer variable as set in the generateWord function needed to be in uppercase before checking the submittedAnswer against this.  I wrote the following code to achieve this:
 
 ```js
 
@@ -641,7 +641,7 @@ let correctUpperAnswer = correctAnswer.toUpperCase();
 
 ___
 
-7. A problem I encountered while testing during the build was that somtimes the scrambled word would infact be the correct spelling.  To prevent this happening I modified the generateWord function and added the following line of code:
+**7.**  A problem I encountered while testing during the build was that somtimes the scrambled word would infact be the correct spelling.  To prevent this happening I modified the generateWord function and added the following line of code:
 
 ```js
 
@@ -653,7 +653,7 @@ ___
 
 ___
 
-8. I encountered a problem with my display functions as shown below.  Having completed the challenge at the top level of difficulty, the player has the chance to play again to continue testing themselves.  But on running the game again, the display would jump to a 5 column grid layout:
+**8.**  I encountered a problem with my display functions as shown below.  Having completed the challenge at the top level of difficulty, the player has the chance to play again to continue testing themselves.  But on running the game again, the display would jump to a 5 column grid layout:
 
 ![Bug where replaying game at hardest difficulty setting toggles to 5 column grid layout](docs/bugs/gifs/replay-difficult-grid-bug.gif)
 
@@ -668,7 +668,7 @@ document.getElementById("scramble-tiles").className = "grid grid-tiles-4";
 
 ___
 
-9. After implementing the code to switch difficulty level in the settings page, I found a bug where if you tried to set the level from hard to medium, the sixth answer and sramble box remained visible rather than hidden as expected:
+**9.**  After implementing the code to switch difficulty level in the settings page, I found a bug where if you tried to set the level from hard to medium, the sixth answer and sramble box remained visible rather than hidden as expected:
 
 ![Hard to medium level setting bug displays too many boxes](docs/bugs/gifs/hard-to-medium-setting-bug.gif)
 
@@ -683,15 +683,15 @@ scrambleBoxes[5].style.display = 'none';
 
 ___
 
-10. A problem I encountered quite early while testing was that with my initial methodology for generating a random word from the challengeWords array, this would quite regularly result in the same word being displayed several times during a game.  I explored several ways of fixing this, initially pushing each word to a new array once used.  These were then only re-introduced when the challenegeWords array was empty.  This was one solution but on discussing with my Mentor Can, I decided a better approach would be to choose words from the challengeWords array using a shuffled integer array.  Once an integer has been used it is moved to the back of the challengeIndexes array and will only be used again once all the avaialble words have been used.  For each new game, the integer array is shuffled randomly using the Fisher Yates method so words do not always appear to the player in the same order. 
+**10.**  A problem I encountered quite early while testing was that with my initial methodology for generating a random word from the challengeWords array, this would quite regularly result in the same word being displayed several times during a game.  I explored several ways of fixing this, initially pushing each word to a new array once used.  These were then only re-introduced when the challenegeWords array was empty.  This was one solution but on discussing with my Mentor Can, I decided a better approach would be to choose words from the challengeWords array using a shuffled integer array.  Once an integer has been used it is moved to the back of the challengeIndexes array and will only be used again once all the avaialble words have been used.  For each new game, the integer array is shuffled randomly using the Fisher Yates method so words do not always appear to the player in the same order. 
 
 ___
 
-11.  When viewing on my IOS devices, the text in the scramble boxes was displaying as pale blue rather than black like the rest of the text in other areas of the game.  Explicity setting the color property for the class "btn" solved this problem.
+**11.**  When viewing on my IOS devices, the text in the scramble boxes was displaying as pale blue rather than black like the rest of the text in other areas of the game.  Explicity setting the color property for the class "btn" solved this problem.
 
 ___
 
-12.  I was experiencing a problem where from time to time, when hitting the go button or logging an answer, a new word would not be shown.  Frustrating as it would seem to happen randomly but fairly frequently.  There was no error logged on the console, but using console logs in my code, I tracked down that the problem was coming from the GenerateWord function.  And then more specifically the code I had written to deal with cases where the string of scrambled letters saved in the variable scrambledString was identical to the correct spelling of the word.  I therefore needed a way to rescramble the letters in these situations before the rest of the generateWord function could run.  I separated the letter scrambling into it's own function called scrambleWord and then used a while loop to continue running this function until the condition evaluates to false:
+**12.**  I was experiencing a problem where from time to time, when hitting the go button or logging an answer, a new word would not be shown.  Frustrating as it would seem to happen randomly but fairly frequently.  There was no error logged on the console, but using console logs in my code, I tracked down that the problem was coming from the GenerateWord function.  And then more specifically the code I had written to deal with cases where the string of scrambled letters saved in the variable scrambledString was identical to the correct spelling of the word.  I therefore needed a way to rescramble the letters in these situations before the rest of the generateWord function could run.  I separated the letter scrambling into it's own function called scrambleWord and then used a while loop to continue running this function until the condition evaluates to false:
 
 ```js
 
