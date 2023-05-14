@@ -34,6 +34,19 @@ body {
     color: var(--secondary-color);
     line-height: 1.6;
     background-color: var(--tertiary-color);
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Makes main grow to fill avaialable space and keeps footer at the bottom */
+main {
+    flex-grow: 1;
+}
+
+header, main, footer {
+    flex-shrink: 0;
 }
 
 ul {
@@ -395,7 +408,9 @@ button {
 /* FOOTER */
 
 #footer.menu {
-    margin-top: auto;
+    margin-top: var(--spacing-s);
+    padding: var(--spacing-s) 0;
+    text-align: center;
 }
 
 /* MEDIA QUERIES */
