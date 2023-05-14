@@ -27,7 +27,9 @@
     margin: 0;
 }
 
-/* Solution to making font size responsive found at https://matthewjamestaylor.com/responsive-font-size */
+/* Solution to making font size responsive found at https://matthewjamestaylor.com/responsive-font-size
+Using css grid to keep footer stuck to bottom of the page.  Referenced this article for the solution:
+https://dev.to/niorad/keeping-the-footer-at-the-bottom-with-css-grid-15mf */
 body {
     font-family: 'Nunito Sans', sans-serif;
     font-size: calc(15px + 0.390625vw);
@@ -35,18 +37,9 @@ body {
     line-height: 1.6;
     background-color: var(--tertiary-color);
     min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-}
-
-/* Makes main grow to fill avaialable space and keeps footer at the bottom */
-main {
-    flex-grow: 1;
-}
-
-header, main, footer {
-    flex-shrink: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
 }
 
 ul {
@@ -408,7 +401,7 @@ button {
 /* FOOTER */
 
 #footer.menu {
-    margin-top: var(--spacing-s);
+    margin-top: var(--spacing-l);
     padding: var(--spacing-s) 0;
     text-align: center;
 }
