@@ -265,7 +265,7 @@ I used Media queries to increase the size of images and counters, for screens ab
 
 | Responsivness |    |           |            |           |                         |                  |       | Notes  |
 | :---: | :---:        | :---:     | :---:      | :---:     | :---:                   | :---:            | :---: | :---:  |
-| ---   | iphone 6/7/8 | iPhone 11 | Galaxy S8+ | iPad Mini | iPad | Macbook Pro 2021 | Desktop > 1200px |    
+| ---   | iphone 6/7/8 | iPhone 11 | Galaxy S8+ | iPad Mini | iPad | Macbook Pro 2021 | Desktop > 1200px | 1Phone 6/7/8. Galaxy S8+ & iPad Mini tested virtually using Chrome DevTools. |   
 | Site responsive >= 700px | n/a | n/a | n/a | Good | Good | Good | Good |
 | Site responsive < 699px | Good | Good | Good | n/a | n/a | n/a | n/a |
 | Images display as expected | Pass | Pass | Pass | Pass | Pass | Pass | Pass |
@@ -561,10 +561,17 @@ The following browsers were used to test on each device:
 | Red cross button | Clears answer boxes of all letters | Populate some answer boxes and then click red cross | Answer boxes cleared | Pass |
 | Answer Boxes Correct | Turn green momentarily and green tick appears above if answer submitted is correct | Spell a word correctly and click green play button | Answer boxes turn green momentarily and a green tick apears | Pass |
 | Answer Boxes Incorrect | Turn red momentarily and red cross appears above if answer submitted is incorrect | Spell a word incorrectly and click green play button | Answer boxes turn red momentarily and a red cross apears | Pass |
+|        |
 | Footer |
 |        |
 | Footer Icon | Scale expands by 10% and colour transitions to grey when hovered over | Hover over footer icon | Scale expands by 10% and colour transitions to grey | Pass |  
-| Clickable GitHub icon | Directs user to the game developer's GitHub repo which opens in a separate browser tab | Click on GitHub icon |  
+| Clickable GitHub icon | Directs user to the game developer's GitHub repo which opens in a separate browser tab | Click on GitHub icon | rkillickdev Spelling Bee Scramble repo opens in a new browser tab | Pass |
+|        |
+| 404 Page |
+|          |
+| 404 page load | Spelling Bee Scramble 404 error page appears if user tries to naviage to a page on the site that cannot be found | Ammend address in browser to search for "/does-not-exist.html" | Bespoke 404 page displayed | Pass |
+| 'Reload' game icon | Scale expands by 10% and colour transitions to grey when hovered over | Hover over 'reload' icon | Scale expands by 10% and colour transitions to grey | Pass |
+| 'Reload' game | Clicking on this link directs the user back to the home landing page | Click on 'Reload' game icon | Game landing page loads | Pass | 
 
 
 
