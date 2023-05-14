@@ -27,10 +27,10 @@
     margin: 0;
 }
 
-html {
+/* html {
     width: 100%;
     height: 100%;
-}
+} */
 
 /* Solution to making font size responsive found at https://matthewjamestaylor.com/responsive-font-size
 Using css grid to keep footer stuck to bottom of the page.  Referenced this article for the solution:
@@ -41,8 +41,8 @@ body {
     color: var(--secondary-color);
     line-height: 1.6;
     background-color: var(--tertiary-color);
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
 }
 
 ul {
@@ -93,7 +93,7 @@ button {
 /* UTILITIES */
 
 .master-container {
-    min-height: 100%;
+    min-height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 100%;
