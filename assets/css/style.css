@@ -431,6 +431,10 @@ https://dev.to/niorad/keeping-the-footer-at-the-bottom-with-css-grid-15mf */
         line-height: 2.0;
     }
 }
+/* These media queries are empty but serve a purpose as they are  
+referenced by the landscape and portrait variables in the script.js file.
+These use matchMedia which I learnt about in this article:
+https://fjolt.com/article/javascript-detecting-device-orientation */
 
 @media only screen and (max-height: 400px) {
 
