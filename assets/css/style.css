@@ -388,6 +388,11 @@ https://dev.to/niorad/keeping-the-footer-at-the-bottom-with-css-grid-15mf */
     margin: 0 auto;
 }
 
+#display-main i {
+    font-size: var(--font-size-xxxl);
+    color: var(--secondary-color);
+}
+
 /* SCRAMBLED WORD SECTION */
 
 .scramble-button {
