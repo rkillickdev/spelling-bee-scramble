@@ -19,8 +19,8 @@ Spelling Bee Scramble is a fun interactive game aimed at children of varying age
         * [Project Goals](#project-goals)
         * [User Stories](#user-stories)
     * [Design](#design)
-        * [Features](#features)
         * [Wireframes](#wireframes)
+        * [Features](#features)
         * [Colour Palette](#colour-palette)
         * [Contrast](#contrast)
         * [Typography](#typography)
@@ -535,7 +535,7 @@ The following browsers were used to test on each device:
 | ------- | ---------------- | ----------------- | ------ | --------- |
 | Navbar  |
 |         |
-| Navbar icons | Scale expands by 10% and colour transitions to grey when hovered over | Hover over navbar icons | Scale expands by 10% and colour transitions to grey | Pass | 
+| Navbar Icons | Scale expands by 10% and colour transitions to grey when hovered over | Hover over navbar icons | Scale expands by 10% and colour transitions to grey | Pass | 
 | Home Icon | User redirected to home screen and game resets to default settings when clicked | Click home icon | Redirected to home screen and game is on easy setting when run | Pass |
 | Settings Icon | Settings page appears when clicked | Click settings icon | Settings page appears | Pass |
 | Settings buttons | Appear dark when selected and light when not | Toggle between buttons | Button becomes dark when selected and is not untoggled when clicked again | Pass |
@@ -560,7 +560,11 @@ The following browsers were used to test on each device:
 | Green play button | Checks spelling of answer as it appears in answer boxes and adds a point to the score counter if correct | Spell some words correctly and incorrectly and click play button | Correct answers inrement the score counter by 1 | Pass |
 | Red cross button | Clears answer boxes of all letters | Populate some answer boxes and then click red cross | Answer boxes cleared | Pass |
 | Answer Boxes Correct | Turn green momentarily and green tick appears above if answer submitted is correct | Spell a word correctly and click green play button | Answer boxes turn green momentarily and a green tick apears | Pass |
-| Answer Boxes Incorrect | Turn red momentarily and red cross appears above if answer submitted is incorrect | Spell a word incorrectly and click green play button | Answer boxes turn red momentarily and a red cross apears | Pass |  
+| Answer Boxes Incorrect | Turn red momentarily and red cross appears above if answer submitted is incorrect | Spell a word incorrectly and click green play button | Answer boxes turn red momentarily and a red cross apears | Pass |
+| Footer |
+|        |
+| Footer Icon | Scale expands by 10% and colour transitions to grey when hovered over | Hover over footer icon | Scale expands by 10% and colour transitions to grey | Pass |  
+| Clickable GitHub icon | Directs user to the game developer's GitHub repo which opens in a separate browser tab | Click on GitHub icon |  
 
 
 
