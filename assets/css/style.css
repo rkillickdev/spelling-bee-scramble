@@ -27,6 +27,11 @@
     margin: 0;
 }
 
+html {
+    width: 100%;
+    height: 100%;
+}
+
 /* Solution to making font size responsive found at https://matthewjamestaylor.com/responsive-font-size
 Using css grid to keep footer stuck to bottom of the page.  Referenced this article for the solution:
 https://dev.to/niorad/keeping-the-footer-at-the-bottom-with-css-grid-15mf */
