@@ -171,7 +171,7 @@ On hitting play, four, five or six empty boxes appear below the central logo (de
 
 ![Hard difficulty display](docs/features/spelling-bee-difficult.png)
 
-The player must identify the word and spell it correctly by clicking on each letter in the right order.  Once a letter has been clicked, it becomes greyed out so it cannot be used again.  As letters are clicked, they appear in the answer box spaces above the picture hint.
+The player must identify the word and spell it correctly by clicking on each letter in the right order.  Once a letter has been clicked, it becomes greyed out and inactive so it cannot be used again.  This is an example of where I used code to intelligently handle invalid input data, by disabling each button after it is clicked.  Without this code, players would be able to input the same letter multiple times.   Once a letter is clicked, it appears in the next unpopulated answer box above the picture hint.
 
 Once the player is happy with their spelling of the word, they can submit their answer with the green 'play' button.  This is then checked against the correct spelling of the word and the player is provided feedback.  If the players answer matches, all squares turn green and a green tick appears.  A new scrambled word is then generated and the answer boxes are cleared, ready for the next spelling attempt.
 
@@ -221,6 +221,26 @@ If the player is unable to submit 6 successfully spelt answers within the time l
 
 <br>
 
+### **Footer**
+
+<br>
+
+After some consideration and discussion with my mentor, I decided to include a minimalistic footer that provides information about the developer behind the game and offers a clickable link to the Spelling Bee Scramble github repo, represented by the github font awesome icon.  Styling of the footer is consistent with the rest of the game, with a hover effect applied to the clickable icon to match the icons in the nav bar at the top.  The link opens in a new tab.
+
+![Footer Design](docs/features/spelling-bee-footer.png)
+
+<br>
+
+### **404 Error Page**
+
+<br>
+
+I have included a 404 error page as a form of defensive design for when "things go wrong" - otherwise known as contingency design. This improves the user experience if they should try to access a page on the site that does not exist or has been moved.  The aim of this page is to keep the user informed about the problem and engaged with the site, as the styling and branding used on this page is consistent with the rest of the game.  For example the "Sorry" message is styled in the same 'Permanent Marker' font used in the game title and answer boxes.  The appearance of the bumblebee reminds them that they are still connected to the Spelling Bee Scramble site.  Finally, the 404 page minimises frustration in the user ny making navigation back to the game landing page simple and intuitive by offering a "reload" icon to click.  This also ensures that the user does not decide to navigate away from the site.
+
+![404 Error Page](docs/features/spelling-bee-404-error-page.png)
+
+<br>
+
 ### **Responsive Design**
 
 <br>
@@ -251,6 +271,8 @@ I used Media queries to increase the size of images and counters, for screens ab
 | Images display as expected | Pass | Pass | Pass | Pass | Pass | Pass | Pass |
 | Renders as expected | Pass | Pass | Pass | Pass | Pass | Pass | Pass |
 
+<br>
+
 ### **Accessibility**
 
 To ensure that the game is as accessible as possible for all users and compatible with screen readers, I included the following:
@@ -264,7 +286,7 @@ To ensure that the game is as accessible as possible for all users and compatibl
 
 ### **Future Implementations**
 
-* Sound Fx could be used as an additional form of feedback for players to understand whether they have submitted a correct or incorrect answer.  This could also add an extra element of fun to the game for kids.
+* Sound FX could be used as an additional form of feedback for players to understand whether they have submitted a correct or incorrect answer.  This could also add an extra element of fun to the game for kids.
 * Some of the visual elements could be made more interesting and engaging, for example the score counter could be animated.  Also letters and images appearing on the page could have interesting transitions such as flipping or spinning as they change.
 * A leaderboard could be implemented if player scores could be stored in a database. This was not in the scope of the project but something to consider for the future with the addition of other technologies.
 * Lots more words and images can eventually be stored in the wordCollection array to keep the challenges varied and reduce the amount of times the same word appears.
