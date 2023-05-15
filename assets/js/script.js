@@ -1,4 +1,5 @@
-// Code wrapped in a self executing function to avoid polluting the global namespace. 
+// Code wrapped in a self executing function to avoid polluting the global namespace.
+// I read about this here:  https://developer.mozilla.org/en-US/docs/Glossary/IIFE 
 (() => {
     document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("easy-icon").classList.toggle('fa-toggle-on');
@@ -9,7 +10,9 @@
         }
     });
 
-    // MODULE LEVEL CONSTANTS
+    // CONSTANTS
+    // I read about capitalising constants here:
+    // https://www.freecodecamp.org/news/when-to-capitalize-your-javascript-constants-4fabc0a4a4c4/
 
     const DIFFICULTY = {
         EASY: "easy",
@@ -80,7 +83,7 @@
 
     /**
      * Toggles between home screen setting where player controls are hidden and
-     * game screen where controlsa are visible and layout of the top box changes
+     * game screen where controls are visible and the top box changes
      * to display score counter and countdown clock. 
      */
     function gameToggle(display) {
@@ -271,7 +274,7 @@
     }
 
     /**
-     * Runs resetLetterBoxes and clears answer style after 2 seconds.
+     *Clears answer style after 2 seconds and runs resetLetterBoxes.
      */
     function playGame() {
         setTimeout(clearAnswerStyle, 2000);
@@ -289,11 +292,12 @@
     }
 
     /**
-     * I used ideas from the following tutorial to help with coding this: https://www.youtube.com/watch?v=4-s3g_fU7Vg
-     * Generates random word from challengeWords array, splits the individual letters into the  wordLetters array.
-     * Runs the scrambleWord function
+     * Picks index 0 from challengeWords array and splits the individual letters into the  wordLetters array.
+     * Runs the scrambleWord function.
      * The scrambled word is checked against the correct answer to make sure they are never the same.  If this
      * evaluates to true, the scrambleWord function runs again, otherwise the displayScramble function runs.
+     * I used ideas from the following tutorial to help with the initial coding of the word scrambling:
+     * https://www.youtube.com/watch?v=4-s3g_fU7Vg
      */
     function generateWord() {
         // Word selected from the challengeWords array using index zero of the challengeIndexes array
@@ -373,8 +377,9 @@
      * Turns the playerAnswer array into a string, converts the 
      * correct answer to upper case letters and then compares the
      * two against each other.  If they are equal, a point is added
-     * to the score counter and styling for the answer boxes change
-     * to give the player feedback.
+     * to the score counter.  Different styling is applied to the 
+     * answer boxes depending on whether answer status is correct or
+     * incorrect,  in order to give the player feedback.
      */
     function checkAnswer() {
         const submittedAnswer = playerAnswer.join("");
@@ -411,7 +416,7 @@
     /**
      * Checks total score against score target.  If equal: 
      * Toggles to display "home".
-     * Runs challenegComplete function.
+     * Runs challengeComplete function.
      * Answer and scramble boxes cleared of letters.
      * Global currentDifficulty level updated according to the current value,
      * so the level of difficulty increases if a challeneg is completed.
@@ -475,6 +480,7 @@
         document.getElementById("progress").classList.toggle('hidden');
         topDisplay.classList.toggle('hidden');    
     }
+    
     /**
      * Toggles the 'hidden' class to show and hide the picture box.
      */
