@@ -435,13 +435,17 @@ The following warnings were raised, which relate to the vendor extenstions I am 
 
 <br>
 
-I passed my JavaScript code through the linter Jshint to validate and check for any syntax errors.  The only remaining warning relates to the variable wordCollection as this is defined in the words.js file.
+JSHint:
+
+<br>
+
+I passed my JavaScript code through the linter JSHint to validate and check for any syntax errors.  The only remaining warning relates to the variable wordCollection as this is defined in the words.js file.
 
 ![Jshint validation](docs/testing/jshint/spelling-bee-jshint-validation.png)
 
 <br>
 
-The words.js file was also validated in Jshint.  It notes that the variable wordCollection is unused.  This is because it is used in the script.js file.
+The words.js file was also validated in JSHint.  It notes that the variable wordCollection is unused.  This is because it is used in the script.js file.
 
 ### **Lighthouse:**
 
