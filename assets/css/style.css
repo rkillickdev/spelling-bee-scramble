@@ -233,6 +233,10 @@ https://dev.to/niorad/keeping-the-footer-at-the-bottom-with-css-grid-15mf */
     display: none;
 }
 
+.invisible {
+    visibility: hidden;
+}
+
 /* NAVIGATION MENU */
 
 .nav-icon {
