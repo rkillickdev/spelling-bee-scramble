@@ -1,3 +1,5 @@
+// An array of objects storing the words and their associated
+// images, alt descriptions and difficulty levels.
 const wordCollection = [
     {
         word: "corn",
@@ -190,7 +192,5 @@ const wordCollection = [
         picture: "assets/images/chili-icon.png",
         description: "A red chilli",
         level: "hard"
-    }
-
-    
+    }    
 ];
