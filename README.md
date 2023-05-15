@@ -75,7 +75,7 @@ Word games and puzzles can also be beneficial for children in a variety of other
 
 * As the client, I want to offer an educational experience to help children with their spelling.
 * As the client, I want to make sure that the user has an enjoyable, engaging experience so they continue playing and return to the site in the future.
-* As the client, I want to offer differing levels of difficulty to ensure that the user continues to learn as their spelling improves.
+* As the client, I want to offer a range of difficulty levels to ensure that the user continues to learn as their spelling improves.
 * As the client, I want to set targets for the user, to keep the experience interesting and challenging.
 * As the client, I want to make the game responsive over a range of device sizes.
 
@@ -107,6 +107,8 @@ Word games and puzzles can also be beneficial for children in a variety of other
 
 * As a frequent visitor, I want to be able to compete against myself to see how quickly I can complete the challenge and log this result on a leaderboard so I have a target to beat.
 
+<br>
+
 ## **DESIGN**
 ___
 
@@ -124,13 +126,13 @@ I used a mobile first approach when planning for this project, and wanted the ov
 
 The wireframe above shows how the game was conceptualised, but ultimately a few of the ideas were out of the scope of this project.  These have been added to the [Future Implementations](#future-implementations) section below.
 
-
+<br>
 
 ## **Features**
 
 <br>
 
-### **Navigation Bar**
+### **Navigation Bar:**
 
 <br>
 
@@ -143,9 +145,10 @@ Icons are used here rather than text to save space.  Players can navigate to the
 Clicking on the information icon presents the player with instructions on how to play the game.  The page can be hidden by re-clicking the information icon or clicking the cross icon.
 
 ![Instructions Page](docs/features/gifs/spelling-bee-instructions-toggle.gif)
+
 <br>
 
-### **Game Landing Screen**
+### **Game Landing Screen:**
 
 <br>
 
@@ -155,7 +158,7 @@ On loading the site, players are greeted with the Spelling Bee Scramble logo and
 
 <br>
 
-### **During Play**
+### **During Play:**
 
 <br>
 
@@ -187,7 +190,7 @@ On the control panel, the red 'cross' button gives the player the option to clea
 
 <br>
 
-### **Game Progress Section**
+### **Game Progress Section:**
 
 <br>
 
@@ -197,7 +200,7 @@ The counter increments by 1 every time the player submits a correct answer.  Onc
 
 <br>
 
-### **Game Outcome Feedback**
+### **Game Outcome Feedback:**
 
 <br>
 
@@ -221,7 +224,7 @@ If the player is unable to submit 6 successfully spelt answers within the time l
 
 <br>
 
-### **Footer**
+### **Foote:**
 
 <br>
 
@@ -231,7 +234,7 @@ After some consideration and discussion with my mentor, I decided to include a m
 
 <br>
 
-### **404 Error Page**
+### **404 Error Page:**
 
 <br>
 
@@ -241,7 +244,7 @@ I have included a 404 error page as a form of defensive design for when "things 
 
 <br>
 
-### **Responsive Design**
+### **Responsive Design:**
 
 <br>
 
@@ -273,7 +276,7 @@ I used Media queries to increase the size of images and counters, for screens ab
 
 <br>
 
-### **Accessibility**
+### **Accessibility:**
 
 To ensure that the game is as accessible as possible for all users and compatible with screen readers, I included the following:
 
@@ -284,7 +287,7 @@ To ensure that the game is as accessible as possible for all users and compatibl
 * I have used the aria hidden attribute on any icons that are purely decorative.
 * When running my HTML code through the W3C markup validation service, I was warned that I was using some section elements that did not contain a heading element.  I therefore changed these to divs and gave them the attribute role="region" and an aria label to explain their purpose.
 
-### **Future Implementations**
+### **Future Implementations:**
 
 * Sound FX could be used as an additional form of feedback for players to understand whether they have submitted a correct or incorrect answer.  This could also add an extra element of fun to the game for kids.
 * Some of the visual elements could be made more interesting and engaging, for example the score counter could be animated.  Also letters and images appearing on the page could have interesting transitions such as flipping or spinning as they change.
@@ -483,7 +486,7 @@ I have used the [WAVE](https://wave.webaim.org/) tool to evaluate the web access
 |        |   
 | I want to offer an educational experience to help children with their spelling. | This is achieved by offering 3 difficulty levels of spelling challenges to help children keep progressing in their learning. | 
 | I want to make sure that the user has an enjoyable, engaging experience so they continue playing and return to the site in the future. | The site has been designed to be simple and intuitive, challenges different abilities and the aesthetics of the game align with the target user by being bright, bold and fun. | 
-| I want to offer differing levels of difficulty to ensure that the user continues to learn as their spelling improves. | This is achieved by offering a settings page where the difficulty level can be adjusted manually by the player. |
+| I want to offer a range of difficulty levels to ensure that the user continues to learn as their spelling improves. | This is achieved by offering a settings page where the difficulty level can be adjusted manually by the player. |
 | I want to set targets for the user, to keep the experience interesting and challenging. | Targets are set by requiring the player to achieve 6 correct answers to sucessfully complete the challenge. |
 | I want to make the game responsive over a range of device sizes. | The site has been tested over a range of devices and is responsive while retaining the same structural layout throughout. |
 |        |                                                  
