@@ -162,7 +162,7 @@ On loading the site, players are greeted with the Spelling Bee Scramble logo and
 
 <br>
 
-On hitting play, four, five or six empty boxes appear below the central logo (depending on the game difficulty setting).  The scrambled word letters appear in these boxes.  Empty answer boxes also appear above the logo box.  A picture hint for the scrambled word appears in ther central display.
+On hitting "go", four, five or six empty boxes appear below the central logo (depending on the game difficulty setting).  The scrambled word letters appear in these boxes.  Empty answer boxes also appear above the logo box.  A picture hint for the scrambled word appears in the central display.
 
 ![Easy difficulty display](docs/features/spelling-bee-easy.png)
 
@@ -176,7 +176,7 @@ On hitting play, four, five or six empty boxes appear below the central logo (de
 
 The player must identify the word and spell it correctly by clicking on each letter in the right order.  Once a letter has been clicked, it becomes greyed out and inactive so it cannot be used again.  This is an example of where I used code to intelligently handle invalid input data, by disabling each button after it is clicked.  Without this code, players would be able to input the same letter multiple times.   Once a letter is clicked, it appears in the next unpopulated answer box above the picture hint.
 
-Once the player is happy with their spelling of the word, they can submit their answer with the green 'play' button.  This is then checked against the correct spelling of the word and the player is provided feedback.  If the players answer matches, all squares turn green and a green tick appears.  A new scrambled word is then generated and the answer boxes are cleared, ready for the next spelling attempt.
+Once the player is happy with their spelling of the word, they can submit their answer with the green 'play' button.  This is then checked against the correct spelling of the word and the player is provided feedback.  If the player answer matches, all squares turn green and a green tick appears.  A new scrambled word is then generated and the answer boxes are cleared, ready for the next spelling attempt.
 
 ![Correct answer submitted](docs/features/gifs/spelling-bee-correct-answer.gif)
 
@@ -196,7 +196,8 @@ On the control panel, the red 'cross' button gives the player the option to clea
 
 ![Counter and countdown clock](docs/features/spelling-bee-progress.png)
 
-The counter increments by 1 every time the player submits a correct answer.  Once the counter reaches 6, the challenege is complete.Players are working against a countdown clock.  They must spell 6 words correctly within 60 seconds to successfully complete the challenge.  The countdown starts as soon as the scrambled word and picture hint is generated. 
+The counter increments by 1 every time the player submits a correct answer.  Once the counter reaches 6, the challenge is complete.  
+Players are working against a countdown clock.  They must spell 6 words correctly within 60 seconds to successfully complete the challenge.  The countdown starts as soon as the scrambled word and picture hint is generated. 
 
 <br>
 
@@ -224,7 +225,7 @@ If the player is unable to submit 6 successfully spelt answers within the time l
 
 <br>
 
-### **Foote:**
+### **Footer:**
 
 <br>
 
@@ -238,7 +239,7 @@ After some consideration and discussion with my mentor, I decided to include a m
 
 <br>
 
-I have included a 404 error page as a form of defensive design for when "things go wrong" - otherwise known as contingency design. This improves the user experience if they should try to access a page on the site that does not exist or has been moved.  The aim of this page is to keep the user informed about the problem and engaged with the site, as the styling and branding used on this page is consistent with the rest of the game.  For example the "Sorry" message is styled in the same 'Permanent Marker' font used in the game title and answer boxes.  The appearance of the bumblebee reminds them that they are still connected to the Spelling Bee Scramble site.  Finally, the 404 page minimises frustration in the user ny making navigation back to the game landing page simple and intuitive by offering a "reload" icon to click.  This also ensures that the user does not decide to navigate away from the site.
+I have included a 404 error page as a form of defensive design. This improves the user experience if they should try to access a page on the site that does not exist or has been moved.  The aim of this page is to keep the user informed about the problem and engaged with the site, as the styling and branding used on this page is consistent with the rest of the game.  For example the "Sorry" message is styled in the same 'Permanent Marker' font used in the game title and answer boxes.  The appearance of the bumble bee reminds them that they are still connected to the Spelling Bee Scramble site.  Finally, the 404 page minimises frustration in the user and makes navigation back to the game landing page simple and intuitive by offering a "reload" icon to click.  This also ensures that the user does not decide to navigate away from the site.
 
 ![404 Error Page](docs/features/spelling-bee-404-error-page.png)
 
@@ -416,9 +417,11 @@ The live link can be found [here](https://rkillickdev.github.io/spelling-bee-scr
 
 <br>
 
-I used the [W3C](https://validator.w3.org/) Markup Validation Service to validate the index.html page.  It passed with no errors or warnings:
+I used the [W3C](https://validator.w3.org/) Markup Validation Service to validate the index.html and 404.html page.  They passed with no errors or warnings:
 
 ![html validator pass](docs/testing/w3c/w3c-spelling-bee-html-index-validated.png)
+
+![404 validator pass](docs/testing/w3c/w3c-spelling-bee-404-index-validated.png)
 
 <br>
 
