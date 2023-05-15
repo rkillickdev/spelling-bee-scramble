@@ -239,9 +239,9 @@ After some consideration and discussion with my mentor, I decided to include a m
 
 <br>
 
-I have included a 404 error page as a form of defensive design. This improves the user experience if they should try to access a page on the site that does not exist or has been moved.  The aim of this page is to keep the user informed about the problem and engaged with the site, as the styling and branding used on this page is consistent with the rest of the game.  For example the "Sorry" message is styled in the same 'Permanent Marker' font used in the game title and answer boxes.  The appearance of the bumble bee reminds them that they are still connected to the Spelling Bee Scramble site.  Finally, the 404 page minimises frustration in the user and makes navigation back to the game landing page simple and intuitive by offering a "reload" icon to click.  This also ensures that the user does not decide to navigate away from the site.
+I have included a 404 error page as a form of defensive design. This improves the user experience if they should try to access a page on the site that does not exist or has been moved.  The aim of this page is to keep the user informed about the problem and engaged with the site, as the styling and branding used on this page is consistent with the rest of the game.  For example the "Sorry" message is styled in the same 'Permanent Marker' font used in the game title and answer boxes.  The appearance of the bumble bee reminds them that they are still connected to the Spelling Bee Scramble site.  Finally, the 404 page minimises frustration in the user and makes navigation back to the game landing page simple and intuitive by offering a "reload" icon to click.  This also ensures that the user does not decide to navigate away from the site.  I hid the settings and information buttons as they require javascript and are not relevant on this page.  The only clickable link on the nav bar will also take the user back to the game landing page.
 
-![404 Error Page](docs/features/spelling-bee-404-error-page.png)
+![404 Error Page](docs/features/spelling-bee-404-error-page-ammended.png)
 
 <br>
 
@@ -461,6 +461,8 @@ I used Lighthouse within Google Chrome developer tools as a way of testing perfo
 
 ![desktop index.html page results](docs/testing/lighthouse/spelling-bee-lighthouse-desktop-index.png)
 
+![desktop 404.html page results](docs/testing/lighthouse/spelling-bee-lighthouse-desktop-404.png)
+
 <br>
 
 ### **Mobile Results**
@@ -468,6 +470,8 @@ I used Lighthouse within Google Chrome developer tools as a way of testing perfo
 <br>
 
 ![mobile index.html page results](docs/testing/lighthouse/spelling-bee-lighthouse-mobile-index.png)
+
+![mobile 404.html page results](docs/testing/lighthouse/spelling-bee-lighthouse-mobile-404.png)
 
 <br>
 
