@@ -611,9 +611,9 @@ I found a [useful thread](https://code-institute-room.slack.com/archives/C0267LT
 
 ![forEach method bug when trying to loop a collection of items that are not an array](docs/bugs/javascript-for-each-bug-snapshot.png)
 
-* On researching this I found the [following article:](https://stackdiary.com/guides/typeerror-foreach-is-not-a-function/) 
+On researching this I found the [following article:](https://stackdiary.com/guides/typeerror-foreach-is-not-a-function/) 
 
-* This explains that the error occurs when the code attempts to call the forEach() method on a value that is not an array or an array-like object.  To solve this, I transformed scrambleButtons into an array using the following code:
+This explains that the error occurs when the code attempts to call the forEach() method on a value that is not an array or an array-like object.  To solve this, I transformed scrambleButtons into an array using the following code:
 
 ```js
 
@@ -626,7 +626,7 @@ ___
 
 ![bug when playerAnswer array not cleared when running playGame function](docs/bugs/gifs/clear-player-answer-array-bug.gif)
 
-* I fixed this by using the following line of code within the playGame function to clear the playerAnswer array:
+I fixed this by using the following line of code within the playGame function to clear the playerAnswer array:
 
 ```js
 
@@ -640,7 +640,7 @@ ___
 
 ![using getElementById causes text in scramble letter boxes to disappear](docs/bugs/get-element-by-id-bug-scramble-boxes.png)
 
-* Using querySelector instead to select the span in the HTML file with the id="timer" resolved this issue as can be seen below:
+Using querySelector instead to select the span in the HTML file with the id="timer" resolved this issue as can be seen below:
 
 ![using querySelector solves bug](docs/bugs/get-element-by-id-bug-scramble-boxes-fixed.png)
 
@@ -654,7 +654,7 @@ picture: "../assets/images/fresh-apple-icon.png",
 
 ```
 
-* After some research and reading [this thread on the Code Institute Slack channels](https://code-institute-room.slack.com/archives/C7EJUQT2N/p1653076076263549?thread_ts=1653073079.354849&cid=C7EJUQT2N), I discovered that although the image file path is loaded from JavaScript, it is executed from the HTML so the path should be from the HTML file to the images so I updated the path to this and the image displayed as expected:
+After some research and reading [this thread on the Code Institute Slack channels](https://code-institute-room.slack.com/archives/C7EJUQT2N/p1653076076263549?thread_ts=1653073079.354849&cid=C7EJUQT2N), I discovered that although the image file path is loaded from JavaScript, it is executed from the HTML so the path should be from the HTML file to the images so I updated the path to this and the image displayed as expected:
 
 ```js
 
@@ -668,7 +668,7 @@ ___
 
 ![score counter variable scope bug console message](docs/bugs/score-counter-variable-scope-bug.png)
 
-* I realised the problem was that the variable **score** (gets element by Id "score") was being defined in global scope, but the HTML containg this element with an id of "score" only exists once the gameToggle function is run with an argument of "game".  I therefore defined the variable **score** within the addPoint function instead, which solved the problem as by the time this function is run, an HTML element with the id of "score" exists in the DOM.  See code below:
+I realised the problem was that the variable **score** (gets element by Id "score") was being defined in global scope, but the HTML containg this element with an id of "score" only exists once the gameToggle function is run with an argument of "game".  I therefore defined the variable **score** within the addPoint function instead, which solved the problem as by the time this function is run, an HTML element with the id of "score" exists in the DOM.  See code below:
 
 ```js
 
@@ -695,7 +695,7 @@ let correctUpperAnswer = correctAnswer.toUpperCase();
 
 ```
 
-* An alternative would be to have all words stored in uppercase within the wordCollection array of objects.
+An alternative would be to have all words stored in uppercase within the wordCollection array of objects.
 
 ___
 
@@ -726,7 +726,7 @@ ___
 
 ![Bug where replaying game at hardest difficulty setting toggles to 5 column grid layout](docs/bugs/gifs/replay-difficult-grid-bug.gif)
 
-* I realised that this was because of the way I had my display functions set up to toggle between grid layouts depending on the difficulty setting.  This worked when switching from easy to medium, and medium to hard, but running hard a second time was actually toggling back to the medium display.  I decided to simplify these functions and rather than use toggle, replace the class each time a difficulty level changes, as shown in the example below for the function easyDisplay:
+I realised that this was because of the way I had my display functions set up to toggle between grid layouts depending on the difficulty setting.  This worked when switching from easy to medium, and medium to hard, but running hard a second time was actually toggling back to the medium display.  I decided to simplify these functions and rather than use toggle, replace the class each time a difficulty level changes, as shown in the example below for the function easyDisplay:
 
 ```js
 
@@ -742,7 +742,7 @@ ___
 
 ![Hard to medium level setting bug displays too many boxes](docs/bugs/gifs/hard-to-medium-setting-bug.gif)
 
-* On investigating my function mediumDisplay, I realised that I had not specified what should happen to these boxes.  On adding the two lines of code shown below, the bug was resolved:
+On investigating my function mediumDisplay, I realised that I had not specified what should happen to these boxes.  On adding the two lines of code shown below, the bug was resolved:
 
 ```js
 
@@ -761,7 +761,6 @@ ___
 **12.**  When viewing on my IOS devices, the text in the scramble boxes was displaying as pale blue rather than black like the rest of the text in other areas of the game.  Explicity setting the color property for the class "btn" solved this problem.
 
 ___
-
 
 
 # **Credits**
