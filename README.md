@@ -229,7 +229,7 @@ If the player is unable to submit 6 successfully spelt answers within the time l
 
 <br>
 
-After some consideration and discussion with my mentor, I decided to include a minimalistic footer that provides information about the developer behind the game and offers a clickable link to the Spelling Bee Scramble github repo, represented by the github font awesome icon.  Styling of the footer is consistent with the rest of the game, with a hover effect applied to the clickable icon to match the icons in the nav bar at the top.  The link opens in a new tab.
+After some consideration and discussion with my mentor, I decided to include a minimalistic footer that provides information about the developer behind the game and offers a clickable link to the Spelling Bee Scramble GitHub repo, represented by the GitHub font awesome icon.  Styling of the footer is consistent with the rest of the game, with a hover effect applied to the clickable icon to match the icons in the nav bar at the top.  The link opens in a new tab.
 
 ![Footer Design](docs/features/spelling-bee-footer.png)
 
@@ -249,7 +249,7 @@ I have included a 404 error page as a form of defensive design. This improves th
 
 <br>
 
-Answer and scramble squares have been made responsive so they get larger as the screen width increases, but also remain square.  This is capped at 500px screen width otherwise they start to look too big.  Font size has also been made reponsive to grow with the squares.
+Answer and scramble squares have been made responsive so they get larger as the screen width increases, but also remain square.  This is capped at 500px screen width otherwise they start to look too big.  Font size has also been made responsive to grow with the squares.
 
 ![Responsive answer and scramble squares](docs/features/gifs/spelling-bee-responsive-squares.gif)
 
@@ -267,9 +267,9 @@ I used Media queries to increase the size of images and counters, for screens ab
 
 <br>
 
-| Responsivness |    |           |            |           |                         |                  |       | Notes  |
+| Responsiveness |    |           |            |           |                         |                  |       | Notes  |
 | :---: | :---:        | :---:     | :---:      | :---:     | :---:                   | :---:            | :---: | :---:  |
-| ---   | iphone 6/7/8 | iPhone 11 | Galaxy S8+ | iPad Mini | iPad | Macbook Pro 2021 | Desktop > 1200px | 1Phone 6/7/8. Galaxy S8+ & iPad Mini tested virtually using Chrome DevTools. |   
+| ---   | iPhone 6/7/8 | iPhone 11 | Galaxy S8+ | iPad Mini | iPad | Macbook Pro 2021 | Desktop > 1200px | 1Phone 6/7/8. Galaxy S8+ & iPad Mini tested virtually using Chrome DevTools. |   
 | Site responsive >= 700px | n/a | n/a | n/a | Good | Good | Good | Good |
 | Site responsive < 699px | Good | Good | Good | n/a | n/a | n/a | n/a |
 | Images display as expected | Pass | Pass | Pass | Pass | Pass | Pass | Pass |
@@ -318,7 +318,7 @@ The answer letters appear in the answer boxes as the permanent marker font, to g
 
 ## **Imagery**
 
-As this is a game aimed at children, I have used imagery appropiate for this goal.  The picture hints were sourced royalty free from [uxwing](https://uxwing.com/).  The bold colors and animated style make the images easily recognisable and appealing to children, and gives the game a sense of fun.
+As this is a game aimed at children, I have used imagery appropriate for this goal.  The picture hints were sourced royalty free from [uxwing](https://uxwing.com/).  The bold colours and animated style make the images easily recognisable and appealing to children, and gives the game a sense of fun.
 
 The bumble bee logo displayed on the game landing page ties in with the theme of a Spelling Bee.
 
@@ -429,7 +429,7 @@ I used the [W3C jigsaw](https://jigsaw.w3.org/css-validator/) CSS Validation Ser
 
 ![css validator pass](docs/testing/w3c/spelling-bee-w3c-jigsaw-css-validated.png)
 
-The following warnings were raised, which relate to the vendor extenstions I am using for browser cross compatability:
+The following warnings were raised, which relate to the vendor extensions I am using for browser cross compatibility:
 
 ![css validator warnings](docs/testing/w3c/spelling-bee-w3c-jigsaw-css-warnings.png)
 
@@ -498,7 +498,7 @@ I have used the [WAVE](https://wave.webaim.org/) tool to evaluate the web access
 | I want to offer an educational experience to help children with their spelling. | This is achieved by offering 3 different levels of spelling challenges to help children with their learning. | 
 | I want to make sure that the user has an enjoyable, engaging experience so they continue playing and return to the site in the future. | The site has been designed to be simple and intuitive, challenges different abilities and the aesthetics of the game align with the target user by being bright, bold and fun. | 
 | I want to offer a range of difficulty levels to ensure that the user continues to learn as their spelling improves. | Players will naturally progress to harder challenges as they complete each level.  This requirement is also achieved by offering a settings page where the difficulty level can be adjusted manually by the player. |
-| I want to set targets for the user, to keep the experience interesting and challenging. | Targets are set by requiring the player to achieve 6 correct answers to sucessfully complete the challenge. |
+| I want to set targets for the user, to keep the experience interesting and challenging. | Targets are set by requiring the player to achieve 6 correct answers to successfully complete the challenge. |
 | I want to make the game responsive over a range of device sizes. | The site has been tested over a range of devices and is responsive while retaining the same structural layout throughout. |
 |        |                                                  
 | **First Time Visitors** |         
@@ -537,7 +537,7 @@ The following browsers were used to test on each device:
 
 <br>
 
-| Browser Compatability |  |        |       |                        
+| Browser Compatibility |  |        |       |                        
 | :---: | :---:  | :---:   | :---:  |
 |       | Chrome | Firefox | Safari |  
 | Appearance | Good | Good | Good |
@@ -552,7 +552,7 @@ The following browsers were used to test on each device:
 | Navbar Icons | Scale expands by 10% and colour transitions to grey when hovered over | Hover over navbar icons | Scale expands by 10% and colour transitions to grey | Pass | 
 | Home Icon | User redirected to home screen and game resets to default settings when clicked | Click home icon | Redirected to home screen and game is on easy setting when run | Pass |
 | Settings Icon | Settings page appears when clicked | Click settings icon | Settings page appears | Pass |
-| Settings buttons | Appear dark when selected and light when not | Toggle between buttons | Button becomes dark when selected and is not untoggled when clicked again | Pass |
+| Settings buttons | Appear dark when selected and light when not | Toggle between buttons | Button becomes dark when selected and is not un-toggled when clicked again | Pass |
 | Easy, medium & hard settings buttons | Changes difficulty of game when clicked | Click each button and run game | 4 letter words displayed when easy clicked, 5 letter words when medium clicked and 6 letter words when hard clicked | Pass |
 | Cross Icon on settings page | Hides Settings page | Click cross icon | Settings Page is hidden | Pass |
 | Info Icon | Shows instructions page | Click info icon | Instructions page is shown | Pass |
@@ -564,17 +564,17 @@ The following browsers were used to test on each device:
 | Progress display | Score counter and countdown timer shown when game runs | Click 'go' button to run game | counter and countdown timer displayed | Pass |
 | Score counter | Starts at 0 and increments by 1 each time a word is spelt correctly | Run game and submit some correctly spelt answers | Score counter increments by 1 each time a correct answer is logged | Pass |
 | Countdown timer | Starts at 60 seconds and counts down to zero | Run game | Timer starts counting down from 60 seconds | Pass |
-| Challenge complete message | When target number of correct answers reached in under 60 seconds, message displayed to player relevant to difficulty level completed | Run a game at each difficulty level and complete challenege | Difficulty specific message displayed after each challeneg completed | Pass |
-| Time up message | When the countdown timer reaches zero nad the target number of answers has not been met, an encouraging message is displayed with the number of correct answers the player needs next time | Run game and let timer reach zero having spelt a varying number of words correctly  | encouraging message displayed and relevant number inserted in message based on how many answers were correct on the previous game | Pass |
+| Challenge complete message | When target number of correct answers reached in under 60 seconds, message displayed to player relevant to difficulty level completed | Run a game at each difficulty level and complete challenge | Difficulty specific message displayed after each challenge completed | Pass |
+| Time up message | When the countdown timer reaches zero and the target number of answers has not been met, an encouraging message is displayed with the number of correct answers the player needs next time | Run game and let timer reach zero having spelt a varying number of words correctly  | encouraging message displayed and relevant number inserted in message based on how many answers were correct on the previous game | Pass |
 |            |
 | **Game Section** |
 |              |
 | Green 'Go' button | Displays scrambled word (based on current difficulty level) in yellow scramble boxes and displays picture hint for scrambled word | Run games at all 3 difficulty levels | 4 letter words displayed  on easy level, 5 letter words on medium level, 6 letter words on hard level.  Picture matches word | Pass |
-| Scramble Boxes | Clicking on scramble box populates the next avaialble answer box with that letter and then makes scramble letter inactive and greyed out | Click on scramble box letters | Answer boxes populated in correct order as scramble letters clicked.  Letters can only be clicked once as they become inactive after first click | Pass |
-| Green play button | Checks spelling of answer as it appears in answer boxes and adds a point to the score counter if correct | Spell some words correctly and incorrectly and click play button | Correct answers inrement the score counter by 1 | Pass |
+| Scramble Boxes | Clicking on scramble box populates the next available answer box with that letter and then makes scramble letter inactive and greyed out | Click on scramble box letters | Answer boxes populated in correct order as scramble letters clicked.  Letters can only be clicked once as they become inactive after first click | Pass |
+| Green play button | Checks spelling of answer as it appears in answer boxes and adds a point to the score counter if correct | Spell some words correctly and incorrectly and click play button | Correct answers increment the score counter by 1 | Pass |
 | Red cross button | Clears answer boxes of all letters | Populate some answer boxes and then click red cross | Answer boxes cleared | Pass |
-| Answer Boxes Correct | Turn green momentarily and green tick appears above if answer submitted is correct | Spell a word correctly and click green play button | Answer boxes turn green momentarily and a green tick apears | Pass |
-| Answer Boxes Incorrect | Turn red momentarily and red cross appears above if answer submitted is incorrect | Spell a word incorrectly and click green play button | Answer boxes turn red momentarily and a red cross apears | Pass |
+| Answer Boxes Correct | Turn green momentarily and green tick appears above if answer submitted is correct | Spell a word correctly and click green play button | Answer boxes turn green momentarily and a green tick appears | Pass |
+| Answer Boxes Incorrect | Turn red momentarily and red cross appears above if answer submitted is incorrect | Spell a word incorrectly and click green play button | Answer boxes turn red momentarily and a red cross appears | Pass |
 |        |
 | **Footer** |
 |        |
@@ -583,7 +583,7 @@ The following browsers were used to test on each device:
 |        |
 | **404 Page** |
 |          |
-| 404 page load | Spelling Bee Scramble 404 error page appears if user tries to naviage to a page on the site that cannot be found | Ammend address in browser to search for "/does-not-exist.html" | Bespoke 404 page displayed | Pass |
+| 404 page load | Spelling Bee Scramble 404 error page appears if user tries to navigate to a page on the site that cannot be found | Amend address in browser to search for "/does-not-exist.html" | Bespoke 404 page displayed | Pass |
 | 'Reload' game icon | Scale expands by 10% and colour transitions to grey when hovered over | Hover over 'reload' icon | Scale expands by 10% and colour transitions to grey | Pass |
 | 'Reload' game | Clicking on this link directs the user back to the home landing page | Click on 'Reload' game icon | Game landing page loads | Pass | 
 
@@ -636,7 +636,7 @@ playerAnswer.length = 0;
 
 ___
 
-**3.**  When setting up the timer, I made this element avaialble in the JavaScript file initially using getElementById("timer").  However this caused the text in my scramble letter boxes to disappear as shown in the snapshot below:
+**3.**  When setting up the timer, I made this element available in the JavaScript file initially using getElementById("timer").  However this caused the text in my scramble letter boxes to disappear as shown in the snapshot below:
 
 ![using getElementById causes text in scramble letter boxes to disappear](docs/bugs/get-element-by-id-bug-scramble-boxes.png)
 
@@ -646,7 +646,7 @@ Using querySelector instead to select the span in the HTML file with the id="tim
 
 ___
 
-**4.**  When I was trying to set the src file path of an image in my JavaScript file using a template literal, the innerHTML was sucessfully updated but the image was not displaying:  Instead a broken image file was shown which suggested my file path was incorrect.  My original file path stored in an object read as this:
+**4.**  When I was trying to set the src file path of an image in my JavaScript file using a template literal, the innerHTML was successfully updated but the image was not displaying:  Instead a broken image file was shown which suggested my file path was incorrect.  My original file path stored in an object read as this:
 
 ```js
 
@@ -668,7 +668,7 @@ ___
 
 ![score counter variable scope bug console message](docs/bugs/score-counter-variable-scope-bug.png)
 
-I realised the problem was that the variable **score** (gets element by Id "score") was being defined in global scope, but the HTML containg this element with an id of "score" only exists once the gameToggle function is run with an argument of "game".  I therefore defined the variable **score** within the addPoint function instead, which solved the problem as by the time this function is run, an HTML element with the id of "score" exists in the DOM.  See code below:
+I realised the problem was that the variable **score** (gets element by Id "score") was being defined in global scope, but the HTML containing this element with an id of "score" only exists once the gameToggle function is run with an argument of "game".  I therefore defined the variable **score** within the addPoint function instead, which solved the problem as by the time this function is run, an HTML element with the id of "score" exists in the DOM.  See code below:
 
 ```js
 
@@ -699,7 +699,7 @@ An alternative would be to have all words stored in uppercase within the wordCol
 
 ___
 
-**7.**  A problem I encountered while testing during the build was that somtimes the scrambled word would in fact be the correct spelling.  To prevent this happening I modified the generateWord function and added the following line of code:
+**7.**  A problem I encountered while testing during the build was that sometimes the scrambled word would in fact be the correct spelling.  To prevent this happening I modified the generateWord function and added the following line of code:
 
 ```js
 
@@ -710,11 +710,11 @@ ___
 ```
 ___
 
-**8.**  I was experiencing a problem where from time to time, when hitting the go button or logging an answer, a new word would not be shown as displayed below:
+**8.**  I was experiencing a problem from time to time when hitting the go button or logging an answer, where a new word or picture would not appear as demonstrated below:
 
 ![Scrambled String equals correct spelling bug](docs/bugs/scrambled-string-equals-correct-answer.png)
 
-Frustrating as it would seem to happen randomly but fairly frequently.  There was no error logged on the console, but using console logs in my code, I tracked down that the problem was coming from the GenerateWord function.  And then more specifically the code I had written to deal with cases where the string of scrambled letters saved in the variable scrambledString was identical to the correct spelling of the word (See bug 7 above).  I therefore needed a way to rescramble the letters in these situations before the rest of the generateWord function could run.  I separated the letter scrambling into it's own function called scrambleWord and then used a while loop to continue running this function until the condition evaluates to false:
+Frustrating as it would seem to happen randomly but fairly frequently.  There was no error logged on the console, but using console logs in my code, I tracked down that the problem was coming from the GenerateWord function.  And then more specifically the code I had written to deal with cases where the string of scrambled letters saved in the variable scrambledString was identical to the correct spelling of the word (See bug 7 above).  I therefore needed a way to re-scramble the letters in these situations before the rest of the generateWord function could run.  I separated the letter scrambling into it's own function called scrambleWord and then used a while loop to continue running this function until the condition evaluates to false:
 
 ```js
 
@@ -742,7 +742,7 @@ document.getElementById("scramble-tiles").className = "grid grid-tiles-4";
 Since writing up this bug fix, I have changed and streamlined the code for my lettersDisplay function, but the theory of how I fixed this problem remains.
 ___
 
-**10.**  After implementing the code to switch difficulty level in the settings page, I found a bug where if you tried to set the level from hard to medium, the sixth answer and sramble box remained visible rather than hidden as expected:
+**10.**  After implementing the code to switch difficulty level in the settings page, I found a bug where if you tried to set the level from hard to medium, the sixth answer and scramble box remained visible rather than hidden as expected:
 
 ![Hard to medium level setting bug displays too many boxes](docs/bugs/gifs/hard-to-medium-setting-bug.gif)
 
@@ -758,11 +758,11 @@ scrambleBoxes[5].style.display = 'none';
 Since writing up this bug fix, I have changed and streamlined the code for my lettersDisplay function, but the theory of how I fixed this problem remains.
 ___
 
-**11.**  A problem I encountered quite early while testing was that with my initial methodology for generating a random word from the challengeWords array, this would quite regularly result in the same word being displayed several times during a game.  I explored several ways of fixing this, initially pushing each word to a new array once used.  These were then only re-introduced when the challenegeWords array was empty.  This was one solution but on discussing with my Mentor Can, I decided a better approach would be to choose words from the challengeWords array using a shuffled integer array.  Once an integer has been used it is moved to the back of the challengeIndexes array and will only be used again once all the avaialble words have been used.  For each new game, the integer array is shuffled randomly using the Fisher Yates method so words do not always appear to the player in the same order. 
+**11.**  A problem I encountered quite early while testing was that with my initial methodology for generating a random word from the challengeWords array, this would quite regularly result in the same word being displayed several times during a game.  I explored several ways of fixing this, initially pushing each word to a new array once used.  These were then only re-introduced when the challenegeWords array was empty.  This was one solution but on discussing with my Mentor Can, I decided a better approach would be to choose words from the challengeWords array using a shuffled integer array.  Once an integer has been used it is moved to the back of the challengeIndexes array and will only be used again once all the available words have been used.  For each new game, the integer array is shuffled randomly using the Fisher Yates method so words do not always appear to the player in the same order. 
 
 ___
 
-**12.**  When viewing on my IOS devices, the text in the scramble boxes was displaying as pale blue rather than black like the rest of the text in other areas of the game.  Explicity setting the color property for the class "btn" solved this problem.
+**12.**  When viewing on my IOS devices, the text in the scramble boxes was displaying as pale blue rather than black like the rest of the text in other areas of the game.  Explicitly setting the colour property for the class "btn" solved this problem.
 
 ___
 
@@ -778,7 +778,7 @@ ___
 * [How to check if a div is empty](https://bobbyhadz.com/blog/javascript-check-if-div-is-empty)
 * [Disabling scramble letter buttons after click so it cannot be selected more than once](https://stackoverflow.com/questions/23724639/make-a-button-unclickable-after-one-click)
 * Used this [article](https://css-tricks.com/overriding-default-button-styles/) to learn about removing default styling from buttons.  Referenced and modified some code [here](https://codepen.io/andy-set-studio/pen/Vxpjvo)
-* Referenced these articles when considering how to make the square tiles responsive and stay square across various screen sizes. [Article 1](https://stackoverflow.com/questions/66817240/how-to-make-css-grid-container-keep-responsive-square-size) and [Article 2](https://stackoverflow.com/questions/46548987/a-grid-layout-with-responsive-squares) gave me the soution to use 100% padding-top on my button-container class.
+* Referenced these articles when considering how to make the square tiles responsive and stay square across various screen sizes. [Article 1](https://stackoverflow.com/questions/66817240/how-to-make-css-grid-container-keep-responsive-square-size) and [Article 2](https://stackoverflow.com/questions/46548987/a-grid-layout-with-responsive-squares) gave me the solution to use 100% padding-top on my button-container class.
 * Referenced this [article](https://matthewjamestaylor.com/responsive-font-size) when considering how to make font size responsive.
 * Referenced [this code](https://www.tutorialspoint.com/what-is-fisher-yates-shuffle-in-javascript) when finding a solution for shuffling an array of integers randomly.
 * Referenced and modified [this code](https://softauthor.com/make-selected-clicked-button-active-in-javascript/) when exploring ways of toggling the font awesome icon used each time a button clicked on the settings page to change the difficulty level.
