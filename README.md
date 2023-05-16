@@ -622,11 +622,11 @@ const buttonArray = Array.from(scrambleButtons);
 ```
 ___
 
-**2.**  I created an event listener for the answer button which runs the checkAnswer function. The final step of this function is to run the playGame function in order to clear the boxes and generate a newly scrambled word.  However the playerAnswer array was not being cleared and was causing the issue as demonstrated below:
+**2.**  During the early stages of development, I had a problem where the playerAnswer array was not being cleared and was causing the issue as demonstrated below:
 
 ![bug when playerAnswer array not cleared when running playGame function](docs/bugs/gifs/clear-player-answer-array-bug.gif)
 
-I fixed this by using the following line of code within the playGame function to clear the playerAnswer array:
+I fixed this by using the following line of code to clear the playerAnswer array, which eventually lives in the resetLetterBoxes function:
 
 ```js
 
@@ -654,7 +654,7 @@ picture: "../assets/images/fresh-apple-icon.png",
 
 ```
 
-After some research and reading [this thread on the Code Institute Slack channels](https://code-institute-room.slack.com/archives/C7EJUQT2N/p1653076076263549?thread_ts=1653073079.354849&cid=C7EJUQT2N), I discovered that although the image file path is loaded from JavaScript, it is executed from the HTML so the path should be from the HTML file to the images so I updated the path to this and the image displayed as expected:
+After some research and reading [this thread on the Code Institute Slack channels](https://code-institute-room.slack.com/archives/C7EJUQT2N/p1653076076263549?thread_ts=1653073079.354849&cid=C7EJUQT2N), I discovered that although the image file path is loaded from JavaScript, it is executed from the HTML so the path should be from the HTML file to the images.  I updated the path to this and the image displayed as expected:
 
 ```js
 
@@ -691,7 +691,7 @@ ___
 
 ```js
 
-let correctUpperAnswer = correctAnswer.toUpperCase();
+const correctUpperAnswer = correctAnswer.toUpperCase();
 
 ```
 
@@ -710,7 +710,11 @@ ___
 ```
 ___
 
-**8.**  I was experiencing a problem where from time to time, when hitting the go button or logging an answer, a new word would not be shown.  Frustrating as it would seem to happen randomly but fairly frequently.  There was no error logged on the console, but using console logs in my code, I tracked down that the problem was coming from the GenerateWord function.  And then more specifically the code I had written to deal with cases where the string of scrambled letters saved in the variable scrambledString was identical to the correct spelling of the word (See bug 7 above).  I therefore needed a way to rescramble the letters in these situations before the rest of the generateWord function could run.  I separated the letter scrambling into it's own function called scrambleWord and then used a while loop to continue running this function until the condition evaluates to false:
+**8.**  I was experiencing a problem where from time to time, when hitting the go button or logging an answer, a new word would not be shown as displayed below:
+
+![Scrambled String equals correct spelling bug](docs/bugs/scrambled-string-equals-correct-answer.png)
+
+Frustrating as it would seem to happen randomly but fairly frequently.  There was no error logged on the console, but using console logs in my code, I tracked down that the problem was coming from the GenerateWord function.  And then more specifically the code I had written to deal with cases where the string of scrambled letters saved in the variable scrambledString was identical to the correct spelling of the word (See bug 7 above).  I therefore needed a way to rescramble the letters in these situations before the rest of the generateWord function could run.  I separated the letter scrambling into it's own function called scrambleWord and then used a while loop to continue running this function until the condition evaluates to false:
 
 ```js
 
