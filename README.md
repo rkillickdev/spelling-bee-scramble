@@ -435,7 +435,7 @@ The following warnings were raised, which relate to the vendor extenstions I am 
 
 <br>
 
-JSHint:
+### **JSHint:**
 
 <br>
 
@@ -495,19 +495,19 @@ I have used the [WAVE](https://wave.webaim.org/) tool to evaluate the web access
 | --- | --- | 
 | **Client** |     
 |        |   
-| I want to offer an educational experience to help children with their spelling. | This is achieved by offering 3 difficulty levels of spelling challenges to help children keep progressing in their learning. | 
+| I want to offer an educational experience to help children with their spelling. | This is achieved by offering 3 different levels of spelling challenges to help children with their learning. | 
 | I want to make sure that the user has an enjoyable, engaging experience so they continue playing and return to the site in the future. | The site has been designed to be simple and intuitive, challenges different abilities and the aesthetics of the game align with the target user by being bright, bold and fun. | 
-| I want to offer a range of difficulty levels to ensure that the user continues to learn as their spelling improves. | This is achieved by offering a settings page where the difficulty level can be adjusted manually by the player. |
+| I want to offer a range of difficulty levels to ensure that the user continues to learn as their spelling improves. | Players will naturally progress to harder challenges as they complete each level.  This requirement is also achieved by offering a settings page where the difficulty level can be adjusted manually by the player. |
 | I want to set targets for the user, to keep the experience interesting and challenging. | Targets are set by requiring the player to achieve 6 correct answers to sucessfully complete the challenge. |
 | I want to make the game responsive over a range of device sizes. | The site has been tested over a range of devices and is responsive while retaining the same structural layout throughout. |
 |        |                                                  
 | **First Time Visitors** |         
 |        | 
-| I am looking for a fun and interactive way to practice and improve my spelling. | Opportunity to improve spelling is offered by 3 different levels of challenge.  The site is fully interactive and control of the game is intuitive.  The fun element is brought by deign elements such as cartoon images and feedback to let the player know how they are progressing. |
-| I want clear and concise feedback each time I submit a correct or incorrect answer. | Green ticks/answer boxes for correct answers and red crosses/ answer boxes for incorrect answers are used to give players feedback about each spelling they submit. | 
+| I am looking for a fun and interactive way to practice and improve my spelling. | Opportunity to improve spelling is offered by 3 different levels of challenge.  The site is fully interactive and control of the game is intuitive.  The fun aspect is brought by design elements such as cartoon images and feedback to let the player know how they are progressing. |
+| I want clear and concise feedback each time I submit a correct or incorrect answer. | Green ticks / answer boxes for correct answers and red crosses/ answer boxes for incorrect answers are used to give players feedback about each spelling they submit. | 
 | I want clear feedback about how close I am to reaching my target number of correct answers. | The score counter displayed in the top left of the screens provides this continual feedback during game play. |
 | I want clear feedback to let me know I have completed the challenge and how to proceed. | Bespoke messages are displayed to the player at the end of each challenge providing feedback and next steps. |
-| I want easy intuitive access to an explanation of how to play the game. | The instructions page providing this information is easily accessible from the nav bar with one click and intuitive for players to find with the use of universally recognisable 'info' icon. |
+| I want easy intuitive access to an explanation of how to play the game. | The instructions page providing this information is easily accessible from the nav bar with one click and intuitive for players to find with the use of a universally recognisable 'info' icon. |
 |        |
 | **Return Visitors** | 
 |        |
@@ -537,17 +537,17 @@ The following browsers were used to test on each device:
 
 <br>
 
-| Browser Compatability |  |        |            |           | Notes |                        
-| :---: | :---:  | :---:   | :---:  | :---:| :---: |
-|       | Chrome | Firefox | Safari | Edge |  
-| Appearance | Good | Good | Good | Good |
-| Responsiveness | Good | Good | Good | Good |
+| Browser Compatability |  |        |       |                        
+| :---: | :---:  | :---:   | :---:  |
+|       | Chrome | Firefox | Safari |  
+| Appearance | Good | Good | Good |
+| Responsiveness | Good | Good | Good |
 
 <br>
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | ------- | ---------------- | ----------------- | ------ | --------- |
-| Navbar  |
+| **Navbar**  |
 |         |
 | Navbar Icons | Scale expands by 10% and colour transitions to grey when hovered over | Hover over navbar icons | Scale expands by 10% and colour transitions to grey | Pass | 
 | Home Icon | User redirected to home screen and game resets to default settings when clicked | Click home icon | Redirected to home screen and game is on easy setting when run | Pass |
@@ -558,7 +558,7 @@ The following browsers were used to test on each device:
 | Info Icon | Shows instructions page | Click info icon | Instructions page is shown | Pass |
 | Cross Icon on instructions page | Hides instructions page | Click cross icon | Instructions page is hidden | Pass |
 |        |
-| Top Display |
+| **Top Display** |
 |             |
 | Landing display | Game title and logo displayed | refresh page | Spelling Bee Scramble title and Bumble Bee logo displayed | Pass |
 | Progress display | Score counter and countdown timer shown when game runs | Click 'go' button to run game | counter and countdown timer displayed | Pass |
@@ -567,7 +567,7 @@ The following browsers were used to test on each device:
 | Challenge complete message | When target number of correct answers reached in under 60 seconds, message displayed to player relevant to difficulty level completed | Run a game at each difficulty level and complete challenege | Difficulty specific message displayed after each challeneg completed | Pass |
 | Time up message | When the countdown timer reaches zero nad the target number of answers has not been met, an encouraging message is displayed with the number of correct answers the player needs next time | Run game and let timer reach zero having spelt a varying number of words correctly  | encouraging message displayed and relevant number inserted in message based on how many answers were correct on the previous game | Pass |
 |            |
-| Game Section |
+| **Game Section** |
 |              |
 | Green 'Go' button | Displays scrambled word (based on current difficulty level) in yellow scramble boxes and displays picture hint for scrambled word | Run games at all 3 difficulty levels | 4 letter words displayed  on easy level, 5 letter words on medium level, 6 letter words on hard level.  Picture matches word | Pass |
 | Scramble Boxes | Clicking on scramble box populates the next avaialble answer box with that letter and then makes scramble letter inactive and greyed out | Click on scramble box letters | Answer boxes populated in correct order as scramble letters clicked.  Letters can only be clicked once as they become inactive after first click | Pass |
@@ -576,19 +576,16 @@ The following browsers were used to test on each device:
 | Answer Boxes Correct | Turn green momentarily and green tick appears above if answer submitted is correct | Spell a word correctly and click green play button | Answer boxes turn green momentarily and a green tick apears | Pass |
 | Answer Boxes Incorrect | Turn red momentarily and red cross appears above if answer submitted is incorrect | Spell a word incorrectly and click green play button | Answer boxes turn red momentarily and a red cross apears | Pass |
 |        |
-| Footer |
+| **Footer** |
 |        |
 | Footer Icon | Scale expands by 10% and colour transitions to grey when hovered over | Hover over footer icon | Scale expands by 10% and colour transitions to grey | Pass |  
 | Clickable GitHub icon | Directs user to the game developer's GitHub repo which opens in a separate browser tab | Click on GitHub icon | rkillickdev Spelling Bee Scramble repo opens in a new browser tab | Pass |
 |        |
-| 404 Page |
+| **404 Page** |
 |          |
 | 404 page load | Spelling Bee Scramble 404 error page appears if user tries to naviage to a page on the site that cannot be found | Ammend address in browser to search for "/does-not-exist.html" | Bespoke 404 page displayed | Pass |
 | 'Reload' game icon | Scale expands by 10% and colour transitions to grey when hovered over | Hover over 'reload' icon | Scale expands by 10% and colour transitions to grey | Pass |
 | 'Reload' game | Clicking on this link directs the user back to the home landing page | Click on 'Reload' game icon | Game landing page loads | Pass | 
-
-
-
 
 <br>
 
@@ -599,6 +596,12 @@ The following browsers were used to test on each device:
 ### **Known Bugs:**
 
 <br>
+
+I noticed that the following error is logged on the console page of Google Dev Tools when loading the site:
+
+![console-loading-error](docs/bugs/floc-console-error.png)
+
+I found a [useful thread](https://code-institute-room.slack.com/archives/C0267LTSCNB/p1638881623364100?thread_ts=1638881025.363400&cid=C0267LTSCNB) on the Code Institute Slack forum with a link to the [following article](https://www.howtogeek.com/724441/what-is-googles-floc-and-how-will-it-track-you-online/), explaining that it is caused by Googles FLoC and can be ignored.
 
 ### **Solved Bugs:**
 
