@@ -812,3 +812,8 @@ ___
 <br>
 
 ## **Acknowledgements**
+
+<br>
+
+* To my family for supporting me through this journey!
+* To my my Code Institute Mentor Can Sucullu for his help, advice and feedback during our mentoring sessions.
