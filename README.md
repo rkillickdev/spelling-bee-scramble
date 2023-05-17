@@ -245,6 +245,16 @@ I have included a 404 error page as a form of defensive design. This improves th
 
 <br>
 
+### **Meta Tags for social media display:**
+
+<br>
+
+Open Graph and Twitter meta tags have been used in the head of the html pages to control how the URL is displayed when shared on social media.  It will appear as displayed below:
+
+![Meta Tags social media display](docs/features/spelling-bee-meta-tags-display.png)
+
+<br>
+
 ### **Responsive Design:**
 
 <br>
