@@ -285,10 +285,10 @@
      * Removes css styling for correct or incorrect answers from answer boxes.
      */
     function clearAnswerStyle () {
-    for (let box of answerBoxes) {
-        box.classList.remove("answer-box-correct");
-        box.classList.remove("answer-box-incorrect"); 
-    }
+        for (let box of answerBoxes) {
+            box.classList.remove("answer-box-correct");
+            box.classList.remove("answer-box-incorrect"); 
+        }
     }
 
     /**
@@ -404,12 +404,10 @@
      * answer evaluates to correct or incorrect.
      */
     function answerFeedback(answer) {
-
         const classMapping ={
             [ANSWER_STATUS.CORRECT]: "answer-box-correct",
             [ANSWER_STATUS.INCORRECT]: "answer-box-incorrect"
         };
-
         answerBoxes.forEach(box => box.classList.add(classMapping[answer]));
     }
 
@@ -596,7 +594,6 @@
             if (!landscapeWarning.classList.contains('hidden') && gameStatus === DISPLAY.GAME) {
                 landscapeWarning.classList.toggle('hidden');
             }
-
         }
     });
 })();
