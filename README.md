@@ -607,7 +607,7 @@ The following browsers were used to test on each device:
 
 <br>
 
-**1.**. I noticed that the following error is logged on the console page of Google Dev Tools when loading the site:
+**1.**  I noticed that the following error is logged on the console page of Google Dev Tools when loading the site:
 
 ![console-loading-error](docs/bugs/floc-console-error.png)
 
