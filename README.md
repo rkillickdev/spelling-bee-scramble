@@ -607,11 +607,17 @@ The following browsers were used to test on each device:
 
 <br>
 
-I noticed that the following error is logged on the console page of Google Dev Tools when loading the site:
+**1.**. I noticed that the following error is logged on the console page of Google Dev Tools when loading the site:
 
 ![console-loading-error](docs/bugs/floc-console-error.png)
 
 I found a [useful thread](https://code-institute-room.slack.com/archives/C0267LTSCNB/p1638881623364100?thread_ts=1638881025.363400&cid=C0267LTSCNB) on the Code Institute Slack forum with a link to the [following article](https://www.howtogeek.com/724441/what-is-googles-floc-and-how-will-it-track-you-online/), explaining that it is caused by Googles FLoC and can be ignored.
+
+<br>
+
+**2.**  I noticed a small graphical bug when testing the game in Safari.  Sometimes when entering letters in the answer boxes and then clearing them with the red cross button, tiny fragments of the letter would remain in the answer box for a split second and then dissapear completely.  This has no impact on the user or game play and is almost unnoticeable.
+
+<br>
 
 ### **Solved Bugs:**
 
