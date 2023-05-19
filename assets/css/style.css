@@ -138,7 +138,7 @@ https://dev.to/niorad/keeping-the-footer-at-the-bottom-with-css-grid-15mf */
 
 .grid-settings-table {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(3, min-content);
     gap: var(--spacing-xss) var(--spacing-xs);
     margin-top: var(--spacing-m);
 }
