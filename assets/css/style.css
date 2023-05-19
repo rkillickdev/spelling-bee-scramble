@@ -84,7 +84,7 @@ button {
 /* Using css grid to keep footer stuck to bottom of the page.  Referenced this article for the solution:
 https://dev.to/niorad/keeping-the-footer-at-the-bottom-with-css-grid-15mf */
 .master-container {
-    min-height: 100vh;
+    min-height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 100%;
