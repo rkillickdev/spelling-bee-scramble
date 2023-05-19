@@ -86,7 +86,7 @@ https://dev.to/niorad/keeping-the-footer-at-the-bottom-with-css-grid-15mf */
 .master-container {
     min-height: 100vh;
     display: grid;
-    /* grid-template-rows: auto 1fr auto; */
+    grid-template-rows: auto 1fr auto;
     grid-template-columns: 100%;
 }
 
