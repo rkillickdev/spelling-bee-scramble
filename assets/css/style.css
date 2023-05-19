@@ -224,7 +224,7 @@ https://dev.to/niorad/keeping-the-footer-at-the-bottom-with-css-grid-15mf */
 .menu {
     background-color: var(--primary-color);
     padding-top: var(--spacing-s);
-    /* height: auto; */
+    height: auto;
 }
 
 .hidden {
