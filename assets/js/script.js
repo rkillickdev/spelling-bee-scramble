@@ -274,7 +274,7 @@
     }
 
     /**
-     *Clears answer style after 2 seconds and runs resetLetterBoxes.
+     * Clears answer style after 2 seconds and runs resetLetterBoxes.
      */
     function playGame() {
         setTimeout(clearAnswerStyle, 2000);
@@ -417,7 +417,7 @@
      * Runs challengeComplete function.
      * Answer and scramble boxes cleared of letters.
      * Global currentDifficulty level updated according to the current value,
-     * so the level of difficulty increases if a challeneg is completed.
+     * so the level of difficulty increases if a challenge is completed.
      * If the score target has not been reached:
      * generateWord function runs.
      * playGame function runs.
