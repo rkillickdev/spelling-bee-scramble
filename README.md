@@ -615,7 +615,7 @@ I found a [useful thread](https://code-institute-room.slack.com/archives/C0267LT
 
 <br>
 
-**2.**  I noticed a small graphical bug when testing the game in Safari.  Sometimes when entering letters in the answer boxes and then clearing them with the red cross button, tiny fragments of the letter would remain in the answer box for a split second and then dissapear completely.  This has no impact on the user or game play and is almost unnoticeable.
+**2.**  I noticed a small graphical bug when testing the game in Safari.  Sometimes when entering letters in the answer boxes and then clearing them with the red cross button, tiny fragments of the letter would remain in the answer box for a split second and then disappear completely.  This has no impact on the user or game play and is almost unnoticeable.
 
 <br>
 
