@@ -782,10 +782,13 @@ ___
 
 ___
 
-**13.**. While testing on an iPad, the settings page was not displaying correctly as shown below:
+**13.**.  While testing on an iPad, the settings page was not displaying correctly as shown below:
 
-I realised this was because the grid template rows value I was using for the class grid-settings-table was set to repeat(3, 1fr). This problem was only showing itself on an ipad.  After some research, I found that using repeat(3, min-content) displayed the setting grid as I wanted and solved the bug.
+![Settings display bug](docs/bugs/settings-menu-display-bug.png)
 
+I realised this was because the grid template rows value I was using for the class grid-settings-table was set to repeat(3, 1fr). This problem was only showing itself on an ipad.  After some research, I found that using repeat(3, min-content) displayed the settings grid as I wanted and solved the bug.
+
+<br>
 
 # **Credits**
 
